@@ -1,0 +1,49 @@
+.inner {
+  max-width: 1280px;
+  max-height: 700px;
+}
+.swiper img{
+  width: 1280px;
+}
+.category_wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 50 auto;
+    height: 350px;
+    width: 1240px;
+}
+.category_box {
+    margin-top: 15px;
+}
+.category_box a {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+}
+.category_box img {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+}
+
+
+
+
+.label_goods {
+}
+.label_goods .middle_write {
+    text-align: center;
+}
+.picture_gather {
+    display: flex;
+    height: 350px;
+    width: 1240px;
+    justify-content: center;
+}
+.picture_gather .p_gather {
+}
+
+.p_gather img {
+    width: 400px;
+    padding: 0 5px
+}
