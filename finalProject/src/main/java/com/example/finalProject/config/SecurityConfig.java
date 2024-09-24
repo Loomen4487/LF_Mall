@@ -20,8 +20,8 @@ public class SecurityConfig {
         security.csrf(cs->cs.disable())
                 .formLogin(login->login.loginPage("/login").usernameParameter("id").loginProcessingUrl("/loginOk").defaultSuccessUrl("/").failureHandler(new LoginFailureHandler()))
                 .authorizeHttpRequests(ah->ah.requestMatchers("/user/**").authenticated()
-                        .anyRequest().permitAll())
-                .oauth2Login(oauth->oauth.loginPage("/login").userInfoEndpoint(user->user.userService(principalOauthUserService)));
+                        .anyRequest().permitAll());
+                //.oauth2Login(oauth->oauth.loginPage("/login").userInfoEndpoint(user->user.userService(principalOauthUserService)));
         return security.build();
     }
 
