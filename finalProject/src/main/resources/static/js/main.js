@@ -23,3 +23,26 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-scrollbar',
   },
 });
+
+const swiper = new Swiper('.swiper-item', {
+  // Optional parameters
+  direction: 'vertical',
+  loop: true,
+  slidesPerGroup: 4,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination-item',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next-item',
+    prevEl: '.swiper-button-prev-item',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar-item',
+  },
+});

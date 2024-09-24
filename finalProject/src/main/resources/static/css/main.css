@@ -25,10 +25,13 @@
     margin: 0 auto;
     width: 100px;
 }
+.category a {
+    text-decoration: none;
+}
 
 
 
-
+/* 신상모음 */
 .label_goods {
 
 }
@@ -48,20 +51,45 @@
     width: 100%;
     display: block;
 }
+.p_gather a{
+    text-decoration: none;
+}
 .p_gather h3 {
     margin-top: 0.5px;
     font-size: 24px;
     line-height: 34px
 }
 
-
+/* 지금 핫한 신상템 */
 .hot_item {
     padding-top: 200px;
 }
-.list_tap ul{
+.list_wrap {
     display: flex;
-    list-style: none;
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 20pxl
+    position: relative;
+}
+.list_tap {
+    margin-right: 10px;
+}
+.list_tap ul {
+    display: flex;
+    list-style-type: none;
+}
+.list_tap li{
+    margin-right: 10px;
+}
+.list_tap button {
+    cursor: pointer;
+    border: none
 }
 .tap_item {
-    margin: 0 5px;
+}
+.item_direct {
+    display: flex;
+    justify-content: flex-end;
+    right: 0;
+    top: 11px;
 }
