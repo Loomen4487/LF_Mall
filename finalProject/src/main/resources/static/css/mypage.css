@@ -1,0 +1,392 @@
+#container {
+    position: relative;
+    width: 940px;
+    margin: 0 auto;
+    z-index: 5;
+}
+#contents {
+    padding-top: 18px;
+    padding-bottom: 120px;
+}
+.content_new {
+    width: 940px;
+}
+.content_new .mypage_base {
+    position: relative;
+    margin: 24px 0 55px;
+}
+.content_new .mypage_base h2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.content_new .mypage_base h2 a {
+    display: block;
+    width: 155px;
+    height: 140px;
+    background-color: #000000;
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
+    line-height: 140px;
+    letter-spacing: -1px;
+    text-align: center;
+}
+.content_new .mypage_base .mypage_info {
+    padding: 25px 0px 0 5px;
+    display: flex;
+    justify-content: space-between;
+}
+.content_new .mypage_base .mypage_info .left .n-grade.ty07 {
+    background-color: #A13322;
+}
+.content_new .mypage_base .mypage_info .left a {
+    display: inline-block;
+    height: 19px;
+    margin-left: 2px;
+    padding: 0 6px;
+    border: 1px solid #bdbdbd;
+    border-radius: 1px;
+    font-size: 12px;
+    color: #000000;
+    line-height: 17px;
+    vertical-align: top;
+}
+.content_new .mypage_base .mypage_info ul {
+    margin-left: 0;
+    padding-top: 15px;
+}
+.content_new .mypage_base .mypage_info ul li {
+    padding: 0;
+    min-width: auto;
+    margin: 0 10px;
+    position: relative;
+}
+.content_new .mypage_base .mypage_info {
+    margin-left: 195px;
+    padding: 20px 5px;
+    border-top: 2px solid #000;
+    border-bottom: 1px solid #000;
+}
+.content_new .mypage_base .mypage_info .left {
+    margin-top: 10px;
+}
+.content_new .mypage_base .mypage_info .left p {
+    margin-bottom: 12px;
+}
+.content_new .mypage_base .mypage_info .left p {
+    height: 24px;
+    margin-bottom: 12px;
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: -1.1px;
+    line-height: 24px;
+}
+a, a:active, a:hover {
+    text-decoration: none;
+}
+.content_new .mypage_base .mypage_info ul {
+    display: flex;
+    float: right;
+    margin-left: 22px;
+}
+.content_new .mypage_base .mypage_info ul li {
+    float: left;
+    min-width: 70px;
+    padding: 0 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #000;
+    letter-spacing: -0.7px;
+    text-align: center;
+    line-height: 20px;
+}
+.content_new .mypage_base .mypage_info ul li a {
+    display: block;
+    color: #000;
+}
+.content_new .mypage_base .mypage_info ul li a span {
+    display: block;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #000000;
+}
+.content_new .mypage_base .mypage_info .left .mark {
+    display: inline-block;
+    position: relative;
+    height: 21px;
+    padding: 0 8px;
+    border-radius: 2px;
+    font-size: 11px;
+    color: #fff;
+    letter-spacing: 0.2px;
+    line-height: 19px;
+    cursor: pointer;
+}
+
+.common_lnb {
+    width: 320px;
+    float: left;
+    margin-top: 24px;
+}
+.common_lnb > ul {
+    margin-left: 5px;
+}
+.common_lnb > ul > li {
+    margin-bottom: 35px;
+}
+.common_lnb > ul > li .tit {
+    display: block;
+    color: #000000;
+    letter-spacing: -0.7px;
+    font-size: 16px !important;
+    line-height: 21px;
+}
+.common_lnb ul.sub {
+    margin-top: 17px;
+}
+.common_lnb ul.sub li {
+    position: relative;
+}
+.common_lnb ul.sub li a {
+    display: block;
+    padding-bottom: 7px;
+    color: #757575;
+    letter-spacing: -0.4px;
+    font-size: 14px;
+    line-height: 18px;
+}
+.content-container{
+    display: flex;
+}
+.mypage-title {
+    margin-top: 55px;
+}
+h3.mypage-title {
+    height: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #000000;
+    font-size: 18px;
+    font-weight: normal;
+    color: #000000;
+    letter-spacing: -1px;
+    line-height: 18px;
+}
+.order-chk-p {
+    margin-bottom: 15px;
+    padding: 25px 0;
+    font-size: 13px;
+    color: #000000;
+    font-weight: normal;
+}
+.period-search {
+    display: flex;
+    padding-left: 0;
+    border: 0;
+    background-color: #f4f4f4;
+}
+.period-search .month-btn {
+    width: 343px;
+    display: flex;
+    padding-left: 24px;
+    text-align: left;
+}
+.period-search .calendar {
+    width: 276px;
+}
+.period-search .inquiry-btn {
+    width: 102px;
+    text-align: left;
+}
+.period-search .month-btn a.sel {
+    border: 1px solid #000000;
+}
+.period-search .month-btn a {
+    width: 55px;
+    display: block;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #dcdcdc;
+    background-color: #fff;
+    font-size: 12px !important;
+    color: #000000 !important;
+    line-height: 20px;
+    text-align: center;
+}
+.period-search .calendar input {
+    width: 90px;
+    height: 20px;
+    border: 1px solid #ccc;
+    text-indent: 1em;
+    line-height: 20px;
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 0;
+}
+.period-search .calendar a {
+    display: inline-block;
+    overflow: hidden;
+    width: 22px;
+    height: 22px;
+    margin-left: -4px;
+    background: #fff url(//img.lfmall.co.kr/file/WAS/apps/2017/pfront/ico_calendar.png) no-repeat 0 0;
+    vertical-align: middle;
+    white-space: nowrap;
+    text-indent: 200%;
+}
+.txt-aid {
+    font-size: 12px;
+    color: #999;
+    line-height: 1;
+}
+.period-search .inquiry-btn .btnFind {
+    width: 75px;
+    color: #fff;
+    font-size: 13px;
+    line-height: 22px;
+    background-color: #000;
+    display: inline-block;
+    text-align: center;
+}
+.remove-order-sel-list {
+    position: relative;
+    overflow: hidden;
+    height: 25px;
+}
+.sys-btn-type1 {
+    display: inline-block;
+    background-color: #000;
+    font-size: 13px;
+    color: #fff;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 10px;
+}
+.remove-order-sel-list .order-status-sum {
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    top: 8px;
+}
+.c-deep-brown {
+    color: #dc2832 !important;
+}
+.content_new table.bbs-list {
+    border-bottom: 1px solid #ddd;
+}
+.ajaxPage{
+    margin: 40px 0;
+}
+caption{
+    width: 0;
+    height: 0;
+    line-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    font-size: 0;
+}
+.content_new table.bbs-list th {
+    height: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid #000;
+    font-size: 13px;
+    font-weight: normal;
+    color: #000000;
+    line-height: 18px;
+    text-align: center;
+}
+.content_new .mypage_egift .title {
+    position: relative;
+    height: 26px;
+    font-size: 18px;
+    color: #000;
+    letter-spacing: -1px;
+    line-height: 26px;
+}
+.content_new .mypage_egift .order_step {
+    overflow: hidden;
+    margin-top: 12px;
+}
+.content_new .mypage_egift .order_step ul {
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+.content_new .mypage_egift .order_step ul li {
+    position: relative;
+    float: left;
+    width: 130px;
+    height: 12px;
+    padding-top: 93px;
+    padding-bottom: 32px;
+    font-size: 13px;
+    font-weight: bold;
+    color: #000000;
+    letter-spacing: -0.4px;
+    line-height: 10px;
+    text-align: center;
+}
+.content_new .mypage_egift .order_step ul li:first-child::before {
+    background-position: 0 0;
+}
+.content_new .mypage_egift .order_step ul li::before {
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    margin-left: -25px;
+    width: 50px;
+    height: 45px;
+    background: url(//img.lfmall.co.kr/file/WAS/apps/2017/pfront/ico_order_step.png) no-repeat 0 0;
+    content: '';
+}
+.content_new .mypage_egift .order_step ul li::after {
+    position: absolute;
+    top: 52px;
+    right: -9px;
+    width: 19px;
+    height: 34px;
+    background: url(//img.lfmall.co.kr/file/WAS/apps/2017/pfront/bg_step_arrow.png) no-repeat 0 0;
+    content: '';
+}
+.content_new .mypage_egift .order_step ul li:first-child + li::before {
+    background-position: 0 -45px;
+}
+.content_new .mypage_egift .order_step ul li:first-child + li + li::before {
+    background-position: 0 -90px;
+}
+.content_new .mypage_egift .order_step ul li:first-child + li + li + li::before {
+    background-position: 0 -135px;
+}
+.content_new .mypage_egift .order_step ul li:first-child + li + li + li + li::before {
+    background-position: 0 -180px;
+}
+.content_new .mypage_egift .order_step .step_state{
+    display: flex;
+}
+.content_new .mypage_egift .order_step .step_state div:first-child span {
+    background: url(//img.lfmall.co.kr/file/WAS/apps/2017/pfront/bg_step_side01.png) no-repeat 50% 50%;
+}
+.content_new .mypage_egift .order_step .step_state div span {
+    display: block;
+    height: 12px;
+    background: url(//img.lfmall.co.kr/file/WAS/apps/2017/pfront/bg_step_side02.png) no-repeat 50% 50%;
+    font-size: 13px;
+    font-weight: bold;
+    color: #dc2832;
+    letter-spacing: -0.3px;
+    line-height: 10px;
+    text-align: center;
+}
+.step_state div p {
+    margin-top: 18px;
+    font-size: 12px;
+    color: #000000;
+    letter-spacing: -0.3px;
+    line-height: 20px;
+}
+.content_new .mypage_egift .order_step .step_state div:first-child + div {
+    width: 105px;
+}
+.step_state>div{
+    flex: 1;
+}
