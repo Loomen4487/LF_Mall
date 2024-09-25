@@ -21,4 +21,9 @@ public class HomeController {
     public String mypage(){
         return "mypage";
     }
+
+    @GetMapping(value = "/mypage/userInfo_change")
+    public String userInfo_change(){
+        return "userInfo_change";
+    }
 }
