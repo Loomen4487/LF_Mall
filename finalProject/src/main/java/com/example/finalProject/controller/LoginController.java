@@ -20,27 +20,27 @@ public class LoginController {
     public String resetPassword(@RequestParam String email) {
         // 이메일로 임시 비밀번호 전송
         emailService.sendTemporaryPassword(email);
-        return "redirect:/login/login";
+        return "redirect:/login";
     }
     @GetMapping(value = "/login")
     public String login(){
-        return "/login/login";
+        return "login";
     }
 
     @GetMapping(value = "/signup")
     public String signup(){
-        return "/login/signup";
+        return "signup";
     }
 
     @GetMapping(value = "/signup/register")
     public String signupRegister(){
-        return "/login/signupRegister";
+        return "signupRegister";
     }
 
     @PostMapping(value = "/signupOk")
     public String signupOk(LoginDTO dto){
         loginService.insert(dto);
-        return "redirect:/login/login";
+        return "redirect:/login";
     }
 
     @GetMapping(value = "/login/findPassword")

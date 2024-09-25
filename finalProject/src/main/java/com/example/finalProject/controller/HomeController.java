@@ -4,6 +4,7 @@ import com.example.finalProject.dto.NoticeDTO;
 import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.NoticeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,5 +58,10 @@ public class HomeController {
     public String noticeDetail(@PathVariable int idx,Model model){
         model.addAttribute("notice",noticeService.selectByIdx(idx));
         return "noticeDetail";
+    }
+    @Secured("ROLE_USER")
+    @GetMapping(value = "/mypage")
+    public String mypage(){
+        return "mypage";
     }
 }
