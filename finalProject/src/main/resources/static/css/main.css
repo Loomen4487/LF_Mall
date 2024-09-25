@@ -2,8 +2,33 @@
   max-width: 1280px;
   max-height: 700px;
 }
-.swiper img{
-  width: 1280px;
+.mySwiper {
+  width: 100%;
+  height: auto;
+}
+
+.mySwiper img {
+  width: 100%; /* Make the image take the full width of the swiper container */
+  height: auto; /* Maintain the aspect ratio */
+  object-fit: cover; /* Ensure the image covers the container while maintaining aspect ratio */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  background: #007aff;
+  opacity: 0.8;
 }
 .category_wrapper {
     display: flex;
@@ -92,4 +117,43 @@
     justify-content: flex-end;
     right: 0;
     top: 11px;
+}
+
+
+
+
+
+.brand_wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.big_brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+.small_brand {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.small_brand a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 8px;
+}
+.big_image {
+    max-width: 100%;
+}
+
+.small_brand img {
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    object-fit: contain;
 }

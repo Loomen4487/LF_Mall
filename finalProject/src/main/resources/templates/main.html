@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>나를 나답게 LFmall.com</title>
-    <link rel="stylesheet" href="/static/css/main.css">
-    <link rel="stylesheet" href="/static/js/main.js">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/js/main.js">
     <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
@@ -19,93 +19,91 @@
         <div class="main_container">
 
             <!-- Slider main container -->
-            <div class="swiper">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <div class="swiper-slide">
-                        <img src="/static/images/swiper1.jpg" alt="스와이퍼1">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="/static/images/swiper2.jpg" alt="스와이퍼2">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="/static/images/swiper3.jpg" alt="스와이퍼3">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="/static/images/swiper4.jpg" alt="스와이퍼4">
-                    </div>
-                </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
+            <swiper-container class="mySwiper" space-between="30" slides-per-view="auto" pagination="true"
+                              pagination-clickable="true">
+                <swiper-slide>
+                    <a href="#">
+                        <img src="/images/swiper1.jpg" alt="슬라이드1">
+                    </a>
+                </swiper-slide>
+                <swiper-slide>
+                    <a href="#">
+                        <img src="/images/swiper2.jpg" alt="슬라이드1">
+                    </a>
+                </swiper-slide>
+                <swiper-slide>
+                    <a href="#">
+                        <img src="/images/swiper3.jpg" alt="슬라이드1">
+                    </a>
+                </swiper-slide>
+                <swiper-slide>
+                    <a href="#">
+                        <img src="/images/swiper4.jpg" alt="슬라이드1">
+                    </a>
+                </swiper-slide>
+            </swiper-container>
 
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-                <!-- If we need scrollbar -->
-                <div class="swiper-scrollbar"></div>
-            </div>
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 
             <div class="category_wrapper">
                 <div class="category_box">
                     <div class="category">
                         <a href="#" class="category_name">
-                            <img src="../static/images/suede.png" alt="스웨이드" height="114">
+                            <img src="/images/suede.png" alt="스웨이드" height="114">
                             <span>스웨이드</span>
                         </a>
                         <a href="#">
-                            <img src="../static/images/woman.jpg" alt="여성의류">
+                            <img src="/images/woman.jpg" alt="여성의류">
                             <span>여성의류</span>
                         </a>
                         <a href="#">
-                            <img src="../static/images/man.jpg" alt="남성의류">
+                            <img src="/images/man.jpg" alt="남성의류">
                             <span>남성의류</span>
                         </a>
                         <a href="#">
-                            <img src="../static/images/backpack.jpg" alt="가방/잡화">
+                            <img src="/images/backpack.jpg" alt="가방/잡화">
                             <span>가방/잡화</span>
                         </a>
                         <a href="#">
-                            <img src="../static/images/shoes.jpg" alt="슈즈">
+                            <img src="/images/shoes.jpg" alt="슈즈">
                             <span>슈즈</span>
                         </a>
                         <a href="#">
-                            <img src="../static/images/sports.jpg" alt="스포츠">
+                            <img src="/images/sports.jpg" alt="스포츠">
                             <span>스포츠</span>
                         </a>
                         <a href="#">
-                            <img src="../static/images/expensive.jpg" alt="명품">
+                            <img src="/images/expensive.jpg" alt="명품">
                             <span>명품</span>
                         </a>
                     </div>
                     <div class="category">
                         <a href="#">
-                            <img src="../static/images/golf.jpg" alt="골프">
+                            <img src="/images/golf.jpg" alt="골프">
                             <span>골프</span>
                         </a>
                         <a href="#">
-                            <img src="../static/images/kids.jpg" alt="키즈">
+                            <img src="/images/kids.jpg" alt="키즈">
                             <span>키즈</span>
                         </a>
                         <a href="#">
-                            <img src="../static/images/keen.jpg" alt="킨 사이오닉" height="114px;">
+                            <img src="/images/keen.jpg" alt="킨 사이오닉" height="114px;">
                             <span>킨 사이오닉</span>
                         </a>
                         <a href="#">
-                            <img src="../static/images/outlet.jpg" alt="아울렛">
+                            <img src="/images/outlet.jpg" alt="아울렛">
                             <span>아울렛</span>
                         </a>
                         <a href="#">
-                            <img src="../static/images/gift.jpg" alt="선물하기">
+                            <img src="/images/gift.jpg" alt="선물하기">
                             <span>선물하기</span>
                         </a>
                         <a href="#">
-                            <img src="../static/images/living.jpg" alt="리빙">
+                            <img src="/images/living.jpg" alt="리빙">
                             <span>리빙</span>
                         </a>
                         <a href="#">
-                            <img src="../static/images/beauty.jpg" alt="뷰티">
+                            <img src="/images/beauty.jpg" alt="뷰티">
                             <span>뷰티</span>
                         </a>
                     </div>
@@ -120,19 +118,19 @@
                 <div class="picture_gather">
                     <div class="p_gather">
                         <a href="#" class="three_pic">
-                            <img src="/static/images/left.jpg" alt="가을 아우터의 정석">
+                            <img src="/images/left.jpg" alt="가을 아우터의 정석">
                             <h3>A.T.CORNER</h3>
                         </a>
                     </div>
                     <div class="p_gather">
                         <a href="#">
-                            <img src="/static/images/middle.jpg" alt="아이템 베스트3">
+                            <img src="/images/middle.jpg" alt="아이템 베스트3">
                             <h3>DAKS ACC</h3>
                         </a>
                     </div>
                     <div class="p_gather">
                         <a href="#">
-                            <img src="/static/images/right.jpg" alt="신상 데일리 백">
+                            <img src="/images/right.jpg" alt="신상 데일리 백">
                             <h3>질바이질스튜어트</h3>
                         </a>
                     </div>
@@ -180,24 +178,240 @@
                        "더보기"
                     </a>
                 </div>
-                <!-- Slider main container -->
-                <div class="swiper-item">
+
+                <div class="swiper">
                     <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper-item">
-                        <!-- Slides -->
-                        <div class="swiper-slide-item">Slide 1</div>
-                        <div class="swiper-slide-item">Slide 2</div>
-                        <div class="swiper-slide-item">Slide 3</div>
+                    <swiper-container class="mySwiper" space-between="30" hash-navigation-watch-state="true" pagination="true"
+                                      pagination-clickable="true" navigation="true">
+                        <swiper-slide data-hash=" slide1">Slide 1</swiper-slide>
+                        <swiper-slide data-hash="slide2">Slide 2</swiper-slide>
+                        <swiper-slide data-hash="slide3">Slide 3</swiper-slide>
+                        <swiper-slide data-hash="slide4">Slide 4</swiper-slide>
+                        <swiper-slide data-hash="slide5">Slide 5</swiper-slide>
+                    </swiper-container>
+
+                    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+                </div>
+            <!-- 슬라이드 & 슬라이드 버튼자리            -->
+
+            
+            <div class="a_brand">
+                <div class="middle_write">
+                    <h2>주목할 브랜드</h2>
+                </div>
+                <div class="brand_wrapper">
+                    <div class="big_brand">
+                        <a href="#">
+                            <img src="/images/ferragamo.jpg">
+                        </a>
+                        <div class="small_brand">
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                        </div>
                     </div>
-                    <!-- If we need pagination -->
-                    <div class="swiper-pagination-item"></div>
+                    <div class="big_brand">
+                        <a href="#">
+                            <img src="/images/adidas.jpg">
+                        </a>
+                        <div class="small_brand">
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="brand_wrapper">
+                    <div class="big_brand">
+                        <a href="#">
+                            <img src="/images/ferragamo.jpg">
+                        </a>
+                        <div class="small_brand">
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="big_brand">
+                        <a href="#">
+                            <img src="/images/adidas.jpg">
+                        </a>
+                        <div class="small_brand">
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="brand_wrapper">
+                    <div class="big_brand">
+                        <a href="#">
+                            <img src="/images/ferragamo.jpg">
+                        </a>
+                        <div class="small_brand">
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="big_brand">
+                        <a href="#">
+                            <img src="/images/adidas.jpg">
+                        </a>
+                        <div class="small_brand">
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                            <a href="#">
+                                <img src="/images/test2test.jpg">
+                                <p>SALVATORE FERRAGAMO</p>
+                                <p>페라가모 바라 보우 34 2019</p>
+                                <p>가격</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
-                    <!-- If we need navigation buttons -->
-                    <div class="swiper-button-prev-item"></div>
-                    <div class="swiper-button-next-item"></div>
-
-                    <!-- If we need scrollbar -->
-                    <div class="swiper-scrollbar-item"></div>
+            </div>
+            <div class="top_brand">
+                <div class="middle_write">
+                    <h2>TOP BRAND</h2>
+                </div>
+                <div class="brand_wrapper">
+                    <div class="brand_list">
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                        <a href="#" class="list_name">
+                            <img src="/images/suede.png" alt="HAZZYS">
+                        </a>
+                    </div>
                 </div>
             </div>
 
