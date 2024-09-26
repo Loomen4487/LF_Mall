@@ -13,7 +13,6 @@ public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idx;
-
     private String name;
     private int price;
     private int size;
@@ -21,7 +20,7 @@ public class ProductEntity {
     private String image;
     @ManyToOne
     @JoinColumn(name = "category_idx")
-    private CategoryEntity category;
+    private CategroyEntity category;
 
     public ProductDTO toDTO(){
         return new ProductDTO(idx,name,price,size,rate,image,category.toDTO());

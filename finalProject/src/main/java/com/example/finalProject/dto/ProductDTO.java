@@ -15,9 +15,11 @@ public class ProductDTO {
     private int size;
     private int rate;
     private String image;
-    private CategoryDTO category;
+    private CategroyDTO category;
 
     public ProductEntity toEntity(){
         return new ProductEntity(idx,name,price,size,rate,image, category.toEntity());
     }
+
+
 }
