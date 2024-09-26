@@ -21,7 +21,7 @@
       <div class="group-item">제목</div>
       <div class="group-item">작성일</div>
     </div>
-    <div id="result">
+    <div id="result2">
       <div class="notice-group" v-for="notice in notice_data">
         <div class="group-item-list">{{notice.idx}}</div>
         <div class="group-item-list"><a :href=`/notice/detail/${notice.idx}`>{{notice.subject}}</a></div>
@@ -45,5 +45,6 @@
     </nav>
   </div>
 </div>
+<div th:replace="~{includes/footer}"></div>
 </body>
 </html>

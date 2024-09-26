@@ -1,6 +1,6 @@
 footer{
     width: 1280px;
-    height: 615px;
+
     /* background-color: antiquewhite; */
     border-top: 1px solid #ddd;
     margin-top: 80px;
@@ -73,7 +73,7 @@ footer{
     letter-spacing: 0;
     line-height: 18px;
     line-height: 26px;
-    width: 40%;
+    width: 50%;
 }
 h3{
     font-weight: bold;
@@ -140,6 +140,7 @@ h3{
 .Footer_companyInfo__l5-E9 .Footer_footerMenu__\+6PXt {
     display: flex;
     flex-wrap: wrap;
+    padding: 10px 0;
 }
 .Footer_companyInfo__l5-E9 .Footer_footerMenu__\+6PXt a {
     color: #555;
@@ -158,21 +159,18 @@ strong{
     letter-spacing: 0;
     line-height: 18px;
     line-height: 2;
-}
-.Footer_addressInfo__RX3Uh .Footer_ceo__fD5f7, .Footer_addressInfo__RX3Uh span {
-    color: #757575;
-    font-size: 13px;
-    letter-spacing: 0;
-    line-height: 18px;
-    line-height: 2;
+    padding: 10px 0;
 }
 .Footer_addressInfo__RX3Uh .Footer_linkTxtBox__S-5JL {
     color: #757575;
 }
-
+.Footer_addressInfo__RX3Uh{
+    padding: 10px 0;
+}
 .Footer_snsBox__Facgr{
     display: flex;
     column-gap: 10px;
+    padding: 10px 0;
 }
 .Footer_snsBox__Facgr a {
     background-image: url(//img.lfmall.co.kr/file/WAS/apps/2019/mfront/common/sp_sns.png);

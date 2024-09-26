@@ -86,7 +86,7 @@
     letter-spacing: 0;
     line-height: 38px;
     margin-top: 10px;
-    width: 82%;
+    width: 100%;
 }
 .ProductBasic_optionGroup__19hcz {
     align-items: center;
@@ -541,4 +541,27 @@ h3.tabTitle, h4.contTitle {
     padding: 20px;
     vertical-align: top;
     white-space: pre-wrap;
+}
+.recommand-container{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:space-between;
+}
+.recommand-item{
+    width:240px;
+}
+.recommand-item img{
+    width:240px;
+    height:304px;
+}
+.prdInfo .name{
+    color:black;
+    font-size:14px;
+}
+.prdPrice span{
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin: 10px 0 15px;
 }

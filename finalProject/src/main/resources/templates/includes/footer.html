@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>Z
     <link rel="stylesheet" href="/css/footer.css">
+    <script defer src="/js/footer.js"></script>
 </head>
 <body>
 <footer>
@@ -30,15 +33,11 @@
                 </div>
             </div>
         </div>
-        <div class="service-item">
+        <div class="service-item" id="result">
             <div class="Footer_csNews__ZbvP8">
                 <h3>NEWS (고객 공지사항)</h3>
-                <div class="Footer_list__e4l6m">
-                    <a href="/app/notice/detail/2718">[공지] LFmall 사칭 및 스미싱 피해 주의 안내&nbsp;&nbsp;</a>
-                    <a href="/app/notice/detail/2793">[공지] '원클릭 결제 서비스' 오픈 안내 (오픈일 : 24년 9월 26일)</a>
-                    <a href="/app/notice/detail/2790">[공지] 개인정보처리방침 개정 안내 (2024년 8월 22일 시행)</a>
-                    <a href="/app/notice/detail/2786">[공지] 개인정보처리방침 개정 안내 (2024년 7월 12일 시행)</a>
-                    <a href="/app/notice/detail/2760">[공지] 개인정보처리방침 개정 안내 (2024년 2월 15일 시행)</a>
+                <div class="Footer_list__e4l6m" v-for="notice in noticeList">
+                    <a :href=`/notice/detail/${notice.idx}`>{{notice.subject}}&nbsp;</a>
                 </div>
             </div>
         </div>
@@ -67,7 +66,7 @@
             <span>통신판매업신고 : 제 2010-서울강남-00066호</span>
             <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH Footer_linkTxtBox__S-5JL">사업자 정보확인</button>
         </div>
-            <address>
+            <address style="padding: 10px 0;">
                 <span>서울 강남구 언주로 870</span><span>대표전화 : 1544-5114 (유료)</span><span>팩스 : 031-360-0003</span>
                 <span>이메일 : lfcs@lfcorp.com</span></address><p class="Footer_ceo__fD5f7">(주)LF 대표이사 오규식, 온라인사업부문 권성훈</p>
             <div class="Footer_outLink__kq1sC"><a href="/app/"><img src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/file/WAS/apps/2019/pfront/common/ico_parenter_2.png/dims/format/avif;fallback=webp/optimize" alt="" through="m2ps" style="margin-left: -20px;"></a>

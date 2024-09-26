@@ -1,0 +1,205 @@
+main {
+    min-height: 100%;
+    position: relative;
+}
+.Cart_cartWrap__lPncI, .Cart_orderWrap__xZk90 {
+    margin: 0 auto;
+    width: 1240px;
+}
+.Cart_orderHeader__xMxlP {
+    margin: 25px auto 30px;
+    position: relative;
+    width: 1240px;
+}
+.Cart_orderHeader__xMxlP>.Cart_tit__xpKxH {
+    color: #000;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 30px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 25px;
+}
+.Cart_cartTab__okLTf {
+    position: relative;
+}
+.Cart_thPrice__bUYJ9{
+    width: 180px;
+}
+.Cart_cartTab__okLTf .Cart_tabList__FfLlM {
+    background: #fff;
+    border: 1px solid;
+    border-color: #eee #eee #ddd;
+    height: 50px;
+    margin: 0 auto 30px;
+    width: 1240px;
+}
+.Cart_cartTab__okLTf .Cart_tabList__FfLlM .Cart_tabs__15Acn {
+    display: inline-block;
+    padding: 0 15px;
+}
+.Cart_cartTab__okLTf .Cart_tabList__FfLlM .Cart_tabs__15Acn[aria-selected=true] button {
+    color: #000;
+    font-weight: 700;
+}
+.Cart_cartTab__okLTf .Cart_tabList__FfLlM .Cart_tabs__15Acn button {
+    color: #757575;
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+    height: 50px;
+    letter-spacing: 0;
+    line-height: 20px;
+    line-height: 50px;
+    padding: 0 5px;
+    text-align: center;
+}
+.Cart_cartList__R7gBy {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.Cart_cartLProduct__PIu\+W {
+    height: 100%;
+    width: 880px;
+}
+.Cart_cartLProduct__PIu\+W .Cart_selectBtn__98-7k {
+    margin-bottom: 20px;
+    position: relative;
+}
+.LfButton_lfButton__djCj2 {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    color: #000;
+    letter-spacing: -.3px;
+    padding: 0 10px;
+}
+.Cart_cartLProduct__PIu\+W .Cart_selectBtn__98-7k .Cart_right__L4dPM {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.LfButton_lfButton__djCj2.LfButton_sizePC3__Le7hc {
+    font-size: 14px;
+    height: 40px;
+}
+.Cart_productTable__OHrev {
+    border-top: 1px solid #000;
+}
+.Cart_productTable__OHrev table.Cart_list__lngmB {
+    table-layout: fixed;
+    width: 100%;
+}
+.Cart_productTable__OHrev table.Cart_list__lngmB th.Cart_info__ioC6C {
+    display: flex;
+    justify-content: space-between;
+}
+.LfInput_lfInputCheck__v0ZyE {
+    min-height: 22px;
+    position: relative;
+}
+.Cart_productTable__OHrev table.Cart_list__lngmB th.Cart_info__ioC6C .Cart_thInfo__DtGJb {
+    width: 430px;
+}
+.LfInput_lfInputCheck__v0ZyE .LfInput_input__eAm0q {
+    height: 0;
+    line-height: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+}
+.Cart_productTable__OHrev table.Cart_list__lngmB th.Cart_info__ioC6C label {
+    color: transparent;
+    font-size: 0;
+}
+.LfInput_lfInputCheck__v0ZyE .LfInput_input__eAm0q+label:before {
+    background-image: url(//img.lfmall.co.kr/file/WAS/apps/2019/mfront/common/sc2_bg.png?v=20240213);
+    background-position: -20px 0;
+    background-repeat: no-repeat;
+    background-size: 400px auto;
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    height: 22px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 22px;
+}
+.Cart_productTable__OHrev table.Cart_list__lngmB tbody tr:first-of-type td {
+    border-top: 1px solid #000;
+}
+.Cart_productTable__OHrev table.Cart_list__lngmB .Cart_noData__ShGiM {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 19px;
+    padding: 30px;
+    text-align: center;
+}
+.Cart_cartRPrices__C-N80 {
+    height: 100%;
+    position: -webkit-sticky;
+    position: sticky;
+    right: 0;
+    top: 20px;
+    width: 320px;
+}
+.Cart_priceFloating__fcEwF {
+    background: #fff;
+    border: 1px solid #000;
+}
+.Cart_priceFloating__fcEwF .Cart_totalPrice__4AGpT {
+    padding: 20px;
+}
+.Cart_priceFloating__fcEwF .Cart_disTotal__pajUz {
+    background-color: #f7f7f7;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-top: 10px;
+    padding: 8px 0;
+    text-align: center;
+}
+.Cart_priceFloating__fcEwF .Cart_totalPrice__4AGpT>ol>li {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 14px;
+    padding: 5px 0;
+    justify-content: space-between;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-bottom: 8px;
+}
+.Cart_priceFloating__fcEwF .Cart_totalPrice__4AGpT>ol>li .Cart_tit__xpKxH {
+    text-align: left;
+    width: 150px;
+}
+.Cart_productTable__OHrev table.Cart_list__lngmB th {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 19px;
+    padding: 15px 0;
+}
+.Cart_priceFloating__fcEwF .Cart_totalPrice__4AGpT>ol>li.Cart_sum__x\+IEA .Cart_price__AvnY3 {
+    color: #dc2832;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 24px;
+}
+.LfButton_lfButton__djCj2.LfButton_fillRed__cxMET {
+    background-color: #dc2832;
+    border-color: #dc2832;
+    color: #fff;
+}
+.LfButton_lfButton__djCj2.LfButton_sizePC4__8Rh27 {
+    font-size: 15px;
+    height: 48px;
+}
+.Cart_priceFloating__fcEwF .Cart_orderBtn__r90Hz button {
+    border-radius: 0;
+    width: 100%;
+}

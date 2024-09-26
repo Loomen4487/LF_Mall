@@ -14,4 +14,5 @@ public interface NoticeRepository extends JpaRepository<NoticeEntity,Integer> {
     int selectCount();
 
     NoticeEntity findByIdx(int idx);
+
 }

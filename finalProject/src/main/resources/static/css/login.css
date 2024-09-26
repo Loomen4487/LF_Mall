@@ -139,14 +139,15 @@
     column-gap:10px;
 }
 
-
-.NonMemberLogin_inputType__IJIh4 {
+.order-list{
+    margin : 25px 0;
+}
+.order-name {
     background: #fff;
     border: 1px solid #ccc;
     height: 50px;
     padding-left: 20px;
-    width: 100%;
-    display: none;
+    width: 95%;
 }
 .NonMemberLogin_btnArrow__h9hmA {
     background-color: #999;

@@ -33,4 +33,6 @@ public class NoticeService {
         NoticeEntity ne = noticeRepository.findByIdx(idx);
         return ne.toDTO();
     }
+
+
 }

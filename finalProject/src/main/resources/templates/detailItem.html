@@ -10,7 +10,7 @@
 <body>
 <div class="detail-box">
   <div class="detail-img">
-    <img src="https://nimg.lfmall.co.kr/file/product/prd/AE/2024/1500/AEJU4C411G1_00.jpg?2024-09-12T18:23:46.000+09:00"
+    <img th:src="${product.image}"
          alt="">
   </div>
   <div class="productInfoWrap">
@@ -24,9 +24,9 @@
               <span class="ProductBasic_num__wjmu4">105</span>
           </button>
       </div> -->
-      <div class="ProductBasic_productTitle__Z21Eb"><h1><span>[인기 급상승] 블루종 점퍼 라이트그레이</span></h1></div>
+      <div class="ProductBasic_productTitle__Z21Eb"><h1><span>[[${product.name}]]</span></h1></div>
       <div class="ProductBasic_optionGroup__19hcz">
-        <div class="ProductBasic_tagGroup__MWkiB"><span class="ProductBasic_tag__bfnBn">신상 쇼케이스</span></div>
+<!--        <div class="ProductBasic_tagGroup__MWkiB"><span class="ProductBasic_tag__bfnBn">신상 쇼케이스</span></div>-->
         <a>
           <div class="ProductBasic_rateGroup__SIySE" style="cursor: pointer;">
             <div class="ProductBasic_pointStar__ks-eb">
@@ -51,14 +51,17 @@
                      height="14px" fill="transparent" style="margin-left: 4px;"><g id="XMLID_1_"><polygon id="XMLID_3_" points="256,403.9 414.6,499.6 372,319.8 512,198.4 327.8,182.5 256,12.4 184.2,182.5 0,198.4 140,319.8  97.4,499.6  "></polygon></g></svg>
               </div>
             </div>
-            <span class="ProductBasic_count__i8sfQ">3</span></div>
+            <th:block th:each="i : ${#numbers.sequence(1,5)}">
+              <span th:if="${i<=product.rate}">★</span>
+              <span th:if="${i>product.rate}">☆</span>
+            </th:block></div>
         </a></div>
       <div class="ProductBasic_priceGroup__t3wWL"><span class="ProductBasic_dcPercent__HeI1C">20%</span><span
-              class="ProductBasic_originPrice__d51GM">189,000원</span><span class="ProductBasic_finalPrice__bLpZz">151,200원</span><span><button
+              class="ProductBasic_originPrice__d51GM">189,000원</span><span class="ProductBasic_finalPrice__bLpZz">[[${product.price}]]원</span><span><button
               type="button" class="ProductBasic_iconQuestion__sI+AD">안내</button><div class=""></div></span></div>
     </div>
     <div class="ProductBenefit_productBenefit__L0VTA">
-      <a class="ProductBenefit_goToLogin__DGkyj" href="/app/login">
+      <a class="ProductBenefit_goToLogin__DGkyj" href="/app">
         <strong>로그인</strong>하고 혜택가 확인하기</a></div>
     <div class="ProductEtcInfo_productEtcInfo__etcJZ">
       <ul>
@@ -164,7 +167,18 @@
   </li>
   <li aria-selected="false">
     <span>상품추천</span>
-    <div class="list-info">상품 추천</div>
+    <div class="list-info">
+      <div class="recommand-container" >
+        <div class="recommand-item" th:each="dto : ${recommand}">
+          <img th:src="${dto.image}" alt="" th:onclick="@{|location.href='/detailItem/${dto.idx}'|}">
+          <div class="prdInfo" >
+            <span class="name" style="color:black;" th:if="${#strings.length(dto.name)>12}">[[${#strings.substring(dto.name,0,12)}]] ...</span>
+            <span class="name" style="color:black;" th:if="${#strings.length(dto.name)<=12}">[[${dto.name}]]</span>
+          </div>
+          <div class="prdPrice"><span class="sale" style="color:black;">가격 : [[${#numbers.formatInteger(dto.price,3,'COMMA')}]]</span></div>
+        </div>
+      </div>
+    </div>
   </li>
 </ul>
 </body>
