@@ -1,0 +1,236 @@
+.MemberJoin_topTitle__yadlN {
+    border-bottom: 2px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0px;
+    line-height: 26px;
+    margin: 0px auto;
+    padding: 28px 0px 12px;
+    text-align: left;
+    width: 430px;
+}
+.MemberJoin_form__Xo2jw {
+    background-color: rgb(255, 255, 255);
+    margin: 0px auto;
+    padding: 0px 20px 30px;
+    width: 430px;
+}
+.MemberJoin_subTitle__OSwcN p {
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0px;
+    line-height: 20px;
+}
+.MemberCertificationForm_termsTit__yp5iZ {
+    margin: 20px 0px 10px;
+    position: relative;
+}
+.MemberCertificationForm_termsField__QsU1l {
+    align-items: center;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+.LfInput_lfInputCheck__v0ZyE .LfInput_input__eAm0q {
+    height: 0;
+    line-height: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+}
+
+.MemberCertificationForm_termsTit__yp5iZ .MemberCertificationForm_btnArrow__LyMg8.MemberCertificationForm_active__8YSyr {
+    transform: rotate(-90deg);
+}
+.blind, caption, legend {
+    font-size: 0;
+    height: 1px;
+    left: 0;
+    line-height: 100px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 1px;
+}
+.MemberCertificationForm_termsList__mv\+G1.MemberCertificationForm_active__8YSyr {
+    max-height: 1000px;
+    transition: 0.3s ease-in-out;
+}
+.LfInput_lfInputCheck__v0ZyE .LfInput_input__eAm0q {
+    height: 0;
+    line-height: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+}
+.MemberCertificationForm_inputEdit__4NbCh.MemberCertificationForm_inputCustom__iGIEf {
+    display: flex;
+}
+.MemberCertificationForm_input01__qvg7h{
+    width: 20px;
+}
+.MemberCertificationForm_bar__xulTS{
+    position: relative;
+    top: 10px;
+    right: 13px;
+    font-size: 20px;
+}
+#terms02{
+    position: relative;
+}
+.LfInput_lfInputCheck__v0ZyE .LfInput_input__eAm0q+label:before {
+    background-image: url(//img.lfmall.co.kr/file/WAS/apps/2019/mfront/common/sc2_bg.png?v=20240213);
+    background-position: -20px 0;
+    background-repeat: no-repeat;
+    background-size: 400px auto;
+    box-sizing: border-box;
+    content: "";
+    display: block;
+    height: 22px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 22px;
+}
+label{
+    position: relative;
+}
+.MemberCertificationForm_termsTit__yp5iZ label {
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    letter-spacing: 0px;
+    line-height: 20px;
+}
+.MemberCertificationForm_termsList__mv\+G1 .MemberCertificationForm_btnShow__KnHLA {
+    cursor: pointer;
+    font-size: 13px;
+    letter-spacing: 0px;
+    line-height: 18px;
+    position: absolute;
+    right: 0px;
+    text-decoration: underline;
+    background-color: white;
+    border: none;
+    top: 0px;
+}
+.LfInput_lfInputCheck__v0ZyE .LfInput_input__eAm0q {
+    height: 0;
+    line-height: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+}
+.MemberCertificationForm_inputField__r3y6D label {
+    color: rgb(0, 0, 0);
+    display: block;
+    font-size: 14px;
+    letter-spacing: 0px;
+    line-height: 19px;
+    padding: 20px 0px 10px;
+}
+.MemberCertificationForm_inputField__r3y6D .MemberCertificationForm_inputType__4Hp4s {
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 4px;
+    caret-color: rgb(220, 40, 50);
+    color: rgb(0, 0, 0);
+    display: block;
+    flex: 1 1 0%;
+    font-size: 15px;
+    height: 46px;
+    letter-spacing: 0px;
+    line-height: 46px;
+    padding: 0px 10px;
+    width: 100%;
+}
+#gender{
+    width: 10px;
+}
+.MemberCertificationForm_inputField__r3y6D .MemberCertificationForm_inputEdit__4NbCh.MemberCertificationForm_inputCustom__iGIEf .MemberCertificationForm_inputType__4Hp4s {
+    border-width: 0px;
+    height: 44px;
+    line-height: 44px;
+    max-width: 100px;
+}
+.MemberCertificationForm_inputField__r3y6D label {
+    color: rgb(0, 0, 0);
+    display: block;
+    font-size: 14px;
+    letter-spacing: 0px;
+    line-height: 19px;
+    padding: 20px 0px 10px;
+}
+.CertificationMobileTelecom_cellList__YH0SU {
+    align-items: center;
+    display: -webkit-flex;
+    justify-content: center;
+    margin-right: 1px;
+}
+.CertificationMobileTelecom_cellList__YH0SU > li {
+    flex: 1 1 0%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.CertificationMobileTelecom_cellList__YH0SU input[type="radio"] {
+    display: block;
+    height: 40px;
+    opacity: 0;
+    position: absolute;
+    width: auto;
+}
+.CertificationMobileTelecom_cellList__YH0SU input[type="radio"]:checked + label {
+    color: rgb(0, 0, 0);
+}
+.CertificationMobileTelecom_cellList__YH0SU label {
+    color: rgb(153, 153, 153);
+    display: block;
+    font-size: 15px;
+    height: 100%;
+    letter-spacing: 0px;
+    line-height: 40px;
+    padding: 0px;
+    position: relative;
+}
+.LfButton_lfButton__djCj2 {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    color: #000;
+    letter-spacing: -.3px;
+    padding: 0 10px;
+}
+.MemberCertificationForm_btnArea__9lrnI {
+    margin: 20px auto 0px;
+    text-align: center;
+}
+.MemberJoin_subTitle__OSwcN {
+    padding: 20px 0px 0px;
+}
+.agree-text{
+    position: relative;
+    top:-18px;
+    left:35px;
+}
+
+.agree-img.selected{
+    background: url(//img.lfmall.co.kr/file/WAS/apps/2014/jscss/mobilefront/check-on.png) 0 0 no-repeat;
+    background-size: 22px auto;
+}
+.agree-img img{
+    width: 21px;
+    position: relative;
+    top: 25px;
+    /* display: none; */
+}
+
+.agree-img {
+    background: url(//img.lfmall.co.kr/file/WAS/apps/2014/jscss/mobilefront/check-small-off.png) 0 0 no-repeat;
+    background-size: 22px auto;
+    border: 0;
+    height: 22px;
+    width: 22px;
+    position: absolute;
+}
