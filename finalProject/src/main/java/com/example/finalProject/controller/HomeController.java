@@ -22,8 +22,18 @@ public class HomeController {
         return "mypage";
     }
 
-    @GetMapping(value = "/mypage/userInfo_change")
-    public String userInfo_change(){
-        return "userInfo_change";
+    @GetMapping(value = "/mypage/userInfo_change1")
+    public String userInfo_change1(){
+        return "userInfo_change1";
+    }
+
+    @GetMapping(value = "/mypage/userInfo_change2")
+    public String userInfo_change2(){
+        return "userInfo_change2";
+    }
+
+    @GetMapping(value = "/a")
+    public String a(){
+        return "a";
     }
 }
