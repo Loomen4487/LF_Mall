@@ -4,6 +4,7 @@ import com.example.finalProject.dto.ProductDTO;
 import com.example.finalProject.entity.ProductEntity;
 import com.example.finalProject.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +15,18 @@ import java.util.Objects;
 @Service
 @RequiredArgsConstructor
 public class ProductService {
-    private final ProductRepository productRepository;
+    @Autowired
+    private ProductRepository productRepository;
+
+    // Integer 타입으로 변경
+    public List<ProductDTO> selectIdx(int idx) {
+        // List<Integer>로 수정
+        List<ProductEntity> li = productRepository.selectIdx(idx);
+        List<ProductDTO> dto = new ArrayList<>();
+        li.forEach(it->dto.add(it.toDTO()));
+        return dto;
+    }
+
     @Transactional(readOnly = true)
     public List<ProductDTO> recommandProduct(){
         List<ProductEntity> pe = productRepository.recommandProduct();
@@ -28,4 +40,5 @@ public class ProductService {
         if(Objects.isNull(pe))throw new IllegalArgumentException("해당 상품이 없습니다.");
         return pe.toDTO();
     }
+
 }
