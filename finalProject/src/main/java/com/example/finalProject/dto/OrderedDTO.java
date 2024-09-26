@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 @Data
@@ -19,4 +20,6 @@ public class OrderedDTO {
     public OrderedEntity toEntity(){
         return new OrderedEntity(idx,product_idx,regDate,location);
     }
+
+
 }
