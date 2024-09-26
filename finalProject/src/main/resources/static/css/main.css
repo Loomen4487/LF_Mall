@@ -157,3 +157,10 @@
     height: auto;
     object-fit: contain;
 }
+
+button:active {
+    background-color: black;
+}
+button:visited {
+    color: black
+}

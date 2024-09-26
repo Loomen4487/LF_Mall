@@ -1,0 +1,91 @@
+.mySwiper {
+  width: 100%;
+  height: auto;
+}
+
+.mySwiper img {
+  width: 100%; /* Make the image take the full width of the swiper container */
+  height: auto; /* Maintain the aspect ratio */
+  object-fit: cover; /* Ensure the image covers the container while maintaining aspect ratio */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  background: #007aff;
+  opacity: 0.8;
+}
+
+.swiper-container {
+    width: 100%; /* 전체 너비를 100%로 설정 */
+    height: 400px; /* 원하는 높이 설정 */
+    overflow: hidden; /* 넘치는 콘텐츠 숨김 */
+}
+
+/* Swiper Wrapper */
+.swiper-container .swiper-wrapper {
+    display: flex; /* 플렉스 박스를 사용하여 슬라이드 정렬 */
+}
+
+/* Swiper Slide */
+.swiper-container .swiper-slide {
+    width: 610px; /* 각 슬라이드의 너비 */
+    margin-right: 20px; /* 슬라이드 간 간격 */
+    display: flex; /* 플렉스 박스를 사용하여 내부 정렬 */
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+}
+
+/* 카드 스타일 */
+.swiper-container .Card10_card10__3qVgp {
+    border-radius: 10px; /* 모서리 둥글게 */
+    overflow: hidden; /* 자식 요소 넘침 숨김 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
+}
+
+/* 이미지 스타일 */
+.swiper-container .Card10_card10__3qVgp img {
+    width: 100%; /* 이미지 너비를 카드에 맞게 조정 */
+    height: auto; /* 비율 유지 */
+    display: block; /* 이미지 아래의 여백 제거 */
+}
+
+/* 활성 슬라이드 강조 */
+.swiper-container .swiper-slide-active {
+    transform: scale(1.05); /* 활성 슬라이드 확대 효과 */
+    transition: transform 0.3s; /* 부드러운 전환 효과 */
+}
+
+/* 비활성 슬라이드 스타일 */
+.swiper-container .swiper-slide:not(.swiper-slide-active) {
+    opacity: 0.5; /* 비활성 슬라이드 불투명도 조절 */
+    transition: opacity 0.3s; /* 부드러운 전환 효과 */
+}
+
+/* Swiper Pagination 스타일 */
+.swiper-container .swiper-pagination {
+    text-align: center; /* 중앙 정렬 */
+    padding: 10px 0; /* 패딩 추가 */
+}
+
+/* Pagination Bullet 스타일 */
+.swiper-container .swiper-pagination-bullet {
+    background: #000; /* 기본 색상 */
+    opacity: 0.5; /* 기본 불투명도 */
+}
+
+.swiper-container .swiper-pagination-bullet-active {
+    background: #ff0000; /* 활성 Bullet 색상 */
+    opacity: 1; /* 완전 불투명 */
+}

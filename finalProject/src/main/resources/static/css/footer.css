@@ -1,0 +1,193 @@
+footer{
+    width: 1280px;
+    height: 615px;
+    /* background-color: antiquewhite; */
+    border-top: 1px solid #ddd;
+    margin-top: 80px;
+}
+.footer-service{
+    display: flex;
+    width: 1240px;
+    padding: 20px 0;
+    margin: 0 auto;
+}
+.footer-service .service-item{
+    width: 25%;
+    height: 179px;
+    position: relative;
+}
+.footer-service .service-item:first-child::after{
+    display: none;
+}
+.footer-service .service-item::after{
+    content: "";
+    width: 1px;;
+    height: 100px;
+    background-color: #eee;
+    position: absolute;
+    left:0;
+    top:20px;
+}
+.Footer_helpTel__hsp27 {
+    color: #555;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 33px;
+    margin-top: 6px;
+}
+.Footer_hours__xg8h0 {
+    color: #757575;
+    font-size: 13px;
+    letter-spacing: 0;
+    line-height: 18px;
+    margin-top: 11px;
+}
+.Footer_menu__W9XMW {
+    margin-top: 37px;
+}
+.Footer_menu__W9XMW a {
+    color: #757575;
+    font-size: 13px;
+    letter-spacing: 0;
+    line-height: 18px;
+    position: relative;
+    text-decoration: underline;
+}
+.Footer_menu__W9XMW a:first-child{
+    margin-right: 28px;
+}
+.Footer_customerMenu__Rla5c {
+    border-left: 1px solid #eee;
+    padding: 10px 30px 0;
+    position: relative;
+    width: 100%;
+}
+.Footer_customerMenu__Rla5c .Footer_list__e4l6m {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.Footer_customerMenu__Rla5c a {
+    color: #757575;
+    font-size: 13px;
+    letter-spacing: 0;
+    line-height: 18px;
+    line-height: 26px;
+    width: 40%;
+}
+h3{
+    font-weight: bold;
+}
+
+.Footer_csNews__ZbvP8 {
+    border-left: 1px solid #eee;
+    padding: 10px 30px 0;
+    position: relative;
+    width: 80%;
+}
+.Footer_csNews__ZbvP8 .Footer_list__e4l6m {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.Footer_csNews__ZbvP8 a {
+    color: #757575;
+    font-size: 13px;
+    height: 26px;
+    letter-spacing: 0;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.Footer_outLinks__3-N5o .Footer_familySite__Oj6YI .Footer_familySiteBtn__DxM4q {
+    border: 1px solid #dadada;
+    color: #757575;
+    display: block;
+    font-weight: 700;
+    height: 36px;
+    padding-left: 20px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+.Footer_outLinks__3-N5o .Footer_familySite__Oj6YI .Footer_familySiteBtn__DxM4q:after {
+    background-image: url(//img.lfmall.co.kr/file/WAS/display/images/pc_spimage.png);
+    background-position: -135px -68px;
+    background-repeat: no-repeat;
+    background-size: 600px 900px;
+    content: "";
+    height: 4px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    width: 7px;
+}
+.Footer_outLinks__3-N5o .Footer_familySite__Oj6YI .Footer_familySiteBtn__DxM4q {
+    border: 1px solid #dadada;
+    color: #757575;
+    display: block;
+    font-weight: 700;
+    height: 36px;
+    padding-left: 20px;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+.Footer_companyInfo__l5-E9{
+    margin-left: 20px;
+}
+.Footer_companyInfo__l5-E9 .Footer_footerMenu__\+6PXt {
+    display: flex;
+    flex-wrap: wrap;
+}
+.Footer_companyInfo__l5-E9 .Footer_footerMenu__\+6PXt a {
+    color: #555;
+    font-size: 13px;
+    letter-spacing: 0;
+    line-height: 18px;
+    margin-right: 20px;
+    text-decoration: none;
+}
+strong{
+    font-weight: bold;
+}
+.Footer_addressInfo__RX3Uh .Footer_ceo__fD5f7, .Footer_addressInfo__RX3Uh span {
+    color: #757575;
+    font-size: 13px;
+    letter-spacing: 0;
+    line-height: 18px;
+    line-height: 2;
+}
+.Footer_addressInfo__RX3Uh .Footer_ceo__fD5f7, .Footer_addressInfo__RX3Uh span {
+    color: #757575;
+    font-size: 13px;
+    letter-spacing: 0;
+    line-height: 18px;
+    line-height: 2;
+}
+.Footer_addressInfo__RX3Uh .Footer_linkTxtBox__S-5JL {
+    color: #757575;
+}
+
+.Footer_snsBox__Facgr{
+    display: flex;
+    column-gap: 10px;
+}
+.Footer_snsBox__Facgr a {
+    background-image: url(//img.lfmall.co.kr/file/WAS/apps/2019/mfront/common/sp_sns.png);
+    background-repeat: no-repeat;
+    background-size: 115px auto;
+    display: block;
+    height: 32px;
+    width: 32px;
+}
+.Footer_snsBox__Facgr a.Footer_ytb__1Gaq1 {
+    background-position: -40px -40px;
+}
+.Footer_snsBox__Facgr a.Footer_fb__LLGdy {
+    background-position: -80px -40px;
+}
+.Footer_snsBox__Facgr a.Footer_inst__n-2yY {
+    background-position: 0 -40px;
+}
