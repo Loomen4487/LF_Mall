@@ -81,4 +81,11 @@ public class HomeController {
     public String mybag(){
         return "mybag";
     }
+
+
+
+    @GetMapping(value = "/woman/{name}")
+    public String woman(@PathVariable String name){
+        return "mybag";
+    }
 }

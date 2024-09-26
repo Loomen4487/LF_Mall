@@ -1,8 +1,6 @@
 package com.example.finalProject.service;
 
-import com.example.finalProject.dto.CategoryDTO;
 import com.example.finalProject.dto.ProductDTO;
-import com.example.finalProject.entity.CategoryEntity;
 import com.example.finalProject.entity.ProductEntity;
 import com.example.finalProject.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
