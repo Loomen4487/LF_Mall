@@ -214,7 +214,7 @@
                     </li>
                     <!--                 <li><a href="javascript:void(0);" onclick="cfGoToMyPageForLogin(PAGE_MEM_INFO);">회원정보 조회/수정</a></dd> -->
 
-                    <li><a href="/mypage/userInfo_change"
+                    <li><a href="/mypage/userInfo_change1"
                            onclick="cfGoToMyPageForLogin(PAGE_MEM_INFO+'&amp;etag1=045_A111_E334&amp;etag2=0&amp;etag3=2&amp;etag4=0');">회원정보
                       변경</a></li>
 
@@ -225,7 +225,7 @@
                     <li><a href="javascript:void(0);"
                            onclick="cfGoToMyPageForLogin(PAGE_REFUND_ACCOUNT+'&amp;etag1=045_A111_E334&amp;etag2=0&amp;etag3=3&amp;etag4=0');">환불계좌관리</a>
                     </li>
-                    <li><a href="javascript:void(0);"
+                    <li><a href="/mypage/address"
                            onclick="cfGoToMyPageForLogin(PAGE_ADDRESS+'&amp;etag1=045_A111_E334&amp;etag2=0&amp;etag3=5&amp;etag4=0');">배송지
                       관리</a></li>
                     <!-- <dd><a href="javascript:void(0);" onclick="cfGoToMyPageForLogin(PAGE_AFFL_CERT);">제휴임직원 인증</a></dd> -->
@@ -254,50 +254,35 @@
               <div class="MemberForm_mypageTitle__Tfv09">
                 <h4>회원정보 변경</h4>
               </div>
-              <div class="MemberForm_entryTable__N2wos">
-                <p class="MemberForm_topInfo__KTFrc"><strong>{user}</strong>님의 개인정보를 안전하게 보호하기 위해 <strong
-                        class="MemberForm_point__n-bpr">비밀번호</strong>를 다시 한 번 확인해주세요.</p>
-                <table summary="비밀번호 재확인">
-                  <colgroup>
-                    <col style="width: 22%;">
-                    <col>
-                  </colgroup>
-                  <tbody>
-                  <tr>
-                    <th>아이디</th>
-                    <td>{user}</td>
-                  </tr>
-                  <tr>
-                    <th>비밀번호</th>
-                    <td><input type="password" class="commonInputText MemberForm_w200__8w71Q" id="memberPassword"
-                               name="memberPassword" value=""></td>
-                  </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="MemberForm_btnArea__xwPFT"><button type="button"
-                                                             class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc LfButton_fillRed__cxMET">확인</button></div>
-            </div>
-            <!-- 선마일리지 안내 :: 팝업레이어 -->
-            <div class="layer_new" id="first_point1" style="display:none;top:240px;left:260px;width:390px;">
-              <h2>e기프트 마일리지 조회</h2>
-              <a class="close" href="javascript:closeLayer('first_point1')"><img alt="닫기"
-                                                                                 src="//img.lfmall.co.kr/file/WAS/apps/2017/pfront/btn_close_20x20.png"></a>
-              <div class="layer_cont">
-                <div class="ly_list">
-                  <ul>
-                    <li>e기프트 마일리지는 유효기간 내 사용이 가능하며, LFmall 자사상품에만 적용 가능합니다. (오프라인 사용 불가)</li>
-                    <li>한 주문 당 하나 만 사용 가능하며, 이벤트에 따라 일부 상품은 제외될 수 있습니다.</li>
-                    <li>e기프트 마일리지는 최종 결제 금액의 50%까지만 사용 가능합니다.</li>
-                    <li>지급된 e기프트 마일리지보다 낮은 가격의 상품에는 사용할 수 없습니다.</li>
-                  </ul>
+              <form action="/mypage/userInfo_change2" method="post">
+                <div class="MemberForm_entryTable__N2wos" >
+                  <p class="MemberForm_topInfo__KTFrc"><strong th:text="${username}">></strong>님의 개인정보를 안전하게 보호하기 위해 <strong
+                          class="MemberForm_point__n-bpr">비밀번호</strong>를 다시 한 번 확인해주세요.</p>
+                  <table summary="비밀번호 재확인">
+                    <colgroup>
+                      <col style="width: 22%;">
+                      <col>
+                    </colgroup>
+                    <tbody>
+                    <tr>
+                      <th>아이디</th>
+                      <td th:text="${username}"></td>
+                    </tr>
+
+                    <tr>
+                      <th>비밀번호</th>
+                      <td><input type="password" class="commonInputText MemberForm_w200__8w71Q" id="password"
+                                 name="password" value=""></td>
+                    </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <div class="ly_btn">
-                  <a href="javascript:closeLayer('first_point1')">확인</a>
+                <div class="MemberForm_btnArea__xwPFT">
+                  <button type="submit" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc LfButton_fillRed__cxMET">확인</button>
                 </div>
-              </div>
-            </div>
-            <!--// 선마일리지 안내 -->
+              </form>
+              <p th:if="${error}" th:text="${error}"></p>
+
 
             <!-- LFML-71477 결제수단 관리 layer -->
             <div class="ly-common-wrap ly-common-wrap-lfpay" id="lfpayccc" style="display: none;">

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <link rel="stylesheet" href="/css/signupAgree.css">
+</head>
+<body>
+<div class="signup-form">
+  <div class="MemberJoin_topTitle__yadlN">회원가입</div>
+  <div class="MemberJoin_form__Xo2jw">
+    <div class="MemberJoin_subTitle__OSwcN"><p>휴대전화 본인 인증</p></div>
+    <div class="MemberCertificationForm_inputField__r3y6D">
+      <div class="MemberCertificationForm_termsTit__yp5iZ">
+        <div class="MemberCertificationForm_termsField__QsU1l">
+          <div class="LfInput_lfInputCheck__v0ZyE LfInput_shapeRound__01I3A">
+            <input type="checkbox" id="allCheck" class="LfInput_input__eAm0q" value=""><label for="allCheck"><span class="agree-text">본인 확인을 위한 약관 모두 동의</span></label>
+          </div>
+        </div>
+        <!-- <button type="button" class="MemberCertificationForm_btnArrow__LyMg8 MemberCertificationForm_active__8YSyr"><span class="blind">약관 리스트 열고 닫기</span></button> -->
+      </div>
+      <div class="MemberCertificationForm_termsList__mv+G1 MemberCertificationForm_active__8YSyr">
+        <div class="MemberCertificationForm_termsField__QsU1l MemberCertificationForm_first__n1f9s">
+          <div class="LfInput_lfInputCheck__v0ZyE LfInput_shapeRound__01I3A">
+            <input type="checkbox" id="terms01" class="LfInput_input__eAm0q" value="false"><div class="agree-img"></div><label for="terms01"><span class="agree-text">개인정보 수집 및 이용 동의</span></label>
+          </div>
+          <button type="button" class="MemberCertificationForm_btnShow__KnHLA">보기</button>
+        </div>
+        <div class="MemberCertificationForm_termsField__QsU1l ">
+          <div class="LfInput_lfInputCheck__v0ZyE LfInput_shapeRound__01I3A">
+            <input type="checkbox" id="terms02" class="LfInput_input__eAm0q" value="false"><div class="agree-img"></div><label for="terms02"><span class="agree-text">고유식별 정보 처리 동의</span></label>
+          </div><button type="button" class="MemberCertificationForm_btnShow__KnHLA">보기</button>
+        </div>
+        <div class="MemberCertificationForm_termsField__QsU1l ">
+          <div class="LfInput_lfInputCheck__v0ZyE LfInput_shapeRound__01I3A">
+            <input type="checkbox" id="terms03" class="LfInput_input__eAm0q" value="false"><div class="agree-img"></div><label for="terms03"><span class="agree-text">통신사 이용 약관</span></label>
+          </div>
+          <button type="button" class="MemberCertificationForm_btnShow__KnHLA">보기</button>
+        </div>
+        <div class="MemberCertificationForm_termsField__QsU1l MemberCertificationForm_last__pWCLD">
+          <div class="LfInput_lfInputCheck__v0ZyE LfInput_shapeRound__01I3A">
+            <input type="checkbox" id="terms04" class="LfInput_input__eAm0q" value="false"><div class="agree-img"></div><label for="terms04"><span class="agree-text">서비스 이용 약관</span></label>
+          </div>
+          <button type="button" class="MemberCertificationForm_btnShow__KnHLA">보기</button>
+        </div>
+      </div>
+    </div>
+    <div class="MemberCertificationForm_inputField__r3y6D"><label for="name">이름</label>
+      <div class="MemberCertificationForm_inputEdit__4NbCh">
+        <input type="text" class="MemberCertificationForm_inputType__4Hp4s" id="name" name="name" maxlength="50">
+      </div>
+    </div>
+    <div class="MemberCertificationForm_inputField__r3y6D"><label for="birthGender">생년월일 및 성별</label>
+      <div class="MemberCertificationForm_inputEdit__4NbCh MemberCertificationForm_inputCustom__iGIEf ">
+        <div><input type="text" class="MemberCertificationForm_inputType__4Hp4s" id="birth" name="birth" placeholder="● ● ● ● ● ●" maxlength="6"></div>
+        <div class="MemberCertificationForm_bar__xulTS">-</div>
+        <div class="MemberCertificationForm_input01__qvg7h"><input type="text" class="MemberCertificationForm_inputType__4Hp4s" placeholder="●" id="gender" name="gender" maxlength="1"></div>
+        <div class="MemberCertificationForm_input02__8zDbK"><input type="text" class="MemberCertificationForm_inputType__4Hp4s" maxlength="1" placeholder="● ● ● ● ● ●" disabled=""></div>
+      </div>
+    </div>
+    <div class="MemberCertificationForm_inputField__r3y6D"><label class="CertificationMobileTelecom_label__Aml33">휴대폰 번호</label>
+      <ul class="CertificationMobileTelecom_cellList__YH0SU">
+        <li><input type="radio" name="mobileAgency" id="SKT" checked=""><label for="SKT"><span>SKT</span></label></li>
+        <li><input type="radio" name="mobileAgency" id="KTF"><label for="KTF"><span>KT</span></label></li>
+        <li><input type="radio" name="mobileAgency" id="LGT"><label for="LGT"><span>LG U+</span></label></li>
+        <li><input type="radio" name="mobileAgency" id="mvno"><label for="mvno"><span>알뜰폰</span></label></li>
+      </ul>
+      <div class="MemberCertificationForm_inputEdit__4NbCh MemberCertificationForm_noLabel__7w0Fv">
+        <input type="text" class="MemberCertificationForm_inputType__4Hp4s" placeholder="-없이 휴대전화번호 입력" maxlength="12" name="phoneNumber">
+        <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc">인증번호 받기</button>
+      </div>
+    </div>
+    <div class="MemberCertificationForm_btnArea__9lrnI">
+      <div class="LfButtonGroup_lfButtonGroup__X0ZW1 MemberCertificationForm_btnArea__9lrnI">
+        <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC5__7Gjip LfButton_fillRed__cxMET disabled">인증하기</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
