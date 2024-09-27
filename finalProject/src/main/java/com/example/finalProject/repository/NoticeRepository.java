@@ -1,13 +1,13 @@
 package com.example.finalProject.repository;
 
-import com.example.finalProject.entity.CategroyEntity;
+import com.example.finalProject.entity.CategoryEntity;
 import com.example.finalProject.entity.NoticeEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-public interface NoticeRepository extends JpaRepository<CategroyEntity,Integer> {
+public interface NoticeRepository extends JpaRepository<NoticeEntity,Integer> {
     @Query(value = "select * from notice limit ?1,?2",nativeQuery = true)
     List<NoticeEntity> selectAll(int startNo, int size);
 

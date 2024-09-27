@@ -13,12 +13,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class NoticeService {
-    public void insert(NoticeDTO dto){
-        //noticeRepository.save(dto.toEntity());
-    }
 
-    @Autowired
-    private NoticeRepository noticeRepository;
+    private final NoticeRepository noticeRepository;
     public List<NoticeDTO> selectAll(int startNo,int size){
         List<NoticeEntity> ne = noticeRepository.selectAll(startNo,size);
         List<NoticeDTO> dto = new ArrayList<>();

@@ -29,6 +29,10 @@ spring:
     defer-datasource-initialization: true
     # google Login API
 
+coolsms:
+  api:
+    key:
+    secret:
 
 logging:
   level:

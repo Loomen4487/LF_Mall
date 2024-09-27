@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Service
 @RequiredArgsConstructor
@@ -28,8 +26,8 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public List<ProductDTO> recommandProduct(){
-        List<ProductEntity> pe = productRepository.recommandProduct();
+    public List<ProductDTO> recommandProduct(int idx){
+        List<ProductEntity> pe = productRepository.recommandProduct(idx);
         List<ProductDTO> dto = new ArrayList<>();
         pe.forEach(item->dto.add(item.toDTO()));
         return dto;
@@ -39,6 +37,38 @@ public class ProductService {
         ProductEntity pe = productRepository.findByIdxAndCategory_idx(idx,1);
         if(Objects.isNull(pe))throw new IllegalArgumentException("해당 상품이 없습니다.");
         return pe.toDTO();
+    }
+    @Transactional(readOnly = true)
+    public HashMap<String,Object> selectMajor(String name){
+        List<ProductEntity> pe = productRepository.selectMajor(name);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        System.out.println("결과 : "+pe);
+        HashMap<String,Object> map = new HashMap<>();
+        Set<String> set = new HashSet<>();
+        dto.forEach(item->set.add(item.getCategory().getMiddle()));
+        map.put("category",set);
+        map.put("list",dto);
+        return map;
+    }
+    @Transactional(readOnly = true)
+    public HashMap<String,Object> selectMiddle(String major,String middle){
+        List<ProductEntity> pe = productRepository.selectMiddle(major,middle);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        HashMap<String,Object> map = new HashMap<>();
+        Set<String> set = new HashSet<>();
+        dto.forEach(item->set.add(item.getCategory().getSub()));
+        map.put("category",set);
+        map.put("list",dto);
+        return map;
+    }
+
+    public List<ProductDTO> selectSub(String major, String middle, String sub){
+        List<ProductEntity> pe = productRepository.selectSub(major,middle,sub);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
     }
 
 }

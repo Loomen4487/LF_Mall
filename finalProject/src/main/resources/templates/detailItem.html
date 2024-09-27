@@ -8,10 +8,13 @@
   <script defer src="/js/detailItem.js"></script>
 </head>
 <body>
+  <form action="/detailItem/pay" method="post">
 <div class="detail-box">
+
   <div class="detail-img">
     <img th:src="${product.image}"
-         alt="">
+         alt="" id="detailItemImg">
+    <input type="hidden" name="idx" th:value="${product.idx}">
   </div>
   <div class="productInfoWrap">
     <div>
@@ -24,7 +27,7 @@
               <span class="ProductBasic_num__wjmu4">105</span>
           </button>
       </div> -->
-      <div class="ProductBasic_productTitle__Z21Eb"><h1><span>[[${product.name}]]</span></h1></div>
+      <div class="ProductBasic_productTitle__Z21Eb"><h1><span id="detailItemName">[[${product.name}]]</span></h1></div>
       <div class="ProductBasic_optionGroup__19hcz">
 <!--        <div class="ProductBasic_tagGroup__MWkiB"><span class="ProductBasic_tag__bfnBn">신상 쇼케이스</span></div>-->
         <a>
@@ -57,7 +60,7 @@
             </th:block></div>
         </a></div>
       <div class="ProductBasic_priceGroup__t3wWL"><span class="ProductBasic_dcPercent__HeI1C">20%</span><span
-              class="ProductBasic_originPrice__d51GM">189,000원</span><span class="ProductBasic_finalPrice__bLpZz">[[${product.price}]]원</span><span><button
+              class="ProductBasic_originPrice__d51GM">189,000원</span><span class="ProductBasic_finalPrice__bLpZz" id="detailItemPrice">[[${product.price}]]원</span><span><button
               type="button" class="ProductBasic_iconQuestion__sI+AD">안내</button><div class=""></div></span></div>
     </div>
     <div class="ProductBenefit_productBenefit__L0VTA">
@@ -94,7 +97,7 @@
       <div class="ProductSelection_prodQuantity__HY9kH"><p class="ProductSelection_title__1Cr8A">수량</p>
         <div class="ProductSelection_countController__N-VBL">
           <button type="button" class="ProductSelection_buttonMinus__I-XDQ undefined minus"></button>
-          <input type="text" title="구매수량" id="count" readonly="" value="1">
+          <input type="text" title="구매수량" id="count" readonly=""  name= "count" value="1">
           <button type="button" class="ProductSelection_buttonPlus__FC1eQ false plus"></button>
           <button type="button"
                   class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc ProductSelection_check__vOSXf">선택
@@ -109,14 +112,16 @@
                 class="LfButton_lfButton__djCj2 LfButton_sizePC5__7Gjip LfButton_strokeRed__VAPIq ProductButtonArea_primary__E8fYU"
                 id="shoppingbag_button_1_gtm">쇼핑백
         </button>
-        <button type="button"
+        <button type="submit"
                 class="LfButton_lfButton__djCj2 LfButton_sizePC5__7Gjip LfButton_fillRed__cxMET ProductButtonArea_primary__E8fYU"
-                onclick="location.href='/detailItem/pay'">바로구매
+                >바로구매
         </button>
       </div>
     </div>
   </div>
+
 </div>
+  </form>
 <ul class="ProductDetail_tabList__G8yFd info-list">
   <li aria-selected="true" class="selected">
     <span>상세정보</span>

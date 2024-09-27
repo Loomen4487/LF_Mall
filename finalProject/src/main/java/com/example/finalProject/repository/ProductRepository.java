@@ -10,8 +10,16 @@ public interface ProductRepository extends JpaRepository<ProductEntity,Integer> 
     @Query(value = "select * from product where category_idx = ?1",nativeQuery = true)
     List<ProductEntity> selectIdx(int idx);
 
-    @Query(value = "select * from product where category_idx=1 order by rand() limit 6",nativeQuery = true)
-    List<ProductEntity> recommandProduct();
-
+    @Query(value = "select * from product p where p.category_idx =(select category_idx from product where idx=?1) order by rand() limit 6",nativeQuery = true)
+    List<ProductEntity> recommandProduct(int idx);
     ProductEntity findByIdxAndCategory_idx(int idx,int category_idx);
+
+    @Query(value = "select p.*,c.middle from product p,category c where c.idx=p.category_idx and p.category_idx in (select idx from category c where major =?1)",nativeQuery = true)
+    List<ProductEntity> selectMajor(String name);
+
+    @Query(value = "select p.*,c.sub from product p,category c where p.category_idx = c.idx and category_idx in (select idx from category c where major =?1 and middle like ?2)",nativeQuery = true)
+    List<ProductEntity> selectMiddle(String major,String middle);
+
+    @Query(value = "select * from product p where category_idx in (select idx from category c where major =?1 and middle like ?2 and sub=?3)",nativeQuery = true)
+    List<ProductEntity> selectSub(String major,String middle,String sub);
 }
