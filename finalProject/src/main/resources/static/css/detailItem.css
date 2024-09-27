@@ -1,0 +1,567 @@
+.detail-box{
+    display: flex;
+    width: 900px;
+    margin: 0 auto;
+    column-gap: 25px;
+}
+.productInfoWrap{
+    width: 100%;
+}
+.detail-img img{
+    width: 480px;
+}
+.ProductBasic_actionButton__3wqXx {
+    position: absolute;
+    right: 0;
+    top: 32px;
+}
+.ProductBasic_actionButton__3wqXx button {
+    display: inline-block;
+    vertical-align: top;
+    width: 40px;
+}
+.ProductBasic_actionButton__3wqXx button:before {
+    background-image: url(//img.lfmall.co.kr/file/WAS/apps/2023/pfront/product/css_sprites.png?v=1);
+    background-repeat: no-repeat;
+    content: "";
+    display: block;
+    height: 40px;
+    overflow: hidden;
+    width: 40px;
+}
+.ProductBasic_actionButton__3wqXx .ProductBasic_buttonShare__1j9XG:before {
+    background-position: -70px -10px;
+}
+.blind, caption, legend {
+    font-size: 0;
+    height: 1px;
+    left: 0;
+    line-height: 100px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 1px;
+}
+.ProductBasic_actionButton__3wqXx .ProductBasic_buttonLike__RI7PK:before {
+    background-position: -10px -10px;
+}
+.ProductBasic_actionButton__3wqXx button:before {
+    background-image: url(//img.lfmall.co.kr/file/WAS/apps/2023/pfront/product/css_sprites.png?v=1);
+    background-repeat: no-repeat;
+    content: "";
+    display: block;
+    height: 40px;
+    overflow: hidden;
+    width: 40px;
+}
+.ProductBasic_actionButton__3wqXx .ProductBasic_buttonLike__RI7PK .ProductBasic_num__wjmu4 {
+    bottom: -21px;
+    color: #000;
+    display: block;
+    font-size: 13px;
+    left: 50%;
+    letter-spacing: 0;
+    line-height: 18px;
+    position: absolute;
+    text-align: center;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.ProductBasic_brand__HcGas>a:after {
+    border: solid #000;
+    border-width: 0 1px 1px 0;
+    content: "";
+    display: inline-block;
+    padding: 2px;
+    position: absolute;
+    right: -10px;
+    top: 8px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+.ProductBasic_productTitle__Z21Eb h1 {
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 38px;
+    margin-top: 10px;
+    width: 100%;
+}
+.ProductBasic_optionGroup__19hcz {
+    align-items: center;
+    display: flex;
+    margin-top: 8px;
+}
+.ProductBasic_optionGroup__19hcz .ProductBasic_tagGroup__MWkiB {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+.ProductBasic_optionGroup__19hcz .ProductBasic_tagGroup__MWkiB .ProductBasic_tag__bfnBn {
+    border: 1px solid #000;
+    display: inline-block;
+    font-size: 13px;
+    letter-spacing: 0;
+    line-height: 18px;
+    line-height: 26px;
+    padding: 0 9px 0 10px;
+}
+.ProductBasic_rateGroup__SIySE .ProductBasic_pointStar__ks-eb {
+    display: inline-block;
+    height: 14px;
+    position: relative;
+    vertical-align: middle;
+    width: 86px;
+}
+.ProductBasic_priceGroup__t3wWL {
+    align-items: center;
+    display: flex;
+    flex-flow: wrap;
+    font-size: 30px;
+    gap: 8px;
+    letter-spacing: -.2px;
+    line-height: 32px;
+    line-height: normal;
+    margin-top: 25px;
+    position: relative;
+}
+.ProductBasic_priceGroup__t3wWL .ProductBasic_dcPercent__HeI1C {
+    color: #dc2832;
+    font-weight: 700;
+}
+.ProductBasic_priceGroup__t3wWL .ProductBasic_originPrice__d51GM {
+    color: #bdbdbd;
+    text-decoration: line-through;
+}
+.ProductBasic_priceGroup__t3wWL .ProductBasic_finalPrice__bLpZz {
+    color: #333;
+    font-weight: 700;
+}
+.ProductBasic_priceGroup__t3wWL .ProductBasic_iconQuestion__sI\+AD {
+    background-image: url(//img.lfmall.co.kr/file/WAS/display/lf2022/pc/icon_product2.png);
+    background-position: -120px -22px;
+    background-repeat: no-repeat;
+    background-size: 174px 120px;
+    display: inline-block;
+    height: 24px;
+    margin: 0 2px 0 -3px;
+    overflow: hidden;
+    text-indent: -99999px;
+    vertical-align: middle;
+    border: none;
+    width: 24px;
+}
+.ProductBenefit_productBenefit__L0VTA {
+    border: 1px solid #c7bdbd;
+    border-radius: 2px;
+    margin-top: 15px;
+    padding: 15px 20px;
+    width: 100%;
+}
+.ProductBenefit_goToLogin__DGkyj{
+    text-decoration: none;
+    color: black;
+}
+.ProductBenefit_productBenefit__L0VTA .ProductBenefit_goToLogin__DGkyj:after {
+    border: solid #4285f4;
+    border-width: 0 1px 1px 0;
+    content: "";
+    display: inline-block;
+    padding: 3px;
+    position: absolute;
+    right: 7px;
+    top: 5px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    z-index: 1;
+}
+.ProductEtcInfo_productEtcInfo__etcJZ>ul>li {
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 20px;
+    line-height: 30px;
+    min-height: 51px;
+    padding: 10px 0 10px 42px;
+    position: relative;
+}
+.ProductEtcInfo_productEtcInfo__etcJZ>ul .iconDelivery:before, .ProductEtcInfo_productEtcInfo__etcJZ>ul .iconM:before {
+    background-image: url(//img.lfmall.co.kr/file/WAS/display/lf2022/pc/icon_product2.png);
+    background-repeat: no-repeat;
+    background-size: 174px 120px;
+}
+.ProductEtcInfo_productEtcInfo__etcJZ>ul .iconM:before {
+    background-position: -80px 0;
+}
+.ProductEtcInfo_productEtcInfo__etcJZ .ProductEtcInfo_iconQuestion__n6zqz {
+    background-image: url(//img.lfmall.co.kr/file/WAS/display/lf2022/pc/icon_product2.png);
+    background-position: -120px -56px;
+    background-repeat: no-repeat;
+    background-size: 174px 120px;
+    display: inline-block;
+    border: none;
+    height: 20px;
+    margin: -2px 0 0 5px;
+    overflow: hidden;
+    text-indent: -99999px;
+    vertical-align: middle;
+    width: 20px;
+}
+.ProductEtcInfo_productEtcInfo__etcJZ>ul .iconDelivery:before {
+    background-position: -40px 0;
+}
+.lfssung_01 {
+    color: #757575;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-top: 6px;
+}
+.lfssung_02 {
+    border-top: 1px solid #f5f5f5;
+    color: #000;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-top: 12px;
+    padding-top: 12px;
+}
+.ProductEtcInfo_productEtcInfo__etcJZ>ul .iconKb:before {
+    background-image: url(//img.lfmall.co.kr/file/WAS/display/lf2022/pc/icon_product2.png);
+    background-position: -40px -40px;
+    background-repeat: no-repeat;
+    background-size: 174px 120px;
+}
+.ProductEtcInfo_productEtcInfo__etcJZ>ul .iconKb>a:after, .ProductEtcInfo_productEtcInfo__etcJZ>ul .iconPresent:before {
+    background-image: url(//img.lfmall.co.kr/file/WAS/display/lf2022/pc/icon_product2.png);
+    background-repeat: no-repeat;
+    background-size: 174px 120px;
+}
+.ProductEtcInfo_productEtcInfo__etcJZ>ul .iconCard:before {
+    background-position: 0 0;
+}
+.ProductEtcInfo_productEtcInfo__etcJZ>ul .iconLfpay {
+    background-image: url(//img.lfmall.co.kr/file/WAS/display/lf2022/pc/icon_product2.png);
+    background-position: -120px 0;
+    background-repeat: no-repeat;
+    background-size: 174px 120px;
+    display: inline-block;
+    height: 12px;
+    margin: 0 5px 2px 0;
+    overflow: hidden;
+    text-indent: -999999px;
+    vertical-align: middle;
+    width: 44px;
+}
+
+
+.ProductEtcInfo_productEtcInfo__etcJZ>ul .iconGift:before, .ProductEtcInfo_productEtcInfo__etcJZ>ul .iconLocation:before {
+    background-image: url(//img.lfmall.co.kr/file/WAS/display/lf2022/pc/icon_product2.png);
+    background-repeat: no-repeat;
+    background-size: 174px 120px;
+}
+.ProductSelection_prodQuantity__HY9kH .ProductSelection_countController__N-VBL {
+    display: flex;
+    margin-top: 13px;
+    position: relative;
+}
+.ProductSelection_prodQuantity__HY9kH .ProductSelection_countController__N-VBL button {
+    background: #fff;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    height: 32px;
+    letter-spacing: 0;
+    line-height: 19px;
+    position: relative;
+    width: 55px;
+}
+
+.ProductSelection_prodQuantity__HY9kH .ProductSelection_countController__N-VBL .ProductSelection_buttonMinus__I-XDQ:before, .ProductSelection_prodQuantity__HY9kH .ProductSelection_countController__N-VBL .ProductSelection_buttonPlus__FC1eQ:before {
+    background: #000;
+    content: "";
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 10px;
+    .ProductSelection_prodQuantity__HY9kH .ProductSelection_countController__N-VBL input {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-left: 0;
+        border-right: 0;
+        box-sizing: border-box;
+        display: inline-block;
+        font-weight: 700;
+        height: 32px;
+        text-align: center;
+        width: 50px;
+    }
+}
+.ProductSelection_prodQuantity__HY9kH .ProductSelection_countController__N-VBL .ProductSelection_buttonMinus__I-XDQ:before, .ProductSelection_prodQuantity__HY9kH .ProductSelection_countController__N-VBL .ProductSelection_buttonPlus__FC1eQ:before {
+    background: #000;
+    content: "";
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 10px;
+}
+.ProductSelection_prodQuantity__HY9kH .ProductSelection_countController__N-VBL .ProductSelection_buttonPlus__FC1eQ:after {
+    background: #000;
+    content: "";
+    height: 10px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 2px;
+}
+.ProductButtonArea_productButtonArea__sQlq1 .ProductButtonArea_primary__E8fYU {
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 20px;
+    text-align: center;
+    width: calc(50% - 2.5px);
+}
+.LfButton_lfButton__djCj2.LfButton_fillRed__cxMET {
+    background-color: #dc2832;
+    border-color: #dc2832;
+    color: #fff;
+}
+.LfButton_lfButton__djCj2.LfButton_strokeRed__VAPIq {
+    border-color: #dc2832;
+    color: #dc2832;
+}
+.ProductSelection_prodQuantity__HY9kH .ProductSelection_countController__N-VBL input {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-left: 0;
+    border-right: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    font-weight: 700;
+    height: 32px;
+    text-align: center;
+    width: 50px;
+}
+.ProductEtcInfo_productEtcInfo__etcJZ>ul .icon:before {
+    content: "";
+    display: block;
+    height: 30px;
+    left: 0;
+    position: absolute;
+    top: 10px;
+    width: 30px;
+}
+.stikyBtn{
+    margin-top: 20px;
+}
+.ProductButtonArea_productButtonArea__sQlq1{
+    display:flex;
+}
+.ProductButtonArea_productButtonArea__sQlq1 button{
+    width: 100%;
+    height: 35px;
+}
+.ProductDetail_tabList__G8yFd {
+    border-top: 1px solid #ddd;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid #4b4b4b;
+    display: flex;
+    height: 60px;
+    margin-top: 35px;
+    min-width: 1260px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 9;
+    box-sizing: border-box;
+}
+.ProductDetail_tabList__G8yFd li {
+    cursor: pointer;
+    outline: none;
+    width: 220px;
+    height:61px;
+    box-sizing: border-box;
+}
+.ProductDetail_tabList__G8yFd li:hover span{
+    color: #dc2832;
+}
+.ProductDetail_tabList__G8yFd li.selected span{
+    color: #dc2832;
+}
+.ProductDetail_tabList__G8yFd li.selected{
+    border-bottom: 5px solid #dc2832;
+}
+.ProductDetail_tabList__G8yFd li:hover{
+    border-bottom: 5px solid #dc2832;
+}
+.ProductDetail_tabList__G8yFd li span {
+    color: #000;
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    height: 60px;
+    letter-spacing: 0;
+    line-height: 20px;
+    line-height: 60px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.list-info{
+    position:absolute;
+    top: 75px;
+    left:0;
+    width:70%;
+    display:none;
+}
+.info-list li:first-child div{
+    display:block;
+}
+.list-info li{
+    text-decoration:none;
+}
+.detailContBox {
+    padding: 40px 20px;
+}
+h3.tabTitle, h4.contTitle {
+    color: #000;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin: 0 0 20px;
+}
+.ProductTabQna_QnaNotices__hd3qM {
+    margin-bottom: 60px;
+    position: relative;
+}
+.ProductTabQna_QnaNotices__hd3qM>ol li {
+    color: #000;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 19px;
+    padding: 0 0 3px 8px;
+    position: relative;
+    width:600px;
+}
+.ProductTabQna_QnaNotices__hd3qM>ol li:hover{
+    border:none;
+}
+.ProductTabQna_QnaNotices__hd3qM>ol li:before {
+    content: "-";
+    display: block;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.ProductTabQna_QnaNotices__hd3qM .ProductTabQna_BtnQuestion__\+nCBV {
+    border: 1px solid #dc2832;
+    border-radius: 4px;
+    color: #dc2832;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 19px;
+    line-height: 48px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 168px;
+}
+.ProductTabQna_qnaSecretExcept__Sy9K6 {
+    padding: 0 0 12px;
+}
+.LfInput_lfInputCheck__v0ZyE {
+    min-height: 22px;
+    position: relative;
+}
+.LfInput_lfInputCheck__v0ZyE .LfInput_input__eAm0q {
+    height: 0;
+    line-height: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+}
+.LfInput_lfInputCheck__v0ZyE .LfInput_input__eAm0q+label {
+    display: block;
+    padding-left: 30px;
+    padding-top: 2px;
+    position: relative;
+}
+.ProductTabQna_QnaList__1s9Ca {
+    margin-bottom: 20px;
+    position: relative;
+}
+.ProductTabQna_QnaList__1s9Ca table {
+    table-layout: fixed;
+    width: 100%;
+}
+.ProductTabQna_QnaList__1s9Ca:after {
+    background-color: #757575;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+}
+.ProductTabQna_QnaList__1s9Ca table thead {
+    border-bottom: 1px solid #757575;
+    border-top: 1px solid #757575;
+}
+.ProductTabQna_QnaList__1s9Ca table thead th {
+    color: #000;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 19px;
+    padding: 13px 20px;
+    text-align: center;
+}
+.ProductTabQna_QnaList__1s9Ca table tbody td {
+    border-bottom: 1px solid #eee;
+    color: #000;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 19px;
+    padding: 20px;
+    vertical-align: top;
+    white-space: pre-wrap;
+}
+.recommand-container{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:space-between;
+}
+.recommand-item{
+    width:240px;
+}
+.recommand-item img{
+    width:240px;
+    height:304px;
+}
+.prdInfo .name{
+    color:black;
+    font-size:14px;
+}
+.prdPrice span{
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin: 10px 0 15px;
+}

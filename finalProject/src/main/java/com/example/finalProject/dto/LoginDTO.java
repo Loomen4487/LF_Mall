@@ -15,8 +15,9 @@ public class LoginDTO {
     private String provider;
     private String role;
     private String email;
+    private String phone;
 
     public LoginEntity toEntity(){
-        return new LoginEntity(idx,id,password,provider,role,email);
+        return new LoginEntity(idx,id,password,provider,role,email,phone);
     }
 }

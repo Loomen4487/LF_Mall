@@ -1,5 +1,6 @@
 package com.example.finalProject.controller;
 
+import com.example.finalProject.dto.LoginDTO;
 import com.example.finalProject.entity.LoginEntity;
 import com.example.finalProject.service.LoginService;
 import lombok.RequiredArgsConstructor;
@@ -42,7 +43,7 @@ public class MyPageController {
         String username = authentication.getName();
 
         // 데이터베이스에서 사용자 정보 가져오기
-        LoginEntity loginEntity = loginService.findById(username);
+        LoginDTO loginEntity = loginService.findById(username);
 
         // 입력된 비밀번호와 데이터베이스에 저장된 비밀번호 비교
         if (bCryptPasswordEncoder.matches(password, loginEntity.getPassword())) {
@@ -65,7 +66,7 @@ public class MyPageController {
                                  @RequestParam String confirmPassword,
                                  @RequestParam String email,
                                  Model model) {
-        LoginEntity loginEntity = loginService.findById(username);
+        LoginDTO loginEntity = loginService.findById(username);
 
         // 현재 비밀번호가 일치하는지 확인
         if (!bCryptPasswordEncoder.matches(password, loginEntity.getPassword())) {

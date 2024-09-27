@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <link rel="stylesheet" href="/css/mybag.css">
+</head>
+<body>
+<main class="main">
+    <div class="Cart_cartWrap__lPncI">
+        <div class="Cart_orderHeader__xMxlP"><h2 class="Cart_tit__xpKxH">쇼핑백</h2>
+        </div>
+        <div>
+            <div class="Cart_cartTab__okLTf" data-rttabs="true">
+                <div class="Cart_cartTabPanel__7UPQN">
+                    <div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="panel:r1:0"
+                         aria-labelledby="tab:r1:0">
+                        <div class="Cart_cartList__R7gBy">
+                            <div class="Cart_cartLProduct__PIu+W">
+                                <div class="Cart_selectBtn__98-7k">
+                                    <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc">
+                                        전체선택
+                                    </button>
+                                    <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc">
+                                        선택삭제
+                                    </button>
+                                    <div class="Cart_right__L4dPM">
+                                        <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc">
+                                            위시리스트로 이동
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="Cart_productTable__OHrev">
+                                    <table class="Cart_list__lngmB">
+                                        <colgroup>
+                                            <col style="width: 640px;">
+                                            <col style="width: 120px;">
+                                            <col style="width: 120px;">
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th class="Cart_info__ioC6C">
+                                                <div class="LfInput_lfInputCheck__v0ZyE"><input type="checkbox"
+                                                                                                id="prodListAll"
+                                                                                                class="LfInput_input__eAm0q"
+                                                                                                value=""><label
+                                                        for="prodListAll">전체선택</label></div>
+                                                <span class="Cart_thInfo__DtGJb">상품정보</span><span
+                                                    class="Cart_thPrice__bUYJ9">상품금액</span></th>
+                                            <th>배송비</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="3" class="Cart_noData__ShGiM">장바구니에 담긴 상품이 없습니다.</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="Cart_cartRPrices__C-N80">
+                                <div class="Cart_priceFloating__fcEwF">
+                                    <div class="Cart_totalPrice__4AGpT">
+                                        <ol>
+                                            <li><span class="Cart_tit__xpKxH">상품금액 (0)</span><span
+                                                    class="Cart_price__AvnY3"><em>0</em>원</span></li>
+                                            <li class="Cart_minus__Lgewj"><span
+                                                    class="Cart_tit__xpKxH">상품 할인 금액</span><span
+                                                    class="Cart_price__AvnY3"><em>0</em>원</span></li>
+                                            <li class="Cart_plus__5oqo5"><span class="Cart_tit__xpKxH">배송비</span><span
+                                                    class="Cart_price__AvnY3"><em>0원</em></span></li>
+                                            <li class="Cart_sum__x+IEA"><span class="Cart_tit__xpKxH">결제예정금액</span><span
+                                                    class="Cart_price__AvnY3"><em>0</em>원</span></li>
+                                        </ol>
+                                        <div class="Cart_disTotal__pajUz">상품을 선택하시면 최적 혜택이 계산됩니다.</div>
+                                    </div>
+                                    <div class="Cart_orderBtn__r90Hz">
+                                        <button type="button"
+                                                class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27 LfButton_fillRed__cxMET">
+                                            <span>주문하기</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="react-tabs__tab-panel" role="tabpanel" id="panel:r1:1" aria-labelledby="tab:r1:1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div th:replace="~{includes/footer}"></div>
+</body>
+</html>

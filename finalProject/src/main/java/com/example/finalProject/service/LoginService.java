@@ -3,9 +3,7 @@ package com.example.finalProject.service;
 import com.example.finalProject.dto.LoginDTO;
 import com.example.finalProject.entity.LoginEntity;
 import com.example.finalProject.repository.LoginRepository;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -35,13 +33,11 @@ public class LoginService {
         }
     }
 
-    // 사용자 아이디로 로그인 정보 조회
-    public LoginEntity findById(String username) {
-        return loginRepository.findById(username);
+    public LoginDTO findById(String username) {
+        return loginRepository.findById(username).toDTO();
     }
 
-    public void save(LoginEntity loginEntity) {
-        loginRepository.save(loginEntity);
+    public void save(LoginDTO loginEntity) {
+        loginRepository.save(loginEntity.toEntity());
     }
-
 }

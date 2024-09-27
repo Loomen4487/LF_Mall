@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+  <link rel="stylesheet" href="/css/notice.css">
+  <script defer src="/js/notice.js"></script>
+</head>
+<body>
+<div class="Notices_customerCenter__j-j5H">
+  <div class="CustomerCenterLnb_customerLnb__T1lL9"><a class="CustomerCenterLnb_customerTit__3DTVR" href="/app/customer"><span>고객센터</span></a><div class="CustomerCenterLnb_menu__OBprl"><div class="CustomerCenterLnb_menuBox__zke5o"><p class="CustomerCenterLnb_menuTit__dkA7S"><a class="CustomerCenterLnb_on__mqdgi" href="/app/notices/list">공지사항</a></p></div><div class="CustomerCenterLnb_menuBox__zke5o"><p class="CustomerCenterLnb_menuTit__dkA7S"><a href="/app/shopping/faq/10">쇼핑 FAQ</a></p><ul><li><a class="" href="/app/shopping/faq/10">배송</a></li><li><a class="" href="/app/shopping/faq/20">취소/반품/교환/AS</a></li><li><a class="" href="/app/shopping/faq/30">주문/결제</a></li><li><a class="" href="/app/shopping/faq/40">영수증/세금계산서</a></li><li><a class="" href="/app/shopping/faq/50">회원정보/서비스</a></li><li><a class="" href="/app/shopping/faq/60">마일리지/쿠폰</a></li><li><a class="" href="/app/shopping/faq/70">상품권/기타</a></li><li><a class="" href="/app/shopping/faq/80">모바일</a></li></ul></div><div class="CustomerCenterLnb_menuBox__zke5o"><p class="CustomerCenterLnb_menuTit__dkA7S"><a href="/app/shopping/guide/benefit">쇼핑 가이드</a></p><ul><li><a class="" href="/app/shopping/guide/benefit">회원혜택</a></li><li><a class="" href="/app/shopping/guide/coupon">쿠폰</a></li><li><a class="" href="/app/shopping/guide/mileage">마일리지</a></li><li><a class="" href="/app/shopping/guide/delivery">배송/반품/교환</a></li><li><a class="" href="/app/shopping/guide/delay">배송지연/품절/오배송</a></li><li><a class="" href="/app/shopping/guide/as">A/S</a></li><li><a class="" href="/app/shopping/guide/group/order">단체구매 신청/조회</a></li></ul></div><div class="CustomerCenterLnb_menuBox__zke5o"><p class="CustomerCenterLnb_menuTit__dkA7S"><a class="" href="/app/customer/contact/register">1:1 상담</a></p></div><div class="CustomerCenterLnb_menuBox__zke5o"><p class="CustomerCenterLnb_menuTit__dkA7S"><a href="/app/notices/list">제휴 및 입점문의</a></p></div><div class="CustomerCenterLnb_menuBox__zke5o"><p class="CustomerCenterLnb_menuTit__dkA7S"><a href="/app/mypage/customer/voice">고객제안</a></p></div></div></div>
+  <div class="Notices_customerCont__w01h4">
+    <p class="Notices_sTitle__OUZ6E">공지사항</p>
+    <div class="Notices_benefitTop__3pAYS"><p>LF몰에서 알려드립니다.</p></div>
+    <div class="notice-group">
+      <div class="group-item-detail">[[${notice.subject}]]</div>
+      <div class="group-item-detail">[[${#calendars.format(notice.regDate,'yyyy-MM-dd')}]]</div>
+    </div>
+    <div class="content">[[${notice.content}]]</div>
+    <div class="notice-div"><button class="go-to-notice" onclick="location.href='/notice'">목록보기</button></div>
+  </div>
+</div>
+<div th:replace="~{includes/footer}"></div>
+</body>
+</html>
