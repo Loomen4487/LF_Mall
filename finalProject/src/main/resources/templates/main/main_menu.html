@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+
+    <!-- Swiper.js JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <meta charset="UTF-8">
     <title>나를 나답게</title>
     <link rel="stylesheet" href="/css/main_menu.css"><!-- 메인  -->
     <link rel="stylesheet" href="/css/main_menu_sec.css">
-    <!-- Swiper.js CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script src="/js/main_menu.js"></script>
 
-    <!-- Swiper.js JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
 </html>
 <body style=""><noscript>
@@ -20,65 +21,151 @@
 <div id="samsung"></div>
 <div id="ezwel"></div><noscript>You need to enable JavaScript to run this app.</noscript>
 <div id="root">
-    <div class="Toastify"></div>
     <main class="main" role="main">
         <div id="cardWrap" class="displayWrap">
             <div class="WideSwiper_wideSwiper__uTTN5 ">
                 <div class="swiper swiper-initialized swiper-horizontal">
-
-                    <swiper-container class="mySwiper" space-between="30" slides-per-view="auto" pagination="true"
-                                      pagination-clickable="true" loop="true" autoplay="true">
-                        <swiper-slide data-swiper-slide-no="1">
-                            <a href="#">
-                                <img src="/images/naver.png" alt="1">
-                            </a>
-                        </swiper-slide>
-                        <swiper-slide data-swiper-slide-no="2">
-                            <a href="#">
-                                <img src="/images/naver.png" alt="2">
-                            </a>
-                        </swiper-slide>
-                        <swiper-slide data-swiper-slide-no="3">
-                            <a href="#">
-                                <img src="/images/naver.png" alt="3">
-                            </a>
-                        </swiper-slide>
-                        <swiper-slide data-swiper-slide-no="4">
-                            <a href="#">
-                                <img src="/images/naver.png" alt="4">
-                            </a>
-                        </swiper-slide>
-                    </swiper-container>
-
-                    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
-
+                    <div class="swiper-wrapper"
+                         style="transition-duration: 0ms; transform: translate3d(-26880px, 0px, 0px); transition-delay: 0ms;">
+                        <div class="swiper-slide" data-swiper-slide-index="2">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="3">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="4">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="5">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="6">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="7">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="8">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="9">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="10">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="11">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="12"><a href="/app/exhibition/menu/501"><span
+                                class="WideSwiper_img__gd7v4"><img
+                                src="https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1727076806698.jpg" alt="완벽한 니트" data-url="12"
+                                style="background: rgb(238, 238, 238);"></span><span class="WideSwiper_textBox__rI10u"><span
+                                class="WideSwiper_txtBrand__44K2Q">DOUBLE FLAG</span><span
+                                class="WideSwiper_main01__bTs2L">완벽한 니트</span><span class="WideSwiper_main02__g5PP-">찾았다!</span><span
+                                class="WideSwiper_copy__A6aqp">품절 전에 겟! 인생 골프니트</span></span></a></div>
+                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="13"><a href="/app/exhibition/menu/501"><span
+                                class="WideSwiper_img__gd7v4"><img
+                                src="https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1727076754323.jpg" alt="STYLE" data-url="13"
+                                style="background: rgb(238, 238, 238);"></span><span class="WideSwiper_textBox__rI10u"><span
+                                class="WideSwiper_txtBrand__44K2Q">BAG</span><span class="WideSwiper_main01__bTs2L">STYLE</span><span
+                                class="WideSwiper_main02__g5PP-">FOCUS</span><span class="WideSwiper_copy__A6aqp">#PATTERN BAG</span></span></a>
+                        </div>
+                        <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="14"><a href="/app/exhibition/menu/501"><span
+                                class="WideSwiper_img__gd7v4"><img
+                                src="https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1727076749270.jpg" alt="GO!" data-url="14"
+                                style="background: rgb(238, 238, 238);"></span><span class="WideSwiper_textBox__rI10u"><span
+                                class="WideSwiper_txtBrand__44K2Q">GOLF</span><span class="WideSwiper_main01__bTs2L">GO!</span><span
+                                class="WideSwiper_main02__g5PP-">LF</span><span
+                                class="WideSwiper_copy__A6aqp">라운딩을 위한 모든 것</span></span></a>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="15">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="16">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="17">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="18">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="19">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="20">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="21">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="22"><a
+                                href="/app/exhibition/menu/501"><span class="WideSwiper_img__gd7v4"><img
+                                src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1726807192197.jpg/dims/format/avif;fallback=webp/optimize"
+                                alt="SMART" data-url="22"
+                                style="background: rgb(238, 238, 238);"></span><span
+                                class="WideSwiper_textBox__rI10u"><span
+                                class="WideSwiper_txtBrand__44K2Q">MAXMARA</span><span
+                                class="WideSwiper_main01__bTs2L">SMART</span><span
+                                class="WideSwiper_main02__g5PP-">ACTIVE</span><span
+                                class="WideSwiper_copy__A6aqp">막스마라 레저 컬렉션</span></span></a></div>
+                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="23"><a
+                                href="/app/exhibition/menu/501"><span class="WideSwiper_img__gd7v4"><img
+                                src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1726807247549.jpg/dims/format/avif;fallback=webp/optimize"
+                                alt="MY" data-url="23" style="background: rgb(238, 238, 238);"></span><span
+                                class="WideSwiper_textBox__rI10u"><span
+                                class="WideSwiper_txtBrand__44K2Q">GOLF</span><span
+                                class="WideSwiper_main01__bTs2L">MY</span><span
+                                class="WideSwiper_main02__g5PP-">PLAY LIST</span><span
+                                class="WideSwiper_copy__A6aqp">가을 액티비티의 모든 것</span></span></a></div>
+                        <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="0"><a
+                                href="/app/exhibition/menu/501"><span class="WideSwiper_img__gd7v4"><img
+                                src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1726807163892.jpg/dims/format/avif;fallback=webp/optimize"
+                                alt="" data-url="0" style="background: rgb(238, 238, 238);"></span><span
+                                class="WideSwiper_textBox__rI10u"><span
+                                class="WideSwiper_txtBrand__44K2Q"></span><span
+                                class="WideSwiper_main01__bTs2L"></span><span
+                                class="WideSwiper_main02__g5PP-"></span><span
+                                class="WideSwiper_copy__A6aqp"></span></span></a></div>
+                        <div class="swiper-slide" data-swiper-slide-index="1">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                    </div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                     <div class="WideSwiper_pageCount__LeUGJ">
-                        <div class="fraction swiper-pagination-fraction swiper-pagination-horizontal">
-                            <span class="swiper-pagination-current"></span> "/"
-                            <span class="swiper-pagination-total">4</span>
-                        </div>
+                        <div class="fraction swiper-pagination-fraction swiper-pagination-horizontal"><span
+                                class="swiper-pagination-current">24</span> / <span
+                                class="swiper-pagination-total">24</span></div>
                     </div>
                 </div>
             </div>
             <div class="Card915_card915__ydq49">
                 <div class="Card915_categorys__h29Kk">
-                    <div class="Card915_blockContent__aiW8y"><a href="/app/exhibition/menu/501"><img loading="lazy"
-                                                                                                     src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1727068143354.png/dims/format/avif;fallback=webp/optimize"
-                                                                                                     alt="스웨이드" through="m2ps"><span>스웨이드</span></a><a
-                            href="/app/exhibition/menu/501"><img loading="lazy"
-                                                                 src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1724906610600.jpg/dims/format/avif;fallback=webp/optimize"
-                                                                 alt="여성의류" through="m2ps"><span>여성의류</span></a><a
-                            href="/app/exhibition/menu/501"><img loading="lazy"
-                                                                 src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1724906614505.jpg/dims/format/avif;fallback=webp/optimize"
-                                                                 alt="남성의류" through="m2ps"><span>남성의류</span></a><a
+                    <div class="Card915_blockContent__aiW8y">
+                        <a href="/app/exhibition/menu/501">
+                            <img loading="lazy"
+                                 src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1727068143354.png/dims/format/avif;fallback=webp/optimize"
+                                 alt="스웨이드" through="m2ps">
+                            <span>스웨이드</span>
+                        </a>
+                        <a href="/app/exhibition/menu/501"><img loading="lazy"
+                                                                src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1724906610600.jpg/dims/format/avif;fallback=webp/optimize"
+                                                                alt="여성의류" through="m2ps">
+                            <span>여성의류</span>
+                        </a>
+                        <a
+                                href="/app/exhibition/menu/501"><img loading="lazy"
+                                                                     src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1724906614505.jpg/dims/format/avif;fallback=webp/optimize"
+                                                                     alt="남성의류" through="m2ps"><span>남성의류</span></a><a
                             href="/app/exhibition/menu/501"><img loading="lazy"
                                                                  src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1724906617104.jpg/dims/format/avif;fallback=webp/optimize"
                                                                  alt="가방/잡화" through="m2ps"><span>가방/잡화</span></a><a
                             href="/app/exhibition/menu/501"><img loading="lazy"
                                                                  src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1724906619816.jpg/dims/format/avif;fallback=webp/optimize"
-                                                                 alt="슈즈" through="m2ps"><span>슈즈</span></a><a href="/app/exhibition/menu/501"><img
+                                                                 alt="슈즈" through="m2ps"><span>슈즈</span></a><a
+                            href="/app/exhibition/menu/501"><img
                             loading="lazy"
                             src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1724906622314.jpg/dims/format/avif;fallback=webp/optimize"
                             alt="스포츠" through="m2ps"><span>스포츠</span></a><a href="/app/exhibition/menu/501"><img
@@ -87,7 +174,9 @@
                             alt="명품" through="m2ps"><span>명품</span></a></div>
                     <div class="Card915_blockContent__aiW8y"><a href="/app/exhibition/menu/501"><img loading="lazy"
                                                                                                      src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1724906629425.jpg/dims/format/avif;fallback=webp/optimize"
-                                                                                                     alt="골프" through="m2ps"><span>골프</span></a><a href="/app/exhibition/menu/501"><img
+                                                                                                     alt="골프"
+                                                                                                     through="m2ps"><span>골프</span></a><a
+                            href="/app/exhibition/menu/501"><img
                             loading="lazy"
                             src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1724906631904.jpg/dims/format/avif;fallback=webp/optimize"
                             alt="키즈" through="m2ps"><span>키즈</span></a><a href="/app/exhibition/menu/501"><img
@@ -96,22 +185,22 @@
                             alt="FW아우터" through="m2ps"><span>FW아우터</span></a><a
                             href="/app/exhibition/menu/501"><img loading="lazy"
                                                                  src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1724906637816.jpg/dims/format/avif;fallback=webp/optimize"
-                                                                 alt="아울렛" through="m2ps"><span>아울렛</span></a><a href="/app/exhibition/menu/501"><img
+                                                                 alt="아울렛" through="m2ps"><span>아울렛</span></a><a
+                            href="/app/exhibition/menu/501"><img
                             loading="lazy"
                             src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1726718884262.jpg/dims/format/avif;fallback=webp/optimize"
                             alt="선물하기" through="m2ps"><span>선물하기</span></a><a
                             href="/app/exhibition/menu/501"><img loading="lazy"
                                                                  src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1724906649357.jpg/dims/format/avif;fallback=webp/optimize"
-                                                                 alt="리빙" through="m2ps"><span>리빙</span></a><a href="/app/exhibition/menu/501"><img
+                                                                 alt="리빙" through="m2ps"><span>리빙</span></a><a
+                            href="/app/exhibition/menu/501"><img
                             loading="lazy"
                             src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1724906652498.jpg/dims/format/avif;fallback=webp/optimize"
                             alt="뷰티" through="m2ps"><span>뷰티</span></a></div>
                 </div>
             </div>
             <div class="Card81_card81__FFwAO">
-                <div class="cardTitle CardTitle_cardTitle__0Mrfv
-      undefined
-      false">
+                <div class="cardTitle CardTitle_cardTitle__0Mrfvundefinedfalse">
                     <p>오직, LF몰에서만</p>
                 </div>
                 <div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden">
@@ -400,39 +489,58 @@
                 </div>
             </div>
             <div class="DisplayAreaTemplateType_displayAreas__+-Mlb">
-                <div class="swiper-initialized swiper-horizontal swiper-backface-hidden"
+                <div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden"
                      style="width: 1240px;">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0" style="width: 610px; margin-right: 20px;">
-                            <div class="Card10_card10__3qVgp"><a href="#"><img loading="lazy" src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/6/1719556192336.jpg/dims/format/avif;fallback=webp/optimize" alt="" through="m2ps"></a></div>
+                        <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="0"
+                             style="width: 610px; margin-right: 20px;">
+                            <div class="Card10_card10__3qVgp"><a href="/app/exhibition/menu/501"><img loading="lazy"
+                                                                                                      src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/6/1719556192336.jpg/dims/format/avif;fallback=webp/optimize"
+                                                                                                      alt="" through="m2ps"></a></div>
                         </div>
                         <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="1"
                              style="width: 610px; margin-right: 20px;">
-                            <div class="Card10_card10__3qVgp"><a href="#"><img loading="lazy" src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/6/1719556157986.jpg/dims/format/avif;fallback=webp/optimize" alt="" through="m2ps"></a></div>
+                            <div class="Card10_card10__3qVgp"><a href="/app/exhibition/menu/501"><img loading="lazy"
+                                                                                                      src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/6/1719556157986.jpg/dims/format/avif;fallback=webp/optimize"
+                                                                                                      alt="" through="m2ps"></a></div>
                         </div>
                         <div class="swiper-slide" data-swiper-slide-index="2"
                              style="width: 610px; margin-right: 20px;">
-                            <div class="Card10_card10__3qVgp"><a href="#"><img through="m2ps" src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1725007010376.jpg/dims/format/avif;fallback=webp/optimize" alt=""></a></div>
+                            <div class="Card10_card10__3qVgp"><a href="/app/exhibition/menu/501"><img through="m2ps"
+                                                                                                      src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/8/1725007010376.jpg/dims/format/avif;fallback=webp/optimize"
+                                                                                                      alt=""></a></div>
                         </div>
                         <div class="swiper-slide" data-swiper-slide-index="3"
                              style="width: 610px; margin-right: 20px;">
-                            <div class="Card10_card10__3qVgp"><a href="#"><img through="m2ps" src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2023/11/1700615763188.png/dims/format/avif;fallback=webp/optimize" alt=""></a></div>
+                            <div class="Card10_card10__3qVgp"><a href="/app/exhibition/menu/501"><img through="m2ps"
+                                                                                                      src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2023/11/1700615763188.png/dims/format/avif;fallback=webp/optimize"
+                                                                                                      alt=""></a></div>
                         </div>
                         <div class="swiper-slide" data-swiper-slide-index="4"
                              style="width: 610px; margin-right: 20px;">
-                            <div class="Card10_card10__3qVgp"><a href="#"><img through="m2ps" src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/3/1711419384030.jpg/dims/format/avif;fallback=webp/optimize" alt=""></a></div>
+                            <div class="Card10_card10__3qVgp"><a href="/app/exhibition/menu/501"><img through="m2ps"
+                                                                                                      src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/3/1711419384030.jpg/dims/format/avif;fallback=webp/optimize"
+                                                                                                      alt=""></a></div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="5"
+                             style="width: 610px; margin-right: 20px;">
+                            <div class="swpLoading">로딩중</div>
+                        </div>
+                        <div class="swiper-slide" data-swiper-slide-index="6"
+                             style="width: 610px; margin-right: 20px;">
+                            <div class="swpLoading">로딩중</div>
                         </div>
                     </div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
-                    <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
-                        <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
-                        <span class="swiper-pagination-bullet"></span>
-                        <span class="swiper-pagination-bullet"></span>
-                        <span class="swiper-pagination-bullet"></span>
-                        <span class="swiper-pagination-bullet"></span>
-                        <span class="swiper-pagination-bullet"></span>
-                        <span class="swiper-pagination-bullet"></span>
+                    <div
+                            class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+                        <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span><span
+                            class="swiper-pagination-bullet"></span><span
+                            class="swiper-pagination-bullet"></span><span
+                            class="swiper-pagination-bullet"></span><span
+                            class="swiper-pagination-bullet"></span><span
+                            class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span>
                     </div>
                 </div>
             </div>
@@ -1491,8 +1599,8 @@
                                         src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
                                         alt=""></span></div>
                             </div>
-                        </div><a
-                            class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
+                        </div>
+                        <a class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
                             href="/app/exhibition/menu/501">DAKS LADIES</a><a
                             class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
                             href="/app/exhibition/menu/501">[24SS] [D-PLEATS] 블루 플리츠 7부소매티셔츠(스카프 추가구성)</a>
@@ -2634,141 +2742,16 @@
                 </div>
             </div>
         </div>
-    </main><input type="hidden" id="user_logged_in_gtm" value="false"><input type="hidden" id="user_email_md5_gtm"
-                                                                             value=""><input type="hidden" id="user_email_plain_text_gtm" value=""><input type="hidden"
-                                                                                                                                                          id="user_email_sha256_gtm" value=""><input type="hidden" id="id_gtm" value=""><a class="GoTop_goTop__CHl8O"
-                                                                                                                                                                                                                                           href="/app/" style="display: none;"><span class="blind">TOP</span></a>
+    </main>
+    <a class="GoTop_goTop__CHl8O" href="/app/" style="display: none;"><span class="blind">TOP</span></a>
 </div>
-<div id="formRoot"></div>
-<div id="wp_tg_cts" style="display:none">
-    <script id="wp_tag_script_1727169523239" charset="UTF-8"
-            src="https://astg.widerplanet.com/delivery/wpc.php?v=1&amp;ver=4.0&amp;r=1&amp;md=bs&amp;ga=1jf41ob-11kfvh-1-1&amp;wp_uid=2-62468c323b1781907a1aeefafaa9b980-s1726116513.417156%7Cwindows_10%7Cchrome-8qgz4c&amp;ty=Home&amp;ti=17479&amp;device=web&amp;charset=UTF-8&amp;tc=1727169523239&amp;ref=https%3A%2F%2Fwww.lfmall.co.kr%2Fapp%2Fexhibition%2Fcategory%2F128000&amp;loc=https%3A%2F%2Fwww.lfmall.co.kr%2Fapp%2Fexhibition%2Fmenu%2F501"></script>
-    <script id="wp_tag_script_1727169524215" charset="UTF-8"
-            src="https://astg.widerplanet.com/delivery/wpc.php?v=1&amp;ver=4.0&amp;r=1&amp;md=bs&amp;ga=1jf41ob-11kfvh-1-1&amp;wp_uid=2-62468c323b1781907a1aeefafaa9b980-s1726116513.417156%7Cwindows_10%7Cchrome-8qgz4c&amp;ty=Home&amp;ti=17479&amp;device=web&amp;charset=UTF-8&amp;tc=1727169524215&amp;ref=https%3A%2F%2Fwww.lfmall.co.kr%2Fapp%2Fexhibition%2Fcategory%2F128000&amp;loc=https%3A%2F%2Fwww.lfmall.co.kr%2Fapp%2Fexhibition%2Fmenu%2F501"></script>
-</div>
-<script type="text/javascript"
-        src="https://static.lfmall.co.kr/desktop/js/jquery-1.10.1.min.js?version=7318355"></script>
-<script async="" type="text/javascript"
-        src="https://static.lfmall.co.kr/desktop/js/jquery.lazyload.js?version=7318355"></script>
-<script>/MSIE \d|Trident.*rv:/.test(navigator.userAgent) && function (e, t, n) { var r = t.getElementsByTagName(n)[0], a = t.createElement(n); a.async = !0, a.src = "//img.lfmall.co.kr/file/WAS/apps/2022/polyfill-0-1-43.min.js", r.parentNode.insertBefore(a, r) }(window, document, "script")</script>
-<script async="" type="text/javascript"
-        src="https://img.lfmall.co.kr/file/WAS/display/Planning/plan_design/js/planCommon.v2.js"></script>
-<div id="reactModalWrap"></div>
-<div class="ReactModalPortal"></div>
-<div class="ReactModalPortal"></div>
-<div class="ReactModalPortal"></div>
-<script type="text/javascript" id="" charset="UTF-8" src="//t1.daumcdn.net/kas/static/kp.js"></script>
-<script type="text/javascript"
-        id="">(function (a, b, c, d) { a[c] = a[c] || []; a[c].push({ eventType: "init", value: d, dc: "asia" }); a = b.getElementsByTagName("script")[0]; b = b.createElement("script"); b.async = !0; b.src = "https://tags.creativecdn.com/PyOP92fMkBYTYUC3jPaJ.js"; a.parentNode.insertBefore(b, a) })(window, document, "rtbhEvents", "PyOP92fMkBYTYUC3jPaJ");</script>
-<script type="text/javascript"
-        id="">window._tfa = window._tfa || []; window._tfa.push({ notify: "event", name: "page_view", id: 1707113 }); !function (a, b, d, c) { document.getElementById(c) || (a.async = 1, a.src = d, a.id = c, b.parentNode.insertBefore(a, b)) }(document.createElement("script"), document.getElementsByTagName("script")[0], "//cdn.taboola.com/libtrc/unip/1707113/tfa.js", "tb_tfa_script");</script>
-<script type="text/javascript" id="" src="https://wcs.naver.net/wcslog.js"></script>
-<script type="text/javascript"
-        id="">!function (b, e, f, g, a, c, d) { b.fbq || (a = b.fbq = function () { a.callMethod ? a.callMethod.apply(a, arguments) : a.queue.push(arguments) }, b._fbq || (b._fbq = a), a.push = a, a.loaded = !0, a.version = "2.0", a.queue = [], c = e.createElement(f), c.async = !0, c.src = g, d = e.getElementsByTagName(f)[0], d.parentNode.insertBefore(c, d)) }(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js"); fbq("init", "1638196123170386"); fbq("track", "PageView");</script>
-<noscript>
-    <img through="m2ps" loading="lazy" height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1638196123170386&amp;ev=PageView&amp;noscript=1">
-</noscript>
-<script type="text/javascript"
-        id="">var wptg_tagscript_vars = wptg_tagscript_vars || [], _lf_device = document.getElementById("device_1_gtm") ? document.getElementById("device_1_gtm").value : "", wpLfId = "", wpElement = document.getElementById("id_gtm"); wpElement && (wpLfId = wpElement.value || ""); wptg_tagscript_history = { history_peak: {}, history_ty: {}, ty_grade: { Home: 1, Item: 2, Cart: 3, PurchaseComplete: 4 }, ty_isola: { Login: 1, Join: 2 } };
-            function getCookie(d) { for (var b = document.cookie.split(";"), a = 0; a < b.length; a++) { var c = b[a].split("\x3d"); if (d == c[0].trim()) return decodeURIComponent(c[1]) } return null } var adidCookie = getCookie("adid"); wptg_tagscript_vars.push(function () { return { wp_hcuid: wpLfId, ti: "17479", ty: "Home", device: _lf_device, wpiad: adidCookie || "" } });</script>
+<h1>Main Menu</h1>
+<label for="nameInput">Enter Name:</label>
+<input type="text" id="nameInput" placeholder="Enter a category name">
+<button onclick="fetchNames()">Submit</button>
 
-<script type="text/javascript" id="" src="//cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
-<script type="text/javascript"
-        id="">var linkback = linkback || {}; (function () { var a = document, b = a.createElement("script"); a = a.getElementsByTagName("head")[0]; b.type = "text/javascript"; b.async = !0; var c = new Date; c = c.getFullYear().toString() + ("0" + (c.getMonth() + 1)).slice(-2) + ("0" + c.getDate()).slice(-2); b.src = "https://linkback.contentsfeed.com/src/" + c + "/lb4lf.min.js"; b.charset = "utf-8"; linkback.l || (linkback.l = !0, a.insertBefore(b, a.firstChild)) })();</script>
-<script type="text/javascript"
-        id="">if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) { var mobonScript = document.createElement("script"); mobonScript.src = "https://cdn.megadata.co.kr/dist/prod/v2/mtm.js?adverId\x3dlfmall\x26device\x3dM" } else mobonScript = document.createElement("script"), mobonScript.src = "https://cdn.megadata.co.kr/dist/prod/v2/mtm.js?adverId\x3dlfmall\x26device\x3dW"; mobonScript.async = !0; document.head.appendChild(mobonScript);</script>
-<div id="wp_tg_cts" style="display:none;"></div>
-
-<script type="text/javascript" id="" src="//fin.rainbownine.net/js/across_adn_3.0.1_106075.js"></script>
-<script type="text/javascript"
-        id="">(function (b, e, c, f, a, d) { b[c] = b[c] || function () { (b[c].q = b[c].q || []).push(arguments) }; a = e.createElement(f); a.async = 1; a.charset = "utf-8"; a.src = "//static.dable.io/dist/dablena.min.js"; d = e.getElementsByTagName(f)[0]; d.parentNode.insertBefore(a, d) })(window, document, "dablena", "script"); dablena("init", "001-010-739"); dablena("track", "PageView");</script>
-
-<script type="text/javascript" id="">kakaoPixel("9113095958439938742").pageView();</script>
-<script type="text/javascript"
-        id="">if (!wcs_add) var wcs_add = {}; wcs_add.wa = "s_51111d49b5c0"; if (!_nasa) var _nasa = {}; window.wcs && (wcs.inflow("lfmall.co.kr"), wcs_do(_nasa));</script>
-
-<script type="text/javascript"
-        id="">setTimeout(function () { var a = new fn_across_adn3_contain; var b = { ut: "Home", ui: "106075" }; a.init(b) }, 1E3);</script>
-<iframe allow="join-ad-interest-group" data-tagging-id="AW-1032690246" data-load-time="1727169523354" height="0"
-        width="0"
-        src="https://td.doubleclick.net/td/rul/1032690246?random=1727169523298&amp;cv=11&amp;fst=1727169523298&amp;fmt=3&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be49j0v888771533z8812562886za200zb812562886&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=0&amp;u_w=1536&amp;u_h=864&amp;url=https%3A%2F%2Fwww.lfmall.co.kr%2Fapp%2Fexhibition%2Fmenu%2F501&amp;ref=https%3A%2F%2Fwww.lfmall.co.kr%2Fapp%2Fexhibition%2Fcategory%2F128000&amp;hn=www.googleadservices.com&amp;frm=0&amp;tiba=%EB%82%98%EB%A5%BC%20%EB%82%98%EB%8B%B5%EA%B2%8C%20LFmall.com&amp;npa=0&amp;pscdl=noapi&amp;auid=739979728.1727137547&amp;uaa=x86&amp;uab=64&amp;uafvl=Google%2520Chrome%3B129.0.6668.59%7CNot%253DA%253FBrand%3B8.0.0.0%7CChromium%3B129.0.6668.59&amp;uamb=0&amp;uam=&amp;uap=Windows&amp;uapv=15.0.0&amp;uaw=0&amp;fledge=1&amp;data=event%3Dgtag.config"
-        style="display: none; visibility: hidden;"></iframe><iframe allow="join-ad-interest-group"
-                                                                    data-tagging-id="AW-878551776" data-load-time="1727169523372" height="0" width="0"
-                                                                    src="https://td.doubleclick.net/td/rul/878551776?random=1727169523356&amp;cv=11&amp;fst=1727169523356&amp;fmt=3&amp;bg=ffffff&amp;guid=ON&amp;async=1&amp;gtm=45be49j0v888771533z8812562886za200zb812562886&amp;gcd=13l3l3l3l1l1&amp;dma=0&amp;tag_exp=0&amp;u_w=1536&amp;u_h=864&amp;url=https%3A%2F%2Fwww.lfmall.co.kr%2Fapp%2Fexhibition%2Fmenu%2F501&amp;ref=https%3A%2F%2Fwww.lfmall.co.kr%2Fapp%2Fexhibition%2Fcategory%2F128000&amp;hn=www.googleadservices.com&amp;frm=0&amp;tiba=%EB%82%98%EB%A5%BC%20%EB%82%98%EB%8B%B5%EA%B2%8C%20LFmall.com&amp;npa=0&amp;pscdl=noapi&amp;auid=739979728.1727137547&amp;uaa=x86&amp;uab=64&amp;uafvl=Google%2520Chrome%3B129.0.6668.59%7CNot%253DA%253FBrand%3B8.0.0.0%7CChromium%3B129.0.6668.59&amp;uamb=0&amp;uam=&amp;uap=Windows&amp;uapv=15.0.0&amp;uaw=0&amp;fledge=1&amp;data=event%3Dgtag.config"
-                                                                    style="display: none; visibility: hidden;"></iframe>
-<div id="criteo-tags-div" style="display: none;"></div><iframe width="1" height="1" scrolling="no" frameborder="0"
-                                                               style="display:none"
-                                                               src="https://asia.creativecdn.com/ig-membership?ntk=ZVFmOO-SOlkLB_xTLBd_Sc47UDJyIbUjJzmalYLZVBUm-Sda7ejBM9ZutZkt9rmq50tZSZUrKPAiXwaZje4OtCBJSDuUD-lt75Se4Eg7oaw"></iframe><iframe
-        width="1" height="1" scrolling="no" frameborder="0" style="display:none"
-        src="https://asia.creativecdn.com/topics-membership?ntk=nz7Rfp6R2TTKBzva95CTTPM5j92RahF0ItJEWWexcdAV7bpIXI0D9FY9oJtbNpoUWNGYvyHINADro-WrfKEetqOXOmocyQnyjgKZ4hniLwk"></iframe>
-<div id="across_adn_container" style="display:none">
-    <div id="across_adn3_wrap_41876301501" style="display:none"><iframe frameborder="0" scrolling="no" width="0px"
-                                                                        height="0px"
-                                                                        src="https://kn.acrosspf.com/ads_3.0.1.ad?ad_ids=rb-adn-1-ed18977b306ab4190f7dbd4c13dd50cf&amp;u=106075&amp;t=pages&amp;ts=37799688993"></iframe>
-    </div>
-    <div id="across_adn3_wrap_36728924165" style="display:none"><iframe frameborder="0" scrolling="no" width="0px"
-                                                                        height="0px"
-                                                                        src="https://kn.acrosspf.com/ads_3.0.1.ad?ad_ids=rb-adn-1-ed18977b306ab4190f7dbd4c13dd50cf&amp;u=106075&amp;t=pagesing&amp;ps=10&amp;ts=30360463554"></iframe>
-    </div>
-    <div id="across_adn3_wrap_80841741880" style="display:none"><iframe frameborder="0" scrolling="no" width="0px"
-                                                                        height="0px"
-                                                                        src="https://kn.acrosspf.com/ads_3.0.1.ad?ad_ids=rb-adn-1-ed18977b306ab4190f7dbd4c13dd50cf&amp;u=106075&amp;t=pagesing&amp;ps=20&amp;ts=26308874082"></iframe>
-    </div>
-    <div id="across_adn3_wrap_1347267570" style="display:none"><iframe frameborder="0" scrolling="no" width="0px"
-                                                                       height="0px"
-                                                                       src="https://kn.acrosspf.com/ads_3.0.1.ad?ad_ids=rb-adn-1-ed18977b306ab4190f7dbd4c13dd50cf&amp;u=106075&amp;t=pagesing&amp;ps=30&amp;ts=20042368717"></iframe>
-    </div>
-    <div id="across_adn3_wrap_33242432128" style="display:none"><iframe frameborder="0" scrolling="no" width="0px"
-                                                                        height="0px"
-                                                                        src="https://kn.acrosspf.com/ads_3.0.1.ad?ad_ids=rb-adn-1-ed18977b306ab4190f7dbd4c13dd50cf&amp;u=106075&amp;t=pagesing&amp;ps=40&amp;ts=1661911070"></iframe>
-    </div>
-    <div id="across_adn3_wrap_46895348411" style="display:none"><iframe frameborder="0" scrolling="no" width="0px"
-                                                                        height="0px"
-                                                                        src="https://kn.acrosspf.com/ads_3.0.1.ad?ad_ids=rb-adn-1-ed18977b306ab4190f7dbd4c13dd50cf&amp;u=106075&amp;t=pagesing&amp;ps=50&amp;ts=87410778486"></iframe>
-    </div>
-    <div id="across_adn3_wrap_60514318552" style="display:none"><iframe frameborder="0" scrolling="no" width="0px"
-                                                                        height="0px"
-                                                                        src="https://kn.acrosspf.com/ads_3.0.1.ad?ad_ids=rb-adn-1-ed18977b306ab4190f7dbd4c13dd50cf&amp;u=106075&amp;t=pagesing&amp;ps=60&amp;ts=8311017721"></iframe>
-    </div>
-    <div id="across_adn3_wrap_47790202588" style="display:none"><iframe frameborder="0" scrolling="no" width="0px"
-                                                                        height="0px"
-                                                                        src="https://kn.acrosspf.com/ads_3.0.1.ad?ad_ids=rb-adn-1-ed18977b306ab4190f7dbd4c13dd50cf&amp;u=106075&amp;t=pagesing&amp;ps=70&amp;ts=13006754912"></iframe>
-    </div>
-    <div id="across_adn3_wrap_66671234126" style="display:none"><iframe frameborder="0" scrolling="no" width="0px"
-                                                                        height="0px"
-                                                                        src="https://kn.acrosspf.com/ads_3.0.1.ad?ad_ids=rb-adn-1-ed18977b306ab4190f7dbd4c13dd50cf&amp;u=106075&amp;t=pagesing&amp;ps=80&amp;ts=66486286426"></iframe>
-    </div>
-    <div id="across_adn3_wrap_88012008201" style="display:none"><iframe frameborder="0" scrolling="no" width="0px"
-                                                                        height="0px"
-                                                                        src="https://kn.acrosspf.com/ads_3.0.1.ad?ad_ids=rb-adn-1-ed18977b306ab4190f7dbd4c13dd50cf&amp;u=106075&amp;t=pagesing&amp;ps=90&amp;ts=9198404433"></iframe>
-    </div>
-    <div id="across_adn3_wrap_68254168998" style="display:none"><iframe frameborder="0" scrolling="no" width="0px"
-                                                                        height="0px"
-                                                                        src="https://kn.acrosspf.com/ads_3.0.1.ad?ad_ids=rb-adn-1-ed18977b306ab4190f7dbd4c13dd50cf&amp;u=106075&amp;t=pagesing&amp;ps=100&amp;ts=88146687642"></iframe>
-    </div>
-    <div id="across_adn3_wrap_65938260564" style="display:none"><iframe frameborder="0" scrolling="no" width="0px"
-                                                                        height="0px"
-                                                                        src="https://kn.acrosspf.com/ads_3.0.1.ad?ad_ids=rb-adn-1-ed18977b306ab4190f7dbd4c13dd50cf&amp;u=106075&amp;t=pagesing&amp;ps=110&amp;ts=20730381926"></iframe>
-    </div>
-</div><iframe height="0" width="0" sandbox="allow-same-origin allow-scripts" aria-hidden="true"
-              title="Criteo DIS iframe" style="display: none;"></iframe>
-<script type="text/javascript"
-        id="">var wptg_tagscript_vars = wptg_tagscript_vars || [], _lf_device = document.getElementById("device_1_gtm") ? document.getElementById("device_1_gtm").value : "", wpLfId = "", wpElement = document.getElementById("id_gtm"); wpElement && (wpLfId = wpElement.value || ""); wptg_tagscript_history = { history_peak: {}, history_ty: {}, ty_grade: { Home: 1, Item: 2, Cart: 3, PurchaseComplete: 4 }, ty_isola: { Login: 1, Join: 2 } };
-            function getCookie(d) { for (var b = document.cookie.split(";"), a = 0; a < b.length; a++) { var c = b[a].split("\x3d"); if (d == c[0].trim()) return decodeURIComponent(c[1]) } return null } var adidCookie = getCookie("adid"); wptg_tagscript_vars.push(function () { return { wp_hcuid: wpLfId, ti: "17479", ty: "Home", device: _lf_device, wpiad: adidCookie || "" } });</script>
-
-<script type="text/javascript" id="" src="//cdn-aitg.widerplanet.com/js/wp_astg_4.0.js"></script>
-<script type="text/javascript"
-        id="">var _lf_id = document.getElementById("id_gtm").value || "unknown"; (rtbhEvents = window.rtbhEvents || []).push({ eventType: "home" }, { eventType: "uid", id: _lf_id });</script>
-<iframe width="1" height="1" scrolling="no" frameborder="0" style="display:none"
-        src="https://asia.creativecdn.com/ig-membership?ntk=ZVFmOO-SOlkLB_xTLBd_Sc47UDJyIbUjJzmalYLZVBUm-Sda7ejBM9ZutZkt9rmq50tZSZUrKPAiXwaZje4OtCBJSDuUD-lt75Se4Eg7oaw"></iframe><iframe
-        allow="join-ad-interest-group" data-tagging-id="G-K1ZGHLS8PP" data-load-time="1727170298735" height="0"
-        width="0"
-        src="https://td.doubleclick.net/td/ga/rul?tid=G-K1ZGHLS8PP&amp;gacid=35274737.1727137547&amp;gtm=45je49j0v9115170610za200zb812562886&amp;dma=0&amp;gcd=13l3l3l3l1l1&amp;npa=0&amp;pscdl=noapi&amp;aip=1&amp;fledge=1&amp;frm=0&amp;tag_exp=0&amp;z=979250882"
-        style="display: none; visibility: hidden;"></iframe><iframe width="1" height="1" scrolling="no" frameborder="0"
-                                                                    style="display:none"
-                                                                    src="https://asia.creativecdn.com/topics-membership?ntk=nz7Rfp6R2TTKBzva95CTTPM5j92RahF0ItJEWWexcdAV7bpIXI0D9FY9oJtbNpoUWNGYvyHINADro-WrfKEetqOXOmocyQnyjgKZ4hniLwk"></iframe>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<h2>Results:</h2>
+<div id="result"></div> <!-- 결과를 표시할 DIV -->
 </body>
 <div th:replace="~{includes/footer}"></div>
 </html>
