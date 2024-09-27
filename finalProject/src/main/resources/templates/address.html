@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/mypage.css">
+    <link rel="stylesheet" href="/css/address.css">
+    <script defer src="/js/address.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+    <div id="container">
+        <div id="contents">
+            <div class="content_new">
+                <div class="location_path">
+                    <ul id="category_path" class="category_path">
+                        <li>
+                            <!-- [D]하위 뎁스 없는 경우 클래스명 depth_none 추가 -->
+                            <a href="/p2/display/menu?id=501&amp;etag1=045_A002_E239&amp;etag2=0&amp;etag3=1&amp;etag4=0"
+                               class="lfc::NONE:PATH::1:1:홈::::">홈</a>
+                        </li>
+
+                        <li id="HEADERPAGENAME"><a href="javascript:void(0);"
+                                                   onclick="javascript:cfGoToPageForLogin(PAGE_MYPAGE);">마이페이지</a></li>
+
+                        <!-- default타입 path -->
+                        <li><a href="javascript:void(0);" class="depth_none">쇼핑내역</a></li>
+                        <li class="on"><a href="javascript:void(0);"> 주문/배송 내역</a></li>
+                    </ul>
+                </div>
+
+                <div class="mypage_base">
+
+                    <h2><a href="javascript:void(0);"
+                           onclick="javascript:cfGoToPageForLogin(PAGE_MYPAGE);">마이페이지</a></h2>
+
+                    <div class="mypage_info">
+
+                        <div class="left">
+                            <p><em></em></p>
+
+                            <span class="mark n-grade ty07">
+
+                                </span>
+                            <a href="javascript:void(0);"
+                               onclick="cfGoToPage(PAGE_MEM_INTEG_GRADE+'&amp;etag1=045_A110_E324&amp;etag2=0&amp;etag3=0&amp;etag4=0');">등급혜택보기</a>
+
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="javascript:void(0);"
+                                   onclick="cfGoToPageForLogin(PAGE_MY_REVIEW+'&amp;etag1=045_A110_E327&amp;etag2=0&amp;etag3=0&amp;etag4=0');">
+                                    상품리뷰
+                                    <span>
+                                            <em>0</em>개
+                                        </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);" class="dash-link"
+                                   onclick="cfGoToPageForLogin(PAGE_COUPON+'&amp;left_menu=0&amp;&amp;etag1=045_A110_E231&amp;etag2=0&amp;etag3=0&amp;etag4=0');">
+                                    쿠폰<!-- 쿠폰은 left메뉴가 2개임(쿠폰조회,쿠폰등록) -->
+                                    <span>
+                                            <em></em>장
+                                        </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a onclick="cfGoToPageForLogin(PAGE_FPOINT+'&amp;left_menu=2&amp;&amp;etag1=045_A110_E328&amp;etag2=0&amp;etag3=0&amp;etag4=0');"
+                                   href="javascript:void(0);">
+                                    e기프트 마일리지
+                                    <span>
+                                            <em>0</em>M
+                                        </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0);"
+                                   onclick="cfGoToPageForLogin(PAGE_POINT+'&amp;left_menu=3&amp;&amp;etag1=045_A110_E329&amp;etag2=0&amp;etag3=0&amp;etag4=0');">
+                                    마일리지
+                                    <span>
+                                            <em></em>M
+                                        </span>
+                                </a>
+                            </li>
+
+                            <!--[LFML-71477] 간편결제(LFpay) 도입 START  -->
+                            <li class="lfpay">
+
+                                <a href="javascript:void(0);" onclick="goLfpay();return false;">
+                                    <!-- 202203 BX개선 -->
+                                    <div class="lf-logo"><img
+                                            src="//img.lfmall.co.kr/file/WAS/display/lf2022/pc/logo-l-fpay2x.png"
+                                            alt="Lfpay"></div>
+
+                                    <span>등록하기</span>
+
+                                </a>
+                            </li>
+                            <!--[LFML-71477] 간편결제(LFpay) 도입 END -->
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mypage_cont">
+                    <!-- LNB -->
+                    <div class="common_lnb">
+                        <ul>
+
+                            <li class="on">
+                                <span class="tit">쇼핑내역</span>
+                                <ul class="sub">
+                                    <li class="on"><a href="javascript:void(0);"
+                                                      onclick="cfGoToMyPageForLogin(PAGE_ORDER+'&amp;etag1=045_A111_E331&amp;etag2=0&amp;etag3=1&amp;etag4=0');">주문/배송
+                                        내역</a></li> <!-- LFML-68081 명칭변경 - 주문내역 전체보기 >> 주문/배송 내역 -->
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_ORDER_ASK+'&amp;etag1=045_A111_E331&amp;etag2=0&amp;etag3=2&amp;etag4=0');">취소/반품/교환
+                                        신청</a></li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_ORDER_CRE+'&amp;etag1=045_A111_E331&amp;etag2=0&amp;etag3=3&amp;etag4=0');">취소/반품/교환
+                                        내역</a></li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_REPAYMENT+'&amp;etag1=045_A111_E331&amp;etag2=0&amp;etag3=4&amp;etag4=0');">재결제
+                                        대기</a></li>
+
+                                    <!-- <li><a href="javascript:void(0);" onclick="cfGoToMyPageForLogin(PAGE_OFFSHOP_REPAIR+'&etag1=045_A111_E331&etag2=0&etag3=5&etag4=0');">오프라인 매장 수선내역</a></li> -->
+
+                                    <!-- <li><a href="javascript:void(0);" onclick="cfGoToMyPageForLogin(PAGE_CLUBL_MEMBERSHIP)">Club-L 회원권 주문내역</a></li> -->
+
+
+                                    <li><a href="javascript:void(0);"
+                                           onclick="sendOpenPageTagAjax('155', '045_A296_E253','0','0','0', 'https://www.whypaymore.co.kr/d/account/login/pnrlf');">항공권
+                                        예약/조회</a></li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="sendOpenPageTagAjax('182', '045_A296_E253','0','7','0', '//lf.tigergds.com/SignIn');">골프
+                                        예약/조회</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="tit">나의혜택</span>
+                                <ul class="sub">
+
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_COUPON+'&amp;left_menu=0&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=2&amp;etag4=0');">쿠폰
+                                        조회</a></li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_COUPON_REG+'&amp;left_menu=1&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=3&amp;etag4=0');">쿠폰
+                                        등록</a></li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_FPOINT+'&amp;left_menu=2&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=5&amp;etag4=0');">e기프트
+                                        마일리지 조회</a><span class="info"
+                                                         onclick="javascript:openLayer('first_point1',590,120)">정보</span></li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_POINT+'&amp;left_menu=3&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=4&amp;etag4=0');">마일리지
+                                        조회</a></li>
+
+
+                                    <!-- <dd><a href="javascript:void(0);" onclick="cfGoToMyPageForLogin(PAGE_CLUBL_DC_LIMIT);">Club-L 할인한도 조회</a></dd> -->
+
+
+
+                                    <!-- [LFML-71477] LFpay -->
+
+                                    <li><a href="javascript:void(0);"
+                                           onclick="openLfpayLayer('registLfpay'); return false;">LFpay</a></li>
+
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageNewMenuForLogin(PAGE_PLANNING_DTL+'&amp;datacls=75770');">LFmall
+                                        신용카드</a></li>
+
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageNewMenuForLogin(PAGE_ALLIANCEY_SERVICE+'?left_menu=7&amp;etag1=045_A292_E741&amp;etag2=0&amp;etag3=0&amp;etag4=0');">제휴
+                                        서비스</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="tit">나의활동</span>
+                                <ul class="sub">
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_MY_REVIEW+'&amp;etag1=045_A111_E333&amp;etag2=0&amp;etag3=1&amp;etag4=0');">상품리뷰</a>
+                                    </li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_QNALIST+'&amp;etag1=045_A111_E333&amp;etag2=0&amp;etag3=2&amp;etag4=0');">상품
+                                        Q&amp;A</a></li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_COUNSEL+'&amp;etag1=045_A111_E333&amp;etag2=0&amp;etag3=3&amp;etag4=0');">1:1상담</a>
+                                    </li>
+
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_WISHLIST+'&amp;etag1=045_A111_E333&amp;etag2=0&amp;etag3=4&amp;etag4=0');">위시리스트</a>
+                                    </li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_MYFAVORITE+'&amp;etag1=045_A111_E333&amp;etag2=0&amp;etag3=5&amp;etag4=0');">관심
+                                        브랜드 조회</a></li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_VOC+'&amp;etag1=045_A111_E333&amp;etag2=0&amp;etag3=6&amp;etag4=0');">고객제안</a>
+                                    </li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_REWAREHOUSE_NOTICE+'&amp;etag1=045_A111_E333&amp;etag2=0&amp;etag3=7&amp;etag4=0');">재입고
+                                        알림 내역</a></li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_EVENT_HST+'&amp;etag1=045_A111_E333&amp;etag2=0&amp;etag3=8&amp;etag4=0');">이벤트/체험단
+                                        참여 내역</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="tit">회원정보</span>
+                                <ul class="sub">
+
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_MEM_INTEG_GRADE+'&amp;etag1=045_A111_E334&amp;etag2=0&amp;etag3=1&amp;etag4=0');">회원등급</a>
+                                    </li>
+                                    <!--                 <li><a href="javascript:void(0);" onclick="cfGoToMyPageForLogin(PAGE_MEM_INFO);">회원정보 조회/수정</a></dd> -->
+
+                                    <li><a href="/mypage/userInfo_change1"
+                                           onclick="cfGoToMyPageForLogin(PAGE_MEM_INFO+'&amp;etag1=045_A111_E334&amp;etag2=0&amp;etag3=2&amp;etag4=0');">회원정보 변경</a></li>
+
+                                    <li style="display:none;"><a href="javascript:void(0);"
+                                                                 onclick="cfGoToMyPageForLogin(PAGE_VIRCLE_NFT_ADRESS+'&amp;etag1=045_A111_E334&amp;etag2=0&amp;etag3=7&amp;etag4=0');">KLIP
+                                        주소</a></li><!-- [LFML-82481] 디지털개런티카드 -->
+
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_REFUND_ACCOUNT+'&amp;etag1=045_A111_E334&amp;etag2=0&amp;etag3=3&amp;etag4=0');">환불계좌관리</a>
+                                    </li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_ADDRESS+'&amp;etag1=045_A111_E334&amp;etag2=0&amp;etag3=5&amp;etag4=0');">배송지
+                                        관리</a></li>
+                                    <!-- <dd><a href="javascript:void(0);" onclick="cfGoToMyPageForLogin(PAGE_AFFL_CERT);">제휴임직원 인증</a></dd> -->
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_AFFL_CERT+'&amp;etag1=045_A111_E334&amp;etag2=0&amp;etag3=6&amp;etag4=0');">제휴임직원
+                                        인증</a></li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_FMLY_CERT);">패밀리 인증</a></li>
+                                    <li><a href="javascript:void(0);"
+                                           onclick="cfGoToMyPageForLogin(PAGE_MEM_SECEDE+'&amp;etag1=045_A111_E334&amp;etag2=0&amp;etag3=4&amp;etag4=0');">회원탈퇴</a>
+                                    </li>
+                                    <!--                 <li><a href="javascript:void(0);" onclick="cfCbMemCheckGoToMembers(PAGE_LFMEMBERS_PWCNG);">회원탈퇴</a></li> -->
+                                </ul>
+                            </li>
+                            <li><a href="javascript:void(0);"
+                                   onclick="cfGoToMyPageForLogin(PAGE_FAQ+'&amp;etag1=045_A111_E207&amp;etag2=0&amp;etag3=0&amp;etag4=0');"
+                                   class="tit">FAQ</a></li>
+                            <li><a href="javascript:void(0);"
+                                   onclick="cfGoToMyPageForLogin(PAGE_CUSTOMER+'&amp;etag1=045_A111_E018&amp;etag2=0&amp;etag3=0&amp;etag4=0');"
+                                   class="tit">고객센터</a></li>
+
+
+                        </ul>
+                    </div>
+
+                    <!-- 선마일리지 안내 :: 팝업레이어 -->
+                    <div class="layer_new" id="first_point1" style="display:none;top:240px;left:260px;width:390px;">
+                        <h2>e기프트 마일리지 조회</h2>
+                        <a class="close" href="javascript:closeLayer('first_point1')"><img alt="닫기"
+                                                                                           src="//img.lfmall.co.kr/file/WAS/apps/2017/pfront/btn_close_20x20.png"></a>
+                        <div class="layer_cont">
+                            <div class="ly_list">
+                                <ul>
+                                    <li>e기프트 마일리지는 유효기간 내 사용이 가능하며, LFmall 자사상품에만 적용 가능합니다. (오프라인 사용 불가)</li>
+                                    <li>한 주문 당 하나 만 사용 가능하며, 이벤트에 따라 일부 상품은 제외될 수 있습니다.</li>
+                                    <li>e기프트 마일리지는 최종 결제 금액의 50%까지만 사용 가능합니다.</li>
+                                    <li>지급된 e기프트 마일리지보다 낮은 가격의 상품에는 사용할 수 없습니다.</li>
+                                </ul>
+                            </div>
+                            <div class="ly_btn">
+                                <a href="javascript:closeLayer('first_point1')">확인</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--// 선마일리지 안내 -->
+
+                    <!-- LFML-71477 결제수단 관리 layer -->
+                    <div class="ly-common-wrap ly-common-wrap-lfpay" id="lfpayccc" style="display: none;">
+                        <div class="ly-common-container">
+                            <h3 class="ly-common-ttl" style="z-index:99999990;">
+                                <img src="//img.lfmall.co.kr/file/WAS/apps/2021/image/mweb/lfpay/logo-l-fpay-header%402x.png"
+                                     class="playlogo" alt="">
+                            </h3>
+                            <div class="ly-common-content" id="dynaContents">
+                                <iframe name="lfpayIframe"></iframe>
+                            </div>
+                            <div class="ly-close-x" style="z-index:99999990;">
+                                <button class="ui-btn-type-ico act-close-ly"
+                                        onclick="closeLfpayLayer();return false;"><span class="blind">닫기</span></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ShippingAddress_mypageContents__ubJef">
+                        <div class="ShippingAddress_mypageTitle__Rn7VY"><h4>배송지 관리</h4></div>
+                        <div class="ShippingAddress_manage__9LHqJ">
+                            <div class="ShippingAddress_empty__ULmPZ"><p>자주 사용하는 배송지를 등록해 주세요.</p></div>
+                            <div class="ShippingAddress_btnWrap__RyiNb">
+                                <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27">기본 배송지
+                                    설정
+                                </button>
+                                <button type="button" onclick="openAddressForm()"
+                                        class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27 LfButton_fillBlack__Cy1XN">
+                                    배송지 추가
+                                </button>
+                            </div>
+                        </div>
+<!--                        <div class="ShippingAddress_manage__9LHqJ">-->
+<!--                            <button type="button"-->
+<!--                                    class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH ShippingAddress_btnDeleteAll__ByTQY">-->
+<!--                                전체삭제-->
+<!--                            </button>-->
+<!--                            <ul class="ShippingAddress_manageList__+RdgG">-->
+<!--                                <li>-->
+<!--                                    <div class="ShippingAddress_listIn__hpd7A">-->
+<!--                                        <div class="LfInput_lfInputRadio__R8RDO">-->
+<!--                                            <input type="radio" id="deliveryAddress_0" class="LfInput_input__eAm0q" name="radio" value="">-->
+<!--                                            <label for="deliveryAddress_0">-->
+<!--                                                <span class="ShippingAddress_addBox__2uD5+">-->
+<!--                                                    <strong class="ShippingAddress_name__hNNZi">{name}</strong>-->
+<!--                                                    <span>{fristaddress}<br>{detailaddrss}</span>-->
+<!--                                                </span>-->
+<!--                                            </label>-->
+<!--                                        </div>-->
+<!--                                        <div class="ShippingAddress_btnArea__RYpMZ">-->
+<!--                                            <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">수정-->
+<!--                                            </button>-->
+<!--                                            <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">삭제-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                            <div class="CommonPaging_pageNumber__mqg4O">-->
+<!--                                <button type="button" class="CommonPaging_pageFirst__otE46" disabled="">맨처음으로</button>-->
+<!--                                <button type="button" class="CommonPaging_pagePrev__YuOzn" disabled="">이전으로</button>-->
+<!--                                <button class="CommonPaging_active__PofqH">1</button>-->
+<!--                                <button type="button" class="CommonPaging_pageNext__6qqb6" disabled="">다음으로</button>-->
+<!--                                <button type="button" class="CommonPaging_pageEnd__STI4L" disabled="">맨마지막으로</button>-->
+<!--                            </div>-->
+<!--                            <div class="ShippingAddress_btnWrap__RyiNb">-->
+<!--                                <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27">기본 배송지-->
+<!--                                    설정-->
+<!--                                </button>-->
+<!--                                <button type="button"-->
+<!--                                        class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27 LfButton_fillBlack__Cy1XN">-->
+<!--                                    배송지 추가-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                    </div>
+
+
+
+
+                    <form name="meberCheckForm" method="post">
+                        <input type="hidden" name="AFTERSELFCERT" id="AFTERSELFCERT" value="C">
+                        <input type="hidden" name="RETURN_URL" id="RETURN_URL" value="">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
