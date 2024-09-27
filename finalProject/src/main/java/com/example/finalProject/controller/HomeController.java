@@ -1,18 +1,21 @@
 package com.example.finalProject.controller;
 
 import com.example.finalProject.dto.NoticeDTO;
+import com.example.finalProject.dto.ProductDTO;
 import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.NoticeService;
 import com.example.finalProject.service.ProductService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -35,13 +38,16 @@ public class HomeController {
 
     @GetMapping(value = "/detailItem/{idx}")
     public String detailItem(@PathVariable int idx, Model model){
-        model.addAttribute("recommand",productService.recommandProduct());
+        model.addAttribute("recommand",productService.recommandProduct(idx));
         model.addAttribute("product",productService.findByIdx(idx));
         return "detailItem";
     }
 
-    @GetMapping(value = "/detailItem/pay")
-    public String pay(){
+    @PostMapping(value = "/detailItem/pay")
+    public String pay(@RequestParam HashMap<String,String> map, Model model){
+        String idx = map.get("idx");
+        model.addAttribute("product",productService.findByIdx(Integer.parseInt(idx)));
+        model.addAttribute("count",map.get("count"));
         return "pay";
     }
 

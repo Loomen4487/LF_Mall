@@ -26,8 +26,8 @@ public class ProductService {
     }
 
     @Transactional(readOnly = true)
-    public List<ProductDTO> recommandProduct(){
-        List<ProductEntity> pe = productRepository.recommandProduct();
+    public List<ProductDTO> recommandProduct(int idx){
+        List<ProductEntity> pe = productRepository.recommandProduct(idx);
         List<ProductDTO> dto = new ArrayList<>();
         pe.forEach(item->dto.add(item.toDTO()));
         return dto;
@@ -70,4 +70,5 @@ public class ProductService {
         pe.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
+
 }

@@ -21,4 +21,5 @@ public class CategoryDTO {
     public CategoryEntity toEntity(){
         return new CategoryEntity(idx,major,middle,sub,created_at,updated_at);
     }
+
 }

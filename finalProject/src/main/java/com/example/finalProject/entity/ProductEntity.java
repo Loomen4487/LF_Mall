@@ -20,7 +20,7 @@ public class ProductEntity {
     private String image;
     @ManyToOne
     @JoinColumn(name = "category_idx")
-    private CategroyEntity category;
+    private CategoryEntity category;
 
     public ProductDTO toDTO(){
         return new ProductDTO(idx,name,price,size,rate,image,category.toDTO());
