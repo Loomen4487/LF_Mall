@@ -37,7 +37,7 @@ public class LoginService {
         return loginRepository.findById(username).toDTO();
     }
 
-    public void save(LoginDTO loginEntity) {
-        loginRepository.save(loginEntity.toEntity());
+    public void save(LoginDTO loginDTO) {
+        loginRepository.save(loginDTO.toEntity());
     }
 }

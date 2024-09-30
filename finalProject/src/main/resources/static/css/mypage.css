@@ -1211,7 +1211,7 @@ body.full-page #wrap.brand_main .wingbnr.wingleft {right: 50%;margin-right: 660p
 .tmpl-brand-img-w-txt .tmpl-brand-txt {display: inline-block;}
 
 /*.brand-sup-ttl>p+p {margin-top: 12px;}*/
-.tmpl-brand-img-w-txt .op-bar {content: '';display: inline-block;width:190px;height:1px;background: #fff;opacity: 0.3;filter: alpha(opacity=30%);position: absolute;bottom:20px;z-index: 10;}
+.tmpl-brand-img-w-txt .op-bar {content: '';display: inline-block;width:190px;height:1px;background: #fff;opacity: 0.3; position: absolute;bottom:20px;z-index: 10;}
 .tmpl-brand-img-w-txt .hide-row {display: none;}
 .tmpl-brand-img-w-txt.type-left .tmpl-brand-img {float: right;}
 .tmpl-brand-img-w-txt.type-left .tmpl-brand-txt {float: right;/*margin-right: 70px;box-sizing: content-box*/;}
@@ -17347,7 +17347,7 @@ td.attach div.addAttachFileSection+p.txt-aid * {
 .tbl_brd_result th {
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
-    background: background-color: #f7f7f7;
+    background: background-color #f7f7f7;
     height: 42px;
     vertiacl-align: middle;
     color: #000000;
@@ -18543,7 +18543,7 @@ td.attach div.addAttachFileSection+p.txt-aid * {
 
 .review_2022 .rv_write_list .wrote_rv .wrote_rv_item .txt_group .wrote_info {
     display: inline-block;
-    font-size: 14px:
+    font-size: 14px;
 }
 
 .review_2022 .rv_write_list .wrote_rv .wrote_rv_item .txt_group .wrote_info .wrote_date {
@@ -20056,7 +20056,7 @@ ul.by-sort {float:right;}
                     .review-detail ul.chk-list li span.dot {background:url('//img.lfmall.co.kr/file/WAS/apps/2013/image/frontoffice/product/bg_chk_dot.gif') no-repeat;}
                     .review-detail ul.chk-list li span.dot.sel {background:url('//img.lfmall.co.kr/file/WAS/apps/2013/image/frontoffice/product/bg_chk_dot_.gif') no-repeat;}
                 .review-detail .bx-color {float:left; width:364px; padding:20px 0 20px 30px; border-bottom:1px solid #ddd;}
-                .review-detail .bx-text {clear:both; padding:20px; 30px; font-size: 12px; color:#666; line-height:20px; text-align:left;}
+                .review-detail .bx-text {clear:both; padding:20px 30px; font-size: 12px; color:#666; line-height:20px; text-align:left;}
 
     .proc-list {*zoom:1;}
         .proc-list:after {content:"."; display:block; height:0px; clear:both; visibility:hidden;}
@@ -20083,7 +20083,7 @@ p.prt-name02 .feature {font-size: 12px;}
 p.prt-name03 {clear:both; padding-top:16px; line-height:14px;}
 p.prt-name03 .name02{font-size: 12px; color:#666;}
 p.prt-name03 .name02 span {display:block; font-size: 12px; color:#999; padding-top:12px;}
-.img-step02 li{float:left;border:margin:0; padding:0; height:154px;}
+.img-step02 li{float:left;border:0; margin:0; padding:0; height:154px;}
 
 /* 201604추가 */
 .cbtn02 {display:inline-block; height:20px; padding:0 0 0 9px; background:url('//img.lfmall.co.kr/file/WAS/apps/2013/image/frontoffice/common/bg_btn_l_02.gif') no-repeat left top; line-height:20px;}
@@ -20442,7 +20442,7 @@ p.prt-name02 {word-break: break-all;}
 .specific_brand_find_rst_box .ipt-txt {font-size: 13px;color: #000000;border-width: 0;line-height: 27px;margin-top: 2px;}
 .specific_brand_find_rst_box:after {display: inline-block;content:'';width:1px;height:19px;background: #e0e0e0;position: absolute;top:50%;margin-top: -10px;right:0;}
 .specific_brand_find_rst_ctrl {float: left;padding: 5px 0 0 10px;}
-.specific_brand_find_rst_ctrl a {display: inline-block;width: 20px;height: 20px;float: left;background: url() no-repeat 0% 0%;margin-right: 5px;}
+.specific_brand_find_rst_ctrl a {display: inline-block;width: 20px;height: 20px;float: left; margin-right: 5px;}
 .specific_brand_find_rst_ctrl a.btn_up_s1 {background-image: url(//img.lfmall.co.kr/file/WAS/apps/2019/pfront/mypage/btn_up_mini.png);}
 .specific_brand_find_rst_ctrl a.btn_up_s1:hover {background-image: url(//img.lfmall.co.kr/file/WAS/apps/2019/pfront/mypage/btn_up_mini_ov.png);}
 .specific_brand_find_rst_ctrl a.btn_dn_s1 {background-image: url(//img.lfmall.co.kr/file/WAS/apps/2019/pfront/mypage/btn_dn_mini.png);}
@@ -21601,7 +21601,7 @@ ul.prd-list > li p.prt-name .brand, ul.prd-list > li p.prt-name .name, ul.prd-li
     left: 0;
     top: 0;
     bottom: 0;
-    margin: z-index:20;
+    margin: z-index 20;
     cursor: pointer;
 }
 
@@ -22421,7 +22421,8 @@ div[class*="-use-guide"] table.table-x3 {
 }
 
 .coordiBook-evt .contentsArea a.bigImg a {
-    block; width: 311px;
+    diplay: block;
+    width: 311px;
     overflow: hidden;
 }
 
@@ -22906,7 +22907,7 @@ h4.ttl-coordination, .product-details .prt-detail h4.ttl-coordination {
     left: 0;
     top: 0;
     bottom: 0;
-    margin: z-index:20;
+    margin: z-index 20;
     cursor: pointer;
 }
 
