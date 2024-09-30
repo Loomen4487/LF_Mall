@@ -1,6 +1,5 @@
 package com.example.finalProject.controller;
 
-import com.example.finalProject.repository.CategoryRepository;
 import com.example.finalProject.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,7 @@ public class MainPageController {
     private CategoryService categoryService;
 
     @GetMapping("/main_menu")
-    public List<String> getNameByCategory(@RequestParam String name) {
+    public List<String> selectName(@RequestParam String name) {
         return categoryService.selectName(name);
     }
 }
