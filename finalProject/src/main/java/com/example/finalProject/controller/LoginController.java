@@ -49,6 +49,11 @@ public class LoginController {
     }
 
 
+    @GetMapping(value = "/idCheck/{id}")
+    @ResponseBody
+    public LoginDTO idCheck(@PathVariable String id){
+        return loginService.findById(id);
+    }
     @GetMapping(value = "/login")
     public String login(){
         return "login";

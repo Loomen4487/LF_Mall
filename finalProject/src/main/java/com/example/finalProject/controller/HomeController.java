@@ -1,13 +1,9 @@
 package com.example.finalProject.controller;
 
 import com.example.finalProject.dto.NoticeDTO;
-import com.example.finalProject.dto.ProductDTO;
 import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.NoticeService;
 import com.example.finalProject.service.ProductService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -38,16 +34,15 @@ public class HomeController {
 
     @GetMapping(value = "/detailItem/{idx}")
     public String detailItem(@PathVariable int idx, Model model){
-        model.addAttribute("recommand",productService.recommandProduct(idx));
-        model.addAttribute("product",productService.findByIdx(idx));
+        model.addAttribute("recommand",productService.findByRef(idx));
         return "detailItem";
     }
 
     @PostMapping(value = "/detailItem/pay")
     public String pay(@RequestParam HashMap<String,String> map, Model model){
         String idx = map.get("idx");
-        model.addAttribute("product",productService.findByIdx(Integer.parseInt(idx)));
-        model.addAttribute("count",map.get("count"));
+        model.addAttribute("product",productService.findByRef(Integer.parseInt(idx)));
+        model.addAttribute("count",Integer.parseInt(map.get("count")));
         return "pay";
     }
 
@@ -70,11 +65,6 @@ public class HomeController {
     public String noticeDetail(@PathVariable int idx,Model model){
         model.addAttribute("notice",noticeService.selectByIdx(idx));
         return "noticeDetail";
-    }
-    @Secured("ROLE_USER")
-    @GetMapping(value = "/mypage")
-    public String mypage(){
-        return "mypage";
     }
 
     @Secured("ROLE_USER")

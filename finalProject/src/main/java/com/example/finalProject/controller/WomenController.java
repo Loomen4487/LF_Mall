@@ -1,5 +1,6 @@
 package com.example.finalProject.controller;
 
+import com.example.finalProject.dto.ProductDTO;
 import com.example.finalProject.service.CategoryService;
 import com.example.finalProject.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -23,43 +24,16 @@ public class WomenController {
         return "women";
     }
 
-    @GetMapping(value = "/women/{major}")
-    public String women(@PathVariable String major, Model model){
-        //model.addAttribute("item",productService.selectIdx(1));
-        model.addAttribute("dto",categoryService.selectMajor(major));
-        HashMap<String, Object> map = productService.selectMajor(major);
-        model.addAttribute("title",major);
-        model.addAttribute("major",major);
-        model.addAttribute("category",map.get("category"));
-        model.addAttribute("item",map.get("list"));
+    @GetMapping(value = "/women/{idx}")
+    public String wo(@PathVariable int idx,Model model){
+        model.addAttribute("item",productService.findByRef(idx));
+        model.addAttribute("major",productService.findMajor());
+        model.addAttribute("middle",productService.findMiddle(idx));
+        if(idx>1000){
+            model.addAttribute("panel",productService.findSub(idx));
+        }else{
+            model.addAttribute("panel",productService.findMiddle(idx));
+        }
         return "women";
     }
-
-    @GetMapping(value = "/women/{major}/{middle}")
-    public String women(@PathVariable String major, @PathVariable String middle, Model model){
-        //model.addAttribute("item",productService.selectIdx(1));
-        model.addAttribute("dto",categoryService.selectMajor(major));
-        HashMap<String, Object> map = productService.selectMiddle(major,middle);
-        model.addAttribute("title",middle);
-        model.addAttribute("major",major);
-        model.addAttribute("middle",middle);
-        model.addAttribute("category",map.get("category"));
-        model.addAttribute("item",map.get("list"));
-        return "women";
-    }
-
-    @GetMapping(value = "/women/{major}/{middle}/{sub}")
-    public String women(@PathVariable String major, @PathVariable String middle, @PathVariable String sub, Model model){
-        //model.addAttribute("item",productService.selectIdx(1));
-        model.addAttribute("dto",categoryService.selectMajor(major));
-        HashMap<String, Object> map = productService.selectMiddle(major,middle);
-        model.addAttribute("title",middle);
-        model.addAttribute("major",major);
-        model.addAttribute("middle",middle);
-        model.addAttribute("sub",sub);
-        model.addAttribute("category",map.get("category"));
-        model.addAttribute("item",productService.selectSub(major,middle,sub));
-        return "women";
-    }
-
 }
