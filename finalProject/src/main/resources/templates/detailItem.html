@@ -1,190 +1,217 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
-  <link rel="stylesheet" href="/css/detailItem.css">
-  <script defer src="/js/detailItem.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <link rel="stylesheet" href="/css/detailItem.css">
+    <script defer src="/js/detailItem.js"></script>
 </head>
 <body>
-  <form action="/detailItem/pay" method="post">
-<div class="detail-box">
+<div th:replace="~{includes/header}"></div>
+<form action="/detailItem/pay" method="post">
+    <div class="detail-box">
 
-  <div class="detail-img">
-    <img th:src="${product.image}"
-         alt="" id="detailItemImg">
-    <input type="hidden" name="idx" th:value="${product.idx}">
-  </div>
-  <div class="productInfoWrap">
-    <div>
-      <!-- <div class="ProductBasic_actionButton__3wqXx">
-          <button type="button" class="ProductBasic_buttonShare__1j9XG">
-              <span class="blind">공유하기</span>
-          </button>
-          <button id="wishlist_button_3_gtm" type="button" class="ProductBasic_buttonLike__RI7PK connectedWish">
-              <span class="blind">좋아요</span>
-              <span class="ProductBasic_num__wjmu4">105</span>
-          </button>
-      </div> -->
-      <div class="ProductBasic_productTitle__Z21Eb"><h1><span id="detailItemName">[[${product.name}]]</span></h1></div>
-      <div class="ProductBasic_optionGroup__19hcz">
-<!--        <div class="ProductBasic_tagGroup__MWkiB"><span class="ProductBasic_tag__bfnBn">신상 쇼케이스</span></div>-->
-        <a>
-          <div class="ProductBasic_rateGroup__SIySE" style="cursor: pointer;">
-            <div class="ProductBasic_pointStar__ks-eb">
-              <div class="ProductBasic_starOn__lzsSv" style="width: 80%;"></div>
-              <div class="ProductBasic_starOff__uGnkU">
-                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve" class="ProductBasic_iconStar__GrtqO" width="14px" height="14px" fill="transparent"><g id="XMLID_1_"><polygon id="XMLID_3_" points="256,403.9 414.6,499.6 372,319.8 512,198.4 327.8,182.5 256,12.4 184.2,182.5 0,198.4 140,319.8  97.4,499.6  "></polygon></g></svg>
-                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                     xml:space="preserve" class="ProductBasic_iconStar__GrtqO" width="14px"
-                     height="14px" fill="transparent" style="margin-left: 4px;"><g id="XMLID_1_"><polygon id="XMLID_3_" points="256,403.9 414.6,499.6 372,319.8 512,198.4 327.8,182.5 256,12.4 184.2,182.5 0,198.4 140,319.8  97.4,499.6  "></polygon></g></svg>
-                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                     xml:space="preserve" class="ProductBasic_iconStar__GrtqO" width="14px"
-                     height="14px" fill="transparent" style="margin-left: 4px;"><g id="XMLID_1_"><polygon id="XMLID_3_" points="256,403.9 414.6,499.6 372,319.8 512,198.4 327.8,182.5 256,12.4 184.2,182.5 0,198.4 140,319.8  97.4,499.6  "></polygon></g></svg>
-                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                     xml:space="preserve" class="ProductBasic_iconStar__GrtqO" width="14px"
-                     height="14px" fill="transparent" style="margin-left: 4px;"><g id="XMLID_1_"><polygon id="XMLID_3_" points="256,403.9 414.6,499.6 372,319.8 512,198.4 327.8,182.5 256,12.4 184.2,182.5 0,198.4 140,319.8  97.4,499.6  "></polygon></g></svg>
-                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                     xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-                     xml:space="preserve" class="ProductBasic_iconStar__GrtqO" width="14px"
-                     height="14px" fill="transparent" style="margin-left: 4px;"><g id="XMLID_1_"><polygon id="XMLID_3_" points="256,403.9 414.6,499.6 372,319.8 512,198.4 327.8,182.5 256,12.4 184.2,182.5 0,198.4 140,319.8  97.4,499.6  "></polygon></g></svg>
-              </div>
-            </div>
-            <th:block th:each="i : ${#numbers.sequence(1,5)}">
-              <span th:if="${i<=product.rate}">★</span>
-              <span th:if="${i>product.rate}">☆</span>
-            </th:block></div>
-        </a></div>
-      <div class="ProductBasic_priceGroup__t3wWL"><span class="ProductBasic_dcPercent__HeI1C">20%</span><span
-              class="ProductBasic_originPrice__d51GM">189,000원</span><span class="ProductBasic_finalPrice__bLpZz" id="detailItemPrice">[[${product.price}]]원</span><span><button
-              type="button" class="ProductBasic_iconQuestion__sI+AD">안내</button><div class=""></div></span></div>
-    </div>
-    <div class="ProductBenefit_productBenefit__L0VTA">
-      <a class="ProductBenefit_goToLogin__DGkyj" href="/app">
-        <strong>로그인</strong>하고 혜택가 확인하기</a></div>
-    <div class="ProductEtcInfo_productEtcInfo__etcJZ">
-      <ul>
-        <li class="icon iconM"><strong>최대 1,380M</strong> 적립예정
-          <button type="button" class="ProductEtcInfo_iconQuestion__n6zqz">적립예정 안내</button>
-        </li>
-        <li class="icon iconDelivery ProductEtcInfo_lfssung__ZOEpz"><span class="txt_lfssung">슝배송</span><span>18시 이전 결제 시 </span><span
-                class="bold">오늘 출발 예정</span>
-          <div class="lfssung_01">무료배송 / CJ 대한통운</div>
-          <div class="delivery_msg lfssung_02">
-            <div class="tool">
-              <div class=""></div>
-            </div>
-          </div>
-          <div id="LFssungDetail" class="accordionItemContents lfssung_detail">
-            <dl>
-              <dd class="date red"><span class="tit">09/25(수) 이내 도착확률</span><span class="txt">93%</span>
-              </dd>
-              <dd class="date"><span class="tit">09/26(목) 이내 도착확률</span><span class="txt">98%</span></dd>
-            </dl>
-          </div>
-        </li>
-        <li class="icon iconKb"><a style="cursor: pointer;">LFmall 신용카드 <strong>결제시 5% 추가할인</strong></a></li>
-        <li class="icon iconCard"><span class="divideItem"><span class="iconLfpay">LFPay</span>삼성카드 최대 15,000원 즉시할인 외 2건 / 카드별 무이자</span>
-          <button type="button" class="ProductEtcInfo_iconQuestion__n6zqz">카드혜택/무이자 안내</button>
-        </li>
-      </ul>
-    </div>
-    <div class="maxHeight">
-      <div class="ProductSelection_prodQuantity__HY9kH"><p class="ProductSelection_title__1Cr8A">수량</p>
-        <div class="ProductSelection_countController__N-VBL">
-          <button type="button" class="ProductSelection_buttonMinus__I-XDQ undefined minus"></button>
-          <input type="text" title="구매수량" id="count" readonly=""  name= "count" value="1">
-          <button type="button" class="ProductSelection_buttonPlus__FC1eQ false plus"></button>
-          <button type="button"
-                  class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc ProductSelection_check__vOSXf">선택
-          </button>
+        <div class="detail-img">
+            <img th:src="${product.image}"
+                 alt="" id="detailItemImg">
+            <input type="hidden" name="idx" th:value="${product.idx}">
         </div>
-      </div>
-      <div></div>
-    </div>
-    <div class="stikyBtn">
-      <div class="ProductButtonArea_productButtonArea__sQlq1">
-        <button type="button"
-                class="LfButton_lfButton__djCj2 LfButton_sizePC5__7Gjip LfButton_strokeRed__VAPIq ProductButtonArea_primary__E8fYU"
-                id="shoppingbag_button_1_gtm">쇼핑백
-        </button>
-        <button type="submit"
-                class="LfButton_lfButton__djCj2 LfButton_sizePC5__7Gjip LfButton_fillRed__cxMET ProductButtonArea_primary__E8fYU"
-                >바로구매
-        </button>
-      </div>
-    </div>
-  </div>
+        <div class="productInfoWrap">
+            <div>
+                <!-- <div class="ProductBasic_actionButton__3wqXx">
+                    <button type="button" class="ProductBasic_buttonShare__1j9XG">
+                        <span class="blind">공유하기</span>
+                    </button>
+                    <button id="wishlist_button_3_gtm" type="button" class="ProductBasic_buttonLike__RI7PK connectedWish">
+                        <span class="blind">좋아요</span>
+                        <span class="ProductBasic_num__wjmu4">105</span>
+                    </button>
+                </div> -->
+                <div class="ProductBasic_productTitle__Z21Eb"><h1><span id="detailItemName">[[${product.name}]]</span>
+                </h1></div>
+                <div class="ProductBasic_optionGroup__19hcz">
+                    <!--        <div class="ProductBasic_tagGroup__MWkiB"><span class="ProductBasic_tag__bfnBn">신상 쇼케이스</span></div>-->
+                    <a>
+                        <div class="ProductBasic_rateGroup__SIySE" style="cursor: pointer;">
+                            <div class="ProductBasic_pointStar__ks-eb">
+                                <div class="ProductBasic_starOn__lzsSv" style="width: 80%;"></div>
+                                <div class="ProductBasic_starOff__uGnkU">
+                                    <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="0 0 512 512" xml:space="preserve" class="ProductBasic_iconStar__GrtqO"
+                                         width="14px" height="14px" fill="transparent"><g id="XMLID_1_"><polygon id="XMLID_3_" points="256,403.9 414.6,499.6 372,319.8 512,198.4 327.8,182.5 256,12.4 184.2,182.5 0,198.4 140,319.8  97.4,499.6  "></polygon></g></svg>
+                                    <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="0 0 512 512"
+                                         xml:space="preserve" class="ProductBasic_iconStar__GrtqO" width="14px"
+                                         height="14px" fill="transparent" style="margin-left: 4px;"><g id="XMLID_1_"><polygon id="XMLID_3_" points="256,403.9 414.6,499.6 372,319.8 512,198.4 327.8,182.5 256,12.4 184.2,182.5 0,198.4 140,319.8  97.4,499.6  "></polygon></g></svg>
+                                    <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="0 0 512 512"
+                                         xml:space="preserve" class="ProductBasic_iconStar__GrtqO" width="14px"
+                                         height="14px" fill="transparent" style="margin-left: 4px;"><g id="XMLID_1_"><polygon id="XMLID_3_" points="256,403.9 414.6,499.6 372,319.8 512,198.4 327.8,182.5 256,12.4 184.2,182.5 0,198.4 140,319.8  97.4,499.6  "></polygon></g></svg>
+                                    <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="0 0 512 512"
+                                         xml:space="preserve" class="ProductBasic_iconStar__GrtqO" width="14px"
+                                         height="14px" fill="transparent" style="margin-left: 4px;"><g id="XMLID_1_"><polygon id="XMLID_3_" points="256,403.9 414.6,499.6 372,319.8 512,198.4 327.8,182.5 256,12.4 184.2,182.5 0,198.4 140,319.8  97.4,499.6  "></polygon></g></svg>
+                                    <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                         viewBox="0 0 512 512"
+                                         xml:space="preserve" class="ProductBasic_iconStar__GrtqO" width="14px"
+                                         height="14px" fill="transparent" style="margin-left: 4px;"><g id="XMLID_1_"><polygon id="XMLID_3_" points="256,403.9 414.6,499.6 372,319.8 512,198.4 327.8,182.5 256,12.4 184.2,182.5 0,198.4 140,319.8  97.4,499.6  "></polygon></g></svg>
+                                </div>
+                            </div>
+                            <th:block th:each="i : ${#numbers.sequence(1,5)}">
+                                <span th:if="${i<=product.rate}">★</span>
+                                <span th:if="${i>product.rate}">☆</span>
+                            </th:block>
+                        </div>
+                    </a></div>
+                <div class="ProductBasic_priceGroup__t3wWL"><span class="ProductBasic_dcPercent__HeI1C">20%</span><span
+                        class="ProductBasic_originPrice__d51GM">189,000원</span><span
+                        class="ProductBasic_finalPrice__bLpZz" id="detailItemPrice">[[${product.price}]]원</span><span><button
+                        type="button" class="ProductBasic_iconQuestion__sI+AD">안내</button><div class=""></div></span>
+                </div>
+            </div>
+            <div class="ProductBenefit_productBenefit__L0VTA">
+                <a class="ProductBenefit_goToLogin__DGkyj" href="/app">
+                    <strong>로그인</strong>하고 혜택가 확인하기</a></div>
+            <div class="ProductEtcInfo_productEtcInfo__etcJZ">
+                <ul>
+                    <li class="icon iconM"><strong>최대 1,380M</strong> 적립예정
+                        <button type="button" class="ProductEtcInfo_iconQuestion__n6zqz">적립예정 안내</button>
+                    </li>
+                    <li class="icon iconDelivery ProductEtcInfo_lfssung__ZOEpz"><span
+                            class="txt_lfssung">슝배송</span><span>18시 이전 결제 시 </span><span
+                            class="bold">오늘 출발 예정</span>
+                        <div class="lfssung_01">무료배송 / CJ 대한통운</div>
+                        <div class="delivery_msg lfssung_02">
+                            <div class="tool">
+                                <div class=""></div>
+                            </div>
+                        </div>
+                        <div id="LFssungDetail" class="accordionItemContents lfssung_detail">
+                            <dl>
+                                <dd class="date red"><span class="tit">09/25(수) 이내 도착확률</span><span
+                                        class="txt">93%</span>
+                                </dd>
+                                <dd class="date"><span class="tit">09/26(목) 이내 도착확률</span><span class="txt">98%</span>
+                                </dd>
+                            </dl>
+                        </div>
+                    </li>
+                    <li class="icon iconKb"><a style="cursor: pointer;">LFmall 신용카드 <strong>결제시 5% 추가할인</strong></a>
+                    </li>
+                    <li class="icon iconCard"><span class="divideItem"><span class="iconLfpay">LFPay</span>삼성카드 최대 15,000원 즉시할인 외 2건 / 카드별 무이자</span>
+                        <button type="button" class="ProductEtcInfo_iconQuestion__n6zqz">카드혜택/무이자 안내</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="maxHeight">
+                <div class="ProductSelection_prodQuantity__HY9kH"><p class="ProductSelection_title__1Cr8A">수량</p>
+                    <div class="ProductSelection_countController__N-VBL">
+                        <button type="button" class="ProductSelection_buttonMinus__I-XDQ undefined minus"></button>
+                        <input type="text" title="구매수량" id="count" readonly="" name="count" value="1">
+                        <button type="button" class="ProductSelection_buttonPlus__FC1eQ false plus"></button>
+                        <button type="button"
+                                class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc ProductSelection_check__vOSXf">
+                            선택
+                        </button>
+                    </div>
+                </div>
+                <div></div>
+            </div>
+            <div class="stikyBtn">
+                <div class="ProductButtonArea_productButtonArea__sQlq1">
+                    <button type="button"
+                            class="LfButton_lfButton__djCj2 LfButton_sizePC5__7Gjip LfButton_strokeRed__VAPIq ProductButtonArea_primary__E8fYU"
+                            id="shoppingbag_button_1_gtm">쇼핑백
+                    </button>
+                    <button type="submit"
+                            class="LfButton_lfButton__djCj2 LfButton_sizePC5__7Gjip LfButton_fillRed__cxMET ProductButtonArea_primary__E8fYU"
+                    >바로구매
+                    </button>
+                </div>
+            </div>
+        </div>
 
-</div>
-  </form>
+    </div>
+</form>
 <ul class="ProductDetail_tabList__G8yFd info-list">
-  <li aria-selected="true" class="selected">
-    <span>상세정보</span>
-    <div class="list-info">상세정보</div>
-  </li>
-  <li aria-selected="false">
-    <span>상품리뷰<em> 3</em></span>
-    <div class="list-info">상품 리뷰</div>
-  </li>
-  <li aria-selected="false">
-    <span>상품Q&amp;A<em></em></span>
-    <div class="list-info">
-      <div style="">
-        <div class="detailContBox"><h3 class="tabTitle">상품Q&amp;A</h3>
-          <div class="ProductTabQna_QnaNotices__hd3qM">
-            <ol>
-              <li> 상품에 대해 궁금한 점을 남겨주세요.</li>
-              <li>문의 답변은 마이페이지 &gt; 상품Q&amp;A에서 확인하실 수 있습니다.</li>
-              <li>공개된 공간이므로 전화번호, 메일 주소 등 고객님의 소중한 개인정보는 절대 남기지 말아주세요.</li>
+    <li aria-selected="true" class="selected">
+        <span>상세정보</span>
+        <div class="list-info">상세정보</div>
+    </li>
+    <li aria-selected="false">
+        <span>상품리뷰<em> 3</em></span>
+        <div class="list-info">
+            <div class="list-title">상품 리뷰</div>
+            <ol class="ReviewList_reviewBenefit__EXSPP">
+                <li><span class="ReviewList_tit__bzF4d" style="color:black;text-align:left;">리뷰작성 1,000M</span>
+                    <p class="ReviewList_info__VSMA7">별점+내용 200M<br>사진 500M<br>추가정보 300M (일부 상품 제외)</p></li>
+                <li class="ReviewList_add__s91gJ"><span class="ReviewList_tit__bzF4d" style="color:black;text-align:left;">추가혜택 2,200M</span>
+                    <p class="ReviewList_info__VSMA7">첫포토리뷰 200M<br>베스트리뷰 1,000M<br>한달사용리뷰 최대 1,000M (일부 상품 제외)</p></li>
             </ol>
-            <button type="button" class="ProductTabQna_BtnQuestion__+nCBV">문의하기</button>
-          </div>
-          <div class="ProductTabQna_QnaList__1s9Ca">
-            <table>
-              <colgroup>
-                <col width="14%">
-                <col width="*">
-                <col width="13%">
-                <col width="15%">
-              </colgroup>
-              <thead>
-              <tr>
-                <th colspan="2">문의/답변</th>
-                <th>작성자</th>
-                <th>작성일</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td colspan="4"><p class="ProductTabQna_noData__-RzzS">등록된 Q&amp;A가 없습니다.</p></td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
         </div>
-      </div>
-    </div>
-  </li>
-  <li aria-selected="false">
-    <span>상품추천</span>
-    <div class="list-info">
-      <div class="recommand-container" >
-        <div class="recommand-item" th:each="dto : ${recommand}">
-          <img th:src="${dto.image}" alt="" th:onclick="@{|location.href='/detailItem/${dto.idx}'|}">
-          <div class="prdInfo" >
-            <span class="name" style="color:black;" th:if="${#strings.length(dto.name)>12}">[[${#strings.substring(dto.name,0,12)}]] ...</span>
-            <span class="name" style="color:black;" th:if="${#strings.length(dto.name)<=12}">[[${dto.name}]]</span>
-          </div>
-          <div class="prdPrice"><span class="sale" style="color:black;">가격 : [[${#numbers.formatInteger(dto.price,3,'COMMA')}]]</span></div>
+    </li>
+    <li aria-selected="false">
+        <span>상품Q&amp;A<em></em></span>
+        <div class="list-info">
+            <div style="">
+                <div class="detailContBox"><h3 class="tabTitle">상품Q&amp;A</h3>
+                    <div class="ProductTabQna_QnaNotices__hd3qM">
+                        <ol>
+                            <li> 상품에 대해 궁금한 점을 남겨주세요.</li>
+                            <li>문의 답변은 마이페이지 &gt; 상품Q&amp;A에서 확인하실 수 있습니다.</li>
+                            <li>공개된 공간이므로 전화번호, 메일 주소 등 고객님의 소중한 개인정보는 절대 남기지 말아주세요.</li>
+                        </ol>
+                        <button type="button" class="ProductTabQna_BtnQuestion__+nCBV">문의하기</button>
+                    </div>
+                    <div class="ProductTabQna_QnaList__1s9Ca">
+                        <table>
+                            <colgroup>
+                                <col width="14%">
+                                <col width="*">
+                                <col width="13%">
+                                <col width="15%">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th colspan="2">문의/답변</th>
+                                <th>작성자</th>
+                                <th>작성일</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td colspan="4"><p class="ProductTabQna_noData__-RzzS">등록된 Q&amp;A가 없습니다.</p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </li>
+    </li>
+    <li aria-selected="false">
+        <span>상품추천</span>
+        <div class="list-info">
+            <div class="recommand-container">
+                <div class="recommand-item" th:each="dto : ${recommand}">
+                    <img th:src="${dto.image}" alt="" th:onclick="@{|location.href='/detailItem/${dto.idx}'|}">
+                    <div class="prdInfo">
+                        <span class="name" style="color:black;" th:if="${#strings.length(dto.name)>12}">[[${#strings.substring(dto.name,0,12)}]] ...</span>
+                        <span class="name" style="color:black;"
+                              th:if="${#strings.length(dto.name)<=12}">[[${dto.name}]]</span>
+                    </div>
+                    <div class="prdPrice"><span class="sale" style="color:black;">가격 : [[${#numbers.formatInteger(dto.price,3,'COMMA')}]]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 </body>
 </html>

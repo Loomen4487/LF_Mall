@@ -77,11 +77,10 @@
             <ul>
                 <li><a href="/app/exhibition/category/110051">홈</a></li>
                 <li class="SearchLocationPath_on__EOHUF">
-                    <a href="/women/여성의류" th:if="${major ==null}">여성의류 <i class="SearchLocationPath_iconAccordion__vwMH3"></i></a>
-                    <a th:href="@{|/women/${major}|}" th:if="${major !=null}">여성의류 <i class="SearchLocationPath_iconAccordion__vwMH3"></i></a>
+                    <a href="/women/여성의류">여성의류 <i class="SearchLocationPath_iconAccordion__vwMH3"></i></a>
                     <div class="SearchLocationPath_categoryList__axazj">
-                        <ul th:each="vo : ${dto}">
-                            <li><a th:href="@{|/women/${major}/${vo}|}">[[${vo}]]</a></li>
+                        <ul th:each="vo:${major}">
+                            <li><a th:href="@{|/women/${vo.ref}|}">[[${vo.name}]]</a></li>
                             <!--                            <li><a href="/app/exhibition/category/110051">남성의류</a></li>-->
                             <!--                            <li><a href="/app/exhibition/category/110051">가방/잡화</a></li>-->
                             <!--                            <li><a href="/app/exhibition/category/110051">슈즈</a></li>-->
@@ -98,8 +97,8 @@
                 <li class="SearchLocationPath_on__EOHUF"><a href="/app/exhibition/category/110051">자켓 <i
                         class="SearchLocationPath_iconAccordion__vwMH3"></i></a>
                     <div class="SearchLocationPath_categoryList__axazj">
-                        <ul th:each="vo : ${dto}">
-                            <li><a th:href="@{|/app/exhibition/category/${vo}|}">[[${vo}]]</a></li>
+                        <ul th:each="vo:${middle}">
+                            <li><a th:href="@{|/women/${vo.ref}|}">[[${vo.name}]]</a></li>
                             <!--                            <li><a href="/app/exhibition/category/110051">자켓</a></li>-->
                             <!--                            <li><a href="/app/exhibition/category/110051">가디건</a></li>-->
                             <!--                            <li><a href="/app/exhibition/category/110051">니트/스웨터</a></li>-->
@@ -119,15 +118,13 @@
                 </li>
             </ul>
         </div>
-        <h2 class="CategoryResult_title__mztDs">[[${title}]] </h2>
+        <h2 class="CategoryResult_title__mztDs"></h2>
         <div class="NdepthHeaderCategory_categoryWrap__RzclP">
             <span class="NdepthHeaderCategory_active__CPzZi">
-            <a  th:href="@{|/women/${major}|}" th:if="${middle == null}">전체</a>
-            <a  th:href="@{|/women/${major}/${middle}|}" th:if="${middle != null}">전체</a>
+            <a  href="#">전체</a>
             </span>
-            <span class="" th:each="vo:${category}">
-                <a th:href="@{|/women/${major}/${middle}/${vo}|}" th:if="${middle!=null}">[[${vo}]]</a>
-                <a th:href="@{|/women/${major}/${vo}|}" th:if="${middle==null}">[[${vo}]]</a>
+            <span class="" th:each="vo:${panel}">
+                <a th:href="@{|/women/${vo.ref}|}">[[${vo.name}]]</a>
             </span>
             </div>
         <div class="CategorySearchResult_searchResult__I8Ll+">
@@ -955,12 +952,12 @@
                                 <!--                                    href="/app/exhibition/category/110051">ATHE VANESSABRUNO WOMEN-->
                                 <!--                                </a>-->
                                 <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
-                                   href="/app/exhibition/category/110051">[[${dto.name}]]
+                                   href="/app/exhibition/category/110051"> [[${dto.name}]]
                                 </a>
                                 <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
                                     <!--                                    <span class="ProductThumbPrice_discount__a8J6G">할인</span>-->
                                     <!--                                    <span class="ProductThumbPrice_noneBasePrice__KCwnv">원래가격</span>-->
-                                    <span class="ProductThumbPrice_lastPrice__ysIqE">[[${dto.price}]]</span>
+                                    <span class="ProductThumbPrice_lastPrice__ysIqE"></span>
                                 </div>
                                 <div class="productThumbStars ProductThumbStars_productThumbStars__5LQDH">
                                     <span class="ProductThumbStars_rate__pkUL9">

@@ -14,16 +14,18 @@
     letter-spacing: 0;
     line-height: 20px;
 }
-.MemberRegisterForm_inputField__Vx8et label {
-    color: #000;
-    display: block;
-    font-size: 14px;
-    letter-spacing: 0;
-    line-height: 19px;
-    padding: 20px 0 10px;
+.MemberRegisterForm_inputField__Vx8et{
+    padding: 10px 0;
+}
+.MemberRegisterForm_inputField__Vx8et.id{
+    display:flex;
+    column-gap:10px;
+}
+.MemberRegisterForm_inputField__Vx8et.id input{
+    width:78%;
 }
 .MemberRegisterForm_inputField__Vx8et .MemberRegisterForm_inputType__JBVw0 {
-    border: 1px solid #eee;
+    border: 1px solid #ddd;
     border-radius: 4px;
     caret-color: #dc2832;
     color: #000;
