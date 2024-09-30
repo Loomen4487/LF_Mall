@@ -15,6 +15,7 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         HttpSession session = request.getSession();
         PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
         session.setAttribute("id",principalDetails.getUsername());
+        session.setAttribute("role",principalDetails.getDto().getRole());
         response.sendRedirect("/");
     }
 }

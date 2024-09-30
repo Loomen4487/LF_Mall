@@ -1,25 +1,30 @@
 package com.example.finalProject.controller;
 
 import com.example.finalProject.dto.LoginDTO;
+import com.example.finalProject.dto.ProductDTO;
 import com.example.finalProject.entity.LoginEntity;
 import com.example.finalProject.service.LoginService;
+import com.example.finalProject.service.ProductService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class MyPageController {
     private final LoginService loginService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
+    private final ProductService productService;
 
     @Secured("ROLE_USER")
     @GetMapping(value = "/mypage")
@@ -27,6 +32,19 @@ public class MyPageController {
         return "mypage";
     }
 
+    @Secured("ROLE_MANAGER")
+    @GetMapping(value = "/superMyPage")
+    public String superMypage(Model model){
+
+        model.addAttribute("total",(productService.selectCount()-1)/16+1);
+        return "superMypage";
+    }
+
+    @GetMapping(value = "/superMyPage/selectOrderListAll/{startNo}")
+    @ResponseBody
+    public ResponseEntity<List<ProductDTO>> selectOrderListAll(@PathVariable int startNo){
+        return ResponseEntity.status(HttpStatus.OK).body(productService.selectOrderListAll(startNo,16));
+    }
     @GetMapping("/mypage/userInfo_change1")
     public String getUserInfo(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

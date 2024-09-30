@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +20,10 @@ public class MiddleService {
         List<MiddleDTO> dto = new ArrayList<>();
         me.forEach(item->dto.add(item.toDTO()));
         return dto;
+    }
 
+    public MiddleDTO selectByRef(int ref){
+        MiddleEntity me = middleRepository.selectByRef(ref);
+        return !Objects.isNull(me)?me.toDTO():null;
     }
 }

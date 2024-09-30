@@ -76,4 +76,18 @@ public class ProductService {
         se.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
+
+    // 관리자 계정 상품등록/변경
+    public List<ProductDTO> selectOrderListAll(int startNo,int pageSize){
+        List<ProductEntity> pe = productRepository.selectOrderListAll(startNo,pageSize);
+
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
+
+    // 관리자 계정 전체 상품 개수
+    public int selectCount(){
+        return productRepository.selectCount();
+    }
 }
