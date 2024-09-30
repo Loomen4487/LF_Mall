@@ -1,0 +1,239 @@
+#root {
+    width: 100%;
+    font-family: Pretendard, Malgun Gothic, SF Pro, AppleSDGothicNeo, HelveticaNeue, helvetica, sans-serif;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.CategoryResult_categoryResult__dLe9P {
+    margin: 0 auto;
+    width: 1240px;
+}
+
+.SearchLocationPath_locationPath__PZDeW {
+    margin: 60px auto 20px;
+    width: 1240px;
+}
+
+ul {
+    list-style: none;
+}
+
+.SearchLocationPath_locationPath__PZDeW>ul>li {
+    color: #bdbdbd;
+    display: inline-block;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 20px;
+    line-height: 16px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.CategoryResult_categoryResult__dLe9P .CategoryResult_title__mztDs {
+    border-bottom: 2px solid #000;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 60px;
+}
+
+.NdepthHeaderCategory_categoryWrap__RzclP {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+}
+
+.NdepthHeaderCategory_categoryWrap__RzclP span.NdepthHeaderCategory_active__CPzZi {
+    font-weight: 700;
+}
+
+.NdepthHeaderCategory_categoryWrap__RzclP span {
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    height: 54px;
+    padding-left: 20px;
+    width: 20%;
+}
+
+.NdepthHeaderCategory_categoryWrap__RzclP span:last-of-type {
+    flex-grow: 1;
+}
+
+.CategorySearchResult_searchResult__I8Ll\+ {
+    margin: 0 auto;
+    padding-bottom: 140px;
+    width: 1240px;
+}
+
+.CategorySearchResult_searchTemplate__\+-wLt {
+    display: flex;
+    display: -webkit-flex;
+    margin-top: 28px;
+}
+
+.SearchFilter_searchFilter__zA3OH {
+    padding: 30px 20px 0 0;
+    width: 230px;
+}
+
+.SearchFilter_typeCheck__s2Arh {
+    padding: 20px 0;
+}
+
+.SearchFilter_filterWrap__aZhv8 {
+    border-top: 1px solid #eee;
+}
+
+.SearchFilter_filterWrap__aZhv8 .SearchFilter_listTitArea__Y8Lav {
+    color: #000;
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    height: 53px;
+    letter-spacing: 0;
+    line-height: 20px;
+    line-height: 53px;
+    position: relative;
+}
+
+.SearchFilter_filterWrap__aZhv8 .SearchFilter_listIn__hQOqo.SearchFilter_active__czbPb {
+    display: block;
+}
+
+.SearchProductWrap_searchProductWrap__fBOsH {
+    border-left: 1px solid #eee;
+    padding: 30px 0 0 20px;
+    width: 1010px;
+}
+
+.SearchSortFilter_prdlistTop__hfCma {
+    align-items: center;
+    display: flex;
+    display: -webkit-flex;
+    height: 40px;
+    justify-content: space-between;
+    margin-top: 10px;
+    position: relative;
+}
+
+.SortList_sortList__NHJnx {
+    display: flex;
+}
+
+.SearchProductList_prdList__-Xisy.SearchProductList_thumbnail__9J1Rt {
+    gap: 0 20px;
+}
+
+.SearchProductList_prdList__-Xisy {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.SearchProductList_prdList__-Xisy.SearchProductList_thumbnail__9J1Rt .SearchProductItem {
+    min-height: 530px;
+    width: 232px;
+}
+
+.ProductThumbImage_wrapThumbImg__7REL9 {
+    position: relative;
+}
+
+.SearchProductList_prdList__-Xisy.SearchProductList_thumbnail__9J1Rt .productThumbImage {
+    height: 293px;
+    width: 230px;
+}
+
+.ProductThumbImage_productThumbImage__LYciq {
+    cursor: pointer;
+    display: block;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+
+
+/* 기본적으로 하위 카테고리를 숨김 */
+.SearchLocationPath_categoryList__axazj {
+    display: none;
+    position: absolute;
+    background-color: white;
+    z-index: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 200px; /* 적절한 너비 추가 */
+}
+
+/* 부모 항목에 마우스가 올라갔을 때 하위 항목 표시 */
+.SearchLocationPath_on__EOHUF:hover .SearchLocationPath_categoryList__axazj {
+    display: block;
+}
+
+/* 상위 카테고리 스타일 */
+.SearchLocationPath_on__EOHUF {
+    position: relative;
+    color: #bdbdbd;
+    display: inline-block;
+    font-size: 15px;
+    line-height: 16px;
+    padding-bottom: 10px;
+}
+
+/* 링크 스타일 */
+.SearchLocationPath_on__EOHUF a {
+    text-decoration: none;
+    color: #333; /* 링크 기본 색상을 흑백으로 설정 */
+}
+
+.SearchLocationPath_on__EOHUF a:hover {
+    color: #007bff; /* 링크 호버 시 파란색 */
+}
+
+/* 하위 카테고리 항목 스타일 */
+.SearchLocationPath_categoryList__axazj ul li a {
+    display: block;
+    padding: 5px 10px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.SearchLocationPath_categoryList__axazj ul li a:hover {
+    background-color: #f0f0f0;
+    color: #007bff; /* 하위 카테고리 링크 호버 시 파란색 */
+}
+
+/* 호버 시 상위 카테고리 변경 */
+.SearchLocationPath_on__EOHUF:hover {
+    color: #007bff; /* 호버 시 상위 카테고리 색상 변경 */
+}
+
+
+
+/* 기본적으로 하위 목록을 숨김 */
+.SearchFilter_listIn__hQOqo {
+    display: none;
+}
+
+/* 활성화 시 하위 목록 표시 */
+.active .SearchFilter_listIn__hQOqo {
+    display: block;
+}
+
+/* 클릭 가능한 타이틀 스타일 */
+.SearchFilter_listTitArea__Y8Lav {
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.SearchFilter_listTitArea__Y8Lav:hover {
+    color: #007bff;
+}

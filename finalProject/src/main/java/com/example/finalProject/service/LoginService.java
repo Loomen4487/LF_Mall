@@ -32,4 +32,12 @@ public class LoginService {
 
         }
     }
+
+    public LoginDTO findById(String username) {
+        return loginRepository.findById(username).toDTO();
+    }
+
+    public void save(LoginDTO loginEntity) {
+        loginRepository.save(loginEntity.toEntity());
+    }
 }

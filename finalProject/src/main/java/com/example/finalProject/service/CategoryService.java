@@ -13,10 +13,4 @@ public class CategoryService {
         List<String> li = categoryRepository.selectMajor(major);
         return li;
     }
-    @Autowired
-    private CategoryRepository CategoryRepository;
-    public List<String> selectName(String name) {
-        List<String> eman = categoryRepository.selectName(name);
-        return eman;
-    }
 }

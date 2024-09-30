@@ -36,6 +36,7 @@ public class PrincipalOauthUserService extends DefaultOAuth2UserService {
                     .email(loginUser.getEmail())
                     .role(loginUser.getRole())
                     .provider(provider)
+                    .phone("")
                     .build();
             loginRepository.save(le);
         }

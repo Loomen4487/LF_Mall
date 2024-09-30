@@ -313,10 +313,8 @@
 .Order_priceFloating__tTUBO {
     background: #fff;
     border: 1px solid #000;
-    position: sticky;
-    top: 0;
     width: 350px;
-    height: 256px;
+    height:20%;
     right: 0;
 }
 .Order_priceFloating__tTUBO .Order_totalPrice__7Pni2 {

@@ -1,4 +1,4 @@
-et count = document.querySelector("#count").value;
+let count = document.querySelector("#count").value;
 const plus = document.querySelector(".plus");
 plus.addEventListener("click",function(){
     count++;

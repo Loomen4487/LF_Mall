@@ -15,7 +15,4 @@ public interface CategoryRepository extends JpaRepository<CategoryEntity, Intege
     List<String> selectmiddle(String middle);
 
     NoticeEntity findByIdx(int idx);
-
-    @Query(value= "select distinct name from product where name = ?1 ", nativeQuery = true)
-    List<String> selectName(String name);
 }

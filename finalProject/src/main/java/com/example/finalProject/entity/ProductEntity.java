@@ -18,11 +18,11 @@ public class ProductEntity {
     private int size;
     private int rate;
     private String image;
-    @ManyToOne
-    @JoinColumn(name = "category_idx")
-    private CategoryEntity category;
+    private int ref;
+    private int middle_idx;
+    private int major_idx;
 
     public ProductDTO toDTO(){
-        return new ProductDTO(idx,name,price,size,rate,image,category.toDTO());
+        return new ProductDTO(idx,name,price,size,rate,image,ref,middle_idx,major_idx);
     }
 }
