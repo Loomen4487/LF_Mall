@@ -17,7 +17,6 @@ import java.util.Random;
 @RequiredArgsConstructor
 public class SmsService {
 
-    private final SmsRepository removeSmsCertification;
     @Value("${coolsms.api.key}")
     private String key;
 
@@ -49,20 +48,6 @@ public class SmsService {
             numStr.append(rand.nextInt(10));
         }
         return numStr.toString();
-    }
-
-    public boolean verifySms(String phone,String code) {
-        if (!isVerify(phone,code)) {
-            return false;
-        }
-        removeSmsCertification.deleteSmsCertification(phone);
-        return true;
-    }
-
-    public boolean isVerify(String phone,String code) {
-        return (removeSmsCertification.hasKey(phone) &&
-                removeSmsCertification.getSmsCertification(phone)
-                        .equals(code));
     }
 
 }

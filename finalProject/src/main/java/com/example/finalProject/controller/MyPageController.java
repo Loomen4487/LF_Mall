@@ -3,6 +3,7 @@ package com.example.finalProject.controller;
 import com.example.finalProject.dto.LoginDTO;
 import com.example.finalProject.entity.LoginEntity;
 import com.example.finalProject.service.LoginService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;

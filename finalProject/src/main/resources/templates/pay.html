@@ -81,9 +81,9 @@
                             class="Order_price__7fubW"><em>570</em>M</span></li>
                     <li><span class="Order_tit__lDPfg">상품합계 (1)</span><span class="Order_price__7fubW"><em>[[${#numbers.formatInteger(product.price,3,'COMMA')}]]</em>원</span>
                     </li>
-                    <li><span class="Order_tit__lDPfg">배송비</span>무료</li>
+                    <li><span class="Order_tit__lDPfg">수량</span>[[${count}]]개</li>
                     <li class="Order_sum__WeHIs"><span class="Order_tit__lDPfg">총 결제금액</span><span
-                            class="Order_price__7fubW"><em>[[${#numbers.formatInteger(product.price,3,'COMMA')}]]</em>원</span></li>
+                            class="Order_price__7fubW"><em>[[${#numbers.formatInteger(product.price*count,3,'COMMA')}]]</em>원</span></li>
                 </ol>
             </div>
             <div class="Order_orderBtn__ZnQdd">
