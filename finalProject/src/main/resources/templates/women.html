@@ -52,14 +52,15 @@
     <script src="/js/women.js" defer></script>
 </head>
 <body style="">
-<noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJ96TGZ&gtm_auth=&gtm_preview=&gtm_cookies_win=x"
-            height="0" width="0" style="display:none;visibi`lity:hidden" id="tag-manager"></iframe>
-</noscript>
-<div id="allthat"></div>
-<div id="samsung"></div>
-<div id="ezwel"></div>
-<noscript>You need to enable JavaScript to run this app.</noscript>
+<!--<noscript>-->
+<!--    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KJ96TGZ&gtm_auth=&gtm_preview=&gtm_cookies_win=x"-->
+<!--            height="0" width="0" style="display:none;visibi`lity:hidden" id="tag-manager"></iframe>-->
+<!--</noscript>-->
+<!--<div id="allthat"></div>-->
+<!--<div id="samsung"></div>-->
+<!--<div id="ezwel"></div>-->
+<!--<noscript>You need to enable JavaScript to run this app.</noscript>-->
+<div th:replace="~{includes/header}"></div>
 <div id="root">
     <div class="Toastify"></div>
     <div id="topBanners">
@@ -77,7 +78,7 @@
             <ul>
                 <li><a href="/app/exhibition/category/110051">홈</a></li>
                 <li class="SearchLocationPath_on__EOHUF">
-                    <a href="/women/여성의류">여성의류 <i class="SearchLocationPath_iconAccordion__vwMH3"></i></a>
+                    <a th:href="@{|/women/${title.ref}|}">[[${title.name}]] <i class="SearchLocationPath_iconAccordion__vwMH3"></i></a>
                     <div class="SearchLocationPath_categoryList__axazj">
                         <ul th:each="vo:${major}">
                             <li><a th:href="@{|/women/${vo.ref}|}">[[${vo.name}]]</a></li>
@@ -94,7 +95,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="SearchLocationPath_on__EOHUF"><a href="/app/exhibition/category/110051">자켓 <i
+                <li class="SearchLocationPath_on__EOHUF"><a href="#">자켓 <i
                         class="SearchLocationPath_iconAccordion__vwMH3"></i></a>
                     <div class="SearchLocationPath_categoryList__axazj">
                         <ul th:each="vo:${middle}">

@@ -71,9 +71,54 @@ public class ProductService {
     }
 
     public List<SubDTO> findSub(int ref){
-        List<SubEntity> se = subRepository.findByRef(ref%1000/100);
+        List<SubEntity> se = null;
+        if(ref>1000){
+            se = subRepository.findByRef(ref%1000/100);
+        }else{
+            int idx = ref%10;
+            System.out.println("아니 이거 타는거 아니야?");
+            se = subRepository.findByRef(ref%10);
+        }
         List<SubDTO> dto = new ArrayList<>();
         se.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
+
+    // 관리자 계정 상품등록/변경
+    public List<ProductDTO> selectOrderListAll(int startNo,int pageSize){
+        List<ProductEntity> pe = productRepository.selectOrderListAll(startNo,pageSize);
+
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
+
+    // 관리자 계정 전체 상품 개수
+    public int selectCount(){
+        return productRepository.selectCount();
+    }
+
+    public ProductDTO findByIdx(int idx){
+        ProductEntity pe = productRepository.findByIdx(idx);
+        return pe.toDTO();
+    }
+
+    @Transactional
+    public void update(ProductDTO dto){
+        productRepository.save(dto.toEntity());
+    }
+
+    public List<ProductDTO> findByName(String name){
+        List<ProductEntity> pe = productRepository.findByName(name);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
+
+    public List<ProductDTO> superMyPageCategoryPaging(int middle_idx,int startNo,int pageSize){
+        List<ProductEntity> pe = productRepository.superMyPageCategoryPaging(middle_idx,startNo,pageSize);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
 }

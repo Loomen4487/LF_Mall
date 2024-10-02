@@ -21,3 +21,12 @@ info.forEach((item,index)=>{
         infoIdx = index;
     })
 })
+function qna(id,idx){
+alert(id,idx);
+    if(id==null){
+        if(confirm("로그인후 이용가능합니다.")){
+            location.href='/login';
+        }
+    }
+    location.href='/qnaForm/'+idx;
+}
