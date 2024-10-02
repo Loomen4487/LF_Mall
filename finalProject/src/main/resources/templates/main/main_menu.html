@@ -558,147 +558,52 @@
                                     <div class="Card73_brand__XoxdJ">FERRAGAMO<span>모던한 장인정신의 진수</span></div>
                                 </a>
                                     <div class="Card73_thumbList__vUdGF">
-                                        <div>
+                                        <div th:each="dto:${bag}">
                                             <div class="ProductThumbImage_wrapThumbImg__7REL9">
                                                 <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy" src="https://nimg.lfmall.co.kr/file/product/prd/A853/2023/375/A853XX02899_00.jpg?1725430863000/dims/format/avif;fallback=webp/optimize" alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
-                                                    <div><span class="ProductThumbImage_lPlus__wVZto undefined lplus"><img loading="lazy" through="m2ps" src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize" alt=""></span>
-                                                    </div>
+                                                    <img loading="lazy" th:src="${dto.image}" alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
                                                 </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">SALVATORE FERRAGAMO</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">페라가모 간치니 22 D780 LIPSTICK 746643
-                                            반지갑</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">35%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">346,140</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/A853/2023/375/A853XX03085_00.jpg?1726118358000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">SALVATORE FERRAGAMO</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">페라가모 플로리오 FLORIO BLUEMARINE 762608
-                                            간치니 로퍼</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">35%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">582,790</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/A853/2021/375/A853XX02542_00.jpg?1725430178000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">SALVATORE FERRAGAMO</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">페라가모 간치니 66 A302 NERO 698914
-                                            카드지갑</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">35%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">169,830</span></div>
+                                            </div>
+                                            <a class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
+                                               href="/app/exhibition/menu/501">가방 링크 넣을 곳
+                                            </a>
+                                            <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 " href="/app/exhibition/menu/501">
+                                                [[${dto.name}]]
+                                            </a>
+                                            <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                                <span class="ProductThumbPrice_lastPrice__ysIqE">[[${#numbers.formatInteger(dto.price,3,'COMMA')}]]</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
                         <div class="swiper-slide swiper-slide-next" style="width: 610px; margin-right: 20px;">
                             <div class="Card73_card73__M+QAq">
-                                <div class="Card73_card73SlideItem__L+iCz"><a class="Card73_bigThumb__nBnuo"
-                                                                              href="/app/exhibition/menu/501"><img loading="lazy"
-                                                                                                                   src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1726811987191.jpg/dims/format/avif;fallback=webp/optimize"
-                                                                                                                   alt="ADIDAS" through="m2ps">
+                                <div class="Card73_card73SlideItem__L+iCz">
+                                    <a class="Card73_bigThumb__nBnuo" href="/app/exhibition/menu/501">
+                                        <img loading="lazy"
+                                             src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1726811987191.jpg/dims/format/avif;fallback=webp/optimize"
+                                             alt="ADIDAS" through="m2ps">
                                     <div class="Card73_brand__XoxdJ">ADIDAS<span>다채로움의 향연</span></div>
                                 </a>
                                     <div class="Card73_thumbList__vUdGF">
-                                        <div>
+                                        <div th:each="dto:${jacket}">
                                             <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/D70K/2023/375/D70KXX00078_00.jpg?1723079327000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div></div>
+                                                <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
+                                                    <img loading="lazy" th:src="${dto.image}" alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
                                                 </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">ADIDAS</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[아디다스] 우먼스/여성 가젤 볼드 (4.5cm) 스니커즈
-                                            코어블랙 HQ6912</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">7%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">118,110</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/DYKW/2022/375/DYKWXX01296_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">ADIDAS</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">아디다스 반팔티 타벨라 23 저지 (H44526)</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">11%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">14,570</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/DYKW/2023/375/DYKWXX01442_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">ADIDAS</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">아디다스 반바지 포르토레 23 쇼츠 (IK5736)</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">14%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">13,690</span></div>
+                                            </div>
+                                            <a class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
+                                                href="/app/exhibition/menu/501">자켓 링크</a>
+                                            <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 " href="/app/exhibition/menu/501">
+                                                [[${dto.name}]]
+                                            </a>
+                                            <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                                <span class="ProductThumbPrice_lastPrice__ysIqE">[[${#numbers.formatInteger(dto.price,3,'COMMA')}]]</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -709,34 +614,25 @@
                         <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div>
                 </div>
             </div>
+
+
+
             <div class="DisplayAreaTemplateType_displayAreas__+-Mlb">
                 <div class="swiper swiper-initialized swiper-horizontal swiper-backface-hidden"
                      style="width: 1240px;">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide swiper-slide-active" style="width: 610px; margin-right: 20px;">
                             <div class="Card73_card73__M+QAq">
-                                <div class="Card73_card73SlideItem__L+iCz"><a class="Card73_bigThumb__nBnuo"
-                                                                              href="/app/exhibition/menu/501">
-                                    <img loading="lazy"
-                                         src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1726811993796.jpg/dims/format/avif;fallback=webp/optimize"
-                                         alt="MOMET" through="m2ps">
+                                <div class="Card73_card73SlideItem__L+iCz">
+                                    <a class="Card73_bigThumb__nBnuo" href="/app/exhibition/menu/501">
+                                    <img loading="lazy" src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1726811993796.jpg/dims/format/avif;fallback=webp/optimize" alt="MOMET" through="m2ps">
                                     <div class="Card73_brand__XoxdJ">MOMET<span>빛나는 당신의 모든 순간에</span></div>
                                 </a>
                                     <div class="Card73_thumbList__vUdGF">
-                                        <div>
+                                        <div >
                                             <div class="ProductThumbImage_wrapThumbImg__7REL9" >
                                                 <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241" >
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/EFUF/2024/375/EFUFXX00401_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div>
-                                                        <span class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt="">
-                                                        </span>
-                                                    </div>
+                                                    <img loading="lazy" src="https://nimg.lfmall.co.kr/file/product/prd/EFUF/2024/375/EFUFXX00401_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize" alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
                                                 </div>
                                             </div>
                                             <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "

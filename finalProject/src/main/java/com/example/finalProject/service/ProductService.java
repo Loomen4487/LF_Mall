@@ -85,4 +85,11 @@ public class ProductService {
         pe.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
+
+    public List<ProductDTO> findbag(int ref){
+        List<ProductEntity> pebag = productRepository.findBybag(ref);
+        List<ProductDTO> dto = new ArrayList<>();
+        pebag.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
 }

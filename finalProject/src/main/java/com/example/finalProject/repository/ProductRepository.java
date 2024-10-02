@@ -15,4 +15,8 @@ public interface ProductRepository extends JpaRepository<ProductEntity,Integer> 
     List<ProductEntity> findByMiddle_idx(int idx);
     @Query(value = "select * from product where major_idx=?1",nativeQuery = true)
     List<ProductEntity> findByMajor_idx(int idx);
+
+    @Query(value = "select * from product where ref = ?1 order by rand() limit 3", nativeQuery = true)
+    List<ProductEntity> findBybag(int ref);
+
 }

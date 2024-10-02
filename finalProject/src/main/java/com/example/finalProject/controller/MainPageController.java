@@ -16,13 +16,13 @@ import java.util.List;
 public class MainPageController {
     @Autowired
     private ProductService productService;
-    @Autowired
-    private MiddleService middleService;
 
     @GetMapping("/main_menu")
     public String selectName(Model model) {
         System.out.println("결과 : "+productService.findAll());
         model.addAttribute("item",productService.findAll());
+        model.addAttribute("bag",productService.findbag(1116));
+        model.addAttribute("jacket",productService.findbag(1101));
         return "main/main_menu";
     }
 }
