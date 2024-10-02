@@ -545,6 +545,10 @@ h3.tabTitle, h4.contTitle {
     padding: 20px;
     vertical-align: top;
     white-space: pre-wrap;
+    text-align:center;
+}
+.ProductTabQna_QnaList__1s9Ca table tbody td:nth-child(2){
+    text-align:left;
 }
 .recommand-container{
     display:flex;

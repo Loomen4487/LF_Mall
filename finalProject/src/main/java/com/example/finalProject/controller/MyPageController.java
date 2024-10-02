@@ -1,10 +1,8 @@
 package com.example.finalProject.controller;
 
-import com.example.finalProject.dto.DeliveryInfoDTO;
-import com.example.finalProject.dto.LoginDTO;
+import com.example.finalProject.dto.*;
 import com.example.finalProject.security.PrincipalDetails;
-import com.example.finalProject.service.DeliveryInfoService;
-import com.example.finalProject.service.LoginService;
+import com.example.finalProject.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
@@ -13,10 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,9 +21,12 @@ public class MyPageController {
     private final LoginService loginService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final DeliveryInfoService deliveryInfoService;
+    private final ProductService productService;
+    private final MiddleService middleService;
+    private final QnaService qnaService;
 
     @Secured("ROLE_USER")
-    @GetMapping(value = "/mypage")
+    @GetMapping("/mypage")
     public String mypage(){
         return "mypage";
     }
@@ -122,4 +120,64 @@ public class MyPageController {
         return "success";
     }
 
+
+    // 관리자 계정 상품등록 페이지 이동
+    @GetMapping(value = "/superMyPage/product/{idx}")
+    public String productDetailItem(@PathVariable int idx, Model model){
+        model.addAttribute("product",productService.findByIdx(idx));
+        return "superDetail";
+    }
+
+    //관리자 계정 상품 등록 수정
+    @PostMapping(value = "/superMyPage/product/updateOk")
+    public String productUpdateOk(ProductDTO dto){
+        productService.update(dto);
+        return "redirect:/superMyPage";
+    }
+
+    // 관리자 계정 상품 검색
+    @GetMapping(value = "/superMyPage/selectByName/{name}")
+    @ResponseBody
+    public List<ProductDTO> selectByName(@PathVariable String name){
+        return productService.findByName(name);
+    }
+
+    // 관리자 계정 상품등록 카테고리 출력
+    @GetMapping(value = "/selectMiddle/{idx}")
+    @ResponseBody
+    public List<MiddleDTO> selectMiddle(@PathVariable int idx){
+        return middleService.findByRef(idx);
+    }
+
+    // 관리자 계정 상품등록 상품 필터
+    @GetMapping(value = "/selectSub/{idx}/{startNo}")
+    @ResponseBody
+    public List<ProductDTO> selectSub(@PathVariable int idx,@PathVariable int startNo){
+        return productService.superMyPageCategoryPaging(idx,startNo,16);
+    }
+
+    @GetMapping(value = "/superMyPage/qna")
+    public String qna(){
+        return "qna";
+    }
+
+    @GetMapping(value = "/superMyPage/qnaAll")
+    @ResponseBody
+    public List<QnaDTO> qnaSelectAll(){
+        return qnaService.findAll();
+    }
+
+    @GetMapping(value = "/superMyPage/qna/{idx}")
+    public String qnaDetail(@PathVariable int idx,Model model){
+        model.addAttribute("qna",qnaService.findByIdx(idx));
+        return "qnaDetail";
+    }
+
+    @PostMapping(value = "/superMyPage/qnaOk")
+    public String qnaOk(QnaDTO dto){
+        System.out.println("결과 : "+dto);
+        dto.setAnswer(true);
+        qnaService.update(dto);
+        return "redirect:/superMyPage/qna";
+    }
 }

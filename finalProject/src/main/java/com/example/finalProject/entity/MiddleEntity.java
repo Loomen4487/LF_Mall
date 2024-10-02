@@ -17,8 +17,9 @@ public class MiddleEntity {
     private String name;
 
     private int ref;
+    private int sub_idx;
 
     public MiddleDTO toDTO(){
-        return new MiddleDTO(idx,name,ref);
+        return new MiddleDTO(idx,name,ref,sub_idx);
     }
 }

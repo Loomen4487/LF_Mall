@@ -71,7 +71,7 @@
                     </a></div>
                 <div class="ProductBasic_priceGroup__t3wWL"><span class="ProductBasic_dcPercent__HeI1C">20%</span><span
                         class="ProductBasic_originPrice__d51GM">189,000원</span><span
-                        class="ProductBasic_finalPrice__bLpZz" id="detailItemPrice">[[${product.price}]]원</span><span><button
+                        class="ProductBasic_finalPrice__bLpZz" id="detailItemPrice">[[${#numbers.formatInteger(product.price,3,'COMMA')}]]원</span><span><button
                         type="button" class="ProductBasic_iconQuestion__sI+AD">안내</button><div class=""></div></span>
                 </div>
             </div>
@@ -167,7 +167,7 @@
                             <li>문의 답변은 마이페이지 &gt; 상품Q&amp;A에서 확인하실 수 있습니다.</li>
                             <li>공개된 공간이므로 전화번호, 메일 주소 등 고객님의 소중한 개인정보는 절대 남기지 말아주세요.</li>
                         </ol>
-                        <button type="button" class="ProductTabQna_BtnQuestion__+nCBV">문의하기</button>
+                        <button type="button" class="ProductTabQna_BtnQuestion__+nCBV" th:onclick="@{|qna('${session.id}',${product.idx})|}">문의하기</button>
                     </div>
                     <div class="ProductTabQna_QnaList__1s9Ca">
                         <table>
@@ -185,8 +185,14 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <tr th:if="${qna == null}">
                                 <td colspan="4"><p class="ProductTabQna_noData__-RzzS">등록된 Q&amp;A가 없습니다.</p></td>
+                            </tr>
+                            <tr th:if="${qna !=null}" th:each="vo: ${qna}">
+                                <td th:text="${vo.isAnswer?'답변완료':'답변미완'}"></td>
+                                <td>[[${vo.title}]]</td>
+                                <td>[[${vo.id}]]</td>
+                                <td>[[${#calendars.format(vo.regDate,'yyyy-MM-dd')}]]</td>
                             </tr>
                             </tbody>
                         </table>
