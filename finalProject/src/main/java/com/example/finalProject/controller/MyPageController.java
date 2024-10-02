@@ -1,11 +1,14 @@
 package com.example.finalProject.controller;
 
+import com.example.finalProject.dto.DeliveryInfoDTO;
 import com.example.finalProject.dto.LoginDTO;
-import com.example.finalProject.dto.OrderedDTO;
+import com.example.finalProject.security.PrincipalDetails;
+import com.example.finalProject.service.DeliveryInfoService;
 import com.example.finalProject.service.LoginService;
-import com.example.finalProject.service.OrderedService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -15,13 +18,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 @Controller
 @RequiredArgsConstructor
 public class MyPageController {
     private final LoginService loginService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    private final OrderedService orderedService;
+    private final DeliveryInfoService deliveryInfoService;
 
+    @Secured("ROLE_USER")
+    @GetMapping(value = "/mypage")
+    public String mypage(){
+        return "mypage";
+    }
 
     @GetMapping("/mypage/userInfo_change1")
     public String getUserInfo(Model model) {
@@ -87,8 +97,12 @@ public class MyPageController {
     }
 
     @GetMapping(value = "/mypage/address")
-    public String address(){
-        return "address";
+    public String address(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails) {
+        List<DeliveryInfoDTO> deliveryInfos = deliveryInfoService.findDeliveryInfosByLoginIdx(principalDetails.getDto().getIdx());
+
+        model.addAttribute("deliveryInfos", deliveryInfos);  // 배송지 목록 전달
+        System.out.println(deliveryInfos);
+        return "/address";
     }
 
     // 배송지 입력 폼 페이지로 이동
@@ -98,15 +112,13 @@ public class MyPageController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
 
-        model.addAttribute("username", username);
-
         return "addAddressForm";  // addAddressForm.html 파일을 반환
     }
 
     @PostMapping(value = "/insertAddress")
     @ResponseBody
-    public String insertAddress(OrderedDTO orderedDTO) {
-        orderedService.insert(orderedDTO);
+    public String insertAddress(DeliveryInfoDTO deliveryInfoDTO) {
+        deliveryInfoService.insetDeliveryInfo(deliveryInfoDTO);
         return "success";
     }
 

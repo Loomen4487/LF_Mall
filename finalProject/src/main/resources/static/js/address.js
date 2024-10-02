@@ -6,22 +6,41 @@ function openAddressForm() {
 function submitForm() {
 
     // 전화번호 필드를 합침
+    const receiver = document.getElementById("receiver").value;
     const phone1 = document.getElementById("phone1").value;
     const phone2 = document.getElementById("phone2").value;
     const phone3 = document.getElementById("phone3").value;
-
-    const phone = phone1 + phone2 + phone3;
-
-    // 숨겨진 필드에 합친 값을 설정
-    document.getElementById("phone").value = phone;
-
     const address1 = document.getElementById("sample6_address").value;
     const address2 = document.getElementById("sample6_extraAddress").value;
     const address3 = document.getElementById("sample6_detailAddress").value;
 
+    // 입력값 확인
+    if(!receiver) {
+        alert("받는 분에 이름을 입력해주세요")
+        return
+    }
+
+    if (!phone1 || !phone2 || !phone3) {
+        alert("전화번호를 정확히 입력해주세요.");
+        return;  // 폼 전송 중지
+    }
+
     const address = address1 + address2;
     const detailAddress = address3;
+    const phone = phone1 + phone2 + phone3;
+
+    if (!address) {
+        alert("주소를 입력해주세요.");
+        return;  // 폼 전송 중지
+    }
+
+    if (!detailAddress) {
+        alert("상세주소를 입력해주세요.");
+        return;  // 폼 전송 중지
+    }
+
     // 숨겨진 필드에 합친 값을 설정
+    document.getElementById("phone").value = phone;
     document.getElementById("address").value = address;
     document.getElementById("detailAddress").value = detailAddress;
 
@@ -42,7 +61,8 @@ function submitForm() {
 
     // 폼 데이터 전송
     const params = "phone=" + encodeURIComponent(phone) +
-        "&address=" + encodeURIComponent(address) + "&detailAddress=" + encodeURIComponent(detailAddress);
+        "&address=" + encodeURIComponent(address) + "&detailAddress=" + encodeURIComponent(detailAddress)
+    + "&receiver=" + encodeURIComponent(receiver);
     xhr.send(params);
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -288,8 +288,9 @@
                     </div>
                     <div class="ShippingAddress_mypageContents__ubJef">
                         <div class="ShippingAddress_mypageTitle__Rn7VY"><h4>배송지 관리</h4></div>
-                        <div class="ShippingAddress_manage__9LHqJ">
+                        <div class="ShippingAddress_manage__9LHqJ" th:if="${deliveryInfos ==null}">
                             <div class="ShippingAddress_empty__ULmPZ"><p>자주 사용하는 배송지를 등록해 주세요.</p></div>
+
                             <div class="ShippingAddress_btnWrap__RyiNb">
                                 <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27">기본 배송지
                                     설정
@@ -300,49 +301,50 @@
                                 </button>
                             </div>
                         </div>
-<!--                        <div class="ShippingAddress_manage__9LHqJ">-->
-<!--                            <button type="button"-->
-<!--                                    class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH ShippingAddress_btnDeleteAll__ByTQY">-->
-<!--                                전체삭제-->
-<!--                            </button>-->
-<!--                            <ul class="ShippingAddress_manageList__+RdgG">-->
-<!--                                <li>-->
-<!--                                    <div class="ShippingAddress_listIn__hpd7A">-->
-<!--                                        <div class="LfInput_lfInputRadio__R8RDO">-->
-<!--                                            <input type="radio" id="deliveryAddress_0" class="LfInput_input__eAm0q" name="radio" value="">-->
-<!--                                            <label for="deliveryAddress_0">-->
-<!--                                                <span class="ShippingAddress_addBox__2uD5+">-->
-<!--                                                    <strong class="ShippingAddress_name__hNNZi">{name}</strong>-->
-<!--                                                    <span>{fristaddress}<br>{detailaddrss}</span>-->
-<!--                                                </span>-->
-<!--                                            </label>-->
-<!--                                        </div>-->
-<!--                                        <div class="ShippingAddress_btnArea__RYpMZ">-->
-<!--                                            <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">수정-->
-<!--                                            </button>-->
-<!--                                            <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">삭제-->
-<!--                                            </button>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                            <div class="CommonPaging_pageNumber__mqg4O">-->
-<!--                                <button type="button" class="CommonPaging_pageFirst__otE46" disabled="">맨처음으로</button>-->
-<!--                                <button type="button" class="CommonPaging_pagePrev__YuOzn" disabled="">이전으로</button>-->
-<!--                                <button class="CommonPaging_active__PofqH">1</button>-->
-<!--                                <button type="button" class="CommonPaging_pageNext__6qqb6" disabled="">다음으로</button>-->
-<!--                                <button type="button" class="CommonPaging_pageEnd__STI4L" disabled="">맨마지막으로</button>-->
-<!--                            </div>-->
-<!--                            <div class="ShippingAddress_btnWrap__RyiNb">-->
-<!--                                <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27">기본 배송지-->
-<!--                                    설정-->
-<!--                                </button>-->
-<!--                                <button type="button"-->
-<!--                                        class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27 LfButton_fillBlack__Cy1XN">-->
-<!--                                    배송지 추가-->
-<!--                                </button>-->
-<!--                            </div>-->
-<!--                        </div>-->
+                        <div class="ShippingAddress_manage__9LHqJ" th:if="${deliveryInfos != null }">
+                            <button type="button"
+                                    class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH ShippingAddress_btnDeleteAll__ByTQY">
+                                전체삭제
+                            </button>
+                            <ul class="ShippingAddress_manageList__+RdgG">
+                                <li th:each="deliveryInfo : ${deliveryInfos}">
+                                    <div class="ShippingAddress_listIn__hpd7A">
+                                        <div class="LfInput_lfInputRadio__R8RDO">
+                                            <input type="radio" id="deliveryAddress_0" class="LfInput_input__eAm0q" name="radio" value="">
+                                            <label for="deliveryAddress_0">
+                                                <span class="ShippingAddress_addBox__2uD5+">
+                                                    <strong class="ShippingAddress_name__hNNZi" th:text="${deliveryInfo.receiver}"></strong>
+                                                    <span th:text="${deliveryInfo.address}"><br>th:text="${deliveryInfo.detailAddrss}"</span>
+                                                    <span th:text="${deliveryInfo.phone}"></span>
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <div class="ShippingAddress_btnArea__RYpMZ">
+                                            <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">수정
+                                            </button>
+                                            <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">삭제
+                                            </button>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="CommonPaging_pageNumber__mqg4O">
+                                <button type="button" class="CommonPaging_pageFirst__otE46" disabled="">맨처음으로</button>
+                                <button type="button" class="CommonPaging_pagePrev__YuOzn" disabled="">이전으로</button>
+                                <button class="CommonPaging_active__PofqH">1</button>
+                                <button type="button" class="CommonPaging_pageNext__6qqb6" disabled="">다음으로</button>
+                                <button type="button" class="CommonPaging_pageEnd__STI4L" disabled="">맨마지막으로</button>
+                            </div>
+                            <div class="ShippingAddress_btnWrap__RyiNb">
+                                <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27">기본 배송지
+                                    설정
+                                </button>
+                                <button type="button"
+                                        class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27 LfButton_fillBlack__Cy1XN">
+                                    배송지 추가
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
 
