@@ -71,7 +71,14 @@ public class ProductService {
     }
 
     public List<SubDTO> findSub(int ref){
-        List<SubEntity> se = subRepository.findByRef(ref%1000/100);
+        List<SubEntity> se = null;
+        if(ref>1000){
+            se = subRepository.findByRef(ref%1000/100);
+        }else{
+            int idx = ref%10;
+            System.out.println("아니 이거 타는거 아니야?");
+            se = subRepository.findByRef(ref%10);
+        }
         List<SubDTO> dto = new ArrayList<>();
         se.forEach(item->dto.add(item.toDTO()));
         return dto;

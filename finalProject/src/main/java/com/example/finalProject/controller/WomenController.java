@@ -39,7 +39,7 @@ public class WomenController {
         model.addAttribute("item",productService.findByRef(idx));
         model.addAttribute("major",productService.findMajor());
         model.addAttribute("middle",middleDTO);
-        if(idx>1000){
+        if(idx>100){
             model.addAttribute("panel",productService.findSub(idx));
         }else{
             List<MiddleDTO> middle = productService.findMiddle(idx);
