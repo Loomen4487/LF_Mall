@@ -3,6 +3,49 @@ function openAddressForm() {
     window.open('/addAddressForm', '배송지 추가', 'width=600,height=600');
 }
 
+function submitForm() {
+
+    // 전화번호 필드를 합침
+    const phone1 = document.getElementById("phone1").value;
+    const phone2 = document.getElementById("phone2").value;
+    const phone3 = document.getElementById("phone3").value;
+
+    const phone = phone1 + phone2 + phone3;
+
+    // 숨겨진 필드에 합친 값을 설정
+    document.getElementById("phone").value = phone;
+
+    const address1 = document.getElementById("sample6_address").value;
+    const address2 = document.getElementById("sample6_extraAddress").value;
+    const address3 = document.getElementById("sample6_detailAddress").value;
+
+    const address = address1 + address2;
+    const detailAddress = address3;
+    // 숨겨진 필드에 합친 값을 설정
+    document.getElementById("address").value = address;
+    document.getElementById("detailAddress").value = detailAddress;
+
+    // AJAX를 통해 비동기 요청
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/insertAddress", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+    // 요청이 성공했을 때
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            alert("배송지가 등록되었습니다");  // 알림창 띄우기
+            window.close();  // 창 닫기
+        } else {
+            alert("오류가 발생했습니다. 다시 시도해주세요.");
+        }
+    };
+
+    // 폼 데이터 전송
+    const params = "phone=" + encodeURIComponent(phone) +
+        "&address=" + encodeURIComponent(address) + "&detailAddress=" + encodeURIComponent(detailAddress);
+    xhr.send(params);
+}
+
 function sample6_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {

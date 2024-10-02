@@ -46,7 +46,7 @@ public class HomeController {
     @PostMapping(value = "/detailItem/pay")
     public String pay(@RequestParam HashMap<String,String> map, Model model){
         String idx = map.get("idx");
-        model.addAttribute("product",productService.findByRef(Integer.parseInt(idx)));
+        model.addAttribute("product",productService.findByIdx(Integer.parseInt(idx)));
         model.addAttribute("count",Integer.parseInt(map.get("count")));
         return "pay";
     }
