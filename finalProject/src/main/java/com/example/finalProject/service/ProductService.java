@@ -85,11 +85,4 @@ public class ProductService {
         pe.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
-
-    public List<ProductDTO> findOp() {
-        List<ProductEntity> op = productRepository.findByref();
-        List<ProductDTO> dto = new ArrayList<>();
-        op.forEach(onepart->dto.add(onepart.toDTO()));
-        return dto;
-    }
 }

@@ -716,35 +716,34 @@
                         <div class="swiper-slide swiper-slide-active" style="width: 610px; margin-right: 20px;">
                             <div class="Card73_card73__M+QAq">
                                 <div class="Card73_card73SlideItem__L+iCz"><a class="Card73_bigThumb__nBnuo"
-                                                                              href="/app/exhibition/menu/501"><img loading="lazy"
-                                                                                                                   src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1726811993796.jpg/dims/format/avif;fallback=webp/optimize"
-                                                                                                                   alt="MOMET" through="m2ps">
+                                                                              href="/app/exhibition/menu/501">
+                                    <img loading="lazy"
+                                         src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1726811993796.jpg/dims/format/avif;fallback=webp/optimize"
+                                         alt="MOMET" through="m2ps">
                                     <div class="Card73_brand__XoxdJ">MOMET<span>빛나는 당신의 모든 순간에</span></div>
                                 </a>
                                     <div class="Card73_thumbList__vUdGF">
                                         <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
+                                            <div class="ProductThumbImage_wrapThumbImg__7REL9" >
+                                                <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241" >
                                                     <img loading="lazy"
                                                          src="https://nimg.lfmall.co.kr/file/product/prd/EFUF/2024/375/EFUFXX00401_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
                                                          alt="" class="ProductThumbImage_baseImg__osoIA"
                                                          through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
+                                                    <div>
+                                                        <span class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
                                                             loading="lazy" through="m2ps"
                                                             src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
+                                                            alt="">
+                                                        </span>
+                                                    </div>
                                                 </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">MOMET</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
+                                            </div>
+                                            <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
                                                 href="/app/exhibition/menu/501">폴 카라 배색 맨투맨 카키</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">14%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">83,790</span></div>
+                                            <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                                <span class="ProductThumbPrice_lastPrice__ysIqE">83,790</span>
+                                            </div>
                                         </div>
                                         <div>
                                             <div class="ProductThumbImage_wrapThumbImg__7REL9">
@@ -1581,25 +1580,20 @@
                 <div class="cardTitle CardTitle_cardTitle__0Mrfvundefinedfalse">
                     <p>고객님이 좋아할 만한 상품</p>
                 </div>
-                <div class="Card92_productList__gqBji" th:each="dto:${item}">
-                    <div class="Card92_card92ProductItem__8nSAc">
-                        <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                            <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-216">
-                                <img loading="lazy" th:src="${dto.image}"
-                                    alt="" class="ProductThumbImage_hoverImg__wYyaH" through="m2ps">
-                                <img loading="lazy" th:src="${dto.image}"
-                                    alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
-                                <div>
-                                    <span class="ProductThumbImage_lPlus__wVZto undefined lplus"><img loading="lazy" through="m2ps"
-                                        src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize" alt="">
-                                </span>
+                <div class="product_wrapper">
+                    <div class="Card92_productList__gqBji" th:each="dto:${item}">
+                        <div class="Card92_card92ProductItem__8nSAc">
+                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
+                                <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-216">
+                                    <img loading="lazy" th:src="${dto.image}"
+                                         alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
                                 </div>
                             </div>
-                        </div>
-                        <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
-                            href="/app/exhibition/menu/501">[[${dto.name}]]</a>
-                        <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                            <span class="ProductThumbPrice_lastPrice__ysIqE">[[${#numbers.formatInteger(dto.price,3,'COMMA')}]]</span>
+                            <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
+                               href="/app/exhibition/menu/501">[[${dto.name}]]</a>
+                            <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                <span class="ProductThumbPrice_lastPrice__ysIqE">[[${#numbers.formatInteger(dto.price,3,'COMMA')}]]</span>
+                            </div>
                         </div>
                     </div>
                 </div>

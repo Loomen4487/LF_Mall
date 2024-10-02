@@ -1,6 +1,7 @@
 package com.example.finalProject.controller;
 
 import com.example.finalProject.service.CategoryService;
+import com.example.finalProject.service.MiddleService;
 import com.example.finalProject.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,8 @@ import java.util.List;
 public class MainPageController {
     @Autowired
     private ProductService productService;
+    @Autowired
+    private MiddleService middleService;
 
     @GetMapping("/main_menu")
     public String selectName(Model model) {
