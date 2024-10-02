@@ -6,6 +6,7 @@ import com.example.finalProject.service.LoginService;
 import com.example.finalProject.service.NoticeService;
 import com.example.finalProject.sms.SmsService;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
@@ -55,7 +56,9 @@ public class LoginController {
         return loginService.findById(id);
     }
     @GetMapping(value = "/login")
-    public String login(){
+    public String login(HttpServletRequest request){
+        String uri= request.getHeader("Referer");
+        if(uri!=null && !uri.contains("/login"))request.getSession().setAttribute("prevPage",uri);
         return "login";
     }
 

@@ -1,10 +1,9 @@
 package com.example.finalProject.controller;
 
-import com.example.finalProject.dto.LoginDTO;
-import com.example.finalProject.dto.ProductDTO;
+import com.example.finalProject.dto.*;
 import com.example.finalProject.entity.LoginEntity;
-import com.example.finalProject.service.LoginService;
-import com.example.finalProject.service.ProductService;
+import com.example.finalProject.service.*;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -25,7 +24,9 @@ public class MyPageController {
     private final LoginService loginService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final ProductService productService;
-
+    private final MajorService majorService;
+    private final MiddleService middleService;
+    private final QnaService qnaService;
     @Secured("ROLE_USER")
     @GetMapping(value = "/mypage")
     public String mypage(){
@@ -37,6 +38,7 @@ public class MyPageController {
     public String superMypage(Model model){
 
         model.addAttribute("total",(productService.selectCount()-1)/16+1);
+        model.addAttribute("major",majorService.findAll());
         return "superMypage";
     }
 
@@ -119,4 +121,64 @@ public class MyPageController {
         return "addAddressForm";  // addAddressForm.html 파일을 반환
     }
 
+
+    // 관리자 계정 상품등록 페이지 이동
+    @GetMapping(value = "/superMyPage/product/{idx}")
+    public String productDetailItem(@PathVariable int idx,Model model){
+        model.addAttribute("product",productService.findByIdx(idx));
+        return "superDetail";
+    }
+
+    //관리자 계정 상품 등록 수정
+    @PostMapping(value = "/superMyPage/product/updateOk")
+    public String productUpdateOk(ProductDTO dto){
+        productService.update(dto);
+        return "redirect:/superMyPage";
+    }
+
+    // 관리자 계정 상품 검색
+    @GetMapping(value = "/superMyPage/selectByName/{name}")
+    @ResponseBody
+    public List<ProductDTO> selectByName(@PathVariable String name){
+        return productService.findByName(name);
+    }
+
+    // 관리자 계정 상품등록 카테고리 출력
+    @GetMapping(value = "/selectMiddle/{idx}")
+    @ResponseBody
+    public List<MiddleDTO> selectMiddle(@PathVariable int idx){
+        return middleService.findByRef(idx);
+    }
+
+    // 관리자 계정 상품등록 상품 필터
+    @GetMapping(value = "/selectSub/{idx}/{startNo}")
+    @ResponseBody
+    public List<ProductDTO> selectSub(@PathVariable int idx,@PathVariable int startNo){
+        return productService.superMyPageCategoryPaging(idx,startNo,16);
+    }
+
+    @GetMapping(value = "/superMyPage/qna")
+    public String qna(){
+        return "qna";
+    }
+
+    @GetMapping(value = "/superMyPage/qnaAll")
+    @ResponseBody
+    public List<QnaDTO> qnaSelectAll(){
+        return qnaService.findAll();
+    }
+
+    @GetMapping(value = "/superMyPage/qna/{idx}")
+    public String qnaDetail(@PathVariable int idx,Model model){
+        model.addAttribute("qna",qnaService.findByIdx(idx));
+        return "qnaDetail";
+    }
+
+    @PostMapping(value = "/superMyPage/qnaOk")
+    public String qnaOk(QnaDTO dto){
+        System.out.println("결과 : "+dto);
+        dto.setAnswer(true);
+        qnaService.update(dto);
+        return "redirect:/superMyPage/qna";
+    }
 }

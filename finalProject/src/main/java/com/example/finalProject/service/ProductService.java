@@ -90,4 +90,28 @@ public class ProductService {
     public int selectCount(){
         return productRepository.selectCount();
     }
+
+    public ProductDTO findByIdx(int idx){
+        ProductEntity pe = productRepository.findByIdx(idx);
+        return pe.toDTO();
+    }
+
+    @Transactional
+    public void update(ProductDTO dto){
+        productRepository.save(dto.toEntity());
+    }
+
+    public List<ProductDTO> findByName(String name){
+        List<ProductEntity> pe = productRepository.findByName(name);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
+
+    public List<ProductDTO> superMyPageCategoryPaging(int middle_idx,int startNo,int pageSize){
+        List<ProductEntity> pe = productRepository.superMyPageCategoryPaging(middle_idx,startNo,pageSize);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
 }

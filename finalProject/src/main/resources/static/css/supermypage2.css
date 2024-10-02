@@ -1,0 +1,36 @@
+.mypage img{
+    width:250px;
+}
+.mypage{
+    text-align:center;
+}
+.mypage input{
+    padding:10px 0;
+}
+.btn-group{
+    display:flex;
+    width: 50%;
+    left: 25%;
+    column-gap:10px;
+}
+.searchItem {
+    padding: 15px 0;
+}
+.search-container{
+    display:flex;
+    justify-content:space-between;
+}
+.itemContainer{
+    display:flex;
+    flex-flow:row wrap;
+    justify-content:space-between;
+}
+.itemContainer .item{
+    padding: 10px 0;
+}
+.itemContainer .item img{
+    width:150px;
+}
+.example{
+    text-align:center;
+}

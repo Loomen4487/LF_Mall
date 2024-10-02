@@ -24408,23 +24408,3 @@ h4.ttl-coordination, .product-details .prt-detail h4.ttl-coordination {
 .searchItem{
     text-align:right;
 }
-.itemContainer{
-    display:flex;
-    flex-flow:row wrap;
-    justify-content:space-between;
-}
-.itemContainer .item img{
-    width:150px;
-}
-.example{
-    text-align:center;
-}
-.detail-item-container {
-    position: absolute;
-    top: 130px;
-    left: 37%;
-    width: 350px;
-    height: 500px;
-    border: 1px solid black;
-    z-index:10;
-}

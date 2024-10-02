@@ -1,9 +1,11 @@
 package com.example.finalProject.controller;
 
 import com.example.finalProject.dto.NoticeDTO;
+import com.example.finalProject.dto.QnaDTO;
 import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.NoticeService;
 import com.example.finalProject.service.ProductService;
+import com.example.finalProject.service.QnaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -19,6 +21,7 @@ import java.util.List;
 public class HomeController {
     private final NoticeService noticeService;
     private final ProductService productService;
+    private final QnaService qnaService;
     @GetMapping(value = "/")
     @ResponseBody
     public String index(){
@@ -34,7 +37,9 @@ public class HomeController {
 
     @GetMapping(value = "/detailItem/{idx}")
     public String detailItem(@PathVariable int idx, Model model){
-        model.addAttribute("recommand",productService.findByRef(idx));
+        System.out.println("결과 : "+qnaService.findByProduct_idx(idx));
+        model.addAttribute("product",productService.findByIdx(idx));
+        model.addAttribute("qna",qnaService.findByProduct_idx(idx));
         return "detailItem";
     }
 
@@ -83,5 +88,20 @@ public class HomeController {
     @GetMapping(value = "/woman/{name}")
     public String woman(@PathVariable String name){
         return "mybag";
+    }
+
+
+    // qna
+    @GetMapping(value = "/qnaForm/{idx}")
+    public String qna(@PathVariable int idx,Model model){
+        model.addAttribute("idx",idx);
+        return "qnaForm";
+    }
+
+    // qna 처리
+    @PostMapping(value = "/qnaOk")
+    public String qnaOk(QnaDTO dto){
+        qnaService.insert(dto);
+        return "redirect:/detailItem/"+dto.getProduct_idx();
     }
 }

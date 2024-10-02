@@ -10,7 +10,6 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<ProductEntity,Integer> {
     @Query(value = "select * from product where category_idx = ?1",nativeQuery = true)
     List<ProductEntity> selectIdx(int idx);
-
     List<ProductEntity> findByRef(int ref);
     @Query(value = "select * from product where middle_idx=?1",nativeQuery = true)
     List<ProductEntity> findByMiddle_idx(int idx);
@@ -24,4 +23,12 @@ public interface ProductRepository extends JpaRepository<ProductEntity,Integer> 
     // 관리자 계정 주문내역 전체 개수
     @Query(value = "select count(*) from product",nativeQuery = true)
     int selectCount();
+
+    ProductEntity findByIdx(int idx);
+    @Query(value = "select * from product where name like concat('%',?1,'%')",nativeQuery = true)
+    List<ProductEntity> findByName(String name);
+
+    // 관리자 계정 필터링 페이지
+    @Query(value = "select * from product where middle_idx=?1 limit ?2,?3",nativeQuery = true)
+    List<ProductEntity> superMyPageCategoryPaging(int middle_idx,int startNo,int pageSize);
 }
