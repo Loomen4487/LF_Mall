@@ -4,6 +4,8 @@ import com.example.finalProject.dto.*;
 import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -24,11 +26,27 @@ public class MyPageController {
     private final ProductService productService;
     private final MiddleService middleService;
     private final QnaService qnaService;
+    private final MajorService majorService;
 
     @Secured("ROLE_USER")
     @GetMapping("/mypage")
     public String mypage(){
         return "mypage";
+    }
+
+    @Secured("ROLE_MANAGER")
+    @GetMapping(value = "/superMyPage")
+    public String superMypage(Model model){
+
+        model.addAttribute("total",(productService.selectCount()-1)/16+1);
+        model.addAttribute("major",majorService.findAll());
+        return "superMypage";
+    }
+
+    @GetMapping(value = "/superMyPage/selectOrderListAll/{startNo}")
+    @ResponseBody
+    public ResponseEntity<List<ProductDTO>> selectOrderListAll(@PathVariable int startNo){
+        return ResponseEntity.status(HttpStatus.OK).body(productService.selectOrderListAll(startNo,16));
     }
 
     @GetMapping("/mypage/userInfo_change1")
