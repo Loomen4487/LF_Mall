@@ -14,13 +14,15 @@ public class OrderedDTO {
     private int idx;
     private int product_idx;
     private Date regDate;
-    private String location;
+    private int count;
     private String address;
     private String detailAddress;
     private String phone;
+    private String login_id;
+    private boolean isReview;
 
     public OrderedEntity toEntity(){
-        return new OrderedEntity(idx,product_idx,regDate,location, address, detailAddress, phone);
+        return new OrderedEntity(idx,product_idx,regDate,count, address, detailAddress, phone,login_id,isReview);
     }
 
 

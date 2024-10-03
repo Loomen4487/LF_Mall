@@ -16,4 +16,6 @@ public interface QnaRepository extends JpaRepository<QnaEntity,Integer> {
     @Modifying
     @Query(value = "update qna set content=:#{#qe.content},regdate=now(),isanswer=:#{#qe.isAnswer} where idx=:#{#qe.idx}",nativeQuery = true)
     void update(@Param("qe") QnaEntity qe);
+
+    List<QnaEntity> findById(String id);
 }

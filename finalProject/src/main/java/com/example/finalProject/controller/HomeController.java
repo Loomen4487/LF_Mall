@@ -1,12 +1,17 @@
 package com.example.finalProject.controller;
 
 import com.example.finalProject.dto.NoticeDTO;
+import com.example.finalProject.dto.OrderedDTO;
+import com.example.finalProject.dto.ProductDTO;
 import com.example.finalProject.dto.QnaDTO;
 import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.NoticeService;
+import com.example.finalProject.service.OrderedService;
 import com.example.finalProject.service.ProductService;
 import com.example.finalProject.service.QnaService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -22,6 +27,7 @@ public class HomeController {
     private final NoticeService noticeService;
     private final ProductService productService;
     private final QnaService qnaService;
+    private final OrderedService orderedService;
     @GetMapping(value = "/")
     @ResponseBody
     public String index(){
@@ -35,10 +41,13 @@ public class HomeController {
         return "user";
     }
 
+
     @GetMapping(value = "/detailItem/{idx}")
     public String detailItem(@PathVariable int idx, Model model){
         System.out.println("결과 : "+qnaService.findByProduct_idx(idx));
-        model.addAttribute("product",productService.findByIdx(idx));
+        ProductDTO dto = productService.findByIdx(idx);
+        model.addAttribute("product",dto);
+        model.addAttribute("recommand",productService.selectRecommand(dto.getRef()));
         model.addAttribute("qna",qnaService.findByProduct_idx(idx));
         return "detailItem";
     }
@@ -51,6 +60,12 @@ public class HomeController {
         return "pay";
     }
 
+    @PostMapping(value = "/payOk")
+    public ResponseEntity<?> payOk(@RequestParam HashMap<String,String> map){
+        OrderedDTO dto = new OrderedDTO(0,Integer.parseInt(map.get("product_idx")),null,Integer.parseInt(map.get("count")),map.get("address"),map.get("detailAddress"),map.get("phone"),map.get("login_id"),false);
+        orderedService.insert(dto);
+        return ResponseEntity.status(HttpStatus.OK).body(dto);
+    }
     @GetMapping(value = "/notice")
     public String notice(Model model){
         int total = noticeService.selectCount();

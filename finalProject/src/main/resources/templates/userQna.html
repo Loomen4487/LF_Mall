@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>MyPage</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script defer src="/js/userQna.js"></script>
   <link rel="stylesheet" href="/css/mypage.css">
+  <link rel="stylesheet" href="/css/userQna.css">
 </head>
 <body>
 <header>
@@ -112,7 +115,7 @@
               <li class="on">
                 <span class="tit">쇼핑내역</span>
                 <ul class="sub">
-                  <li class="on"><a href="javascript:void(0);"
+                  <li ><a href="javascript:void(0);"
                                     onclick="cfGoToMyPageForLogin(PAGE_ORDER+'&amp;etag1=045_A111_E331&amp;etag2=0&amp;etag3=1&amp;etag4=0');">주문/배송
                     내역</a></li> <!-- LFML-68081 명칭변경 - 주문내역 전체보기 >> 주문/배송 내역 -->
                   <li><a href="javascript:void(0);"
@@ -180,7 +183,7 @@
                 <ul class="sub">
                   <li><a href="/mypage/review">상품리뷰</a>
                   </li>
-                  <li><a href="/mypage/qna">상품
+                  <li class="on"><a href="/mypage/qna">상품
                     Q&amp;A</a></li>
                   <li><a href="javascript:void(0);"
                          onclick="cfGoToMyPageForLogin(PAGE_COUNSEL+'&amp;etag1=045_A111_E333&amp;etag2=0&amp;etag3=3&amp;etag4=0');">1:1상담</a>
@@ -336,8 +339,7 @@
             <!-- 컨시어즈 이동용 배너 -->
 
             <!-- 주문배송 조회 //-->
-            <h3 class="mypage-title">주문/배송 내역</h3> <!-- LFML-68081 명칭변경 - 주문내역 전체보기 >> 주문/배송 내역 -->
-            <p class="order-chk-p">주문번호를 클릭하시면 주문상세내역을 확인할 수 있습니다.</p>
+            <h3 class="mypage-title">상품 Q&A 내역</h3> <!-- LFML-68081 명칭변경 - 주문내역 전체보기 >> 주문/배송 내역 -->
 
             <!-- 기간검색//-->
             <form name="searchForm" method="post">
@@ -388,12 +390,7 @@
               <!-- 주문한 상품 리스트 //-->
               <!-- LFML-18070 -->
               <div class="mb10 remove-order-sel-list">
-                                    <span class="head-btn"><a href="javascript:void(0);"
-                                                              onclick="javascript:jfOrderDel();" class="sys-btn-type1">선택삭제</a></span>
-                <p class="order-status-sum">
-                  <span class="b">2024.08.26~2024.09.25</span> 주문내역 : <span
-                        class="b c-deep-brown">총 0건</span>
-                </p>
+                                    <span class="head-btn"><a onclick="selectedDelete()" class="sys-btn-type1">선택삭제</a></span>
               </div>
               <!-- //LFML-18070 -->
 
@@ -413,16 +410,21 @@
                                                                name="delynChkAll" id="delynChkAll"
                                                                onclick="javascript:jfAllCheck(this);"><label
                           for="all"></label></span></th><!-- //LFML-18070 -->
-                  <th scope="col">일자/주문번호</th>
-                  <th scope="col">주문상품정보</th>
-                  <th scope="col">결제금액</th>
-                  <th scope="col">진행상태</th>
-                  <th scope="col">비고</th>
+                  <th scope="col">문의날짜</th>
+                  <th scope="col" colspan="3">문의내역</th>
+                  <th scope="col">답변상태</th>
+                </tr>
+                <tr th:if="${qna != null}" th:each="dto:${qna}" >
+                  <td><span class="lfu-chk"><input type="checkbox" class="delynChkAll" th:alt="${dto.idx}"><label
+                          for="all"></label></span></td><!-- //LFML-18070 -->
+                  <td>[[${#calendars.format(dto.regDate,'yyyy-MM-dd')}]]</td>
+                  <td colspan="3"><a href="">[[${dto.title}]]</a></td>
+                  <td>[[${dto.isAnswer?'답변완료':'답변미완료'}]]</td>
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="last"><!-- LFML-68081 주문내역이 없는경우 텍스트표시 추가 -->
-                  <td colspan="6" class="nodata">주문/배송 내역이 없습니다</td>
+                <tr class="last" th:if="${qna==null}"><!-- LFML-68081 주문내역이 없는경우 텍스트표시 추가 -->
+                  <td colspan="6" class="nodata">상품 Q&A 내역이 없습니다.</td>
                 </tr>
                 </tbody>
               </table>

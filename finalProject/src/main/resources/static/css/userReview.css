@@ -1,0 +1,76 @@
+.ProductReview_tabButton__b-uRp {
+    display: flex;
+    margin-bottom: 20px;
+}
+.ProductReview_productMyReview__5B72o{
+    width: 100%;
+}
+.ProductReview_tabButton__b-uRp button.ProductReview_on__GXXfd:after {
+    background: #000;
+    bottom: 0;
+    content: "";
+    height: 7px;
+    left: 0;
+    opacity: .2;
+    position: absolute;
+    width: 100%;
+}
+.ProductReview_tabButton__b-uRp button+button {
+    margin-left: 20px;
+}
+.WritableProductReview_writeableProductReview__NS7N8 .WritableProductReview_reviewNotice__dEp6h {
+    border-bottom: 1px solid #757575;
+    border-top: 1px solid #757575;
+    padding: 30px 0 20px;
+    width: 100%;
+}
+.WritableProductReview_writeableProductReview__NS7N8 .WritableProductReview_reviewNotice__dEp6h>ul {
+    border: 1px solid #eee;
+    display: flex;
+    width: 100%;
+}
+.WritableProductReview_writeableProductReview__NS7N8 .WritableProductReview_reviewNotice__dEp6h>ul li {
+    color: #000;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 19px;
+    padding: 95px 30px 30px;
+    position: relative;
+    text-align: center;
+    width: 50%;
+}
+.WritableProductReview_writeableProductReview__NS7N8 .WritableProductReview_reviewNotice__dEp6h>ul li strong {
+    display: block;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: 20px;
+    padding-bottom: 12px;
+}
+.WritableProductReview_writeableProductReview__NS7N8 .WritableProductReview_reviewNotice__dEp6h>ul li:after {
+    background-image: url(//img.lfmall.co.kr/file/WAS/apps/2021/front/review_new/w/icon_mypage.png);
+    background-repeat: no-repeat;
+    background-size: 100px auto;
+    content: "";
+    height: 50px;
+    left: 50%;
+    margin-left: -24px;
+    position: absolute;
+    top: 34px;
+    width: 50px;
+}
+.ProductReview_tabButton__b-uRp button {
+    color: #9b9b9b;
+    font-size: 21px;
+    letter-spacing: 0;
+    line-height: 24px;
+    position: relative;
+}
+.review-result{
+    display:flex;
+    column-gap:10px;
+    justify-content: space-between;
+}
+.review-item img{
+    width: 150px;
+}

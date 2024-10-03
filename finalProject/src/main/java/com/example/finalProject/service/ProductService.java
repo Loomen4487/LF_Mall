@@ -121,4 +121,12 @@ public class ProductService {
         pe.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
+
+    // 상품 추천
+    public List<ProductDTO> selectRecommand(int ref){
+        List<ProductEntity> pe = productRepository.selectRecommand(ref);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
 }

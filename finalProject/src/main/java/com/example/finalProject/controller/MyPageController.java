@@ -1,9 +1,10 @@
 package com.example.finalProject.controller;
 
-import com.example.finalProject.dto.*;
-import com.example.finalProject.entity.LoginEntity;
+import com.example.finalProject.dto.LoginDTO;
+import com.example.finalProject.dto.MiddleDTO;
+import com.example.finalProject.dto.ProductDTO;
+import com.example.finalProject.dto.QnaDTO;
 import com.example.finalProject.service.*;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -27,6 +28,7 @@ public class MyPageController {
     private final MajorService majorService;
     private final MiddleService middleService;
     private final QnaService qnaService;
+    private final ReviewService reviewService;
     @Secured("ROLE_USER")
     @GetMapping(value = "/mypage")
     public String mypage(){
@@ -180,5 +182,24 @@ public class MyPageController {
         dto.setAnswer(true);
         qnaService.update(dto);
         return "redirect:/superMyPage/qna";
+    }
+
+    @GetMapping(value = "/mypage/review")
+    public String review(Model model,HttpSession session){
+        model.addAttribute("ordered",reviewService.reviewAndOrderedSelectAll(session.getAttribute("id").toString()));
+        return "userReview";
+    }
+
+    @GetMapping(value = "/mypage/qna")
+    public String userQna(Model model, HttpSession session){
+        model.addAttribute("qna",qnaService.findById(session.getAttribute("id").toString()));
+        return "userQna";
+    }
+
+    // qna 삭제
+    @DeleteMapping(value = "/mypage/qna/delete/{idx}")
+    public ResponseEntity<String> deleteOk(@PathVariable int idx){
+        qnaService.delete(idx);
+        return ResponseEntity.status(HttpStatus.OK).body("삭제가 완료되었습니다.");
     }
 }
