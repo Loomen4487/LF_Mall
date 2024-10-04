@@ -10,9 +10,12 @@ import java.util.List;
 public interface ProductRepository extends JpaRepository<ProductEntity,Integer> {
     @Query(value = "select * from product where category_idx = ?1",nativeQuery = true)
     List<ProductEntity> selectIdx(int idx);
+
     List<ProductEntity> findByRef(int ref);
     @Query(value = "select * from product where middle_idx=?1",nativeQuery = true)
+
     List<ProductEntity> findByMiddle_idx(int idx);
+
     @Query(value = "select * from product where major_idx=?1",nativeQuery = true)
     List<ProductEntity> findByMajor_idx(int idx);
 
@@ -25,10 +28,15 @@ public interface ProductRepository extends JpaRepository<ProductEntity,Integer> 
     int selectCount();
 
     ProductEntity findByIdx(int idx);
+
     @Query(value = "select * from product where name like concat('%',?1,'%')",nativeQuery = true)
     List<ProductEntity> findByName(String name);
 
     // 관리자 계정 필터링 페이지
     @Query(value = "select * from product where middle_idx=?1 limit ?2,?3",nativeQuery = true)
     List<ProductEntity> superMyPageCategoryPaging(int middle_idx,int startNo,int pageSize);
+
+    // 상품 추천
+    @Query(value = "select * from product where ref=?1 order by rand() limit 6",nativeQuery = true)
+    List<ProductEntity> selectRecommand(int ref);
 }

@@ -1,11 +1,10 @@
 package com.example.finalProject.controller;
 
 import com.example.finalProject.dto.*;
-import com.example.finalProject.entity.LoginEntity;
 import com.example.finalProject.service.*;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
@@ -14,8 +13,12 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -27,9 +30,13 @@ public class MyPageController {
     private final MajorService majorService;
     private final MiddleService middleService;
     private final QnaService qnaService;
+    private final ReviewService reviewService;
+    private final ResourceLoader loader;
+    private final OrderedService orderedService;
     @Secured("ROLE_USER")
     @GetMapping(value = "/mypage")
-    public String mypage(){
+    public String mypage(Model model,HttpSession session){
+        model.addAttribute("order",orderedService.findByLogin_id(session.getAttribute("id").toString()));
         return "mypage";
     }
 
@@ -180,5 +187,57 @@ public class MyPageController {
         dto.setAnswer(true);
         qnaService.update(dto);
         return "redirect:/superMyPage/qna";
+    }
+
+    @GetMapping(value = "/mypage/review")
+    public String review(Model model,HttpSession session){
+        model.addAttribute("ordered",reviewService.reviewAndOrderedSelectAll(session.getAttribute("id").toString()));
+        model.addAttribute("review",reviewService.findAll());
+        return "userReview";
+    }
+
+    @GetMapping(value = "/mypage/qna")
+    public String userQna(Model model, HttpSession session){
+        model.addAttribute("qna",qnaService.findById(session.getAttribute("id").toString()));
+        return "userQna";
+    }
+
+    // qna 삭제
+    @DeleteMapping(value = "/mypage/qna/delete/{idx}")
+    public ResponseEntity<String> deleteOk(@PathVariable int idx){
+        qnaService.delete(idx);
+        return ResponseEntity.status(HttpStatus.OK).body("삭제가 완료되었습니다.");
+    }
+
+    // 마이페이지 리뷰 작성
+    @GetMapping(value = "/mypage/review/{idx}")
+    public String review(@PathVariable int idx,Model model){
+        model.addAttribute("product",productService.findByIdx(idx));
+        return "userReviewForm";
+    }
+
+    // 리뷰 저장
+    @PostMapping(value = "/reviewOk")
+    public String reviewOk(@RequestParam(required = false)MultipartFile review_image, ReviewDTO dto,HttpSession session){
+        try {
+            String path = loader.getResource("file:/D:/review").getURI().toString()+"/images/";
+            path = path.substring(6);
+            File file = new File(path);
+            if(!file.exists())file.mkdirs();
+            dto.setImage(review_image.getOriginalFilename());
+            dto.setLogin_id(session.getAttribute("id").toString());
+            FileCopyUtils.copy(review_image.getBytes(),new File(path+review_image.getOriginalFilename()));
+            reviewService.insert(dto);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return "redirect:/mypage/review";
+    }
+
+    // 마이페이지 주문내역 삭제
+    @DeleteMapping(value = "/orderDeleteOk")
+    public ResponseEntity<?> mypageDeleteOk(@RequestParam String idx){
+        orderedService.delete(Integer.parseInt(idx));
+        return ResponseEntity.status(HttpStatus.OK).body("삭제 완료");
     }
 }

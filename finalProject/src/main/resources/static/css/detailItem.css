@@ -612,3 +612,14 @@ h3.tabTitle, h4.contTitle {
 .ReviewList_reviewBenefit__EXSPP>li.ReviewList_add__s91gJ:before {
     background-position: -50px 0;
 }
+.review-item{
+    margin-top: 20px;
+}
+.review-item img{
+    width: 175px;
+}
+.review-top{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+}
