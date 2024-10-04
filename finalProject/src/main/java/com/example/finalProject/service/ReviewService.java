@@ -1,5 +1,6 @@
 package com.example.finalProject.service;
 
+import com.example.finalProject.dto.OrderedDTO;
 import com.example.finalProject.dto.ProductDTO;
 import com.example.finalProject.dto.ReviewDTO;
 import com.example.finalProject.dto.custom.ReviewAndOrderedDTO;
@@ -25,6 +26,10 @@ public class ReviewService {
     private final ProductRepository productRepository;
     @Transactional
     public void insert(ReviewDTO dto){
+        OrderedEntity oe = orderedRepository.findByProduct_idx(dto.getProduct_idx());
+        OrderedDTO od = oe.toDTO();
+        od.setReview(true);
+        orderedRepository.save(od.toEntity());
         reviewRepository.save(dto.toEntity());
     }
 
@@ -33,13 +38,28 @@ public class ReviewService {
         List<OrderedEntity> oe = orderedRepository.findByLogin_id(id);
         List<ReviewAndOrderedDTO> li = new ArrayList<>();
         for (OrderedEntity orderedEntity : oe) {
-            ProductEntity pe = productRepository.findByIdx(orderedEntity.getIdx());
+            ProductEntity pe = productRepository.findByIdx(orderedEntity.getProduct_idx());
             if(!orderedEntity.isReview()){
-                ReviewAndOrderedDTO dto = new ReviewAndOrderedDTO(pe.getImage(),orderedEntity.getRegDate(),pe.getName());
+                ReviewAndOrderedDTO dto = new ReviewAndOrderedDTO(pe.getIdx(),pe.getImage(),orderedEntity.getRegDate(),pe.getName());
                 li.add(dto);
 
             }
         }
         return li;
+    }
+
+    public List<ReviewDTO> findAll(){
+        List<ReviewEntity> re = reviewRepository.findAll();
+        List<ReviewDTO> dto = new ArrayList<>();
+        re.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
+
+    // 작성된 리뷰 가져오기
+    public List<ReviewDTO> findByProduct_idx(int idx){
+        List<ReviewEntity> re = reviewRepository.findByProduct_idx(idx);
+        List<ReviewDTO> dto = new ArrayList<>();
+        re.forEach(item->dto.add(item.toDTO()));
+        return dto;
     }
 }

@@ -16,15 +16,15 @@ public class ReviewEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idx;
-    @ManyToOne
-    @JoinColumn(name = "product_idx")
-    private ProductEntity product;
+    private int product_idx;
     @CreationTimestamp
     private Date regDate;
     private String image;
     private String login_id;
+    private int review_like;
+    private String content;
 
     public ReviewDTO toDTO(){
-        return new ReviewDTO(idx,product.toDTO(),regDate,image,login_id);
+        return new ReviewDTO(idx,product_idx,regDate,image,login_id,review_like,content);
     }
 }

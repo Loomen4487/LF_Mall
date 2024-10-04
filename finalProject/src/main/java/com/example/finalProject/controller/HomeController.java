@@ -5,10 +5,7 @@ import com.example.finalProject.dto.OrderedDTO;
 import com.example.finalProject.dto.ProductDTO;
 import com.example.finalProject.dto.QnaDTO;
 import com.example.finalProject.security.PrincipalDetails;
-import com.example.finalProject.service.NoticeService;
-import com.example.finalProject.service.OrderedService;
-import com.example.finalProject.service.ProductService;
-import com.example.finalProject.service.QnaService;
+import com.example.finalProject.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
@@ -28,6 +26,7 @@ public class HomeController {
     private final ProductService productService;
     private final QnaService qnaService;
     private final OrderedService orderedService;
+    private final ReviewService reviewService;
     @GetMapping(value = "/")
     @ResponseBody
     public String index(){
@@ -49,6 +48,7 @@ public class HomeController {
         model.addAttribute("product",dto);
         model.addAttribute("recommand",productService.selectRecommand(dto.getRef()));
         model.addAttribute("qna",qnaService.findByProduct_idx(idx));
+        model.addAttribute("review",reviewService.findByProduct_idx(idx));
         return "detailItem";
     }
 
@@ -62,7 +62,7 @@ public class HomeController {
 
     @PostMapping(value = "/payOk")
     public ResponseEntity<?> payOk(@RequestParam HashMap<String,String> map){
-        OrderedDTO dto = new OrderedDTO(0,Integer.parseInt(map.get("product_idx")),null,Integer.parseInt(map.get("count")),map.get("address"),map.get("detailAddress"),map.get("phone"),map.get("login_id"),false);
+        OrderedDTO dto = new OrderedDTO(0,Integer.parseInt(map.get("product_idx")),null,Integer.parseInt(map.get("count")),map.get("address"),map.get("detailAddress"),map.get("phone"),map.get("login_id"),false, UUID.randomUUID().toString());
         orderedService.insert(dto);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }

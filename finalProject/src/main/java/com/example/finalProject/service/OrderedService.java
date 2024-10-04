@@ -2,7 +2,9 @@ package com.example.finalProject.service;
 
 import com.example.finalProject.dto.OrderedDTO;
 import com.example.finalProject.entity.OrderedEntity;
+import com.example.finalProject.entity.ProductEntity;
 import com.example.finalProject.repository.OrderedRepository;
+import com.example.finalProject.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderedService {
     private final OrderedRepository orderedRepository;
-
+    private final ProductRepository productRepository;
     public void insert(OrderedDTO orderedDTO) {
         orderedRepository.save(orderedDTO.toEntity());
     }
@@ -22,7 +24,17 @@ public class OrderedService {
     public List<OrderedDTO> findByLogin_id(String id){
         List<OrderedEntity> oe = orderedRepository.findByLogin_id(id);
         List<OrderedDTO> dto = new ArrayList<>();
-        oe.forEach(item->dto.add(item.toDTO()));
+        for (OrderedEntity orderedEntity : oe) {
+            OrderedDTO od = orderedEntity.toDTO();
+            ProductEntity pe = productRepository.findByIdx(orderedEntity.getProduct_idx());
+            od.setProduct(pe.toDTO());
+            dto.add(od);
+        }
         return dto;
+    }
+
+    public void delete(int idx){
+        OrderedEntity oe = orderedRepository.findByIdx(idx);
+        orderedRepository.delete(oe);
     }
 }

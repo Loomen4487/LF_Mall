@@ -12,12 +12,14 @@ import java.util.Date;
 @NoArgsConstructor
 public class ReviewDTO {
     private int idx;
-    private ProductDTO product;
+    private int product_idx;
     private Date regDate;
     private String image;
     private String login_id;
+    private int review_like;
+    private String content;
 
     public ReviewEntity toEntity(){
-        return new ReviewEntity(idx,product.toEntity(),regDate,image,login_id);
+        return new ReviewEntity(idx,product_idx,regDate,image,login_id,review_like,content);
     }
 }

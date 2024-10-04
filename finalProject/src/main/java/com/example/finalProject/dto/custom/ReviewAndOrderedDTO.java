@@ -10,6 +10,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReviewAndOrderedDTO {
+    private int idx;
     private String image;
     private Date regDate;
     private String name;

@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>MyPage</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <link rel="stylesheet" href="/css/mypage.css">
+  <script defer src="/js/mypage.js"></script>
 </head>
 <body>
 <header>
@@ -388,8 +390,7 @@
               <!-- 주문한 상품 리스트 //-->
               <!-- LFML-18070 -->
               <div class="mb10 remove-order-sel-list">
-                                    <span class="head-btn"><a href="javascript:void(0);"
-                                                              onclick="javascript:jfOrderDel();" class="sys-btn-type1">선택삭제</a></span>
+                                    <span class="head-btn"><a onclick="selectedDelete()" class="sys-btn-type1">선택삭제</a></span>
                 <p class="order-status-sum">
                   <span class="b">2024.08.26~2024.09.25</span> 주문내역 : <span
                         class="b c-deep-brown">총 0건</span>
@@ -419,10 +420,21 @@
                   <th scope="col">진행상태</th>
                   <th scope="col">비고</th>
                 </tr>
+
                 </thead>
                 <tbody>
-                <tr class="last"><!-- LFML-68081 주문내역이 없는경우 텍스트표시 추가 -->
+                <tr class="last" th:if="${order == null}"><!-- LFML-68081 주문내역이 없는경우 텍스트표시 추가 -->
                   <td colspan="6" class="nodata">주문/배송 내역이 없습니다</td>
+                </tr>
+                <tr th:each="dto : ${order}" th:if="${order != null}">
+                  <td><span class="lfu-chk"><input type="checkbox"
+                                                   name="delynChkAll" class="deleteIdx" th:alt="${dto.idx}"><label
+                          for="all"></label></span></td>
+                  <td>[[${dto.order_number}]]</td>
+                  <td>[[${dto.product.name}]]</td>
+                  <td>[[${#numbers.formatInteger(dto.product.price,3,'COMMA')}]]</td>
+                  <td></td>
+                  <td></td>
                 </tr>
                 </tbody>
               </table>
