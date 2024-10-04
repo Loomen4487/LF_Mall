@@ -1,7 +1,10 @@
 package com.example.finalProject.controller;
 
 import com.example.finalProject.dto.*;
+import com.example.finalProject.entity.LoginEntity;
+import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.*;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.ResourceLoader;
@@ -9,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -16,6 +20,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -30,9 +35,10 @@ public class MyPageController {
     private final MajorService majorService;
     private final MiddleService middleService;
     private final QnaService qnaService;
-    private final ReviewService reviewService;
-    private final ResourceLoader loader;
+    private final DeliveryInfoService deliveryInfoService;
     private final OrderedService orderedService;
+    private final ReviewService reviewService;
+    private final ResourceLoader resourceLoader;
     @Secured("ROLE_USER")
     @GetMapping(value = "/mypage")
     public String mypage(Model model,HttpSession session){
@@ -118,14 +124,29 @@ public class MyPageController {
     }
 
     @GetMapping(value = "/mypage/address")
-    public String address(){
-        return "address";
+    public String address(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails) {
+        List<DeliveryInfoDTO> deliveryInfos = deliveryInfoService.findDeliveryInfosByLoginIdx(principalDetails.getDto().getIdx());
+
+        model.addAttribute("deliveryInfos", deliveryInfos);  // 배송지 목록 전달
+        System.out.println(deliveryInfos);
+        return "/address";
     }
 
     // 배송지 입력 폼 페이지로 이동
     @GetMapping("/addAddressForm")
-    public String showAddAddressForm() {
+    public String showAddAddressForm(Model model) {
+        // 현재 로그인한 사용자 정보 가져오기
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+
         return "addAddressForm";  // addAddressForm.html 파일을 반환
+    }
+
+    @PostMapping(value = "/insertAddress")
+    @ResponseBody
+    public String insertAddress(DeliveryInfoDTO deliveryInfoDTO) {
+        deliveryInfoService.insetDeliveryInfo(deliveryInfoDTO);
+        return "success";
     }
 
 
@@ -218,9 +239,9 @@ public class MyPageController {
 
     // 리뷰 저장
     @PostMapping(value = "/reviewOk")
-    public String reviewOk(@RequestParam(required = false)MultipartFile review_image, ReviewDTO dto,HttpSession session){
+    public String reviewOk(@RequestParam(required = false) MultipartFile review_image, ReviewDTO dto, HttpSession session){
         try {
-            String path = loader.getResource("file:/D:/review").getURI().toString()+"/images/";
+            String path = resourceLoader.getResource("file:/D:/review").getURI().toString()+"/images/";
             path = path.substring(6);
             File file = new File(path);
             if(!file.exists())file.mkdirs();

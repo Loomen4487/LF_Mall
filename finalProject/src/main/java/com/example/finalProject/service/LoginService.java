@@ -40,4 +40,8 @@ public class LoginService {
     public void save(LoginDTO loginDTO) {
         loginRepository.save(loginDTO.toEntity());
     }
+
+    public void deliveryAddressInsert(LoginDTO loginDTO) {
+        loginRepository.save(loginDTO.toEntity());
+    }
 }
