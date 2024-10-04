@@ -1,3 +1,22 @@
+function payOk(){
+    const form = new FormData();
+    console.log(document.querySelector("#idx").value);
+    console.log(document.querySelector("#phone").value);
+    form.set("product_idx",document.querySelector("#idx").value);
+    form.set("phone",document.querySelector("#phone").value);
+    form.set("address",document.querySelector("#address").value);
+    form.set("login_id",document.querySelector("#login_id").value);
+    form.set("detailAddress",document.querySelector("#detailAddress").value);
+    form.set("price",document.querySelector("#price").textContent);
+    form.set("count",document.querySelector("#count").textContent);
+    console.log(form);
+     axios.post('/payOk',form).then(res=>{
+            console.log(res.data);
+            alert("주문이 성공적으로 완료되었습니다.");
+//            location.href="/";
+        }).catch(error=>console.log(error));
+}
+
 function findPost(){
     new daum.Postcode({
         oncomplete: function(data) {

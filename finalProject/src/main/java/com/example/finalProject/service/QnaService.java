@@ -21,6 +21,7 @@ public class QnaService {
         return qnaRepository.findByIdx(idx).toDTO();
     }
 
+    @Transactional
     public void insert(QnaDTO dto){
         qnaRepository.save(dto.toEntity());
     }
@@ -42,5 +43,17 @@ public class QnaService {
     @Transactional
     public void update(QnaDTO dto){
         qnaRepository.update(dto.toEntity());
+    }
+
+    public List<QnaDTO> findById(String id){
+        List<QnaEntity> qe = qnaRepository.findById(id);
+        List<QnaDTO> dto = new ArrayList<>();
+        qe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
+
+    public void delete(int idx){
+        QnaEntity qe = qnaRepository.findByIdx(idx);
+        qnaRepository.delete(qe);
     }
 }

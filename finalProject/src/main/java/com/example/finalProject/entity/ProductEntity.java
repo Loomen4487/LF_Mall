@@ -3,12 +3,14 @@ package com.example.finalProject.entity;
 import com.example.finalProject.dto.ProductDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "product")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -145,9 +145,14 @@
         <div class="list-info">상세정보</div>
     </li>
     <li aria-selected="false">
-        <span>상품리뷰<em> 3</em></span>
+        <span>상품리뷰</span>
         <div class="list-info">
             <div class="list-title">상품 리뷰</div>
+            <div class="review-item" th:each="dto:${review}">
+                <div class="review-top"><div>[[${session.id}]]</div><div>[[${#calendars.format(dto.regDate,'yyyy-MM-dd')}]]</div></div>
+                <div><img th:src="@{|/images/${dto.image}|}" th:if="${dto.image != null}" alt=""></div>
+                <div>[[${dto.content}]]</div>
+            </div>
             <ol class="ReviewList_reviewBenefit__EXSPP">
                 <li><span class="ReviewList_tit__bzF4d" style="color:black;text-align:left;">리뷰작성 1,000M</span>
                     <p class="ReviewList_info__VSMA7">별점+내용 200M<br>사진 500M<br>추가정보 300M (일부 상품 제외)</p></li>
