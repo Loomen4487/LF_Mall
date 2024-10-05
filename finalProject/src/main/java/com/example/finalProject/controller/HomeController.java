@@ -6,6 +6,7 @@ import com.example.finalProject.dto.ProductDTO;
 import com.example.finalProject.dto.QnaDTO;
 import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.*;
+import com.siot.IamportRestClient.IamportClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -62,7 +63,7 @@ public class HomeController {
 
     @PostMapping(value = "/payOk")
     public ResponseEntity<?> payOk(@RequestParam HashMap<String,String> map){
-        OrderedDTO dto = new OrderedDTO(0,Integer.parseInt(map.get("product_idx")),null,Integer.parseInt(map.get("count")),map.get("address"),map.get("detailAddress"),map.get("phone"),map.get("login_id"),false, UUID.randomUUID().toString());
+        OrderedDTO dto = new OrderedDTO(0,Integer.parseInt(map.get("product_idx")),null,Integer.parseInt(map.get("count")),map.get("address"),map.get("detailAddress"),map.get("phone"),map.get("login_id"),false, UUID.randomUUID().toString(),false);
         orderedService.insert(dto);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
@@ -118,5 +119,12 @@ public class HomeController {
     public String qnaOk(QnaDTO dto){
         qnaService.insert(dto);
         return "redirect:/detailItem/"+dto.getProduct_idx();
+    }
+
+    // 마이페이지 주문 배송내역 날짜 조회
+    @GetMapping(value = "/mypage/orderDateList/{idx}")
+    @ResponseBody
+    public List<OrderedDTO> selectOrderedDateList(@PathVariable int idx){
+        return orderedService.selectOrderedDateList(idx);
     }
 }

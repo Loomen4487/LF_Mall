@@ -20,8 +20,8 @@ public class OrderedDTO {
     private String login_id;
     private boolean isReview;
     private String order_number;
-
-    public OrderedDTO(int idx, int product_idx, Date regDate, int count, String address, String detailAddress, String phone, String login_id, boolean isReview, String order_number) {
+    private boolean isDelivery;
+    public OrderedDTO(int idx, int product_idx, Date regDate, int count, String address, String detailAddress, String phone, String login_id, boolean isReview, String order_number,boolean isDelivery) {
         this.idx = idx;
         this.product_idx = product_idx;
         this.regDate = regDate;
@@ -32,11 +32,12 @@ public class OrderedDTO {
         this.login_id = login_id;
         this.isReview = isReview;
         this.order_number = order_number;
+        this.isDelivery = isDelivery;
     }
 
     private ProductDTO product;
     public OrderedEntity toEntity(){
-        return new OrderedEntity(idx,product_idx,regDate,count, address, detailAddress, phone,login_id,isReview,order_number);
+        return new OrderedEntity(idx,product_idx,regDate,count, address, detailAddress, phone,login_id,isReview,order_number,isDelivery);
     }
 
 
