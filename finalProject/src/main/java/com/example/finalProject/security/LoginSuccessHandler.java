@@ -10,7 +10,6 @@ import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.security.web.savedrequest.SavedRequest;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     private final HttpSessionRequestCache requestCache = new HttpSessionRequestCache();

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>MyPage</title>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
   <link rel="stylesheet" href="/css/mypage.css">
   <script defer src="/js/mypage.js"></script>
 </head>
@@ -114,11 +115,9 @@
               <li class="on">
                 <span class="tit">쇼핑내역</span>
                 <ul class="sub">
-                  <li class="on"><a href="javascript:void(0);"
-                                    onclick="cfGoToMyPageForLogin(PAGE_ORDER+'&amp;etag1=045_A111_E331&amp;etag2=0&amp;etag3=1&amp;etag4=0');">주문/배송
+                  <li class="on"><a href="/mypage">주문/배송
                     내역</a></li> <!-- LFML-68081 명칭변경 - 주문내역 전체보기 >> 주문/배송 내역 -->
-                  <li><a href="javascript:void(0);"
-                         onclick="cfGoToMyPageForLogin(PAGE_ORDER_ASK+'&amp;etag1=045_A111_E331&amp;etag2=0&amp;etag3=2&amp;etag4=0');">취소/반품/교환
+                  <li><a href="/mypage/callback">취소/반품/교환
                     신청</a></li>
                   <li><a href="javascript:void(0);"
                          onclick="cfGoToMyPageForLogin(PAGE_ORDER_CRE+'&amp;etag1=045_A111_E331&amp;etag2=0&amp;etag3=3&amp;etag4=0');">취소/반품/교환
@@ -346,17 +345,13 @@
               <div class="period-search clfix">
                 <div class="month-btn">
                   <a href="javascript:void(0);"
-                     onclick="cfSetDate(document.searchForm.START_DATE, document.searchForm.END_DATE, 0, -1, 0);sendTagAjax('_A113_E338','0','1');"
-                     class="tbtn sel">1개월</a>
+                     class="tbtn sel" about="1">1개월</a>
                   <a href="javascript:void(0);"
-                     onclick="cfSetDate(document.searchForm.START_DATE, document.searchForm.END_DATE, 0, -3, 0);sendTagAjax('_A113_E338','0','2');"
-                     class="tbtn">3개월</a>
+                     class="tbtn" about="3">3개월</a>
                   <a href="javascript:void(0);"
-                     onclick="cfSetDate(document.searchForm.START_DATE, document.searchForm.END_DATE, 0, -6, 0);sendTagAjax('_A113_E338','0','3');"
-                     class="tbtn">6개월</a>
+                     class="tbtn" about="6">6개월</a>
                   <a href="javascript:void(0);"
-                     onclick="cfSetDate(document.searchForm.START_DATE, document.searchForm.END_DATE, -1, 0, 0);sendTagAjax('_A113_E338','0','4');"
-                     class="tbtn">1년</a>
+                     class="tbtn" about="12">1년</a>
                 </div>
                 <div class="calendar ipt-align">
                   <input type="text" class="​&quot;ipt-txt&quot;" name="START_DATE" maxlength="10"
@@ -375,7 +370,7 @@
                 </div>
                 <div class="inquiry-btn">
                   <a href="javascript:void(0);" class="btnFind"
-                     onclick="jfSearch();sendTagAjax('_A113_E339','0','0');">조회</a>
+                     onclick="orderSearch()">조회</a>
                 </div>
               </div>
             </form>
@@ -393,7 +388,7 @@
                                     <span class="head-btn"><a onclick="selectedDelete()" class="sys-btn-type1">선택삭제</a></span>
                 <p class="order-status-sum">
                   <span class="b">2024.08.26~2024.09.25</span> 주문내역 : <span
-                        class="b c-deep-brown">총 0건</span>
+                        class="b c-deep-brown">총 [[${totalCount}]]건</span>
                 </p>
               </div>
               <!-- //LFML-18070 -->
@@ -422,18 +417,18 @@
                 </tr>
 
                 </thead>
-                <tbody>
-                <tr class="last" th:if="${order == null}"><!-- LFML-68081 주문내역이 없는경우 텍스트표시 추가 -->
+                <tbody id="orderList">
+                <tr class="last" v-if="orderDateList.length==0"><!-- LFML-68081 주문내역이 없는경우 텍스트표시 추가 -->
                   <td colspan="6" class="nodata">주문/배송 내역이 없습니다</td>
                 </tr>
-                <tr th:each="dto : ${order}" th:if="${order != null}">
+                <tr v-for="item in orderDateList" v-if="orderDateList.length>0">
                   <td><span class="lfu-chk"><input type="checkbox"
-                                                   name="delynChkAll" class="deleteIdx" th:alt="${dto.idx}"><label
+                                                   name="delynChkAll" class="deleteIdx" :alt=`${item.idx}`><label
                           for="all"></label></span></td>
-                  <td>[[${dto.order_number}]]</td>
-                  <td>[[${dto.product.name}]]</td>
-                  <td>[[${#numbers.formatInteger(dto.product.price,3,'COMMA')}]]</td>
-                  <td></td>
+                  <td>{{item.order_number}}</td>
+                  <td>{{item.product.name}}</td>
+                  <td>{{item.product.price.toLocaleString()}}</td>
+                  <td>{{item.isDelivery?'배송완료':'배송중'}}</td>
                   <td></td>
                 </tr>
                 </tbody>

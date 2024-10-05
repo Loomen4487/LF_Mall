@@ -36,7 +36,9 @@ public class MyPageController {
     @Secured("ROLE_USER")
     @GetMapping(value = "/mypage")
     public String mypage(Model model,HttpSession session){
-        model.addAttribute("order",orderedService.findByLogin_id(session.getAttribute("id").toString()));
+        String id = session.getAttribute("id").toString();
+        model.addAttribute("order",orderedService.findByLogin_id(id));
+        model.addAttribute("totalCount",orderedService.selectCount(id));
         return "mypage";
     }
 
@@ -239,5 +241,13 @@ public class MyPageController {
     public ResponseEntity<?> mypageDeleteOk(@RequestParam String idx){
         orderedService.delete(Integer.parseInt(idx));
         return ResponseEntity.status(HttpStatus.OK).body("삭제 완료");
+    }
+
+    // 마이페이지 취소/반품/교환 신청
+    @GetMapping(value = "/mypage/callback")
+    public String callback(Model model,HttpSession session){
+        List<OrderedDTO> odto = orderedService.selectCallbackList(session.getAttribute("id").toString());
+        model.addAttribute("ordered",odto);
+        return "userCallback";
     }
 }
