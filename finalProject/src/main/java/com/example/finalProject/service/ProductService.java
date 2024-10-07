@@ -129,4 +129,12 @@ public class ProductService {
         pe.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
+
+    // women 페이지 목록 보기
+    public List<ProductDTO> findWomenListAll(int major_idx,int middle_idx,int ref,int pageSize){
+        List<ProductEntity> pe = productRepository.findWomenListAll(major_idx,middle_idx,ref,pageSize);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
 }
