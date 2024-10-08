@@ -68,4 +68,12 @@ public class WomenController {
         int pageSize = Integer.parseInt(map.get("pageSize"));
         return ResponseEntity.status(HttpStatus.OK).body(productService.findWomenListAll(major_idx,middle_idx,ref,pageSize*10));
     }
+
+    // 검색 기능
+    @GetMapping(value = "/women/search/{name}")
+    public String search(@PathVariable String name,Model model){
+        model.addAttribute("product",productService.findWomenSearchList(name));
+        model.addAttribute("name",name);
+        return "women2";
+    }
 }
