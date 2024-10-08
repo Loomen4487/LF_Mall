@@ -44,15 +44,21 @@ public class WomenController {
         model.addAttribute("major",productService.findMajor());
         model.addAttribute("middle",middleDTO);
         model.addAttribute("idx",idx);
+        if(idx>1000){
+            model.addAttribute("sub_name",middleService.selectByMiddleRef(idx));
+        }else if(idx>100){
+            model.addAttribute("sub_name",middleService.selectByRef(idx));
+        }
         if(idx>100){
             model.addAttribute("panel",productService.findSub(idx));
-        }else{
-            List<MiddleDTO> middle = productService.findMiddle(idx);
+            System.out.println("productService.findSub : "+productService.findSub(idx));
+        }else {
+                List<MiddleDTO> middle = productService.findMiddle(idx);
                 middle.forEach(item->{
                     int na = item.getRef()%10;
-                    item.setRef(1000+na*100+1);
+                    item.setRef(major*1000+na*100+1);
                 });
-            model.addAttribute("panel",middle);
+                model.addAttribute("panel",middle);
 
         }
         model.addAttribute("title",majorService.findByRef(major));
@@ -75,5 +81,12 @@ public class WomenController {
         model.addAttribute("product",productService.findWomenSearchList(name));
         model.addAttribute("name",name);
         return "women2";
+    }
+
+    // 최근 본 상품
+    @GetMapping(value = "/viewProduct/{idx}")
+    @ResponseBody
+    public ResponseEntity<ProductDTO> viewProduct(@PathVariable int idx){
+        return ResponseEntity.status(HttpStatus.OK).body(productService.findByIdx(idx));
     }
 }

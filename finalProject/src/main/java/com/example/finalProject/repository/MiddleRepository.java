@@ -11,5 +11,9 @@ public interface MiddleRepository extends JpaRepository<MiddleEntity,Integer> {
     List<MiddleEntity> findByRef(int ref);
 
     @Query(value = "select * from middle where ref=?1",nativeQuery = true)
-    public MiddleEntity selectByRef(int ref);
+    MiddleEntity selectByRef(int ref);
+
+    // 중분류 이름 저장
+    @Query(value = "select * from middle where concat(ref div 100,ref%10) = ?1 div 100",nativeQuery = true)
+    MiddleEntity selectByMiddleRef(int idx);
 }
