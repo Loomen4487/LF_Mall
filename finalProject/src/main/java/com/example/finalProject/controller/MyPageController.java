@@ -1,14 +1,17 @@
 package com.example.finalProject.controller;
 
 import com.example.finalProject.dto.*;
+import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.*;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -17,12 +20,14 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class MyPageController {
     private final LoginService loginService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -30,9 +35,10 @@ public class MyPageController {
     private final MajorService majorService;
     private final MiddleService middleService;
     private final QnaService qnaService;
-    private final ReviewService reviewService;
-    private final ResourceLoader loader;
+    private final DeliveryInfoService deliveryInfoService;
     private final OrderedService orderedService;
+    private final ReviewService reviewService;
+    private final ResourceLoader resourceLoader;
     @Secured("ROLE_USER")
     @GetMapping(value = "/mypage")
     public String mypage(Model model,HttpSession session){
@@ -120,16 +126,62 @@ public class MyPageController {
     }
 
     @GetMapping(value = "/mypage/address")
-    public String address(){
-        return "address";
+    public String address(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails) {
+        int login_idx = principalDetails.getDto().getIdx();
+        List<DeliveryInfoDTO> deliveryInfos = deliveryInfoService.findDeliveryInfosByLoginIdx(login_idx);
+
+        // 만약 배송지 정보가 없다면
+        if (deliveryInfos == null || deliveryInfos.isEmpty()) {
+            model.addAttribute("hasDeliveryInfo", false);
+        } else {
+            model.addAttribute("hasDeliveryInfo", true);
+            model.addAttribute("deliveryInfos", deliveryInfos);
+        }
+        return "/address";
     }
 
     // 배송지 입력 폼 페이지로 이동
     @GetMapping("/addAddressForm")
-    public String showAddAddressForm() {
+    public String showAddAddressForm(Model model) {
+        // 현재 로그인한 사용자 정보 가져오기
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+
         return "addAddressForm";  // addAddressForm.html 파일을 반환
     }
 
+    // 배송지 입력 폼 페이지로 이동
+    @GetMapping("/updateAddressForm/{deliveryIdx}")
+    public String updareAddAddressForm(Model model, @PathVariable("deliveryIdx") String deliveryIdx) {
+
+        model.addAttribute("delivery", deliveryInfoService.findByIdx(Integer.parseInt(deliveryIdx)));
+
+        // 현재 로그인한 사용자 정보 가져오기
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+
+        return "updateAddressForm";  // addAddressForm.html 파일을 반환
+    }
+    @PostMapping(value = "/updateAddress")
+    @ResponseBody
+    public ResponseEntity<?> updateAddress(@RequestBody DeliveryInfoDTO deliveryInfoDTO) {
+        deliveryInfoService.updateDeliveryInfo(deliveryInfoDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(deliveryInfoDTO);
+    }
+
+    @PostMapping(value = "/insertAddress")
+    @ResponseBody
+    public String insertAddress(DeliveryInfoDTO deliveryInfoDTO) {
+        deliveryInfoService.insetDeliveryInfo(deliveryInfoDTO);
+        return "success";
+    }
+
+    // 배송지 삭제 처리
+    @PostMapping("/mypage/address/delete/{deliveryIdx}")
+    public String deleteDeliveryInfo(@PathVariable("deliveryIdx") int deliveryIdx) {
+        deliveryInfoService.deleteDeliveryInfo(deliveryIdx);
+        return "redirect:/mypage/address";
+    }
 
     // 관리자 계정 상품등록 페이지 이동
     @GetMapping(value = "/superMyPage/product/{idx}")
@@ -137,6 +189,8 @@ public class MyPageController {
         model.addAttribute("product",productService.findByIdx(idx));
         return "superDetail";
     }
+
+
 
     //관리자 계정 상품 등록 수정
     @PostMapping(value = "/superMyPage/product/updateOk")
@@ -220,9 +274,9 @@ public class MyPageController {
 
     // 리뷰 저장
     @PostMapping(value = "/reviewOk")
-    public String reviewOk(@RequestParam(required = false)MultipartFile review_image, ReviewDTO dto,HttpSession session){
+    public String reviewOk(@RequestParam(required = false) MultipartFile review_image, ReviewDTO dto, HttpSession session){
         try {
-            String path = loader.getResource("file:/D:/review").getURI().toString()+"/images/";
+            String path = resourceLoader.getResource("file:/D:/review").getURI().toString()+"/images/";
             path = path.substring(6);
             File file = new File(path);
             if(!file.exists())file.mkdirs();

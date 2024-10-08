@@ -2,26 +2,50 @@ function openAddressForm() {
     // 새로운 창을 팝업으로 엶
     window.open('/addAddressForm', '배송지 추가', 'width=600,height=600');
 }
+function openUpdateAddressForm(idx) {
+    // 새 창을 열고 서버에 분리된 데이터를 전달
+    window.open('/updateAddressForm/' + idx, '배송지 수정', 'width=600,height=600');
+}
 
 function submitForm() {
 
     // 전화번호 필드를 합침
+    const receiver = document.getElementById("receiver").value;
     const phone1 = document.getElementById("phone1").value;
     const phone2 = document.getElementById("phone2").value;
     const phone3 = document.getElementById("phone3").value;
+    const postcode = document.getElementById("sample6_postcode").value;
+    const address2 = document.getElementById("sample6_address").value;
+    const address3 = document.getElementById("sample6_extraAddress").value;
+    const detailAddress = document.getElementById("sample6_detailAddress").value;
 
+    const address1 = "[" + postcode + "] "
+    // 입력값 확인
+    if(!receiver) {
+        alert("받는 분에 이름을 입력해주세요")
+        return
+    }
+
+    if (!phone1 || !phone2 || !phone3) {
+        alert("전화번호를 정확히 입력해주세요.");
+        return;  // 폼 전송 중지
+    }
+
+    const address = address1 + address2 + address3;
     const phone = phone1 + phone2 + phone3;
+
+    if (!address) {
+        alert("주소를 입력해주세요.");
+        return;  // 폼 전송 중지
+    }
+
+    if (!detailAddress) {
+        alert("상세주소를 입력해주세요.");
+        return;  // 폼 전송 중지
+    }
 
     // 숨겨진 필드에 합친 값을 설정
     document.getElementById("phone").value = phone;
-
-    const address1 = document.getElementById("sample6_address").value;
-    const address2 = document.getElementById("sample6_extraAddress").value;
-    const address3 = document.getElementById("sample6_detailAddress").value;
-
-    const address = address1 + address2;
-    const detailAddress = address3;
-    // 숨겨진 필드에 합친 값을 설정
     document.getElementById("address").value = address;
     document.getElementById("detailAddress").value = detailAddress;
 
@@ -42,9 +66,102 @@ function submitForm() {
 
     // 폼 데이터 전송
     const params = "phone=" + encodeURIComponent(phone) +
-        "&address=" + encodeURIComponent(address) + "&detailAddress=" + encodeURIComponent(detailAddress);
+        "&address=" + encodeURIComponent(address) + "&detailAddress=" + encodeURIComponent(detailAddress)
+    + "&receiver=" + encodeURIComponent(receiver);
     xhr.send(params);
 }
+
+function submitForm2() {
+
+    // 전화번호 필드를 합침
+    const receiver = document.getElementById("receiver").value;
+    const delivery_idx = document.getElementById("delivery_idx").value;
+    const phone1 = document.getElementById("phone1").value;
+    const phone2 = document.getElementById("phone2").value;
+    const phone3 = document.getElementById("phone3").value;
+    const postcode = document.getElementById("sample6_postcode").value;
+    const address2 = document.getElementById("sample6_address").value;
+    const address3 = document.getElementById("sample6_extraAddress").value;
+    const detailAddress = document.getElementById("sample6_detailAddress").value;
+
+    const address1 = "[" + postcode + "] "
+    // 입력값 확인
+    if(!receiver) {
+        alert("받는 분에 이름을 입력해주세요")
+        return
+    }
+
+    if (!phone1 || !phone2 || !phone3) {
+        alert("전화번호를 정확히 입력해주세요.");
+        return;  // 폼 전송 중지
+    }
+
+    const address = address1 + address2 + address3;
+    const phone = phone1 + phone2 + phone3;
+
+    if (!address) {
+        alert("주소를 입력해주세요.");
+        return;  // 폼 전송 중지
+    }
+
+    if (!detailAddress) {
+        alert("상세주소를 입력해주세요.");
+        return;  // 폼 전송 중지
+    }
+
+    // 숨겨진 필드에 합친 값을 설정
+    document.getElementById("phone").value = phone;
+    document.getElementById("address").value = address;
+    document.getElementById("detailAddress").value = detailAddress;
+
+    /*
+    *  const receiver = document.getElementById("receiver").value;
+    const delivery_idx = document.getElementById("delivery_idx").value;
+    const phone1 = document.getElementById("phone1").value;
+    const phone2 = document.getElementById("phone2").value;
+    const phone3 = document.getElementById("phone3").value;
+    const postcode = document.getElementById("sample6_postcode").value;
+    const address2 = document.getElementById("sample6_address").value;
+    const address3 = document.getElementById("sample6_extraAddress").value;
+    const detailAddress = document.getElementById("sample6_detailAddress").val
+    *
+    * */
+
+    axios.post('/updateAddress',{
+        receiver,
+        delivery_idx,
+        phone,
+        address,
+        detailAddress
+    }).then(res=>{
+        alert("배송지가 수정되었습니다.");
+        window.close();
+    })
+        .catch(error=>{
+            alert("오류가 발생했습니다. 다시 시도해주세요.");
+        });
+    // AJAX를 통해 비동기 요청
+    // const xhr = new XMLHttpRequest();
+    // xhr.open("POST", "/updateAddress", true);
+    // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    //
+    // // 요청이 성공했을 때
+    // xhr.onload = function() {
+    //     if (xhr.status === 200) {
+    //         alert("배송지가 수정되었습니다 ",delivery_idx);  // 알림창 띄우기
+    //         window.close();  // 창 닫기
+    //     } else {
+    //         alert("오류가 발생했습니다. 다시 시도해주세요.");
+    //     }
+    // };
+    //
+    // // 폼 데이터 전송
+    // const params = "phone=" + encodeURIComponent(phone) +
+    //     "&address=" + encodeURIComponent(address) + "&detailAddress=" + encodeURIComponent(detailAddress)
+    //     + "&receiver=" + encodeURIComponent(receiver) + "&delivery_idx" +encodeURIComponent(delivery_idx);
+    // xhr.send(params);
+}
+
 
 function sample6_execDaumPostcode() {
     new daum.Postcode({

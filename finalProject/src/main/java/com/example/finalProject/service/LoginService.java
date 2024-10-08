@@ -40,4 +40,6 @@ public class LoginService {
     public void save(LoginDTO loginDTO) {
         loginRepository.save(loginDTO.toEntity());
     }
+
+
 }
