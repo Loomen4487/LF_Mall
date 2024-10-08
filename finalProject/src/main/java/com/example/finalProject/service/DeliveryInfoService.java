@@ -7,6 +7,7 @@ import com.example.finalProject.repository.DeliveryInfoRepository;
 import com.example.finalProject.repository.LoginRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +32,7 @@ public class DeliveryInfoService {
                 .collect(Collectors.toList());
     }
 
+
     // 배송지 수정 메서드
     public void updateDeliveryInfo(DeliveryInfoDTO deliveryInfoDTO) {
         // 기존 배송지 정보 가져오기
@@ -50,8 +52,9 @@ public class DeliveryInfoService {
         }
     }
 
+
     // 배송지 삭제 메서드
-    public void deleteDeliveryInfo(int deliveryIdx) {
+    public void deleteDeliveryInfo(@PathVariable("deliveryIdx") int deliveryIdx) {
         // 해당 배송지 정보가 존재하는지 확인
         Optional<DeliveryInfoEntity> deliveryInfoOptional = deliveryInfoRepository.findById(deliveryIdx);
 
@@ -59,5 +62,11 @@ public class DeliveryInfoService {
             // 배송지 삭제
             deliveryInfoRepository.deleteById(deliveryIdx);
         }
+    }
+
+    public DeliveryInfoDTO findByIdx(int idx) {
+        DeliveryInfoEntity deliveryInfoOptional = deliveryInfoRepository.findByDelivery_idx(idx);
+
+        return deliveryInfoOptional.toDTO();
     }
 }

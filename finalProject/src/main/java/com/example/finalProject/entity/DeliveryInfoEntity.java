@@ -4,10 +4,12 @@ import com.example.finalProject.dto.DeliveryInfoDTO;
 import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name = "deliveryInfo")
 @NoArgsConstructor
+@Setter
 public class DeliveryInfoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,6 +37,8 @@ public class DeliveryInfoEntity {
         return new DeliveryInfoDTO(delivery_idx, login.getIdx(), receiver,phone,address,detailAddress);
 
     }
+
+
 }
 
 
