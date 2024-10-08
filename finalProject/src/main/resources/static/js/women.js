@@ -69,3 +69,14 @@ window.addEventListener('scroll', throttle(function() {
         }).catch(error=>console.log(error));
     }
 }, 500));
+function viewProduct(idx){
+    const data = localStorage.getItem("list");
+    const li = [];
+    console.log(li);
+    axios.get('/viewProduct/'+idx)
+    .then(res=>{
+        li.push([data,res.data.idx]);
+        localStorage.setItem("list",li);
+        location.href="/detailItem/"+idx;
+    })
+}

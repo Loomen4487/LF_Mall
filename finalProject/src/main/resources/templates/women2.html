@@ -868,8 +868,8 @@
                         <div class="SearchProductItem SearchProductItem_SearchProductItem__Yg3Iu"
                              th:each="dto : ${product}">
                             <div class="ProductThumbImage_wrapThumbImg__7REL9"
-                                 th:onclick="@{|location.href='/detailItem/${dto.idx}'|}">
-                                <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
+                                 >
+                                <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374" th:onclick="@{|location.href='/detailItem/${dto.idx}'|}">
 
                                     <img loading="lazy" th:src="${dto.image}" alt="상품이미지"
                                          class="ProductThumbImage_baseImg__osoIA">

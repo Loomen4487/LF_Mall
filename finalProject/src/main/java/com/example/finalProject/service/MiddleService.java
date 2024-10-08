@@ -26,4 +26,8 @@ public class MiddleService {
         MiddleEntity me = middleRepository.selectByRef(ref);
         return !Objects.isNull(me)?me.toDTO():null;
     }
+
+    public MiddleDTO selectByMiddleRef(int idx){
+        return middleRepository.selectByMiddleRef(idx).toDTO();
+    }
 }
