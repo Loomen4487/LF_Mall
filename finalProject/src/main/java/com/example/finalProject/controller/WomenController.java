@@ -50,7 +50,7 @@ public class WomenController {
             List<MiddleDTO> middle = productService.findMiddle(idx);
                 middle.forEach(item->{
                     int na = item.getRef()%10;
-                    item.setRef(1000+na*100+1);
+                    item.setRef(major*1000+na*100+1);
                 });
             model.addAttribute("panel",middle);
 

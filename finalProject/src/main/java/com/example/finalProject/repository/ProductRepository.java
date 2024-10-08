@@ -48,4 +48,8 @@ public interface ProductRepository extends JpaRepository<ProductEntity,Integer> 
     // women 검색 결과
     @Query(value = "select * from product where name like concat('%',?1,'%')",nativeQuery = true)
     List<ProductEntity> findWomenSearchList(String name);
+
+    @Query(value = "select * from product where ref = ?1 order by rand() limit 3", nativeQuery = true)
+    List<ProductEntity> findBybag(int ref);
+
 }

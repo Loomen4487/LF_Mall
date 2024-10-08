@@ -1,0 +1,166 @@
+.inner {
+  max-width: 1280px;
+  max-height: 700px;
+}
+.mySwiper {
+  width: 100%;
+  height: auto;
+}
+
+.mySwiper img {
+  width: 100%; /* Make the image take the full width of the swiper container */
+  height: auto; /* Maintain the aspect ratio */
+  object-fit: cover; /* Ensure the image covers the container while maintaining aspect ratio */
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.swiper-pagination-bullet {
+  background: #007aff;
+  opacity: 0.8;
+}
+.category_wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 50 auto;
+    height: 350px;
+    width: 1240px;
+}
+.category_box {
+    margin-top: 30px;
+}
+.category_box a {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;
+}
+.category_box img {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+}
+.category a {
+    text-decoration: none;
+}
+
+
+
+/* 신상모음 */
+.label_goods {
+
+}
+.middle_write {
+    text-align: center;
+    width: 1240px;
+    padding: 50px 0 15px 0;
+}
+.picture_gather {
+    display: flex;
+    height: 350px;
+    width: 1240px;
+    justify-content: center;
+    gap: 20px
+}
+.p_gather img {
+    width: 100%;
+    display: block;
+}
+.p_gather a{
+    text-decoration: none;
+}
+.p_gather h3 {
+    margin-top: 0.5px;
+    font-size: 24px;
+    line-height: 34px
+}
+
+/* 지금 핫한 신상템 */
+.hot_item {
+    padding-top: 200px;
+}
+.list_wrap {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-bottom: 20pxl
+    position: relative;
+}
+.list_tap {
+    margin-right: 10px;
+}
+.list_tap ul {
+    display: flex;
+    list-style-type: none;
+}
+.list_tap li{
+    margin-right: 10px;
+}
+.list_tap button {
+    cursor: pointer;
+    border: none
+}
+.tap_item {
+}
+.item_direct {
+    display: flex;
+    justify-content: flex-end;
+    right: 0;
+    top: 11px;
+}
+
+
+
+
+
+.brand_wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+.big_brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+.small_brand {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 8px;
+}
+
+.small_brand a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 8px;
+}
+.big_image {
+    max-width: 100%;
+}
+
+.small_brand img {
+    width: 100%;
+    max-width: 190px;
+    height: auto;
+    object-fit: contain;
+}
+
+button:active {
+    background-color: black;
+}
+button:visited {
+    color: black
+}

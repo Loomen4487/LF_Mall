@@ -145,4 +145,19 @@ public class ProductService {
         pe.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
+
+    // 메인 전부 가져오기
+    public List<ProductDTO> findAll(){
+        List<ProductEntity> pe = productRepository.findAll();
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
+
+    public List<ProductDTO> findbag(int ref){
+        List<ProductEntity> pebag = productRepository.findBybag(ref);
+        List<ProductDTO> dto = new ArrayList<>();
+        pebag.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
 }

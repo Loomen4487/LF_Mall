@@ -17,6 +17,8 @@ public class DeliveryInfoDTO {
     private String address;
     private String detailAddress;
 
+
+
     public DeliveryInfoEntity toEntity(LoginEntity loginEntity) {
         return new DeliveryInfoEntity(delivery_idx, loginEntity, receiver, phone, address, detailAddress);
     }
