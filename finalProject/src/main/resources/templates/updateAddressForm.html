@@ -1,112 +1,119 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="/css/mypage.css">
-    <link rel="stylesheet" href="/css/address.css">
-    <link rel="stylesheet" href="/css/addAddressForm.css">
-    <script defer src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script defer src="/js/address.js"></script>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="/css/mypage.css">
+  <link rel="stylesheet" href="/css/address.css">
+  <link rel="stylesheet" href="/css/addAddressForm.css">
+  <script defer src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script defer src="/js/address.js"></script>
 </head>
 <body>
 <div class="ReactModal__Content ReactModal__Content--after-open LfModal_pcWrap__R5Qh6" tabindex="-1" role="dialog" aria-modal="true">
-    <div class="LfModal_pcContainer__MVmaW"><h3 class="LfModal_modalTitle__F2OUJ">배송지
-        추가</h3>
-        <div class="LfModal_modalContent__CKeaI">
-            <form id="addressForm" method="post">
-                <div class="RefundAccountReg_customLayer__BYIG8">
-                    <div class="RefundAccountReg_entryTable__tVxJS RefundAccountReg_addressReg__J3veJ">
-                        <table class="RefundAccountReg_entry__VLBWp"
-                               summary="배송지 추가/수정">
-                            <colgroup>
-                                <col style="width: 120px;">
-                                <col>
-                            </colgroup>
-                            <tbody>
-                            <tr>
-                                <th scope="row">받는분</th>
-                                <td><input type="text" class="commonInputText"  id="receiver"
-                                           maxlength="10" name="recipientName" th:value="receiver"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">연락처</th>
-                                <td>
-                                    <div class="RefundAccountReg_cellInput__ycM9j">
-                                        <div class="commonSelect"><select
-                                                name="recipientMobilePhone1" id="phone1">
-                                            <option value="010">010</option>
-                                            <option value="011">011</option>
-                                            <option value="016">016</option>
-                                            <option value="017">017</option>
-                                            <option value="018">018</option>
-                                            <option value="019">019</option>
-                                            <option value="050">050</option>
-                                            <option value="070">070</option>
-                                            <option value="080">080</option>
-                                            <option value="0503">0503</option>
-                                            <option value="0504">0504</option>
-                                            <option value="0507">0507</option>
-                                            <option value="0505">0505</option>
-                                            <option value="0502">0502</option>
-                                        </select></div>
-                                        <span class="RefundAccountReg_bar__WtViz">-</span><input
-                                            type="text" class="commonInputText" id="phone2"
-                                            maxlength="4"
-                                            name="recipientMobilePhone2"><span
-                                            class="RefundAccountReg_bar__WtViz">-</span><input
-                                            type="text" class="commonInputText" id="phone3"
-                                            maxlength="4" name="recipientMobilePhone3">
-                                        <input type="hidden" id="phone" name="phone">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th scope="row">주소</th>
-                                <td>
-                                    <ul class="RefundAccountReg_addList__SIW51">
-                                        <li><input id="sample6_postcode" type="text" class="commonInputText"
-                                                   maxlength="50" readonly=""
-                                                   name="recipientZipCode">
-                                            <button onclick="sample6_execDaumPostcode()" type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">
-                                                우편번호찾기
-                                            </button>
-                                        </li>
-                                        <li><input id="sample6_address" type="text" class="commonInputText"
-                                                   readonly=""
-                                                   name="recipientFixAddress"></li>
-                                        <li><input id="sample6_extraAddress" type="text" class="commonInputText"
-                                                   readonly=""
-                                                   name="recipientFixAddress"></li>
-                                        <li><input id="sample6_detailAddress" type="text" class="commonInputText"
-                                                   maxlength="100"
-                                                   name="recipientDetailAddress"></li>
-                                        <input type="hidden" id="address" name="address">
-                                        <input type="hidden" id="detailAddress" name="detailAddress">
-                                    </ul>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="RefundAccountReg_checkPrivacy__utCau">
-                        <p>
-                        <div class="LfInput_lfInputCheck__v0ZyE">
-                            <input type="checkbox"
-                                   id="CHK_BASE"
-                                   class="LfInput_input__eAm0q"
-                                   value=""><label
-                                for="CHK_BASE">기본 배송지로 설정</label></div>
-                        </p>
-                    </div>
-                    <div class="LfButtonGroup_lfButtonGroup__X0ZW1 buttonGroup length2">
-                        <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc" onclick="window.close();">취소</button>
-                        <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc LfButton_fillBlack__Cy1XN" onclick="submitForm()">등록</button>
-                    </div>
-                </div>
-            </form>
+  <div class="LfModal_pcContainer__MVmaW">
+    <h3 class="LfModal_modalTitle__F2OUJ">배송지 추가</h3>
+    <div class="LfModal_modalContent__CKeaI">
+      <form id="addressForm" method="post">
+        <input type="hidden" id="delivery_idx" th:value="${delivery.delivery_idx}">
+        <div class="RefundAccountReg_customLayer__BYIG8">
+          <div class="RefundAccountReg_entryTable__tVxJS RefundAccountReg_addressReg__J3veJ">
+            <table class="RefundAccountReg_entry__VLBWp"
+                   summary="배송지 추가/수정">
+              <colgroup>
+                <col style="width: 120px;">
+                <col>
+              </colgroup>
+              <tbody>
+              <tr>
+                <th scope="row">받는분</th>
+                <td>
+                  <input type="text" class="commonInputText"  id="receiver"
+                         maxlength="10" name="recipientName" th:value="${delivery.receiver}">
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">연락처</th>
+                <td>
+                  <div class="RefundAccountReg_cellInput__ycM9j">
+                    <div class="commonSelect">
+                      <select name="recipientMobilePhone1" id="phone1" th:value="${delivery.phone.substring(0, 3)}">
+                        <option value="010">010</option>
+                        <option value="011">011</option>
+                        <option value="016">016</option>
+                        <option value="017">017</option>
+                        <option value="018">018</option>
+                        <option value="019">019</option>
+                        <option value="050">050</option>
+                        <option value="070">070</option>
+                        <option value="080">080</option>
+                        <option value="0503">0503</option>
+                        <option value="0504">0504</option>
+                        <option value="0507">0507</option>
+                        <option value="0505">0505</option>
+                        <option value="0502">0502</option>
+                      </select></div>
+                    <span class="RefundAccountReg_bar__WtViz">-</span><input
+                          type="text" class="commonInputText" id="phone2"
+                          maxlength="4"
+                          name="recipientMobilePhone2" th:value="${delivery.phone.substring(3, 7)}"><span
+                          class="RefundAccountReg_bar__WtViz">-</span><input
+                          type="text" class="commonInputText" id="phone3"
+                          maxlength="4" name="recipientMobilePhone3" th:value="${delivery.phone.substring(7)}">
+                    <input type="hidden" id="phone" name="phone">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">주소</th>
+                <td>
+                  <ul class="RefundAccountReg_addList__SIW51">
+                    <li><input id="sample6_postcode" type="text" class="commonInputText"
+                               maxlength="50" readonly=""
+                               name="recipientZipCode" th:value="${delivery.address.substring(1, 6)}">
+                      <button onclick="sample6_execDaumPostcode()" type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">
+                        우편번호찾기
+                      </button>
+                    </li>
+                    <li>
+                      <input id="sample6_address" type="text" class="commonInputText"
+                             readonly="" name="recipientFixAddress" th:value="${#strings.substring(delivery.address, 7, delivery.address.indexOf('('))}">
+                    </li>
+                    <li>
+                      <input id="sample6_extraAddress" type="text" class="commonInputText"
+                             th:value="${delivery.address.substring(delivery.address.indexOf('('))}" readonly=""
+                               name="recipientFixAddress" ></li>
+                    <li>
+                      <input id="sample6_detailAddress" type="text" class="commonInputText"
+                               maxlength="100"
+                               name="recipientDetailAddress" th:value="${delivery.detailAddress}"></li>
+                    <input type="hidden" id="address" name="address">
+                    <input type="hidden" id="detailAddress" name="detailAddress">
+                  </ul>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="RefundAccountReg_checkPrivacy__utCau">
+            <p>
+            <div class="LfInput_lfInputCheck__v0ZyE">
+              <input type="checkbox"
+                     id="CHK_BASE"
+                     class="LfInput_input__eAm0q"
+                     value=""><label
+                    for="CHK_BASE">기본 배송지로 설정</label></div>
+            </p>
+          </div>
+          <div class="LfButtonGroup_lfButtonGroup__X0ZW1 buttonGroup length2">
+            <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc" onclick="window.close();">취소</button>
+            <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc LfButton_fillBlack__Cy1XN" onclick="submitForm2()">등록</button>
+          </div>
         </div>
+      </form>
     </div>
+  </div>
 </div>
 </body>
 </html>

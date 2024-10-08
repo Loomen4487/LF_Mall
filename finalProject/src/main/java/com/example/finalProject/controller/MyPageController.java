@@ -1,12 +1,11 @@
 package com.example.finalProject.controller;
 
 import com.example.finalProject.dto.*;
-import com.example.finalProject.entity.LoginEntity;
 import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.*;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,6 +27,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@Slf4j
 public class MyPageController {
     private final LoginService loginService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
@@ -127,10 +127,16 @@ public class MyPageController {
 
     @GetMapping(value = "/mypage/address")
     public String address(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails) {
-        List<DeliveryInfoDTO> deliveryInfos = deliveryInfoService.findDeliveryInfosByLoginIdx(principalDetails.getDto().getIdx());
+        int login_idx = principalDetails.getDto().getIdx();
+        List<DeliveryInfoDTO> deliveryInfos = deliveryInfoService.findDeliveryInfosByLoginIdx(login_idx);
 
-        model.addAttribute("deliveryInfos", deliveryInfos);  // 배송지 목록 전달
-        System.out.println(deliveryInfos);
+        // 만약 배송지 정보가 없다면
+        if (deliveryInfos == null || deliveryInfos.isEmpty()) {
+            model.addAttribute("hasDeliveryInfo", false);
+        } else {
+            model.addAttribute("hasDeliveryInfo", true);
+            model.addAttribute("deliveryInfos", deliveryInfos);
+        }
         return "/address";
     }
 
@@ -144,6 +150,25 @@ public class MyPageController {
         return "addAddressForm";  // addAddressForm.html 파일을 반환
     }
 
+    // 배송지 입력 폼 페이지로 이동
+    @GetMapping("/updateAddressForm/{deliveryIdx}")
+    public String updareAddAddressForm(Model model, @PathVariable("deliveryIdx") String deliveryIdx) {
+
+        model.addAttribute("delivery", deliveryInfoService.findByIdx(Integer.parseInt(deliveryIdx)));
+
+        // 현재 로그인한 사용자 정보 가져오기
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+
+        return "updateAddressForm";  // addAddressForm.html 파일을 반환
+    }
+    @PostMapping(value = "/updateAddress")
+    @ResponseBody
+    public ResponseEntity<?> updateAddress(@RequestBody DeliveryInfoDTO deliveryInfoDTO) {
+        deliveryInfoService.updateDeliveryInfo(deliveryInfoDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(deliveryInfoDTO);
+    }
+
     @PostMapping(value = "/insertAddress")
     @ResponseBody
     public String insertAddress(DeliveryInfoDTO deliveryInfoDTO) {
@@ -151,6 +176,12 @@ public class MyPageController {
         return "success";
     }
 
+    // 배송지 삭제 처리
+    @PostMapping("/mypage/address/delete/{deliveryIdx}")
+    public String deleteDeliveryInfo(@PathVariable("deliveryIdx") int deliveryIdx) {
+        deliveryInfoService.deleteDeliveryInfo(deliveryIdx);
+        return "redirect:/mypage/address";
+    }
 
     // 관리자 계정 상품등록 페이지 이동
     @GetMapping(value = "/superMyPage/product/{idx}")
@@ -158,6 +189,8 @@ public class MyPageController {
         model.addAttribute("product",productService.findByIdx(idx));
         return "superDetail";
     }
+
+
 
     //관리자 계정 상품 등록 수정
     @PostMapping(value = "/superMyPage/product/updateOk")
