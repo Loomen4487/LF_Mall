@@ -53,8 +53,8 @@
     <link href="/css/style3.css" rel="stylesheet"/>
     <link href="/css/style4.css" rel="stylesheet"/>
     <link href="/css/style5.css" rel="stylesheet"/>
+    <link href="/css/women2.css" rel="stylesheet"/>
 
-    <script src="/js/women.js" defer></script>
 </head>
 <body style="">
 <div th:replace="~{includes/header}"></div>
@@ -71,60 +71,8 @@
         </div>
     </div>
     <section class="CategoryResult_categoryResult__dLe9P">
-        <div class="SearchLocationPath_locationPath__PZDeW">
-            <ul>
-                <li><a href="/app/exhibition/category/110051">홈</a></li>
-                <li class="SearchLocationPath_on__EOHUF">
-                    <a th:href="@{|/women/${title.ref}|}">[[${title.name}]] <i class="SearchLocationPath_iconAccordion__vwMH3"></i></a>
-                    <div class="SearchLocationPath_categoryList__axazj">
-                        <ul th:each="vo:${major}">
-                            <li><a th:href="@{|/women/${vo.ref}|}">[[${vo.name}]]</a></li>
-                            <!--                            <li><a href="/app/exhibition/category/110051">남성의류</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">가방/잡화</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">슈즈</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">골프</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">스포츠/레져</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">명품</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">리빙</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">뷰티</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">키즈</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">여행</a></li>-->
-                        </ul>
-                    </div>
-                </li>
-                <li class="SearchLocationPath_on__EOHUF"><a href="#">자켓 <i
-                        class="SearchLocationPath_iconAccordion__vwMH3"></i></a>
-                    <div class="SearchLocationPath_categoryList__axazj">
-                        <ul th:each="vo:${middle}">
-                            <li><a th:href="@{|/women/${vo.ref}|}">[[${vo.name}]]</a></li>
-                            <!--                            <li><a href="/app/exhibition/category/110051">자켓</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">가디건</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">니트/스웨터</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">티셔츠</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">블라우스/ 셔츠</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">원피스</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">팬츠</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">데님팬츠</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">스커트</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">점퍼/베스트</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">코트</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">언더웨어</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">스윔웨어</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">유니섹스</a></li>-->
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <h2 class="CategoryResult_title__mztDs"></h2>
-        <div class="NdepthHeaderCategory_categoryWrap__RzclP">
-            <span class="NdepthHeaderCategory_active__CPzZi">
-            <a  href="#">전체</a>
-            </span>
-            <span class="" th:each="vo:${panel}">
-                <a th:href="@{|/women/${vo.ref}|}">[[${vo.name}]]</a>
-            </span>
-        </div>
+        <div class="SearchTitle_searchTitle__YA7vN"><p><strong class="SearchTitle_keyword__5OS3H">[[${name}]]</strong>에
+            대한<strong class="SearchTitle_num__eQtrY">[[${#lists.size(product)}]]</strong>개의 검색 결과</p></div>
         <div class="CategorySearchResult_searchResult__I8Ll+">
             <div class="CategorySearchResult_searchTemplate__+-wLt">
                 <div class="SearchFilter_searchFilter__zA3OH">
@@ -918,12 +866,13 @@
                     <div class="SearchProductList_prdList__-Xisy SearchProductList_thumbnail__9J1Rt" id="womenList">
                         <input type="hidden" id="idx" th:value="${idx}">
                         <div class="SearchProductItem SearchProductItem_SearchProductItem__Yg3Iu"
-                             th:each="dto : ${item}">
-                            <div class="ProductThumbImage_wrapThumbImg__7REL9" th:onclick="@{|location.href='/detailItem/${dto.idx}'|}">
+                             th:each="dto : ${product}">
+                            <div class="ProductThumbImage_wrapThumbImg__7REL9"
+                                 th:onclick="@{|location.href='/detailItem/${dto.idx}'|}">
                                 <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
 
                                     <img loading="lazy" th:src="${dto.image}" alt="상품이미지"
-                                         class="ProductThumbImage_baseImg__osoIA" >
+                                         class="ProductThumbImage_baseImg__osoIA">
 
                                 </div>
                                 <div class="ProductThumbImage_hoverItem__80oO9">

@@ -43,4 +43,9 @@ public interface ProductRepository extends JpaRepository<ProductEntity,Integer> 
     // women 페이지 상품 목록 보기
     @Query(value = "select * from product p where major_idx = ?1 or middle_idx=?2 or ref= ?3 limit 0, ?4",nativeQuery = true)
     List<ProductEntity> findWomenListAll(int major_idx,int middle_idx,int ref,int pageSize);
+
+
+    // women 검색 결과
+    @Query(value = "select * from product where name like concat('%',?1,'%')",nativeQuery = true)
+    List<ProductEntity> findWomenSearchList(String name);
 }

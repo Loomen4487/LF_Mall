@@ -137,4 +137,12 @@ public class ProductService {
         pe.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
+
+    // women 검색 리스트
+    public List<ProductDTO> findWomenSearchList(String name){
+        List<ProductEntity> pe = productRepository.findWomenSearchList(name);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
 }
