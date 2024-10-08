@@ -1,7 +1,6 @@
 const li = document.querySelectorAll(".Login_loginTab__WvaCW li");
 li.forEach((item,index)=>{
     const ul = document.querySelector(".Login_loginTab__WvaCW");
-    console.log(ul);
     item.addEventListener("click",function(){
         if(index==0){
             document.querySelector(".react-tabs__tab-panel").style.display="block";

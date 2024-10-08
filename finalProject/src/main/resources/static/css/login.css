@@ -1,6 +1,6 @@
 .react-tabs{
     width: 430px;
-    margin: 0 auto;
+    margin: 70px auto;
 }
 
 .Login_loginTab__WvaCW {
@@ -10,6 +10,9 @@
     margin: 0 auto;
     position: relative;
     width: 430px;
+}
+.MemberLogin_loginForm__E6vMi{
+    margin: 35px 0;
 }
 .Login_loginTab__WvaCW:before {
     background: #000;

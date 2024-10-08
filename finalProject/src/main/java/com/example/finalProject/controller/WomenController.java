@@ -8,10 +8,14 @@ import com.example.finalProject.service.MajorService;
 import com.example.finalProject.service.MiddleService;
 import com.example.finalProject.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -39,6 +43,7 @@ public class WomenController {
         model.addAttribute("item",productService.findByRef(idx));
         model.addAttribute("major",productService.findMajor());
         model.addAttribute("middle",middleDTO);
+        model.addAttribute("idx",idx);
         if(idx>100){
             model.addAttribute("panel",productService.findSub(idx));
         }else{
@@ -52,5 +57,23 @@ public class WomenController {
         }
         model.addAttribute("title",majorService.findByRef(major));
         return "women";
+    }
+
+    @GetMapping(value = "/womenSelectAll")
+    @ResponseBody
+    public ResponseEntity<?> womenListAll(@RequestParam(required = false) HashMap<String,String> map){
+        int major_idx = map.get("major_idx")!=null?Integer.parseInt(map.get("major_idx")):0;
+        int middle_idx = map.get("middle_idx")!=null?Integer.parseInt(map.get("middle_idx")):0;
+        int ref = map.get("ref")!=null?Integer.parseInt(map.get("ref")):0;
+        int pageSize = Integer.parseInt(map.get("pageSize"));
+        return ResponseEntity.status(HttpStatus.OK).body(productService.findWomenListAll(major_idx,middle_idx,ref,pageSize*10));
+    }
+
+    // 검색 기능
+    @GetMapping(value = "/women/search/{name}")
+    public String search(@PathVariable String name,Model model){
+        model.addAttribute("product",productService.findWomenSearchList(name));
+        model.addAttribute("name",name);
+        return "women2";
     }
 }
