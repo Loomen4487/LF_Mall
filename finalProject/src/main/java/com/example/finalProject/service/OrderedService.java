@@ -54,7 +54,9 @@ public class OrderedService {
         }
         return dto;
     }
-
+    public OrderedDTO findByIdx(int idx){
+        return orderedRepository.findByIdx(idx).toDTO();
+    }
     // 취소/교환/환불신청 총 개수 세기
     public List<OrderedDTO> selectCallbackList(String id){
         List<OrderedEntity> oe =  orderedRepository.selectCallbackList(id);

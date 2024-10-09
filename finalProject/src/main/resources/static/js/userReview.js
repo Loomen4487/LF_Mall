@@ -10,3 +10,15 @@ button.forEach((item,index)=>{
         review[buttonIdx].style.display="block";
     })
 })
+function reviewDelete(idx){
+    if(confirm("삭제하시겠습니까? ")){
+        axios.delete('/mypage/review/delete/'+idx)
+        .then(()=>{
+            alert("삭제가 완료되었습니다.");
+            location.reload();
+        }).catch((error)=>{
+            console.log(error);
+            alert("삭제가 취소되었습니다.");
+        })
+    }
+}

@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Objects;
 
 @Controller
 @RequiredArgsConstructor
@@ -247,8 +248,10 @@ public class MyPageController {
 
     @GetMapping(value = "/mypage/review")
     public String review(Model model,HttpSession session){
-        model.addAttribute("ordered",reviewService.reviewAndOrderedSelectAll(session.getAttribute("id").toString()));
-        model.addAttribute("review",reviewService.findAll());
+        String id = session.getAttribute("id").toString();
+        model.addAttribute("ordered",reviewService.reviewAndOrderedSelectAll(id));
+        model.addAttribute("review",reviewService.selectByReviewLogin_id(id));
+        System.out.println("reviewService.selectByReviewLogin_id "+ reviewService.selectByReviewLogin_id(id));
         return "userReview";
     }
 
@@ -268,25 +271,28 @@ public class MyPageController {
     // 마이페이지 리뷰 작성
     @GetMapping(value = "/mypage/review/{idx}")
     public String review(@PathVariable int idx,Model model){
-        model.addAttribute("product",productService.findByIdx(idx));
+        model.addAttribute("product",orderedService.findByIdx(idx));
         return "userReviewForm";
     }
 
     // 리뷰 저장
     @PostMapping(value = "/reviewOk")
     public String reviewOk(@RequestParam(required = false) MultipartFile review_image, ReviewDTO dto, HttpSession session){
-        try {
-            String path = resourceLoader.getResource("file:/D:/review").getURI().toString()+"/images/";
-            path = path.substring(6);
-            File file = new File(path);
-            if(!file.exists())file.mkdirs();
-            dto.setImage(review_image.getOriginalFilename());
-            dto.setLogin_id(session.getAttribute("id").toString());
-            FileCopyUtils.copy(review_image.getBytes(),new File(path+review_image.getOriginalFilename()));
-            reviewService.insert(dto);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if(!review_image.getOriginalFilename().isEmpty()){
+            try {
+                System.out.println("아니 이걸 탄다고? : "+review_image.getOriginalFilename());
+                String path = resourceLoader.getResource("file:/D:/review").getURI().toString()+"/images/";
+                path = path.substring(6);
+                File file = new File(path);
+                if(!file.exists())file.mkdirs();
+                dto.setImage(review_image.getOriginalFilename());
+                FileCopyUtils.copy(review_image.getBytes(),new File(path+review_image.getOriginalFilename()));
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
+                dto.setLogin_id(session.getAttribute("id").toString());
+                reviewService.insert(dto);
         return "redirect:/mypage/review";
     }
 
@@ -303,5 +309,11 @@ public class MyPageController {
         List<OrderedDTO> odto = orderedService.selectCallbackList(session.getAttribute("id").toString());
         model.addAttribute("ordered",odto);
         return "userCallback";
+    }
+
+    // 마이페이지 리뷰 삭제
+    @DeleteMapping(value = "/mypage/review/delete/{idx}")
+    public void reviewDelete(@PathVariable int idx){
+        reviewService.delete(idx);
     }
 }
