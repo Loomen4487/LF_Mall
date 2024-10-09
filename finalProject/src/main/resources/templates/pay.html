@@ -82,14 +82,14 @@
                             class="Order_price__7fubW"><em>570</em>M</span></li>
                     <li><span class="Order_tit__lDPfg">상품가격 </span><span class="Order_price__7fubW"><em id="price">[[${#numbers.formatInteger(product.price,3,'COMMA')}]]</em>원</span>
                     </li>
-                    <li><span class="Order_tit__lDPfg">수량</span><span id="count">[[${count}]]</span>개</li>
+                    <li><span class="Order_tit__lDPfg">수량</span><span><span id="count">[[${count}]]</span>개</span></li>
                     <li class="Order_sum__WeHIs"><span class="Order_tit__lDPfg">총 결제금액</span><span
                             class="Order_price__7fubW"><em>[[${#numbers.formatInteger(product.price*count,3,'COMMA')}]]</em>원</span></li>
                 </ol>
             </div>
             <div class="Order_orderBtn__ZnQdd">
                 <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27 LfButton_fillRed__cxMET"
-                        onclick="requestPay()">총 <em>1</em>개 결제하기
+                        onclick="payOk()">총 <em>1</em>개 결제하기
                 </button>
             </div>
         </div>

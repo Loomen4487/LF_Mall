@@ -11,6 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class ReviewAndOrderedDTO {
     private int idx;
+    private int product_idx;
     private String image;
     private Date regDate;
     private String name;

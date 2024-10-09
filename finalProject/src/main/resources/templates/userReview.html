@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>MyPage</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=close"/>
     <link rel="stylesheet" href="/css/mypage.css">
     <link rel="stylesheet" href="/css/userReview.css">
     <script defer src="/js/userReview.js"></script>
@@ -381,19 +383,28 @@
 
                             <section class="ProductReview_productMyReview__5B72o">
                                 <div class="ProductReview_tabButton__b-uRp">
-                                    <button class="ProductReview_on__GXXfd" type="button" style="font-size:21px;">작성 가능한 상품</button>
+                                    <button class="ProductReview_on__GXXfd" type="button" style="font-size:21px;">작성 가능한
+                                        상품
+                                    </button>
                                     <button class="" type="button" style="font-size:21px;">내가 작성한 리뷰</button>
                                 </div>
                                 <div class="review-container">
                                     <div class="review-result">
                                         <div class="review-item" th:each="dto:${ordered}">
-                                            <img th:src="${dto.image}" alt="" th:onclick="@{|location.href='/mypage/review/${dto.idx}'|}">
+                                            <img th:src="${dto.image}" alt=""
+                                                 th:onclick="@{|location.href='/mypage/review/${dto.idx}'|}">
                                             <div>[[${dto.name}]]</div>
                                         </div>
                                     </div>
-                                    <div class="reviewed" th:each="dto : ${review}">
-                                        <div><img th:src="@{|/images/${dto.image}|}" th:if="${dto.image != null}" alt="asdf"></div>
-                                        <textarea name="" id="" cols="30" rows="10">[[${dto.content}]]</textarea>
+                                    <div class="reviewed">
+                                        <div th:each="vo : ${review}" style="margin-bottom:20px;">
+                                            <div style="display:flex;column-gap: 20px;">
+                                                <div><img th:src="@{|/images/${vo.image}|}" alt=""></div>
+                                                <div style="font-size: 2em;width: 90%;">[[${vo.product.name}]]</div>
+                                                <div style="cursor: pointer;" th:attr="onclick='reviewDelete('+${vo.idx}+')'"><span class="material-symbols-outlined">close</span></div>
+                                            </div>
+                                            <div style="font-size:1.5em;margin-top: 10px;">[[${vo.content}]]</div>
+                                        </div>
                                     </div>
 
                                 </div>

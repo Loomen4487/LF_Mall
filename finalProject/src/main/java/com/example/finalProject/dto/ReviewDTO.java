@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class ReviewDTO {
     private int idx;
@@ -19,6 +18,17 @@ public class ReviewDTO {
     private int review_like;
     private String content;
 
+    public ReviewDTO(int idx, int product_idx, Date regDate, String image, String login_id, int review_like, String content) {
+        this.idx = idx;
+        this.product_idx = product_idx;
+        this.regDate = regDate;
+        this.image = image;
+        this.login_id = login_id;
+        this.review_like = review_like;
+        this.content = content;
+    }
+
+    private ProductDTO product;
     public ReviewEntity toEntity(){
         return new ReviewEntity(idx,product_idx,regDate,image,login_id,review_like,content);
     }

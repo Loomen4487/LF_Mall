@@ -18,6 +18,8 @@ info.forEach((item,index)=>{
         infoUl.children[infoIdx].children[1].style.display="none";
         this.classList.add("selected");
         this.children[1].style.display="block";
+        const height = this.children[1].clientHeight;
+        document.querySelector("footer").style.marginTop= height+'px';
         infoIdx = index;
     })
 })

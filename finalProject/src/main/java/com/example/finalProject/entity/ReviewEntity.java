@@ -3,6 +3,7 @@ package com.example.finalProject.entity;
 import com.example.finalProject.dto.ReviewDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -12,6 +13,7 @@ import java.util.Date;
 @Table(name = "review")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
 public class ReviewEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

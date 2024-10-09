@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -26,7 +27,8 @@ public class ReviewService {
     private final ProductRepository productRepository;
     @Transactional
     public void insert(ReviewDTO dto){
-        OrderedEntity oe = orderedRepository.findByProduct_idx(dto.getProduct_idx());
+        OrderedEntity oe = orderedRepository.findByIdx(dto.getIdx());
+        System.out.println("ReviewService insert : "+oe.toDTO());
         OrderedDTO od = oe.toDTO();
         od.setReview(true);
         orderedRepository.save(od.toEntity());
@@ -40,7 +42,7 @@ public class ReviewService {
         for (OrderedEntity orderedEntity : oe) {
             ProductEntity pe = productRepository.findByIdx(orderedEntity.getProduct_idx());
             if(!orderedEntity.isReview()){
-                ReviewAndOrderedDTO dto = new ReviewAndOrderedDTO(pe.getIdx(),pe.getImage(),orderedEntity.getRegDate(),pe.getName());
+                ReviewAndOrderedDTO dto = new ReviewAndOrderedDTO(orderedEntity.getIdx(),pe.getIdx(),pe.getImage(),orderedEntity.getRegDate(),pe.getName());
                 li.add(dto);
 
             }
@@ -61,5 +63,24 @@ public class ReviewService {
         List<ReviewDTO> dto = new ArrayList<>();
         re.forEach(item->dto.add(item.toDTO()));
         return dto;
+    }
+
+    public List<ReviewDTO> selectByReviewLogin_id(String id){
+        List<ReviewEntity> re = reviewRepository.selectByReviewLogin_id(id);
+        List<ReviewDTO> dto = new ArrayList<>();
+        for (ReviewEntity reviewEntity : re) {
+            ProductEntity pe = productRepository.findByIdx(reviewEntity.getProduct_idx());
+            ReviewDTO rd = reviewEntity.toDTO();
+            rd.setProduct(pe.toDTO());
+            dto.add(rd);
+        }
+        return dto;
+    }
+
+    // 리뷰 삭제
+    @Transactional
+    public void delete(int idx){
+        ReviewEntity re = reviewRepository.findByIdx(idx);
+        if(!Objects.isNull(re))reviewRepository.delete(re);
     }
 }
