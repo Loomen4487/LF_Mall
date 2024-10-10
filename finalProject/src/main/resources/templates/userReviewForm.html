@@ -346,8 +346,15 @@
                             <form action="/reviewOk" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="idx" th:value="${product.idx}">
                                 <input type="hidden" name="product_idx" th:value="${product.product_idx}">
-                                <textarea name="content" cols="30" rows="10"></textarea> <br>
-                                <input type="file" name="review_image"> <br>
+                                <div style="display:flex;">
+                                    <div>
+                                        <textarea name="content" cols="30" rows="10"></textarea> <br>
+                                        <input type="file" name="review_image" id="reviewImage"> <br>
+                                    </div>
+                                    <div id="imagePreview" style="display: none;">
+                                        <img id="previewImage" alt="Uploaded Image" style="max-width: 300px;"/>
+                                    </div>
+                                </div>
                                 <button class="btn btn-outline-info btn-sm">저장하기</button>
                             </form>
                             <section class="ProductReview_productMyReview__5B72o">

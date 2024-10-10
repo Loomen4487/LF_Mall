@@ -18,7 +18,19 @@ function reviewDelete(idx){
             location.reload();
         }).catch((error)=>{
             console.log(error);
-            alert("삭제가 취소되었습니다.");
+            alert("삭제가 완료되었습니다.");
         })
     }
 }
+document.getElementById("reviewImage").addEventListener("change", function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const previewImage = document.getElementById('previewImage');
+            previewImage.src = e.target.result;
+            document.getElementById('imagePreview').style.display = 'block'; // 미리보기 표시
+        };
+        reader.readAsDataURL(file);
+    }
+});
