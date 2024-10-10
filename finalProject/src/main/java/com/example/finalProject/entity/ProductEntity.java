@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "product")
 @AllArgsConstructor
@@ -23,8 +25,8 @@ public class ProductEntity {
     private int ref;
     private int middle_idx;
     private int major_idx;
-
+    private Date create_at;
     public ProductDTO toDTO(){
-        return new ProductDTO(idx,name,price,size,rate,image,ref,middle_idx,major_idx);
+        return new ProductDTO(idx,name,price,size,rate,image,ref,middle_idx,major_idx,create_at);
     }
 }

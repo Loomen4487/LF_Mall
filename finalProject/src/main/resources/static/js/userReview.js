@@ -22,6 +22,7 @@ function reviewDelete(idx){
         })
     }
 }
+// 이미지 미리보기
 document.getElementById("reviewImage").addEventListener("change", function(event) {
     const file = event.target.files[0];
     if (file) {

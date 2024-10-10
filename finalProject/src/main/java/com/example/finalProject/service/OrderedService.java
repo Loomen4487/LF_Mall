@@ -69,4 +69,13 @@ public class OrderedService {
         }
         return dto;
     }
+
+    // 비회원 주문조회
+    public OrderedDTO nonLoginOrderCheck(String number){
+        OrderedEntity oe = orderedRepository.findByOrder_number(number);
+        OrderedDTO dto = oe.toDTO();
+        ProductEntity pe = productRepository.findByIdx(oe.getProduct_idx());
+        dto.setProduct(pe.toDTO());
+        return dto;
+    }
 }

@@ -7,6 +7,7 @@ import com.example.finalProject.dto.QnaDTO;
 import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.*;
 import com.siot.IamportRestClient.IamportClient;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.HashMap;
 import java.util.List;
@@ -57,8 +59,10 @@ public class HomeController {
     }
 
     @PostMapping(value = "/payOk")
-    public ResponseEntity<?> payOk(@RequestParam HashMap<String,String> map){
-        OrderedDTO dto = new OrderedDTO(0,Integer.parseInt(map.get("product_idx")),null,Integer.parseInt(map.get("count")),map.get("address"),map.get("detailAddress"),map.get("phone"),map.get("login_id"),false, UUID.randomUUID().toString(),false);
+    public ResponseEntity<?> payOk(@RequestParam HashMap<String,String> map, HttpSession session){
+        String uuid = UUID.randomUUID().toString();
+        session.setAttribute("uuid",uuid);
+        OrderedDTO dto = new OrderedDTO(0,Integer.parseInt(map.get("product_idx")),null,Integer.parseInt(map.get("count")),map.get("address"),map.get("detailAddress"),map.get("phone"),map.get("login_id"),false, uuid,false);
         orderedService.insert(dto);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
@@ -121,5 +125,18 @@ public class HomeController {
     @ResponseBody
     public List<OrderedDTO> selectOrderedDateList(@PathVariable int idx){
         return orderedService.selectOrderedDateList(idx);
+    }
+
+    // 주문번호 확인
+    @GetMapping(value = "/payCheck")
+    public String payCheck(RedirectAttributes redirectAttributes){
+        return "includes/payCheck";
+    }
+
+    // 비회원 주문조회
+    @PostMapping(value = "/nonLoginOrderCheck")
+    @ResponseBody
+    public OrderedDTO nonLoginOrderCheck(@RequestParam(required = false) String memberName){
+        return orderedService.nonLoginOrderCheck(memberName);
     }
 }
