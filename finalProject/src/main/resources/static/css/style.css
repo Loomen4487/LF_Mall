@@ -218,12 +218,12 @@ ul {
 
 /* 기본적으로 하위 목록을 숨김 */
 .SearchFilter_listIn__hQOqo {
-    display: none;
+    display: none !important;
 }
 
 /* 활성화 시 하위 목록 표시 */
 .active .SearchFilter_listIn__hQOqo {
-    display: block;
+    display: block !important;
 }
 
 /* 클릭 가능한 타이틀 스타일 */
