@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/css/footer.css">
+    <script defer src="/js/footer.js"></script>
+</head>
+<body>
+<footer>
+    <div class="footer-service">
+        <div class="service-item">
+            <h3>고객서비스센터</h3>
+            <p class="Footer_helpTel__hsp27">1544-5114<span>(유료)</span></p>
+            <p class="Footer_hours__xg8h0">상담시간 : 월~금 9:00~18:00 (주말,공휴일 휴무)</p>
+            <div class="Footer_menu__W9XMW">
+                <a href="/app/mypage/customer/counsels">1:1 상담</a>
+                <a href="/app/mypage/customer/voice">고객제안</a>
+            </div>
+        </div>
+        <div class="service-item">
+            <div class="Footer_customerMenu__Rla5c">
+                <h3>CUSTOMER SERVICE</h3>
+                <div class="Footer_list__e4l6m">
+                    <a href="/app/">회원가입</a><a href="/app/shopping/guide/as">AS</a>
+                    <a href="/app/shopping/guide/delivery">배송/교환/반품</a><a href="/app/shopping/guide/coupon">쿠폰</a>
+                    <a href="/app/mypage/customer/counsels">1:1 상담</a><a href="/app/shopping/guide/mileage">마일리지</a>
+                    <a href="/app/voucher">상품권 구매</a><a href="/app/shopping/guide/group/order">단체구매 신청/조회</a>
+                </div>
+            </div>
+        </div>
+        <div class="service-item" id="result">
+            <div class="Footer_csNews__ZbvP8">
+                <h3>NEWS (고객 공지사항)</h3>
+                <div class="Footer_list__e4l6m" v-for="notice in noticeList">
+                    <a :href=`/notice/detail/${notice.idx}`>{{notice.subject}}&nbsp;</a>
+                </div>
+            </div>
+        </div>
+        <div class="service-item">
+            <div class="Footer_outLinks__3-N5o">
+                <div class="Footer_familySite__Oj6YI">
+                    <button type="button" class="Footer_familySiteBtn__DxM4q">FAMILY SITE</button>
+                </div>
+                <button type="button">
+                    <img loading="lazy" src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/file/WAS/display/lf2022/pc/btn_download_banner.png/dims/format/avif;fallback=webp/optimize" alt="앱 다운로드" through="m2ps">
+                </button>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="Footer_companyInfo__l5-E9">
+        <div class="Footer_footerMenu__+6PXt">
+            <a href="/app/">회사소개</a><a href="/app/terms/service">이용약관</a>
+            <a href="/app/terms/process"><strong>개인정보처리방침</strong></a>
+            <a href="/app/terms/easyPrivacyRule"><strong>읽기 쉬운 개인정보처리방침</strong></a>
+            <a href="/app/terms/process?moveTagId=go_teen">청소년보호정책</a><a href="/app/customer">고객센터</a>
+            <a href="/app/">제휴 및 입점문의</a><a href="/app/">패밀리 인증</a><a href="/app/">제휴임직원 인증</a>
+        </div>
+        <div class="Footer_addressInfo__RX3Uh"><div>
+            <span>사업자 등록번호 : 211-87-87724</span>
+            <span>통신판매업신고 : 제 2010-서울강남-00066호</span>
+            <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH Footer_linkTxtBox__S-5JL">사업자 정보확인</button>
+        </div>
+            <address style="padding: 10px 0;">
+                <span>서울 강남구 언주로 870</span><span>대표전화 : 1544-5114 (유료)</span><span>팩스 : 031-360-0003</span>
+                <span>이메일 : lfcs@lfcorp.com</span></address><p class="Footer_ceo__fD5f7">(주)LF 대표이사 오규식, 온라인사업부문 권성훈</p>
+            <div class="Footer_outLink__kq1sC"><a href="/app/"><img src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/file/WAS/apps/2019/pfront/common/ico_parenter_2.png/dims/format/avif;fallback=webp/optimize" alt="" through="m2ps" style="margin-left: -20px;"></a>
+                <a href="/app/"> <img loading="lazy" src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/file/WAS/apps/2019/pfront/common/ico_parenter_3.png/dims/format/avif;fallback=webp/optimize" alt="" through="m2ps"></a>
+                <img loading="lazy" src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/file/WAS/apps/2019/pfront/common/ico_parenter_4.png/dims/format/avif;fallback=webp/optimize" alt="" through="m2ps"><button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH Footer_linkTxtBox__S-5JL">서비스 가입사실 확인</button>
+            </div>
+        </div>
+        <div class="Footer_snsBox__Facgr">
+            <a class="Footer_inst__n-2yY" rel="noreferrer" href="/app/"></a>
+            <a class="Footer_fb__LLGdy" rel="noreferrer" href="/app/"></a>
+            <a class="Footer_ytb__1Gaq1" rel="noreferrer" href="/app/"></a>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

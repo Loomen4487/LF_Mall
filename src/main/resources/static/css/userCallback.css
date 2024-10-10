@@ -1,0 +1,33 @@
+.content.mypage.cancel-pg {
+    margin: 0;
+}
+h3.mypage-title {
+    height: 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #000000;
+    font-size: 18px;
+    font-weight: normal;
+    color: #000000;
+    letter-spacing: -1px;
+    line-height: 18px;
+}
+.order-chk-p {
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #000000;
+    font-weight: normal;
+}
+.content_new table.bbs-list {
+    table-layout: auto;
+    border-bottom: 1px solid #ddd;
+}
+.content_new table.bbs-list th {
+    height: 18px;
+    padding: 10px 0;
+    border-bottom: 1px solid #000;
+    font-size: 13px;
+    font-weight: normal;
+    color: #000000;
+    line-height: 18px;
+    text-align: center;
+}
