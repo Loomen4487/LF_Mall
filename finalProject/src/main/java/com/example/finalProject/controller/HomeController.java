@@ -28,11 +28,6 @@ public class HomeController {
     private final QnaService qnaService;
     private final OrderedService orderedService;
     private final ReviewService reviewService;
-    @GetMapping(value = "/")
-    @ResponseBody
-    public String index(){
-        return "index";
-    }
 
     @GetMapping(value = "/user")
     @ResponseBody
