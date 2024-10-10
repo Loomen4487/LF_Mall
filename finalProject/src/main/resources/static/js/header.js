@@ -3,8 +3,15 @@ document.querySelector(".HeaderNew_inputSearch__bCive").addEventListener("keyup"
         location.href='/women/search/'+e.target.value;
     }
 })
-const recentProduct = document.querySelector(".RecentHistory_noRecent__wvj1J");
-const item = localStorage.getItem("list").split(",");
-item.forEach(it=>{
-    console.log(it);
+const vue = new Vue({
+    el:"#recentProduct",
+    data:{
+        productList:[]
+    }
 })
+
+axios.put('/detailItem/recentProduct')
+.then(res=>{
+    const data = res.data;
+    vue.productList = res.data;
+}).catch(error=>console.log(error));

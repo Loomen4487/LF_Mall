@@ -68,9 +68,10 @@
                                 <span th:if="${i>product.rate}">☆</span>
                             </th:block>
                         </div>
+                        <input type="hidden" id="idx" th:value="${idx}">
                     </a></div>
                 <div class="ProductBasic_priceGroup__t3wWL"><span class="ProductBasic_dcPercent__HeI1C">20%</span><span
-                        class="ProductBasic_originPrice__d51GM">189,000원</span><span
+                        class="ProductBasic_originPrice__d51GM">[[${#numbers.formatInteger(rawPrice,3,'COMMA')}]]</span><span
                         class="ProductBasic_finalPrice__bLpZz" id="detailItemPrice">[[${#numbers.formatInteger(product.price,3,'COMMA')}]]원</span><span><button
                         type="button" class="ProductBasic_iconQuestion__sI+AD">안내</button><div class=""></div></span>
                 </div>
@@ -94,10 +95,10 @@
                         </div>
                         <div id="LFssungDetail" class="accordionItemContents lfssung_detail">
                             <dl>
-                                <dd class="date red"><span class="tit">09/25(수) 이내 도착확률</span><span
+                                <dd class="date red"><span class="tit">[[${#temporals.format(#temporals.createNow().plusDays(2),'MM/dd(EE)')}]] 이내 도착확률</span><span
                                         class="txt">93%</span>
                                 </dd>
-                                <dd class="date"><span class="tit">09/26(목) 이내 도착확률</span><span class="txt">98%</span>
+                                <dd class="date"><span class="tit">[[${#temporals.format(#temporals.createNow().plusDays(3),'MM/dd(EE)')}]] 이내 도착확률</span><span class="txt">98%</span>
                                 </dd>
                             </dl>
                         </div>

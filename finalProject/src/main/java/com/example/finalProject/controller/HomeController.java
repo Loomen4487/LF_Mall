@@ -7,6 +7,9 @@ import com.example.finalProject.dto.QnaDTO;
 import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.*;
 import com.siot.IamportRestClient.IamportClient;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -18,9 +21,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -30,7 +34,8 @@ public class HomeController {
     private final QnaService qnaService;
     private final OrderedService orderedService;
     private final ReviewService reviewService;
-
+    StringBuilder stringBuilder = new StringBuilder();
+    List<ProductDTO> li = new ArrayList<>();
     @GetMapping(value = "/user")
     @ResponseBody
     public String user(@AuthenticationPrincipal PrincipalDetails principalDetails){
@@ -43,10 +48,15 @@ public class HomeController {
     public String detailItem(@PathVariable int idx, Model model){
         System.out.println("결과 : "+qnaService.findByProduct_idx(idx));
         ProductDTO dto = productService.findByIdx(idx);
+        if(!li.contains(dto))li.add(dto);
+        if(li.size()>4)li.removeFirst();
+        int rawPrice = dto.getPrice()/3*5;
         model.addAttribute("product",dto);
+        model.addAttribute("rawPrice",rawPrice);
         model.addAttribute("recommand",productService.selectRecommand(dto.getRef()));
         model.addAttribute("qna",qnaService.findByProduct_idx(idx));
         model.addAttribute("review",reviewService.findByProduct_idx(idx));
+        model.addAttribute("idx",idx);
         return "detailItem";
     }
 
@@ -138,5 +148,11 @@ public class HomeController {
     @ResponseBody
     public OrderedDTO nonLoginOrderCheck(@RequestParam(required = false) String memberName){
         return orderedService.nonLoginOrderCheck(memberName);
+    }
+
+    // 최근본 상품
+    @PutMapping(value = "/detailItem/recentProduct")
+    public ResponseEntity<?> recentProduct(){
+        return ResponseEntity.status(HttpStatus.OK).body(li);
     }
 }
