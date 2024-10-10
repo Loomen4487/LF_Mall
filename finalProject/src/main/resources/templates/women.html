@@ -79,16 +79,6 @@
                     <div class="SearchLocationPath_categoryList__axazj">
                         <ul th:each="vo:${major}">
                             <li><a th:href="@{|/women/${vo.ref}|}">[[${vo.name}]]</a></li>
-                            <!--                            <li><a href="/app/exhibition/category/110051">남성의류</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">가방/잡화</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">슈즈</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">골프</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">스포츠/레져</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">명품</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">리빙</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">뷰티</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">키즈</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">여행</a></li>-->
                         </ul>
                     </div>
                 </li>
@@ -97,20 +87,6 @@
                     <div class="SearchLocationPath_categoryList__axazj" >
                         <ul th:each="vo:${middle}">
                             <li><a th:href="@{|/women/${vo.ref}|}">[[${vo.name}]]</a></li>
-                            <!--                            <li><a href="/app/exhibition/category/110051">자켓</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">가디건</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">니트/스웨터</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">티셔츠</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">블라우스/ 셔츠</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">원피스</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">팬츠</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">데님팬츠</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">스커트</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">점퍼/베스트</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">코트</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">언더웨어</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">스윔웨어</a></li>-->
-                            <!--                            <li><a href="/app/exhibition/category/110051">유니섹스</a></li>-->
                         </ul>
                     </div>
                 </li>
@@ -171,49 +147,49 @@
                         <div class="SearchFilter_listIn__hQOqo SearchFilter_active__czbPb">
                             <ul class="SearchFilter_depthList__ZbGvj">
                                 <li><a class="SearchFilter_active__czbPb SearchFilter_open__YlSqB"
-                                       href="/app/exhibition/category/110051"><span>여성의류</span></a>
+                                       th:href="@{|/women/${title.ref}|}"><span>[[${title.name}]]</span></a>
                                     <ul class="SearchFilter_depthList2__EmxP0">
                                         <li><a class="
                           SearchFilter_active__czbPb
                           SearchFilter_open__YlSqB
-                        " href="/app/exhibition/category/110051"><span>자켓</span></a></li>
-                                        <ul class="SearchFilter_depthList3__W15cG">
-                                            <li><a class="
+                        " th:href="@{|/women/${sub_name.ref}|}" th:if="${sub_name != null}"><span>[[${sub_name.name}]]</span></a></li>
+                                        <ul class="SearchFilter_depthList3__W15cG" th:each="vo:${panel}">
+                                            <li ><a class="
 
 
-                                " href="/app/exhibition/category/110051"><span>일반자켓</span></a></li>
+                                " th:href="@{|/women/${vo.ref}|}"><span>[[${vo.name}]]</span></a></li>
                                         </ul>
-                                        <ul class="SearchFilter_depthList3__W15cG">
-                                            <li><a class="
+<!--                                        <ul class="SearchFilter_depthList3__W15cG">-->
+<!--                                            <li><a class="-->
 
 
-                                " href="/app/exhibition/category/110051"><span>트위드자켓</span></a></li>
-                                        </ul>
-                                        <ul class="SearchFilter_depthList3__W15cG">
-                                            <li><a class="
+<!--                                " href="/app/exhibition/category/110051"><span>트위드자켓</span></a></li>-->
+<!--                                        </ul>-->
+<!--                                        <ul class="SearchFilter_depthList3__W15cG">-->
+<!--                                            <li><a class="-->
 
 
-                                " href="/app/exhibition/category/110051"><span>레더자켓</span></a></li>
-                                        </ul>
-                                        <ul class="SearchFilter_depthList3__W15cG">
-                                            <li><a class="
+<!--                                " href="/app/exhibition/category/110051"><span>레더자켓</span></a></li>-->
+<!--                                        </ul>-->
+<!--                                        <ul class="SearchFilter_depthList3__W15cG">-->
+<!--                                            <li><a class="-->
 
 
-                                " href="/app/exhibition/category/110051"><span>플리스자켓</span></a></li>
-                                        </ul>
-                                        <ul class="SearchFilter_depthList3__W15cG">
-                                            <li><a class="
+<!--                                " href="/app/exhibition/category/110051"><span>플리스자켓</span></a></li>-->
+<!--                                        </ul>-->
+<!--                                        <ul class="SearchFilter_depthList3__W15cG">-->
+<!--                                            <li><a class="-->
 
 
-                                " href="/app/exhibition/category/110051"><span>퀄팅자켓</span></a></li>
-                                        </ul>
+<!--                                " href="/app/exhibition/category/110051"><span>퀄팅자켓</span></a></li>-->
+<!--                                        </ul>-->
                                     </ul>
-                                    <ul class="SearchFilter_depthList2__EmxP0">
-                                        <li><a class="
+<!--                                    <ul class="SearchFilter_depthList2__EmxP0">-->
+<!--                                        <li><a class="-->
 
 
-                        " href="/app/exhibition/category/110051"><span>점퍼/베스트</span></a></li>
-                                    </ul>
+<!--                        " href="/app/exhibition/category/110051"><span>점퍼/베스트</span></a></li>-->
+<!--                                    </ul>-->
                                 </li>
                             </ul>
                         </div>

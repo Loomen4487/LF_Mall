@@ -28,4 +28,7 @@ public interface OrderedRepository extends JpaRepository<OrderedEntity, Integer>
     @Query(value = "select * from ordered where isdelivery=1 and login_id=?1",nativeQuery = true)
     List<OrderedEntity> selectCallbackList(String id);
 
+    // 비회원 주문조회
+    @Query(value = "select * from ordered where order_number=?1",nativeQuery = true)
+    OrderedEntity findByOrder_number(String number);
 }

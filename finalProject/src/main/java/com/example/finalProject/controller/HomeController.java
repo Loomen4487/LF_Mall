@@ -7,6 +7,10 @@ import com.example.finalProject.dto.QnaDTO;
 import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.*;
 import com.siot.IamportRestClient.IamportClient;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,10 +19,12 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.UUID;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 @Controller
 @RequiredArgsConstructor
@@ -28,7 +34,8 @@ public class HomeController {
     private final QnaService qnaService;
     private final OrderedService orderedService;
     private final ReviewService reviewService;
-
+    StringBuilder stringBuilder = new StringBuilder();
+    List<ProductDTO> li = new ArrayList<>();
     @GetMapping(value = "/user")
     @ResponseBody
     public String user(@AuthenticationPrincipal PrincipalDetails principalDetails){
@@ -41,10 +48,15 @@ public class HomeController {
     public String detailItem(@PathVariable int idx, Model model){
         System.out.println("결과 : "+qnaService.findByProduct_idx(idx));
         ProductDTO dto = productService.findByIdx(idx);
+        if(!li.contains(dto))li.add(dto);
+        if(li.size()>4)li.removeFirst();
+        int rawPrice = dto.getPrice()/3*5;
         model.addAttribute("product",dto);
+        model.addAttribute("rawPrice",rawPrice);
         model.addAttribute("recommand",productService.selectRecommand(dto.getRef()));
         model.addAttribute("qna",qnaService.findByProduct_idx(idx));
         model.addAttribute("review",reviewService.findByProduct_idx(idx));
+        model.addAttribute("idx",idx);
         return "detailItem";
     }
 
@@ -57,8 +69,10 @@ public class HomeController {
     }
 
     @PostMapping(value = "/payOk")
-    public ResponseEntity<?> payOk(@RequestParam HashMap<String,String> map){
-        OrderedDTO dto = new OrderedDTO(0,Integer.parseInt(map.get("product_idx")),null,Integer.parseInt(map.get("count")),map.get("address"),map.get("detailAddress"),map.get("phone"),map.get("login_id"),false, UUID.randomUUID().toString(),false);
+    public ResponseEntity<?> payOk(@RequestParam HashMap<String,String> map, HttpSession session){
+        String uuid = UUID.randomUUID().toString();
+        session.setAttribute("uuid",uuid);
+        OrderedDTO dto = new OrderedDTO(0,Integer.parseInt(map.get("product_idx")),null,Integer.parseInt(map.get("count")),map.get("address"),map.get("detailAddress"),map.get("phone"),map.get("login_id"),false, uuid,false);
         orderedService.insert(dto);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
@@ -121,5 +135,24 @@ public class HomeController {
     @ResponseBody
     public List<OrderedDTO> selectOrderedDateList(@PathVariable int idx){
         return orderedService.selectOrderedDateList(idx);
+    }
+
+    // 주문번호 확인
+    @GetMapping(value = "/payCheck")
+    public String payCheck(RedirectAttributes redirectAttributes){
+        return "includes/payCheck";
+    }
+
+    // 비회원 주문조회
+    @PostMapping(value = "/nonLoginOrderCheck")
+    @ResponseBody
+    public OrderedDTO nonLoginOrderCheck(@RequestParam(required = false) String memberName){
+        return orderedService.nonLoginOrderCheck(memberName);
+    }
+
+    // 최근본 상품
+    @PutMapping(value = "/detailItem/recentProduct")
+    public ResponseEntity<?> recentProduct(){
+        return ResponseEntity.status(HttpStatus.OK).body(li);
     }
 }
