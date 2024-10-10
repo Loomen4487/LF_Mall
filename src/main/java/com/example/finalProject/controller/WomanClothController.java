@@ -14,7 +14,6 @@ public class WomanClothController {
 
     @GetMapping("/woman")
     public String woman_cloth() {
-        //model.addAttribute("item",productService.findMajor2());
         return "woman_cloth";
     }
 }

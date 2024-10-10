@@ -33,6 +33,4 @@ public class ProductDTO {
     public ProductEntity toEntity(){
         return new ProductEntity(idx,name,price,size,rate,image, ref,middle_idx,major_idx);
     }
-
-
 }

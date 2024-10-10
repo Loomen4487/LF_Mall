@@ -148,11 +148,4 @@ public class ProductService {
         return dto;
     }
 
-    // 추가함
-//    public List<ProductDTO> findMajor2() {
-//        List<MajorEntity> rank = majorRepository.findAll();
-//        List<ProductDTO> dto = new ArrayList<>();
-//        rank.forEach(item -> dto.add(item.toDTO()));
-//        return dto;
-//    }
 }

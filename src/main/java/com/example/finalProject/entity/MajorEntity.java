@@ -1,6 +1,7 @@
 package com.example.finalProject.entity;
 
 import com.example.finalProject.dto.MajorDTO;
+import com.example.finalProject.dto.ProductDTO;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -20,4 +21,5 @@ public class MajorEntity {
     public MajorDTO toDTO(){
         return new MajorDTO(idx,name,ref);
     }
+
 }
