@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer src="/js/mybag.js"></script>
     <link rel="stylesheet" href="/css/mybag.css">
 </head>
 <body>
@@ -21,16 +23,13 @@
                             <div class="Cart_cartLProduct__PIu+W">
                                 <div class="Cart_selectBtn__98-7k">
                                     <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc">
-                                        전체선택
-                                    </button>
-                                    <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc">
                                         선택삭제
                                     </button>
-                                    <div class="Cart_right__L4dPM">
-                                        <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc">
-                                            위시리스트로 이동
-                                        </button>
-                                    </div>
+<!--                                    <div class="Cart_right__L4dPM">-->
+<!--                                        <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc">-->
+<!--                                            위시리스트로 이동-->
+<!--                                        </button>-->
+<!--                                    </div>-->
                                 </div>
                                 <div class="Cart_productTable__OHrev">
                                     <table class="Cart_list__lngmB">
@@ -54,7 +53,7 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
+                                        <tr th:if="${cart == null}">
                                             <td colspan="3" class="Cart_noData__ShGiM">장바구니에 담긴 상품이 없습니다.</td>
                                         </tr>
                                         </tbody>
@@ -97,12 +96,12 @@
             </div>
             <div class="Cart_cartLProduct__PIu+W" >
                 <div class="Cart_selectBtn__98-7k">
-                    <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc">전체선택</button>
+<!--                    <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc">전체선택</button>-->
                     <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc">선택삭제</button>
-                    <div class="Cart_right__L4dPM">
-                        <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc">위시리스트로 이동
-                        </button>
-                    </div>
+<!--                    <div class="Cart_right__L4dPM">-->
+<!--                        <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc">위시리스트로 이동-->
+<!--                        </button>-->
+<!--                    </div>-->
                 </div>
                 <div class="Cart_productTable__OHrev">
                     <table class="Cart_list__lngmB">
@@ -126,97 +125,104 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td class="Cart_info__ioC6C">
-                                <div class="Cart_tdInfoWrap__Oj5Ys">
-                                    <div class="LfInput_lfInputCheck__v0ZyE Cart_tdCheck__9zCOw">
-                                        <input type="checkbox" id="checkID361375329" class="LfInput_input__eAm0q"
-                                               value="" checked="">
-                                        <label for="checkID361375329">상품선택</label>
-                                    </div>
-                                    <div class="Cart_tdInfo__crB7b">
-                                        <a class="Cart_prodImg__g59F6" href="/app/product/VLSW4D567OW">
-                                            <img src="https://nimg.lfmall.co.kr/file/product/prd/C004/2024/750/VLSW4D567OW_00.jpg" alt="오프화이트 캐시미어 크롭 가디건"></a>
-                                        <div class="Cart_prodInfo__onUty">
-                                            <a href="/app/product/VLSW4D567OW">
-                                            <div class="Cart_brand__Dt9CE">ATHE VANESSABRUNO WOMEN</div>
-                                            <div class="Cart_name__odDuf">[24FW]오프화이트 캐시미어 크롭 가디건</div>
-                                        </a>
-                                            <div class="Cart_option__vJwdC">
-                                                <span>미색</span><span>FREE</span><span>1개</span></div>
-                                            <div class="Cart_prodOption__rszjB">
-                                                <div class="commonSelect"><select>
-                                                    <option value="선택">선택</option>
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                                    <option value="11">11</option>
-                                                    <option value="12">12</option>
-                                                    <option value="13">13</option>
-                                                    <option value="14">14</option>
-                                                    <option value="15">15</option>
-                                                    <option value="16">16</option>
-                                                    <option value="17">17</option>
-                                                    <option value="18">18</option>
-                                                    <option value="19">19</option>
-                                                    <option value="20">20</option>
-                                                </select></div>
-                                                <button type="button"
-                                                        class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">옵션변경
+                        <tr th:if="${#lists.size(cart) == 0}">
+                            <td colspan="3" class="Cart_noData__ShGiM">장바구니에 담긴 상품이 없습니다.</td>
+                        </tr>
+                        <tr th:each="dto:${cart}">
+                            <form action="/detailItem/pay" method="post">
+
+
+                                <td class="Cart_info__ioC6C">
+                                    <div class="Cart_tdInfoWrap__Oj5Ys">
+                                        <div class="LfInput_lfInputCheck__v0ZyE Cart_tdCheck__9zCOw">
+                                            <input type="checkbox" id="checkID361375329" class="LfInput_input__eAm0q"
+                                                   value="" checked="">
+                                            <label for="checkID361375329">상품선택</label>
+                                        </div>
+                                        <div class="Cart_tdInfo__crB7b">
+                                            <a class="Cart_prodImg__g59F6" href="/app/product/VLSW4D567OW">
+                                                <img th:src="${dto.product.image}" alt="오프화이트 캐시미어 크롭 가디건"></a>
+                                            <div class="Cart_prodInfo__onUty">
+                                                <a href="/app/product/VLSW4D567OW">
+                                                <div class="Cart_name__odDuf">[[${dto.product.name}]]</div>
+                                            </a>
+                                                <div class="Cart_option__vJwdC">
+                                                    <span>미색</span><span>FREE</span><span>1개</span></div>
+                                                <div class="Cart_prodOption__rszjB">
+                                                    <div class="commonSelect"><select name="count">
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                        <option value="12">12</option>
+                                                        <option value="13">13</option>
+                                                        <option value="14">14</option>
+                                                        <option value="15">15</option>
+                                                        <option value="16">16</option>
+                                                        <option value="17">17</option>
+                                                        <option value="18">18</option>
+                                                        <option value="19">19</option>
+                                                        <option value="20">20</option>
+                                                    </select></div>
+<!--                                                    <button type="button"-->
+<!--                                                            class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">옵션변경-->
+<!--                                                    </button>-->
+                                                </div>
+                                                <div class="Cart_prodDelivery__0sU+4">
+                                                    <span class="Cart_date__j6x7Y">[[${#temporals.format(#temporals.createNow().plusDays(3),'MM/dd(EE)')}]]</span>이내 도착확률 91%
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="Cart_tdPrice__JttA7">
+    <!--                                        <div class="Cart_priceL__I9YVU"><em>538,000</em>원</div>-->
+                                            <div class="Cart_priceS__TU3Ng"><em>[[${#numbers.formatInteger(dto.product.price,3,'COMMA')}]]</em>원
+                                                <button type="button" class="btnMore"><span
+                                                        class="LfIcon_icon__TL6Hh LfIcon_arrowSquare__72Xui">가격 안내</span>
                                                 </button>
                                             </div>
-                                            <div class="Cart_prodDelivery__0sU+4">
-                                                <span class="Cart_date__j6x7Y">10/10(목)</span>이내 도착확률 91%
-                                            </div>
+                                            <div class="Cart_savePoint__gOZ-W"><em>4,100</em>M 적립예정</div>
                                         </div>
                                     </div>
-                                    <div class="Cart_tdPrice__JttA7">
-                                        <div class="Cart_priceL__I9YVU"><em>538,000</em>원</div>
-                                        <div class="Cart_priceS__TU3Ng"><em>450,310</em>원
-                                            <button type="button" class="btnMore"><span
-                                                    class="LfIcon_icon__TL6Hh LfIcon_arrowSquare__72Xui">가격 안내</span>
-                                            </button>
-                                        </div>
-                                        <div class="Cart_savePoint__gOZ-W"><em>4,100</em>M 적립예정</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="Cart_delivery__HIc3E">무료</td>
-                            <td class="Cart_btn__3WyGW">
-                                <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc LfButton_fillBlack__Cy1XN">
-                                    바로구매
-                                </button>
-                                <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc" id="remove_361375329">
-                                    삭제
-                                </button>
-                            </td>
+                                </td>
+                                <td class="Cart_delivery__HIc3E">무료
+                                    <input type="hidden" name="idx" th:value="${dto.product.idx}">
+                                </td>
+                                <td class="Cart_btn__3WyGW">
+                                    <button type="submit" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc LfButton_fillBlack__Cy1XN">
+                                        바로구매
+                                    </button>
+                                    <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc" id="remove_361375329" th:onclick="@{|productDelete(${dto.idx})|}">
+                                        삭제
+                                    </button>
+                                </td>
+                            </form>
                         </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="Cart_cartTotal__YUv1r">
-                    <ol>
-                        <li><span class="Cart_tit__xpKxH">상품금액</span>
-                            <span class="Cart_price__AvnY3"><em>538,000</em>원</span>
-                        </li>
-                        <li class="Cart_minus__Lgewj"><span class="Cart_tit__xpKxH">할인금액</span>
-                            <span class="Cart_price__AvnY3"><em>87,690</em>원</span>
-                        </li>
-                        <li class="Cart_plus__5oqo5"><span class="Cart_tit__xpKxH">배송비</span>
-                            <span class="Cart_price__AvnY3"><em>무료</em></span>
-                        </li>
-                        <li class="Cart_sum__x+IEA"><span class="Cart_tit__xpKxH">결제금액</span>
-                            <span class="Cart_price__AvnY3"><em>450,310</em>원</span>
-                        </li>
-                    </ol>
-                </div>
+<!--                <div class="Cart_cartTotal__YUv1r">-->
+<!--                    <ol>-->
+<!--                        <li><span class="Cart_tit__xpKxH">상품금액</span>-->
+<!--                            <span class="Cart_price__AvnY3"><em>538,000</em>원</span>-->
+<!--                        </li>-->
+<!--                        <li class="Cart_minus__Lgewj"><span class="Cart_tit__xpKxH">할인금액</span>-->
+<!--                            <span class="Cart_price__AvnY3"><em>87,690</em>원</span>-->
+<!--                        </li>-->
+<!--                        <li class="Cart_plus__5oqo5"><span class="Cart_tit__xpKxH">배송비</span>-->
+<!--                            <span class="Cart_price__AvnY3"><em>무료</em></span>-->
+<!--                        </li>-->
+<!--                        <li class="Cart_sum__x+IEA"><span class="Cart_tit__xpKxH">결제금액</span>-->
+<!--                            <span class="Cart_price__AvnY3"><em>450,310</em>원</span>-->
+<!--                        </li>-->
+<!--                    </ol>-->
+<!--                </div>-->
                 <div class="Cart_banner__YM3Oh"><a href="/app/cart">
                     <img src="//img.lfmall.co.kr/file/WAS/display/lf2022/pc/banner_cart_benefit.jpg" alt=""></a>
                 </div>

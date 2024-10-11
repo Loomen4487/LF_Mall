@@ -44,6 +44,16 @@ public interface ProductRepository extends JpaRepository<ProductEntity,Integer> 
     @Query(value = "select * from product p where major_idx = ?1 or middle_idx=?2 or ref= ?3 limit 0, ?4",nativeQuery = true)
     List<ProductEntity> findWomenListAll(int major_idx,int middle_idx,int ref,int pageSize);
 
+    // women 페이지 낮은 가격순
+    @Query(value = "select * from product p where major_idx = ?1 or middle_idx=?2 or ref= ?3 order by price limit 0, ?4",nativeQuery = true)
+    List<ProductEntity> findWomenListPriceAsc(int major_idx,int middle_idx,int ref,int pageSize);
+
+    // women 페이지 높은 가격순
+    @Query(value = "select * from product p where major_idx = ?1 or middle_idx=?2 or ref= ?3 order by price desc limit 0, ?4",nativeQuery = true)
+    List<ProductEntity> findWomenListPriceDesc(int major_idx,int middle_idx,int ref,int pageSize);
+
+    // women 페이지 리뷰 많은순
+
 
     // women 검색 결과
     @Query(value = "select * from product where name like concat('%',?1,'%')",nativeQuery = true)

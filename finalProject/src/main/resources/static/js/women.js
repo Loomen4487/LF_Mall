@@ -10,6 +10,7 @@ filterTitles.forEach(function(filterTitle) {
         filterWrap.classList.toggle('active');  // 하위 목록 토글
     });
 });
+
 function throttle(func, limit) {
    let lastRan = 0; // 마지막 실행 시간을 저장
 
@@ -35,7 +36,19 @@ const idx = document.querySelector("#idx").value;
 const major_idx=idx;
 const middle_idx=idx;
 const ref=idx;
-axios.get('/womenSelectAll',{
+let option = "all";
+const order = document.querySelectorAll(".SortList_sortItem__x4AIM ");
+let orderIdx = 0;
+order.forEach((item,index)=>{
+    item.addEventListener("click",function(){
+        order[orderIdx].classList.remove("SortList_active__WPDvt");
+        this.classList.add("SortList_active__WPDvt");
+        option = this.textContent;
+        getData(option);
+        orderIdx=index;
+    })
+})
+axios.get('/womenSelectAll/all',{
             params:{
                 major_idx,
                 middle_idx,
@@ -55,20 +68,23 @@ window.addEventListener('scroll', throttle(function() {
         if(pageSize>max){
             max=pageSize;
         }
-        axios.get('/womenSelectAll',{
-            params:{
-                major_idx,
-                middle_idx,
-                ref,
-                pageSize:max
-            }
-        })
-        .then(res=>{
-            console.log(res.data);
-            vue.vueWomenList = res.data;
-        }).catch(error=>console.log(error));
+        getData(option);
     }
 }, 500));
+function getData(option){
+    axios.get('/womenSelectAll/'+option,{
+        params:{
+            major_idx,
+            middle_idx,
+            ref,
+            pageSize:max
+        }
+    })
+    .then(res=>{
+        console.log(res.data);
+        vue.vueWomenList = res.data;
+    }).catch(error=>console.log(error));
+}
 function viewProduct(idx){
     const data = localStorage.getItem("list");
     const li = [];
