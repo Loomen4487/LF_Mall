@@ -35,7 +35,7 @@ Spring Security
 ![image](https://github.com/user-attachments/assets/892c099b-7de8-4d67-9bcd-768542610ca6)
 -------------------------------------
 결제화면
-![image](https://github.com/user-attachments/assets/0df4f10c-1f86-445e-958a-9f7d8b7df836)
+![image](https://github.com/user-attachments/assets/1dd5a306-88d4-4240-82e4-66577e4afa83)
 -------------------------------------
 마이페이지
 
