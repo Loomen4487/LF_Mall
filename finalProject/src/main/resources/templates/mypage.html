@@ -388,7 +388,7 @@
                                     <span class="head-btn"><a onclick="selectedDelete()" class="sys-btn-type1">선택삭제</a></span>
                 <p class="order-status-sum">
                   <span class="b">2024.08.26~2024.09.25</span> 주문내역 : <span
-                        class="b c-deep-brown orderList">총 {{ orderDateList.length }}건</span>
+                        class="b c-deep-brown" id="orderList2">총 {{ count }}건</span>
                 </p>
               </div>
               <!-- //LFML-18070 -->
@@ -417,7 +417,7 @@
                 </tr>
 
                 </thead>
-                <tbody class="orderList">
+                <tbody id="orderList">
                 <tr class="last" v-if="orderDateList.length==0"><!-- LFML-68081 주문내역이 없는경우 텍스트표시 추가 -->
                   <td colspan="6" class="nodata">주문/배송 내역이 없습니다</td>
                 </tr>
