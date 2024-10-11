@@ -6,10 +6,6 @@ import com.example.finalProject.dto.ProductDTO;
 import com.example.finalProject.dto.QnaDTO;
 import com.example.finalProject.security.PrincipalDetails;
 import com.example.finalProject.service.*;
-import com.siot.IamportRestClient.IamportClient;
-import jakarta.servlet.http.Cookie;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -21,10 +17,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequiredArgsConstructor
@@ -34,7 +30,8 @@ public class HomeController {
     private final QnaService qnaService;
     private final OrderedService orderedService;
     private final ReviewService reviewService;
-    StringBuilder stringBuilder = new StringBuilder();
+    private final CartService cartService;
+
     List<ProductDTO> li = new ArrayList<>();
     @GetMapping(value = "/user")
     @ResponseBody
@@ -63,6 +60,7 @@ public class HomeController {
     @PostMapping(value = "/detailItem/pay")
     public String pay(@RequestParam HashMap<String,String> map, Model model){
         String idx = map.get("idx");
+        System.out.println("결과 : "+idx);
         model.addAttribute("product",productService.findByIdx(Integer.parseInt(idx)));
         model.addAttribute("count",Integer.parseInt(map.get("count")));
         return "pay";
@@ -103,17 +101,29 @@ public class HomeController {
         return "app";
     }
 
+    @Secured("ROLE_USER")
     @GetMapping(value = "/mybag")
-    public String mybag(){
+    public String mybag(HttpSession session,Model model){
+        String id = session.getAttribute("id").toString();
+        model.addAttribute("cart",cartService.findByLogin_id(id));
         return "mybag";
     }
 
-
-
-    @GetMapping(value = "/woman/{name}")
-    public String woman(@PathVariable String name){
-        return "mybag";
+    @PostMapping(value = "/mypage/cartOk")
+    public ResponseEntity<?> cartOk(@RequestBody HashMap<String,Object> map){
+        System.out.println("결과 : "+map);
+        cartService.insert(map);
+        return ResponseEntity.status(HttpStatus.OK).body("결제완료");
     }
+
+    @DeleteMapping(value = "/mypage/mybag/delete/{idx}")
+    public ResponseEntity<?> mybagDeleteOk(@PathVariable int idx){
+        System.out.println("mybagDeleteOk");
+        cartService.delete(idx);
+        return ResponseEntity.status(HttpStatus.OK).body("삭제가 완료되었습니다.");
+    }
+
+
 
 
     // qna
@@ -151,7 +161,7 @@ public class HomeController {
     }
 
     // 최근본 상품
-    @PutMapping(value = "/detailItem/recentProduct")
+    @GetMapping(value = "/detailItem/recentProduct")
     public ResponseEntity<?> recentProduct(){
         return ResponseEntity.status(HttpStatus.OK).body(li);
     }
