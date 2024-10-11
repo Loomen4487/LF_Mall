@@ -13,7 +13,7 @@ function selectedDelete(){
     });
 }
 const vue = new Vue({
-    el:"#orderList",
+    el:".orderList",
     data:{
         orderDateList:[]
     }
@@ -22,7 +22,7 @@ let date = 1;
 function orderSearch(){
     axios.get('/mypage/orderDateList/'+date)
     .then(res=>{
-        console.log(res.data);
+        console.log(res.data.length);
         vue.orderDateList=res.data;
     }).catch(error=>console.log(error));
 }

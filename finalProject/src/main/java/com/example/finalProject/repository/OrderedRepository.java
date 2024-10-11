@@ -13,6 +13,7 @@ public interface OrderedRepository extends JpaRepository<OrderedEntity, Integer>
 
     @Query(value = "select * from ordered where login_id=?1",nativeQuery = true)
     List<OrderedEntity> findByLogin_id(String id);
+
     @Query(value = "select * from ordered where product_idx=?1",nativeQuery = true)
     OrderedEntity findByProduct_idx(int idx);
 
@@ -21,8 +22,8 @@ public interface OrderedRepository extends JpaRepository<OrderedEntity, Integer>
     int selectCount(String id);
 
     // 마이페이지 주문 배송내역 날짜 조회
-    @Query(value = "select * from ordered where date_add(regdate,interval ?1 month) < regdate",nativeQuery = true)
-    List<OrderedEntity> selectOrderedDateList(int time);
+    @Query(value = "select * from ordered where date_add(regdate,interval ?1 month) < regdate and login_id=?2",nativeQuery = true)
+    List<OrderedEntity> selectOrderedDateList(int time,String id);
 
     // 마이페이지 취소/교환/환불신청 신청가능 내역 조회
     @Query(value = "select * from ordered where isdelivery=1 and login_id=?1",nativeQuery = true)
