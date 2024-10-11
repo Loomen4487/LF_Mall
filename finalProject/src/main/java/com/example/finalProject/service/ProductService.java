@@ -133,12 +133,23 @@ public class ProductService {
     }
 
     // women 페이지 목록 보기
-    public List<ProductDTO> findWomenListAll(int major_idx,int middle_idx,int ref,int pageSize){
-        List<ProductEntity> pe = productRepository.findWomenListAll(major_idx,middle_idx,ref,pageSize);
+    public List<ProductDTO> findWomenListAll(int major_idx,int middle_idx,int ref,int pageSize,String option){
+        List<ProductEntity> pe = null;
+        System.out.println("옵션 : "+option.trim());
+        option = option.trim();
+        if(option.equals("높은 가격순")){
+            pe = productRepository.findWomenListPriceDesc(major_idx, middle_idx, ref, pageSize);
+        }else if(option.equals("낮은 가격순")){
+            pe = productRepository.findWomenListPriceAsc(major_idx, middle_idx, ref, pageSize);
+            System.out.println("옵션 : "+option);
+        }else{
+            pe = productRepository.findWomenListAll(major_idx, middle_idx, ref, pageSize);
+        }
         List<ProductDTO> dto = new ArrayList<>();
         pe.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
+
 
     // women 검색 리스트
     public List<ProductDTO> findWomenSearchList(String name){

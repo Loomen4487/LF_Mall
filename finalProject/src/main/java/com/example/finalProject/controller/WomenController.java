@@ -65,14 +65,14 @@ public class WomenController {
         return "women";
     }
 
-    @GetMapping(value = "/womenSelectAll")
+    @GetMapping(value = "/womenSelectAll/{option}")
     @ResponseBody
-    public ResponseEntity<?> womenListAll(@RequestParam(required = false) HashMap<String,String> map){
+    public ResponseEntity<?> womenListAll(@RequestParam(required = false) HashMap<String,String> map,@PathVariable String option){
         int major_idx = map.get("major_idx")!=null?Integer.parseInt(map.get("major_idx")):0;
         int middle_idx = map.get("middle_idx")!=null?Integer.parseInt(map.get("middle_idx")):0;
         int ref = map.get("ref")!=null?Integer.parseInt(map.get("ref")):0;
         int pageSize = Integer.parseInt(map.get("pageSize"));
-        return ResponseEntity.status(HttpStatus.OK).body(productService.findWomenListAll(major_idx,middle_idx,ref,pageSize*10));
+        return ResponseEntity.status(HttpStatus.OK).body(productService.findWomenListAll(major_idx,middle_idx,ref,pageSize*10,option));
     }
 
     // 검색 기능
