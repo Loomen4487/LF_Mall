@@ -4,12 +4,12 @@
 ------------------------------------
 
 ### 기술 스택
-thymeleaf/
-bootStrap/
-SpringBoot/
-JPA/
-MySQL/
-spring security
+Thymeleaf /
+BootStrap /
+SpringBoot /
+JPA /
+MySQL /
+Spring Security
 
 -------------------------------------
 ### DB 설계
