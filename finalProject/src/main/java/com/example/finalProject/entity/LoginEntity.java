@@ -23,11 +23,12 @@ public class LoginEntity {
     private String email;
     private String phone;
 
+
     @OneToMany(mappedBy = "login", cascade = CascadeType.ALL, orphanRemoval = true)  // DeliveryInfoEntity에 설정된 login 필드와 연관
     private List<DeliveryInfoEntity> deliveryInfos;  // 로그인 사용자가 가진 여러 배송 정보
 
     @Builder
-    public LoginEntity(int idx, String id, String password, String provider, String role, String email,String phone) {
+    public LoginEntity(int idx, String id, String password, String provider, String role, String email,String phone,List<DeliveryInfoEntity> deliveryInfos) {
         this.idx = idx;
         this.id = id;
         this.password = password;
@@ -35,11 +36,11 @@ public class LoginEntity {
         this.role = role;
         this.email = email;
         this.phone = phone;
-
+        this.deliveryInfos = deliveryInfos;  // deliveryInfos 필드 추가
     }
 
     public LoginDTO toDTO(){
-        return new LoginDTO(idx,id,password,provider,role,email,phone);
+        return new LoginDTO(idx,id,password,provider,role,email,phone,deliveryInfos);
     }
 
 }

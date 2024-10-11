@@ -5,6 +5,10 @@
   <title>Mypage</title>
   <link rel="stylesheet" href="/css/mypage.css">
   <link rel="stylesheet" href="/css/userinfo_change2.css">
+  <script defer src="/static/js/mypage.js"></script>
+  <script defer src="/static/js/jquery-1.10.1.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
 </head>
 <body>
 <header>
@@ -22,7 +26,7 @@
                  class="lfc::NONE:PATH::1:1:홈::::">홈</a>
             </li>
 
-            <li id="HEADERPAGENAME"><a href="javascript:void(0);"
+            <li id="HEADERPAGENAME"><a href="/mypage"
                                        onclick="javascript:cfGoToPageForLogin(PAGE_MYPAGE);">마이페이지</a></li>
 
             <!-- default타입 path -->
@@ -42,7 +46,7 @@
               <p><em></em></p>
 
               <span class="mark n-grade ty07">
-
+                [[${session.id}]]1
                                 </span>
               <a href="javascript:void(0);"
                  onclick="cfGoToPage(PAGE_MEM_INTEG_GRADE+'&amp;etag1=045_A110_E324&amp;etag2=0&amp;etag3=0&amp;etag4=0');">등급혜택보기</a>
@@ -140,43 +144,6 @@
                 </ul>
               </li>
               <li>
-                <span class="tit">나의혜택</span>
-                <ul class="sub">
-
-                  <li><a href="javascript:void(0);"
-                         onclick="cfGoToMyPageForLogin(PAGE_COUPON+'&amp;left_menu=0&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=2&amp;etag4=0');">쿠폰
-                    조회</a></li>
-                  <li><a href="javascript:void(0);"
-                         onclick="cfGoToMyPageForLogin(PAGE_COUPON_REG+'&amp;left_menu=1&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=3&amp;etag4=0');">쿠폰
-                    등록</a></li>
-                  <li><a href="javascript:void(0);"
-                         onclick="cfGoToMyPageForLogin(PAGE_FPOINT+'&amp;left_menu=2&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=5&amp;etag4=0');">e기프트
-                    마일리지 조회</a><span class="info"
-                                     onclick="javascript:openLayer('first_point1',590,120)">정보</span></li>
-                  <li><a href="javascript:void(0);"
-                         onclick="cfGoToMyPageForLogin(PAGE_POINT+'&amp;left_menu=3&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=4&amp;etag4=0');">마일리지
-                    조회</a></li>
-
-
-                  <!-- <dd><a href="javascript:void(0);" onclick="cfGoToMyPageForLogin(PAGE_CLUBL_DC_LIMIT);">Club-L 할인한도 조회</a></dd> -->
-
-
-
-                  <!-- [LFML-71477] LFpay -->
-
-                  <li><a href="javascript:void(0);"
-                         onclick="openLfpayLayer('registLfpay'); return false;">LFpay</a></li>
-
-                  <li><a href="javascript:void(0);"
-                         onclick="cfGoToMyPageNewMenuForLogin(PAGE_PLANNING_DTL+'&amp;datacls=75770');">LFmall
-                    신용카드</a></li>
-
-                  <li><a href="javascript:void(0);"
-                         onclick="cfGoToMyPageNewMenuForLogin(PAGE_ALLIANCEY_SERVICE+'?left_menu=7&amp;etag1=045_A292_E741&amp;etag2=0&amp;etag3=0&amp;etag4=0');">제휴
-                    서비스</a></li>
-                </ul>
-              </li>
-              <li>
                 <span class="tit">나의활동</span>
                 <ul class="sub">
                   <li><a href="javascript:void(0);"
@@ -264,6 +231,11 @@
                     <col>
                   </colgroup>
                   <tbody>
+                  <tr>
+                    <td colspan="2" style="color: red;">
+                      <span th:text="${error}"></span>
+                    </td>
+                  </tr>
                   <tr>
                     <th>이름</th>
                     <td>
@@ -602,7 +574,7 @@
                 </table>
               </div>
               <div class="MemberForm_btnArea__xwPFT">
-                <button type="submit" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc LfButton_fillRed__cxMET">회원정보 변경</button>
+                <button type="submit" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc LfButton_fillRed__cxMET" >회원정보 변경</button>
               </div>
             </form>
           </div>
