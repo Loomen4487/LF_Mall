@@ -27,6 +27,7 @@ public class OrderedService {
         List<OrderedDTO> dto = new ArrayList<>();
         for (OrderedEntity orderedEntity : oe) {
             OrderedDTO od = orderedEntity.toDTO();
+            System.out.println("결과 : "+od);
             ProductEntity pe = productRepository.findByIdx(orderedEntity.getProduct_idx());
             od.setProduct(pe.toDTO());
             dto.add(od);
@@ -43,8 +44,8 @@ public class OrderedService {
         return orderedRepository.selectCount(id);
     }
 
-    public List<OrderedDTO> selectOrderedDateList(int time){
-        List<OrderedEntity> oe = orderedRepository.selectOrderedDateList(time*(-1));
+    public List<OrderedDTO> selectOrderedDateList(int time,String id){
+        List<OrderedEntity> oe = orderedRepository.selectOrderedDateList(time*(-1),id);
         List<OrderedDTO> dto = new ArrayList<>();
         for (OrderedEntity orderedEntity : oe) {
             ProductEntity pe = productRepository.findByIdx(orderedEntity.getProduct_idx());

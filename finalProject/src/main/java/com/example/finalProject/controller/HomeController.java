@@ -143,8 +143,8 @@ public class HomeController {
     // 마이페이지 주문 배송내역 날짜 조회
     @GetMapping(value = "/mypage/orderDateList/{idx}")
     @ResponseBody
-    public List<OrderedDTO> selectOrderedDateList(@PathVariable int idx){
-        return orderedService.selectOrderedDateList(idx);
+    public List<OrderedDTO> selectOrderedDateList(@PathVariable int idx,HttpSession session){
+        return orderedService.selectOrderedDateList(idx,session.getAttribute("id").toString());
     }
 
     // 주문번호 확인
