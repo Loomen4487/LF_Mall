@@ -13,6 +13,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -185,6 +186,24 @@ public class MyPageController {
     @PostMapping("/mypage/address/delete/{deliveryIdx}")
     public String deleteDeliveryInfo(@PathVariable("deliveryIdx") int deliveryIdx) {
         deliveryInfoService.deleteDeliveryInfo(deliveryIdx);
+        return "redirect:/mypage/address";
+    }
+
+    @PostMapping("deleteAllDeliveryInfo")
+    public String deleteAllDeliveryInfo(Authentication authentication) {
+        // 현재 로그인한 사용자 정보 가져오기
+        String username = authentication.getName();
+
+        try {
+            // 서비스 호출하여 로그인된 사용자의 모든 배송지 삭제
+            deliveryInfoService.deleteAllDeliveryInfoByLogin(username);
+        } catch (UsernameNotFoundException e) {
+            // 예외 발생 시 처리 (예: 에러 메시지 설정 또는 리다이렉트)
+            System.out.println("User not found: " + e.getMessage());
+            return "redirect:/errorPage"; // 에러 페이지로 리다이렉트
+        }
+
+        // 삭제 후 배송지 관리 페이지로 리다이렉트
         return "redirect:/mypage/address";
     }
 

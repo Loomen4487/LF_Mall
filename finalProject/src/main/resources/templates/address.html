@@ -265,10 +265,12 @@
                                 </div>
                             </div>
                             <div class="ShippingAddress_manage__9LHqJ" th:if="${hasDeliveryInfo}">
-                                <button type="button"
-                                        class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH ShippingAddress_btnDeleteAll__ByTQY">
-                                    전체삭제
-                                </button>
+                                <form th:action="@{/deleteAllDeliveryInfo}" method="post">
+                                    <button type="submit"
+                                            class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH ShippingAddress_btnDeleteAll__ByTQY">
+                                        전체삭제
+                                    </button>
+                                </form>
                                 <ul class="ShippingAddress_manageList__+RdgG">
                                     <li th:each="deliveryInfo : ${deliveryInfos}">
                                         <div class="ShippingAddress_listIn__hpd7A">

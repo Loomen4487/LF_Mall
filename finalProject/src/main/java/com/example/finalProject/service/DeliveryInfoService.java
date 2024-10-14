@@ -6,7 +6,9 @@ import com.example.finalProject.entity.LoginEntity;
 import com.example.finalProject.repository.DeliveryInfoRepository;
 import com.example.finalProject.repository.LoginRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
@@ -61,6 +63,20 @@ public class DeliveryInfoService {
         if (deliveryInfoOptional.isPresent()) {
             // 배송지 삭제
             deliveryInfoRepository.deleteById(deliveryIdx);
+        }
+    }
+
+    @Transactional
+    public void deleteAllDeliveryInfoByLogin(String username) {
+        // 로그인된 사용자 정보 직접 검색
+        LoginEntity loginEntity = loginRepository.findById(username);
+
+        if (loginEntity != null) {
+            // 값이 존재하면 처리
+            deliveryInfoRepository.deleteByLogin(loginEntity);
+        } else {
+            // 값이 없으면 예외 처리
+            throw new UsernameNotFoundException("User not found");
         }
     }
 
