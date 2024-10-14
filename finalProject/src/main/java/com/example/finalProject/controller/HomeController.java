@@ -70,7 +70,7 @@ public class HomeController {
     public ResponseEntity<?> payOk(@RequestParam HashMap<String,String> map, HttpSession session){
         String uuid = UUID.randomUUID().toString();
         session.setAttribute("uuid",uuid);
-        OrderedDTO dto = new OrderedDTO(0,Integer.parseInt(map.get("product_idx")),null,Integer.parseInt(map.get("count")),map.get("address"),map.get("detailAddress"),map.get("phone"),map.get("login_id"),false, uuid,false);
+        OrderedDTO dto = new OrderedDTO(0,Integer.parseInt(map.get("product_idx")),null,Integer.parseInt(map.get("count")),map.get("address"),map.get("detailAddress"),map.get("phone"),map.get("login_id"),false, uuid,false,map.get("reciever"));
         orderedService.insert(dto);
         return ResponseEntity.status(HttpStatus.OK).body(dto);
     }
@@ -143,8 +143,8 @@ public class HomeController {
     // 마이페이지 주문 배송내역 날짜 조회
     @GetMapping(value = "/mypage/orderDateList/{idx}")
     @ResponseBody
-    public List<OrderedDTO> selectOrderedDateList(@PathVariable int idx){
-        return orderedService.selectOrderedDateList(idx);
+    public List<OrderedDTO> selectOrderedDateList(@PathVariable int idx,HttpSession session){
+        return orderedService.selectOrderedDateList(idx,session.getAttribute("id").toString());
     }
 
     // 주문번호 확인
