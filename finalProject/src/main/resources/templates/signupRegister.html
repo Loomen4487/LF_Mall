@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/css/signupRegister.css">
 </head>
 <body>
+<div th:replace="~{includes/header}"></div>
 <form action="/signupOk" method="post" id="form">
   <div class="register">
     <div class="MemberRegisterForm_topTitle__G2yvu">회원가입</div>
@@ -60,5 +61,6 @@
     </div>
   </div>
 </form>
+<div th:replace="~{includes/footer}"></div>
 </body>
 </html>
