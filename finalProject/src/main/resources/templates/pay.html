@@ -48,7 +48,7 @@
                                             <div class="Cart_name__odDuf">[[${product.name}]]</div>
                                             <div class="Cart_option__vJwdC"><span>블랙</span><span>078 (30)</span><span>[[${count}]]개</span>
                                             </div>
-                                            <div class="Cart_prodDelivery__0sU+4"><span class="Cart_date__j6x7Y">10/11(금) 입고예정</span>
+                                            <div class="Cart_prodDelivery__0sU+4"><span class="Cart_date__j6x7Y">[[${#temporals.format(#temporals.createNow().plusDays(2),'MM/dd(EE)')}]] 입고예정</span>
                                                 (예약판매)
                                             </div>
                                         </div>
@@ -111,7 +111,7 @@
                     <tbody>
                     <tr class="phone">
                         <th>받는 분</th>
-                        <td style="display: flex;"><input type="text" name="name" class="lfInputText w200"
+                        <td style="display: flex;"><input type="text" name="name" id="reciever" class="lfInputText w200"
                                                           placeholder="이름을 입력해주세요"></td>
                     </tr>
                     <tr class="phone">

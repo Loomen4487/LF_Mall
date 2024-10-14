@@ -9,6 +9,7 @@ function payOk(){
     form.set("detailAddress",document.querySelector("#detailAddress").value);
     form.set("price",document.querySelector("#price").textContent);
     form.set("count",document.querySelector("#count").textContent);
+    form.set("reciever",document.querySelector("#reciever").value);
     console.log(form);
      axios.post('/payOk',form).then(res=>{
             console.log(res.data);

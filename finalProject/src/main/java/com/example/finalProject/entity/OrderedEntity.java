@@ -31,9 +31,10 @@ public class OrderedEntity {
     private boolean isReview;
     private String order_number;
     private boolean isDelivery;
+    private String reciever;
 
     @Builder
-    public OrderedEntity(int idx, int product_idx, int count, String address, String detailAddress, String phone, String login_id, boolean isReview, String order_number) {
+    public OrderedEntity(int idx, int product_idx, int count, String address, String detailAddress, String phone, String login_id, boolean isReview, String order_number,String reciever) {
         this.idx = idx;
         this.product_idx = product_idx;
         this.regDate = new Date();
@@ -45,10 +46,11 @@ public class OrderedEntity {
         this.isReview=false;
         this.order_number = order_number;
         this.isDelivery=false;
+        this.reciever = reciever;
 
     }
 
     public OrderedDTO toDTO(){
-        return new OrderedDTO(idx,product_idx,regDate,count ,address,detailAddress,phone,login_id,isReview,order_number,isDelivery);
+        return new OrderedDTO(idx,product_idx,regDate,count ,address,detailAddress,phone,login_id,isReview,order_number,isDelivery,reciever);
     }
 }

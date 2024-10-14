@@ -31,7 +31,7 @@
     <div class="HeaderNew_myGnb__Hbfm8">
       <a class="HeaderNew_login__jNovE" href="/login" th:if="${session.id==null}"><span>로그인</span></a>
       <a class="HeaderNew_login__jNovE" href="/logout" th:if="${session.id!=null}"><span>로그아웃</span></a>
-      <a class="HeaderNew_join__BGc4A" href="/signup"><span>회원가입</span></a>
+      <a class="HeaderNew_join__BGc4A" href="/signup" th:if="${session.id ==null}"><span>회원가입</span></a>
       <div class="HeaderNew_myPage__3RzDO">
         <a class="HeaderNew_my__fZjyb" href="/mypage" th:if="${session.role=='USER'}"><span>마이페이지</span></a>
         <a class="HeaderNew_my__fZjyb" href="/superMyPage" th:if="${session.role=='MANAGER'}"><span>마이페이지</span></a>
