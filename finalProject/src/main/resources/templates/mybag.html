@@ -7,12 +7,14 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script defer src="/js/mybag.js"></script>
     <link rel="stylesheet" href="/css/mybag.css">
+
 </head>
 <body>
 <div th:replace="~{includes/header}"></div>
 <main class="main">
     <div class="Cart_cartWrap__lPncI">
         <div class="Cart_orderHeader__xMxlP"><h2 class="Cart_tit__xpKxH">쇼핑백</h2>
+            <div class="Cart_path__ZMxhY"><span class="Cart_on__xSKyE">쇼핑백</span><span>주문서</span><span>주문완료</span></div>
         </div>
         <div>
             <div class="Cart_cartTab__okLTf" data-rttabs="true" th:if="${product != null}">
@@ -256,6 +258,28 @@
                 <input type="hidden" id="user_email_sha256_gtm" value="">
                 <input type="hidden" id="user_logged_in_gtm" value="true">
             </div>
+<!--            <div class="Cart_cartRPrices__C-N80">-->
+<!--                <div class="Cart_priceFloating__fcEwF">-->
+<!--                    <div class="Cart_totalPrice__4AGpT">-->
+<!--                        <ol>-->
+<!--                            <li><span class="Cart_tit__xpKxH">상품금액 (0)</span><span class="Cart_price__AvnY3"><em>0</em>원</span>-->
+<!--                            </li>-->
+<!--                            <li class="Cart_minus__Lgewj"><span class="Cart_tit__xpKxH">상품 할인 금액</span><span-->
+<!--                                    class="Cart_price__AvnY3"><em>0</em>원</span></li>-->
+<!--                            <li class="Cart_plus__5oqo5"><span class="Cart_tit__xpKxH">배송비</span><span-->
+<!--                                    class="Cart_price__AvnY3"><em>0원</em></span></li>-->
+<!--                            <li class="Cart_sum__x+IEA"><span class="Cart_tit__xpKxH">결제예정금액</span><span-->
+<!--                                    class="Cart_price__AvnY3"><em>0</em>원</span></li>-->
+<!--                        </ol>-->
+<!--                        <div class="Cart_disTotal__pajUz">상품을 선택하시면 최적 혜택이 계산됩니다.</div>-->
+<!--                    </div>-->
+<!--                    <div class="Cart_orderBtn__r90Hz">-->
+<!--                        <button type="button"-->
+<!--                                class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27 LfButton_fillBlack__Cy1XN">-->
+<!--                            <span>주문하기</span></button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 </main>

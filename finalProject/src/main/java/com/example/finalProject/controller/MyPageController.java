@@ -13,6 +13,7 @@ import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -73,7 +74,7 @@ public class MyPageController {
         return "userInfo_change1";
     }
 
-    @PostMapping("/mypage/userInfo_change2")
+    @PostMapping("/mypage/userInfo_change1")
     public String verifyPassword(@RequestParam("password") String password, Model model) {
         // 현재 로그인한 사용자 정보 가져오기
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -92,11 +93,11 @@ public class MyPageController {
             // 비밀번호가 일치하지 않으면 오류 메시지 출력
             model.addAttribute("error", "비밀번호가 일치하지 않습니다.");
             model.addAttribute("username", username);
-            return "redirect:/mypage/userInfo_change1";
+            return "userInfo_change1";
         }
     }
 
-    @PostMapping("/mypage/userInfo_change1")
+    @PostMapping("/mypage/userInfo_change2")
     public String changePassword(@RequestParam String username,
                                  @RequestParam String password,
                                  @RequestParam String newPassword,
@@ -108,13 +109,17 @@ public class MyPageController {
         // 현재 비밀번호가 일치하는지 확인
         if (!bCryptPasswordEncoder.matches(password, loginEntity.getPassword())) {
             model.addAttribute("error", "현재 비밀번호가 일치하지 않습니다.");
+            model.addAttribute("username", username);  // 아이디를 모델에 추가
+            model.addAttribute("email", email);        // 이메일을 모델에 추가
             return "/userInfo_change2"; // 비밀번호가 틀렸을 경우 다시 입력 요청
         }
 
         // 새 비밀번호와 새 비밀번호 확인이 일치하는지 확인
         if (!newPassword.equals(confirmPassword)) {
             model.addAttribute("error", "새 비밀번호와 새 비밀번호 확인이 일치하지 않습니다.");
-            return "mypage/userInfo_change2"; // 새 비밀번호가 일치하지 않으면 다시 입력
+            model.addAttribute("username", username);  // 아이디를 모델에 추가
+            model.addAttribute("email", email);        // 이메일을 모델에 추가
+            return "/userInfo_change2"; // 새 비밀번호가 일치하지 않으면 다시 입력
         }
 
         // 새 비밀번호 암호화하여 저장
@@ -181,6 +186,24 @@ public class MyPageController {
     @PostMapping("/mypage/address/delete/{deliveryIdx}")
     public String deleteDeliveryInfo(@PathVariable("deliveryIdx") int deliveryIdx) {
         deliveryInfoService.deleteDeliveryInfo(deliveryIdx);
+        return "redirect:/mypage/address";
+    }
+
+    @PostMapping("deleteAllDeliveryInfo")
+    public String deleteAllDeliveryInfo(Authentication authentication) {
+        // 현재 로그인한 사용자 정보 가져오기
+        String username = authentication.getName();
+
+        try {
+            // 서비스 호출하여 로그인된 사용자의 모든 배송지 삭제
+            deliveryInfoService.deleteAllDeliveryInfoByLogin(username);
+        } catch (UsernameNotFoundException e) {
+            // 예외 발생 시 처리 (예: 에러 메시지 설정 또는 리다이렉트)
+            System.out.println("User not found: " + e.getMessage());
+            return "redirect:/errorPage"; // 에러 페이지로 리다이렉트
+        }
+
+        // 삭제 후 배송지 관리 페이지로 리다이렉트
         return "redirect:/mypage/address";
     }
 
