@@ -237,3 +237,68 @@ ul {
 .SearchFilter_listTitArea__Y8Lav:hover {
     color: #007bff;
 }
+
+
+
+/* 기본 스타일: 일반 굵기와 검은색 */
+.NdepthHeaderCategory_categoryWrap__RzclP a {
+    font-weight: normal; /* 기본 굵기 */
+    color: black; /* 기본 색상 */
+    text-decoration: none; /* 밑줄 제거 (선택 사항) */
+}
+
+/* active 클래스가 있을 때 적용되는 스타일 */
+.NdepthHeaderCategory_active__CPzZi a {
+    font-weight: bold;/* 클릭 시 굵은 글씨 */
+    color: black; /* 클릭 시 검은색 */
+}
+
+.ProductThumbStars_productThumbStars__5LQDH {
+    align-items: flex-start;
+    display: flex;
+    display: -webkit-flex;
+    margin-top: -15px
+}
+
+.ProductThumbStars_productThumbStars__5LQDH .ProductThumbStars_num__MuDjP {
+    color: #000;
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 17px;
+    line-height: 13px;
+    margin-left: 5px
+}
+
+.ProductThumbStars_productThumbStars__5LQDH .ProductThumbStars_rate__pkUL9 {
+    background-image: url(//img.lfmall.co.kr/file/WAS/display/images/pc_spimage.png);
+    background-position: -379px -32px;
+    background-repeat: no-repeat;
+    background-size: 600px 900px;
+    height: 12px;
+    position: relative;
+    vertical-align: top;
+    width: 50px
+}
+
+.ProductThumbStars_productThumbStars__5LQDH .ProductThumbStars_rate__pkUL9 .ProductThumbStars_rateIn__\+oL6t {
+    background-image: url(//img.lfmall.co.kr/file/WAS/display/images/pc_spimage.png);
+    background-position: -259px -32px;
+    background-repeat: no-repeat;
+    background-size: 600px 900px;
+    height: 12px;
+    left: 0;
+    position: absolute;
+    top: 0
+}
+
+.ProductThumbDeliveryInfo_productThumbDeliveryInfo__iy9JD {
+    color: #000;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 17px;
+    line-height: 1;
+    margin-top: 35px;
+    margin-left: -50px;
+}
+
