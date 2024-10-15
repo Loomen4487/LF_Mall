@@ -95,10 +95,12 @@
         <h2 class="CategoryResult_title__mztDs"></h2>
         <div class="NdepthHeaderCategory_categoryWrap__RzclP">
             <span class="NdepthHeaderCategory_active__CPzZi">
-            <a  href="#">전체</a>
+                <a href="#" th:style="${#arrays.contains(new int[]{1, 2, 3}, idx) ? 'font-weight: bold;' : 'font-weight: normal;' }">전체</a>
             </span>
-            <span class="" th:each="vo:${panel}">
-                <a th:href="@{|/women/${vo.ref}|}">[[${vo.name}]]</a>
+                    <span class="category-item" th:each="vo:${panel}">
+                <a th:href="@{|/women/${vo.ref}|}" th:style="${vo.ref} == ${idx} ? 'font-weight: bold;' : ''">
+                    [[${vo.name}]]
+                </a>
             </span>
         </div>
         <div class="CategorySearchResult_searchResult__I8Ll+">
@@ -159,37 +161,37 @@
 
                                 " th:href="@{|/women/${vo.ref}|}"><span>[[${vo.name}]]</span></a></li>
                                         </ul>
-<!--                                        <ul class="SearchFilter_depthList3__W15cG">-->
-<!--                                            <li><a class="-->
+                                        <!--                                        <ul class="SearchFilter_depthList3__W15cG">-->
+                                        <!--                                            <li><a class="-->
 
 
-<!--                                " href="/app/exhibition/category/110051"><span>트위드자켓</span></a></li>-->
-<!--                                        </ul>-->
-<!--                                        <ul class="SearchFilter_depthList3__W15cG">-->
-<!--                                            <li><a class="-->
+                                        <!--                                " href="/app/exhibition/category/110051"><span>트위드자켓</span></a></li>-->
+                                        <!--                                        </ul>-->
+                                        <!--                                        <ul class="SearchFilter_depthList3__W15cG">-->
+                                        <!--                                            <li><a class="-->
 
 
-<!--                                " href="/app/exhibition/category/110051"><span>레더자켓</span></a></li>-->
-<!--                                        </ul>-->
-<!--                                        <ul class="SearchFilter_depthList3__W15cG">-->
-<!--                                            <li><a class="-->
+                                        <!--                                " href="/app/exhibition/category/110051"><span>레더자켓</span></a></li>-->
+                                        <!--                                        </ul>-->
+                                        <!--                                        <ul class="SearchFilter_depthList3__W15cG">-->
+                                        <!--                                            <li><a class="-->
 
 
-<!--                                " href="/app/exhibition/category/110051"><span>플리스자켓</span></a></li>-->
-<!--                                        </ul>-->
-<!--                                        <ul class="SearchFilter_depthList3__W15cG">-->
-<!--                                            <li><a class="-->
+                                        <!--                                " href="/app/exhibition/category/110051"><span>플리스자켓</span></a></li>-->
+                                        <!--                                        </ul>-->
+                                        <!--                                        <ul class="SearchFilter_depthList3__W15cG">-->
+                                        <!--                                            <li><a class="-->
 
 
-<!--                                " href="/app/exhibition/category/110051"><span>퀄팅자켓</span></a></li>-->
-<!--                                        </ul>-->
+                                        <!--                                " href="/app/exhibition/category/110051"><span>퀄팅자켓</span></a></li>-->
+                                        <!--                                        </ul>-->
                                     </ul>
-<!--                                    <ul class="SearchFilter_depthList2__EmxP0">-->
-<!--                                        <li><a class="-->
+                                    <!--                                    <ul class="SearchFilter_depthList2__EmxP0">-->
+                                    <!--                                        <li><a class="-->
 
 
-<!--                        " href="/app/exhibition/category/110051"><span>점퍼/베스트</span></a></li>-->
-<!--                                    </ul>-->
+                                    <!--                        " href="/app/exhibition/category/110051"><span>점퍼/베스트</span></a></li>-->
+                                    <!--                                    </ul>-->
                                 </li>
                             </ul>
                         </div>
@@ -924,17 +926,17 @@
                             </div>
 
                             <div class="SearchProductItem_productInfo__rMkFO">
-<!--                                                                <a class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"-->
-<!--                                                                    href="/app/exhibition/category/110051">ATHE VANESSABRUNO WOMEN-->
-<!--                                                                </a>-->
+                                <!--                                                                <a class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"-->
+                                <!--                                                                    href="/app/exhibition/category/110051">ATHE VANESSABRUNO WOMEN-->
+                                <!--                                                                </a>-->
                                 <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
                                    href="/app/exhibition/category/110051"> {{list.name.length>17?list.name.substring(0,17)+"...":list.name}}
                                 </a>
                                 <div style="padding: 10px 0;">{{list.price.toLocaleString()}}</div>
                                 <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-<!--                                    <span class="ProductThumbImage_lPlus__wVZto undefined lplus">-->
-<!--                        <img src="https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png" alt="배지 이미지">-->
-<!--                    </span>-->
+                                    <!--                                    <span class="ProductThumbImage_lPlus__wVZto undefined lplus">-->
+                                    <!--                        <img src="https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png" alt="배지 이미지">-->
+                                    <!--                    </span>-->
                                     <span class="ProductThumbPrice_lastPrice__ysIqE"></span>
                                 </div>
                                 <div class="productThumbStars ProductThumbStars_productThumbStars__5LQDH">
@@ -946,10 +948,10 @@
                                     </p>
                                     <!--                                    <span class="ProductThumbStars_num__MuDjP">수량</span>-->
                                 </div>
-<!--                                                                <div class="productThumbFlag ProductThumbFlag_productThumbFlag__Q9xX4"><span-->
-<!--                                                                        class="ProductThumbFlag_flag__keGwz ProductThumbFlag_flagType1__dUAu+">신상 쇼케-->
-<!--                                                                            </span>-->
-<!--                                                                </div>-->
+                                <!--                                                                <div class="productThumbFlag ProductThumbFlag_productThumbFlag__Q9xX4"><span-->
+                                <!--                                                                        class="ProductThumbFlag_flag__keGwz ProductThumbFlag_flagType1__dUAu+">신상 쇼케-->
+                                <!--                                                                            </span>-->
+                                <!--                                                                </div>-->
                             </div>
                             <div class="btnHeart">
                                 <button type="button" id="wishlist_button_5_gtm"

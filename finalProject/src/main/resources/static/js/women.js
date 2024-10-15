@@ -96,3 +96,5 @@ function viewProduct(idx){
         location.href="/detailItem/"+idx;
     })
 }
+
+
