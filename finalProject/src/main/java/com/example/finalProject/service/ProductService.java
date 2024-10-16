@@ -132,6 +132,15 @@ public class ProductService {
         return dto;
     }
 
+    // 상품 추천
+    public List<ProductDTO> selectRecommandMajor(int ref){
+        List<ProductEntity> pe = productRepository.selectRecommandMajor(ref);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+
+        return dto;
+    }
+
     // women 페이지 목록 보기
     public List<ProductDTO> findWomenListAll(int major_idx,int middle_idx,int ref,int pageSize,String option){
         List<ProductEntity> pe = null;

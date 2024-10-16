@@ -61,8 +61,10 @@ public class WomenController {
                 model.addAttribute("panel",middle);
 
         }
+        model.addAttribute("selectRecommendMajor",productService.selectRecommandMajor(idx));
+
         model.addAttribute("title",majorService.findByRef(major));
-        return "women";
+        return idx>10?"women":"woman_cloth";
     }
 
     @GetMapping(value = "/womenSelectAll/{option}")
