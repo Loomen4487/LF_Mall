@@ -114,8 +114,8 @@ public enum ProductInkColor {
 
 |<small>메인</small>|<small>카테고리<small>|<small>쇼핑벡</small>|
 |:-:|:-:|:-:|
-|![image](https://github.com/user-attachments/assets/d9d51e6c-6a5f-48d3-aa95-be30d83b54ea)|![image](https://github.com/user-attachments/assets/07418e6a-8ce3-4a0b-a93e-709b6ded83b0)
-|![image](https://github.com/user-attachments/assets/dab10923-4571-4c1e-a672-8c46ee10a18e)|
+|![003](https://github.com/user-attachments/assets/d9d51e6c-6a5f-48d3-aa95-be30d83b54ea)|![004](https://github.com/user-attachments/assets/07418e6a-8ce3-4a0b-a93e-709b6ded83b0)
+|![005](https://github.com/user-attachments/assets/dab10923-4571-4c1e-a672-8c46ee10a18e)|
 |<small><b>임시비밀번호발송 및 회원정보수정</b></small>|<small><b>소셜로그인(카카오)</b></small>|<small><b>소셜로그인(구글)</b></small>|
 |![006](https://github.com/rhjdev/geulbeotmall/assets/95993932/d3d89f06-1a07-41e2-8d69-83ab172fdff0)|![007](https://github.com/rhjdev/geulbeotmall/assets/95993932/ed538d0d-1f0c-4bf5-8dfd-1543db876983)|![008](https://github.com/rhjdev/geulbeotmall/assets/95993932/82878195-95fc-43a2-ba78-9905f07f1240)|
 |<small><b>상품조회(브랜드,가격범위,태그별)</b></small>|<small><b>상품조회(섹션별)</b></small>|<small><b>상품조회(색상필터별)</b></small>|
