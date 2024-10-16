@@ -27,56 +27,16 @@
 ```
 
 <details>
-<summary>핵심기능 #1. 실시간 알림</summary>
+<summary>핵심기능 #1. </summary>
 
-![fuction001](https://github.com/rhjdev/geulbeotmall/assets/95993932/ed48456e-a80e-4fbb-8f4a-36d895d8f0bc)
-- [x] `댓글/대댓글/상품출고/배송완료`에 대해 Server to Client로의 단방향 통신이 가능한 Server-Sent Events(SSE) 기반으로 실시간 알림 기능을 제공합니다.
-- [x] 각 알림 메시지를 클릭해 해당 게시글 또는 주문상세정보페이지로 이동 및 확인이 가능하며, `메시지 삭제 버튼`을 눌러 더 이상 목록에 노출되지 않도록 제외할 수 있습니다.
-- [x] 회원이 `로그아웃한 사이 발생한 이벤트 역시 재로그인 후 알림 목록에서 확인`할 수가 있습니다. 
 </details>
 <details>
-<summary>핵심기능 #2. 전체 상품 검색</summary>
+<summary>핵심기능 #2. </summary>
 
-![fuction002](https://github.com/rhjdev/geulbeotmall/assets/95993932/42912cf3-1824-4c99-a6ac-01c9b098fd7b)
-- [x] 검색 키워드로서 문자, 숫자 모두 취급해 `상품명, 브랜드명, 주요태그`는 물론 `심두께별 검색`이 가능합니다.
-- [x] `Commons Lang3` 통해 파라미터 타입(parameter type)을 동적으로 구분하도록 작성하였습니다.
-```xml
-WHERE A.PROD_AVAIL_YN = 'Y' <!-- 판매중인 상품에 한하여 검색 -->
-  AND (
-<choose>
-<!-- parameterType 동적 구분 / ASCII 코드 기반 '.' 포함 여부 확인 / 취급 중인 상품의 심두께는 2.0 이하 -->
-<when test="@org.apache.commons.lang3.math.NumberUtils@isCreatable(keyword) 
-        and @org.apache.commons.lang3.StringUtils@contains(keyword, 46) and keyword lt 2">
-        O.OPT_POINT_SIZE LIKE TO_NUMBER(#{ keyword })
-</when>
-<otherwise>
-        A.PROD_NAME LIKE '%' || #{ keyword } || '%'
-    OR C.BRAND_NAME LIKE '%' || #{ keyword } || '%'
-    OR A.PRODUCT_TAG LIKE '%' || #{ keyword } || '%'
-</otherwise>
-</choose>
-    )
-```
 </details>
 <details>
-<summary>핵심기능 #3. 잉크색상별 검색 필터</summary>
+<summary>핵심기능 #3. </summary>
 
-![fuction003](https://github.com/rhjdev/geulbeotmall/assets/95993932/b1555bac-bccc-4754-a74c-e4ab97a3a53d)
-- [x] 색상들을 `Enum` 상수 필드로 정의하고, 각각 `DB 저장에 쓰일 값(value)/사용자 화면에 보일 이름(label)/스타일 적용 용도의 헥스코드(color)`와 같은 데이터를 명시한 후 생성자 통해 호출 및 활용하였습니다.
-```java
-public enum ProductInkColor {
-    BLACK("black", "블랙", "color: #000000;"); //value, label, color
-}
-```
-```html
-<th:block th:each="ink : ${T(com.reminder.geulbeotmall.product.model.dto.ProductInkColor).values()}">
-    <span class="color-span" th:data-target="${ ink.getLabel() }">
-        <a href="#" data-bs-toggle="tooltip" data-bs-placement="top" th:title="${ ink.getLabel() }">
-            <i class="fa-solid fa-square-full" th:style="${ ink.getColor() }"></i>
-        </a>
-    </span>
-</th:block>
-```
 </details>
 
 
