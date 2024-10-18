@@ -1,0 +1,27 @@
+#qna th{
+    font-weight:bold;
+    width:15%;
+    padding: 10px 0;
+    border:1px solid black;
+
+}
+a:hover{
+    text-decoration: underline;
+}
+#qna td{
+    padding: 10px 0;
+}
+#qna{
+    width:100%;
+}
+#qna th:nth-child(2){
+    width:40%;
+}
+
+
+#qnaDetail{
+    width:100%;
+}
+#qnaDetail input, #qnaDetail textarea{
+    width:100%;
+}

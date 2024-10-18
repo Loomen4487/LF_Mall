@@ -5,10 +5,13 @@
   <meta charset="UTF-8">
   <title>나를 나답게 LFmall.com</title>
   <link rel="stylesheet" href="/css/header.css">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script defer src="/js/header.js"></script>
 </head>
 <header class="HeaderNew_wrapHeader__gKC7U  ">
   <div class="HeaderNew_inner__204KN">
-    <h1><a href="/app/"><img src="https://img.lfmall.co.kr/file/WAS/apps/2023/mfront/common/lf_logo_pc.svg"
+    <h1><a href="/"><img src="https://img.lfmall.co.kr/file/WAS/apps/2023/mfront/common/lf_logo_pc.svg"
                              alt="LFmall Logo"></a></h1>
     <div class="HeaderNew_wrapHeaderSearch__U1UZJ" tabindex="0">
       <div class="HeaderNew_headerSearch__5jY8-"><label id="headerSearch" class="blind">검색</label>
@@ -28,15 +31,16 @@
     <div class="HeaderNew_myGnb__Hbfm8">
       <a class="HeaderNew_login__jNovE" href="/login" th:if="${session.id==null}"><span>로그인</span></a>
       <a class="HeaderNew_login__jNovE" href="/logout" th:if="${session.id!=null}"><span>로그아웃</span></a>
-      <a class="HeaderNew_join__BGc4A" href="/signup"><span>회원가입</span></a>
+      <a class="HeaderNew_join__BGc4A" href="/signup" th:if="${session.id ==null}"><span>회원가입</span></a>
       <div class="HeaderNew_myPage__3RzDO">
-        <a class="HeaderNew_my__fZjyb" href="/mypage"><span>마이페이지</span></a>
+        <a class="HeaderNew_my__fZjyb" href="/mypage" th:if="${session.role=='USER'}"><span>마이페이지</span></a>
+        <a class="HeaderNew_my__fZjyb" href="/superMyPage" th:if="${session.role=='MANAGER'}"><span>마이페이지</span></a>
         <div class="HeaderNew_menuBox__3eirR">
-          <a href="/app/">주문/배송 내역</a>
-          <a href="/app/">취소/반품/교환 신청</a>
+          <a href="/mypage">주문/배송 내역</a>
+          <a href="/mypage/callback">취소/반품/교환 신청</a>
           <a href="/app/">쿠폰 조회</a></div>
       </div>
-      <a class="HeaderNew_shoppingBag__LYo+f" href="/app/"><span>쇼핑백</span></a>
+      <a class="HeaderNew_shoppingBag__LYo+f" href="/mybag"><span>쇼핑백</span></a>
     </div>
     <div class="CategoryMenu_categoryMenu__VivuO categoryMenu">
       <button type="button" class="CategoryMenu_buttonCategory__Msqxm">
@@ -47,25 +51,25 @@
           <div class="CategoryMenu_depth1__1WSzn">
             <div class="CategoryMenu_container__H6kCF">
               <ul>
-                <li><a href="/app/"><span>여성의류</span></a>
+                <li><a href="/women/1"><span>여성의류</span></a>
                   <div class="CategoryMenu_depth2__W3YCd">
                     <div class="CategoryMenu_container__H6kCF">
                       <ul>
-                        <li><a href="/app/"><span>자켓</span></a>
+                        <li><a href="/women/1101"><span>자켓</span></a>
                           <div class="CategoryMenu_depth3__-yUKJ">
                             <div class="CategoryMenu_container__H6kCF">
                               <ul>
-                                <li><a href="/app/"><span>일반자켓</span></a></li>
-                                <li><a href="/app/"><span>트위드자켓</span></a></li>
-                                <li><a href="/app/"><span>레더자켓</span></a></li>
-                                <li><a href="/app/"><span>플리스자켓</span></a></li>
-                                <li><a href="/app/"><span>퀄팅자켓</span></a></li>
+                                <li><a href="/women/1101"><span>일반자켓</span></a></li>
+                                <li><a href="/women/1102"><span>트위드자켓</span></a></li>
+                                <li><a href="/women/1103"><span>레더자켓</span></a></li>
+                                <li><a href="/women/1104"><span>플리스자켓</span></a></li>
+                                <li><a href="/women/1105"><span>퀄팅자켓</span></a></li>
                               </ul>
                             </div>
                           </div>
                         </li>
-                        <li><a href="/app/"><span>가디건</span></a></li>
-                        <li><a href="/app/"><span>니트/스웨터</span></a>
+                        <li><a href="/women/1201"><span>가디건</span></a></li>
+                        <li><a href="/women/1301"><span>니트/스웨터</span></a>
                           <div class="CategoryMenu_depth3__-yUKJ">
                             <div class="CategoryMenu_container__H6kCF">
                               <ul>
@@ -346,17 +350,17 @@
                     </div>
                   </div>
                 </li>
-                <li><a href="/app/"><span>남성의류</span></a>
+                <li><a href="/women/2"><span>남성의류</span></a>
                   <div class="CategoryMenu_depth2__W3YCd">
                     <div class="CategoryMenu_container__H6kCF">
                       <ul>
-                        <li><a href="/app/"><span>점퍼</span></a>
+                        <li><a href="/women/2101"><span>점퍼</span></a>
                           <div class="CategoryMenu_depth3__-yUKJ">
                             <div class="CategoryMenu_container__H6kCF">
                               <ul>
-                                <li><a href="/app/"><span>바람막이</span></a></li>
-                                <li><a href="/app/"><span>야상/사파리</span></a></li>
-                                <li><a href="/app/"><span>캐주얼 점퍼</span></a></li>
+                                <li><a href="/women/2101"><span>바람막이</span></a></li>
+                                <li><a href="/women/2102"><span>야상/사파리</span></a></li>
+                                <li><a href="/women/2103"><span>캐주얼 점퍼</span></a></li>
                                 <li><a href="/app/"><span>가죽</span></a></li>
                                 <li><a href="/app/"><span>다운/패딩</span></a></li>
                                 <li><a href="/app/"><span>무스탕</span></a></li>
@@ -618,17 +622,17 @@
                     </div>
                   </div>
                 </li>
-                <li><a href="/app/"><span>가방/잡화</span></a>
+                <li><a href="/women/3"><span>가방/잡화</span></a>
                   <div class="CategoryMenu_depth2__W3YCd">
                     <div class="CategoryMenu_container__H6kCF">
                       <ul>
-                        <li><a href="/app/"><span>여성가방</span></a>
+                        <li><a href="/women/3101"><span>여성가방</span></a>
                           <div class="CategoryMenu_depth3__-yUKJ">
                             <div class="CategoryMenu_container__H6kCF">
                               <ul>
-                                <li><a href="/app/"><span>토트백</span></a></li>
-                                <li><a href="/app/"><span>숄더백</span></a></li>
-                                <li><a href="/app/"><span>크로스백</span></a></li>
+                                <li><a href="/women/3101"><span>토트백</span></a></li>
+                                <li><a href="/women/3102"><span>숄더백</span></a></li>
+                                <li><a href="/women/3103"><span>크로스백</span></a></li>
                                 <li><a href="/app/"><span>백팩</span></a></li>
                                 <li><a href="/app/"><span>캔버스/에코백</span></a></li>
                                 <li><a href="/app/"><span>보스톤백</span></a></li>
@@ -1712,12 +1716,12 @@
                             </div>
                           </div>
                         </li>
-                        <li><a href="/app/"><span>남성의류</span></a>
+                        <li><a href="/women/2"><span>남성의류</span></a>
                           <div class="CategoryMenu_depth3__-yUKJ">
                             <div class="CategoryMenu_container__H6kCF">
                               <ul>
-                                <li><a href="/app/"><span>자켓</span></a></li>
-                                <li><a href="/app/"><span>점퍼</span></a></li>
+                                <li><a href="/women/2101"><span>자켓</span></a></li>
+                                <li><a href="/women/2102"><span>점퍼</span></a></li>
                                 <li><a href="/app/"><span>코트</span></a></li>
                                 <li><a href="/app/"><span>베스트</span></a></li>
                                 <li><a href="/app/"><span>가디건</span></a></li>
@@ -1975,9 +1979,9 @@
                                   <div class="CategoryMenu_depth4__uyP-U">
                                     <div class="CategoryMenu_container__H6kCF">
                                       <ul>
-                                        <li><a href="/app/"><span>자켓</span></a>
+                                        <li><a href="/women/2101"><span>자켓</span></a>
                                         </li>
-                                        <li><a href="/app/"><span>점퍼</span></a>
+                                        <li><a href="/women/2102"><span>점퍼</span></a>
                                         </li>
                                         <li><a href="/app/"><span>코트</span></a>
                                         </li>
@@ -3532,7 +3536,7 @@
         </div>
       </div>
     </div>
-    <div class="HeaderNew_gnb__a9qKV"><a class="" href="/app/">여성</a>
+    <div class="HeaderNew_gnb__a9qKV"><a class="" href="/women/1">여성</a>
       <a class="" href="/app/">남성</a><a class="" href="/app/">잡화/슈즈</a>
       <a class="" href="/app/">베스트</a><a class="" href="/app/">기획전/혜택</a>
       <a class="" href="/app/">골프/스포츠</a>
@@ -3848,7 +3852,7 @@
                       </div>
                     </div>
                   </li>
-                  <li><a href="/app/"><span>남성의류</span></a>
+                  <li><a href="/women/2"><span>남성의류</span></a>
                     <div class="CategoryMenu_depth2__W3YCd">
                       <div class="CategoryMenu_container__H6kCF">
                         <ul>
@@ -5154,8 +5158,8 @@
                             <div class="CategoryMenu_depth3__-yUKJ">
                               <div class="CategoryMenu_container__H6kCF">
                                 <ul>
-                                  <li><a href="/app/"><span>자켓</span></a></li>
-                                  <li><a href="/app/"><span>점퍼</span></a></li>
+                                  <li><a href="/women/2101"><span>자켓</span></a></li>
+                                  <li><a href="/women/2102"><span>점퍼</span></a></li>
                                   <li><a href="/app/"><span>코트</span></a></li>
                                   <li><a href="/app/"><span>베스트</span></a></li>
                                   <li><a href="/app/"><span>가디건</span></a></li>
@@ -6508,9 +6512,10 @@
     <div class="RecentHistory_recentShopping__I1IED recentShopping">
       <button type="button" class="RecentHistory_showMore__myCix RecentHistory_none__sQfms">
         <span>최근 본 상품</span></button>
-      <div class="RecentHistory_recentProdcutList__XwKea recentProdcutList">
-        <div class="RecentHistory_noRecent__wvj1J">
-          <p>최근 본 상품이 없습니다.</p>
+      <div class="RecentHistory_recentProdcutList__XwKea recentProdcutList" id="recentProduct">
+        <div class="RecentHistory_noRecent__wvj1J" style="display:flex;flex-flow:row wrap">
+          <p v-if="productList.length==0">최근 본 상품이 없습니다.</p>
+          <div v-for="list in productList"><img :src=`${list.image}` alt="" @click="location.href=`/detailItem/${list.idx}`" style="width: 150px;"></div>
         </div>
       </div>
     </div>

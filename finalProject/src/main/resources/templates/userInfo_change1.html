@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Mypage</title>
     <link rel="stylesheet" href="/css/mypage.css">
+    <script src="/static/js/jquery-1.10.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.16"></script>
 </head>
 <body>
   <header>
@@ -21,7 +24,7 @@
                    class="lfc::NONE:PATH::1:1:홈::::">홈</a>
               </li>
 
-              <li id="HEADERPAGENAME"><a href="javascript:void(0);"
+              <li id="HEADERPAGENAME"><a href="/mypage"
                                          onclick="javascript:cfGoToPageForLogin(PAGE_MYPAGE);">마이페이지</a></li>
 
               <!-- default타입 path -->
@@ -41,7 +44,7 @@
                 <p><em></em></p>
 
                 <span class="mark n-grade ty07">
-
+                  [[${session.id}]]
                                 </span>
                 <a href="javascript:void(0);"
                    onclick="cfGoToPage(PAGE_MEM_INTEG_GRADE+'&amp;etag1=045_A110_E324&amp;etag2=0&amp;etag3=0&amp;etag4=0');">등급혜택보기</a>
@@ -139,43 +142,6 @@
                   </ul>
                 </li>
                 <li>
-                  <span class="tit">나의혜택</span>
-                  <ul class="sub">
-
-                    <li><a href="javascript:void(0);"
-                           onclick="cfGoToMyPageForLogin(PAGE_COUPON+'&amp;left_menu=0&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=2&amp;etag4=0');">쿠폰
-                      조회</a></li>
-                    <li><a href="javascript:void(0);"
-                           onclick="cfGoToMyPageForLogin(PAGE_COUPON_REG+'&amp;left_menu=1&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=3&amp;etag4=0');">쿠폰
-                      등록</a></li>
-                    <li><a href="javascript:void(0);"
-                           onclick="cfGoToMyPageForLogin(PAGE_FPOINT+'&amp;left_menu=2&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=5&amp;etag4=0');">e기프트
-                      마일리지 조회</a><span class="info"
-                                       onclick="javascript:openLayer('first_point1',590,120)">정보</span></li>
-                    <li><a href="javascript:void(0);"
-                           onclick="cfGoToMyPageForLogin(PAGE_POINT+'&amp;left_menu=3&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=4&amp;etag4=0');">마일리지
-                      조회</a></li>
-
-
-                    <!-- <dd><a href="javascript:void(0);" onclick="cfGoToMyPageForLogin(PAGE_CLUBL_DC_LIMIT);">Club-L 할인한도 조회</a></dd> -->
-
-
-
-                    <!-- [LFML-71477] LFpay -->
-
-                    <li><a href="javascript:void(0);"
-                           onclick="openLfpayLayer('registLfpay'); return false;">LFpay</a></li>
-
-                    <li><a href="javascript:void(0);"
-                           onclick="cfGoToMyPageNewMenuForLogin(PAGE_PLANNING_DTL+'&amp;datacls=75770');">LFmall
-                      신용카드</a></li>
-
-                    <li><a href="javascript:void(0);"
-                           onclick="cfGoToMyPageNewMenuForLogin(PAGE_ALLIANCEY_SERVICE+'?left_menu=7&amp;etag1=045_A292_E741&amp;etag2=0&amp;etag3=0&amp;etag4=0');">제휴
-                      서비스</a></li>
-                  </ul>
-                </li>
-                <li>
                   <span class="tit">나의활동</span>
                   <ul class="sub">
                     <li><a href="javascript:void(0);"
@@ -254,9 +220,9 @@
               <div class="MemberForm_mypageTitle__Tfv09">
                 <h4>회원정보 변경</h4>
               </div>
-              <form action="/mypage/userInfo_change2" method="post">
+              <form action="/mypage/userInfo_change1" method="post">
                 <div class="MemberForm_entryTable__N2wos" >
-                  <p class="MemberForm_topInfo__KTFrc"><strong th:text="${username}">></strong>님의 개인정보를 안전하게 보호하기 위해 <strong
+                  <p class="MemberForm_topInfo__KTFrc"><strong th:text="${username}"></strong>님의 개인정보를 안전하게 보호하기 위해 <strong
                           class="MemberForm_point__n-bpr">비밀번호</strong>를 다시 한 번 확인해주세요.</p>
                   <table summary="비밀번호 재확인">
                     <colgroup>
@@ -274,6 +240,11 @@
                       <td><input type="password" class="commonInputText MemberForm_w200__8w71Q" id="password"
                                  name="password" value=""></td>
                     </tr>
+                    <tr>
+                      <td colspan="2" style="color: red;">
+                        <span th:text="${error}"></span>
+                      </td>
+                    </tr>
                     </tbody>
                   </table>
                 </div>
@@ -281,7 +252,6 @@
                   <button type="submit" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc LfButton_fillRed__cxMET">확인</button>
                 </div>
               </form>
-              <p th:if="${error}" th:text="${error}"></p>
 
 
             <!-- LFML-71477 결제수단 관리 layer -->

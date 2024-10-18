@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -14,7 +14,7 @@
     <div class="LfModal_pcContainer__MVmaW"><h3 class="LfModal_modalTitle__F2OUJ">배송지
         추가</h3>
         <div class="LfModal_modalContent__CKeaI">
-            <form action="/addAddress" method="post">
+            <form id="addressForm" method="post">
                 <div class="RefundAccountReg_customLayer__BYIG8">
                     <div class="RefundAccountReg_entryTable__tVxJS RefundAccountReg_addressReg__J3veJ">
                         <table class="RefundAccountReg_entry__VLBWp"
@@ -26,37 +26,37 @@
                             <tbody>
                             <tr>
                                 <th scope="row">받는분</th>
-                                <td><input type="text" class="commonInputText"
-                                           maxlength="10" name="recipientName"></td>
+                                <td>
+                                    <input type="text" class="commonInputText"  id="receiver"
+                                           maxlength="10" name="recipientName">
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">연락처</th>
                                 <td>
                                     <div class="RefundAccountReg_cellInput__ycM9j">
-                                        <div class="commonSelect"><select
-                                                name="recipientMobilePhone1">
-                                            <option value="010">010</option>
-                                            <option value="011">011</option>
-                                            <option value="016">016</option>
-                                            <option value="017">017</option>
-                                            <option value="018">018</option>
-                                            <option value="019">019</option>
-                                            <option value="050">050</option>
-                                            <option value="070">070</option>
-                                            <option value="080">080</option>
-                                            <option value="0503">0503</option>
-                                            <option value="0504">0504</option>
-                                            <option value="0507">0507</option>
-                                            <option value="0505">0505</option>
-                                            <option value="0502">0502</option>
+                                        <div class="commonSelect">
+                                            <select name="recipientMobilePhone1" id="phone1">
+                                                <option value="010">010</option>
+                                                <option value="011">011</option>
+                                                <option value="016">016</option>
+                                                <option value="017">017</option>
+                                                <option value="018">018</option>
+                                                <option value="019">019</option>
+                                                <option value="050">050</option>
+                                                <option value="070">070</option>
+                                                <option value="080">080</option>
+                                                <option value="0503">0503</option>
+                                                <option value="0504">0504</option>
+                                                <option value="0507">0507</option>
+                                                <option value="0505">0505</option>
+                                                <option value="0502">0502</option>
                                         </select></div>
-                                        <span class="RefundAccountReg_bar__WtViz">-</span><input
-                                            type="text" class="commonInputText"
-                                            maxlength="4"
-                                            name="recipientMobilePhone2"><span
-                                            class="RefundAccountReg_bar__WtViz">-</span><input
-                                            type="text" class="commonInputText"
-                                            maxlength="4" name="recipientMobilePhone3">
+                                        <span class="RefundAccountReg_bar__WtViz">-</span>
+                                        <input type="text" class="commonInputText" id="phone2" maxlength="4" name="recipientMobilePhone2">
+                                        <span class="RefundAccountReg_bar__WtViz">-</span>
+                                        <input type="text" class="commonInputText" id="phone3" maxlength="4" name="recipientMobilePhone3">
+                                        <input type="hidden" id="phone" name="phone">
                                     </div>
                                 </td>
                             </tr>
@@ -80,6 +80,8 @@
                                         <li><input id="sample6_detailAddress" type="text" class="commonInputText"
                                                    maxlength="100"
                                                    name="recipientDetailAddress"></li>
+                                        <input type="hidden" id="address" name="address">
+                                        <input type="hidden" id="detailAddress" name="detailAddress">
                                     </ul>
                                 </td>
                             </tr>
@@ -98,7 +100,7 @@
                     </div>
                     <div class="LfButtonGroup_lfButtonGroup__X0ZW1 buttonGroup length2">
                         <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc" onclick="window.close();">취소</button>
-                        <button type="submit" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc LfButton_fillBlack__Cy1XN">등록</button>
+                        <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC3__Le7hc LfButton_fillBlack__Cy1XN" onclick="submitForm()">등록</button>
                     </div>
                 </div>
             </form>

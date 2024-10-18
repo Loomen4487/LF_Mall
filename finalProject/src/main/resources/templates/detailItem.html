@@ -68,10 +68,11 @@
                                 <span th:if="${i>product.rate}">☆</span>
                             </th:block>
                         </div>
+                        <input type="hidden" id="idx" th:value="${idx}">
                     </a></div>
                 <div class="ProductBasic_priceGroup__t3wWL"><span class="ProductBasic_dcPercent__HeI1C">20%</span><span
-                        class="ProductBasic_originPrice__d51GM">189,000원</span><span
-                        class="ProductBasic_finalPrice__bLpZz" id="detailItemPrice">[[${product.price}]]원</span><span><button
+                        class="ProductBasic_originPrice__d51GM">[[${#numbers.formatInteger(rawPrice,3,'COMMA')}]]</span><span
+                        class="ProductBasic_finalPrice__bLpZz" id="detailItemPrice">[[${#numbers.formatInteger(product.price,3,'COMMA')}]]원</span><span><button
                         type="button" class="ProductBasic_iconQuestion__sI+AD">안내</button><div class=""></div></span>
                 </div>
             </div>
@@ -94,10 +95,10 @@
                         </div>
                         <div id="LFssungDetail" class="accordionItemContents lfssung_detail">
                             <dl>
-                                <dd class="date red"><span class="tit">09/25(수) 이내 도착확률</span><span
+                                <dd class="date red"><span class="tit">[[${#temporals.format(#temporals.createNow().plusDays(2),'MM/dd(EE)')}]] 이내 도착확률</span><span
                                         class="txt">93%</span>
                                 </dd>
-                                <dd class="date"><span class="tit">09/26(목) 이내 도착확률</span><span class="txt">98%</span>
+                                <dd class="date"><span class="tit">[[${#temporals.format(#temporals.createNow().plusDays(3),'MM/dd(EE)')}]] 이내 도착확률</span><span class="txt">98%</span>
                                 </dd>
                             </dl>
                         </div>
@@ -127,7 +128,7 @@
                 <div class="ProductButtonArea_productButtonArea__sQlq1">
                     <button type="button"
                             class="LfButton_lfButton__djCj2 LfButton_sizePC5__7Gjip LfButton_strokeRed__VAPIq ProductButtonArea_primary__E8fYU"
-                            id="shoppingbag_button_1_gtm">쇼핑백
+                            id="shoppingbag_button_1_gtm" th:onclick="@{|cartOk('${session.id}',${idx})|}">쇼핑백
                     </button>
                     <button type="submit"
                             class="LfButton_lfButton__djCj2 LfButton_sizePC5__7Gjip LfButton_fillRed__cxMET ProductButtonArea_primary__E8fYU"
@@ -145,9 +146,14 @@
         <div class="list-info">상세정보</div>
     </li>
     <li aria-selected="false">
-        <span>상품리뷰<em> 3</em></span>
+        <span>상품리뷰</span>
         <div class="list-info">
             <div class="list-title">상품 리뷰</div>
+            <div class="review-item" th:each="dto:${review}">
+                <div class="review-top"><div>[[${session.id}]]</div><div>[[${#calendars.format(dto.regDate,'yyyy-MM-dd')}]]</div></div>
+                <div><img th:src="@{|/images/${dto.image}|}" th:if="${dto.image != null}" alt=""></div>
+                <div>[[${dto.content}]]</div>
+            </div>
             <ol class="ReviewList_reviewBenefit__EXSPP">
                 <li><span class="ReviewList_tit__bzF4d" style="color:black;text-align:left;">리뷰작성 1,000M</span>
                     <p class="ReviewList_info__VSMA7">별점+내용 200M<br>사진 500M<br>추가정보 300M (일부 상품 제외)</p></li>
@@ -167,7 +173,7 @@
                             <li>문의 답변은 마이페이지 &gt; 상품Q&amp;A에서 확인하실 수 있습니다.</li>
                             <li>공개된 공간이므로 전화번호, 메일 주소 등 고객님의 소중한 개인정보는 절대 남기지 말아주세요.</li>
                         </ol>
-                        <button type="button" class="ProductTabQna_BtnQuestion__+nCBV">문의하기</button>
+                        <button type="button" class="ProductTabQna_BtnQuestion__+nCBV" th:onclick="@{|qna('${session.id}',${product.idx})|}">문의하기</button>
                     </div>
                     <div class="ProductTabQna_QnaList__1s9Ca">
                         <table>
@@ -185,8 +191,14 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                            <tr th:if="${qna == null}">
                                 <td colspan="4"><p class="ProductTabQna_noData__-RzzS">등록된 Q&amp;A가 없습니다.</p></td>
+                            </tr>
+                            <tr th:if="${qna !=null}" th:each="vo: ${qna}">
+                                <td th:text="${vo.isAnswer?'답변완료':'답변미완'}"></td>
+                                <td>[[${vo.title}]]</td>
+                                <td>[[${vo.id}]]</td>
+                                <td>[[${#calendars.format(vo.regDate,'yyyy-MM-dd')}]]</td>
                             </tr>
                             </tbody>
                         </table>
@@ -213,5 +225,6 @@
         </div>
     </li>
 </ul>
+<div th:replace="~{includes/footer}"></div>
 </body>
 </html>

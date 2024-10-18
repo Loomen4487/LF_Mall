@@ -545,6 +545,10 @@ h3.tabTitle, h4.contTitle {
     padding: 20px;
     vertical-align: top;
     white-space: pre-wrap;
+    text-align:center;
+}
+.ProductTabQna_QnaList__1s9Ca table tbody td:nth-child(2){
+    text-align:left;
 }
 .recommand-container{
     display:flex;
@@ -607,4 +611,15 @@ h3.tabTitle, h4.contTitle {
 }
 .ReviewList_reviewBenefit__EXSPP>li.ReviewList_add__s91gJ:before {
     background-position: -50px 0;
+}
+.review-item{
+    margin-top: 20px;
+}
+.review-item img{
+    width: 175px;
+}
+.review-top{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
 }

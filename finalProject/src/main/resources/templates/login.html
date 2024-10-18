@@ -10,6 +10,7 @@
     <script defer src="/js/login.js"></script>
 </head>
 <body>
+<div th:replace="~{includes/header}"></div>
 <div class="react-tabs" data-rttabs="true">
     <ul class="Login_loginTab__WvaCW" role="tablist">
         <li value="0" class="Login_active__7sJr5" role="tab" id="tab:r2:0" aria-selected="true" aria-disabled="false" aria-controls="panel:r2:0" tabindex="0" data-rttab="true">회원 로그인</li>
@@ -58,16 +59,18 @@
     </form>
     <div class="react-tabs__tab-panel" role="tabpanel" id="panel:r2:1" aria-labelledby="tab:r2:1"></div>
     <div class="NonMemberLogin_loginForm__0ZEjI">
-        <div class="NonMemberLogin_inputArea__No+6+ order-list">
-            <input name="memberName" type="text" class="order-name" placeholder="주문자명">
-        </div>
-        <div class="NonMemberLogin_confirm__zLTK0">
-            <strong>주문자 전화번호</strong>
-            <button type="button" class="NonMemberLogin_btnArrow__h9hmA">
-                <span>휴대폰 인증하기</span>
-            </button>
-        </div>
-        <button type="button" class="NonMemberLogin_btnOrder__touaH">주문조회</button>
+        <form action="/nonLoginOrderCheck" method="post">
+            <div class="NonMemberLogin_inputArea__No+6+ order-list">
+                <input name="memberName" type="text" class="order-name" placeholder="주문번호를 입력해주세요">
+            </div>
+    <!--        <div class="NonMemberLogin_confirm__zLTK0">-->
+    <!--            <strong>주문자 전화번호</strong>-->
+    <!--            <button type="button" class="NonMemberLogin_btnArrow__h9hmA">-->
+    <!--                <span>휴대폰 인증하기</span>-->
+    <!--            </button>-->
+    <!--        </div>-->
+            <button type="submit" class="NonMemberLogin_btnOrder__touaH">주문조회</button>
+        </form>
         <p class="NonMemberLogin_txt__CF4t1">비회원으로 주문하신 경우에만 비회원 주문조회가 가능합니다.</p>
         <p class="NonMemberLogin_txt__CF4t1">회원가입시 바로 누릴 수 있는 <strong>LFmall 회원 혜택</strong>
             <button type="button" class="NonMemberLogin_btnArrow__h9hmA" onclick="location.href='/signup'"><span>회원가입</span></button>

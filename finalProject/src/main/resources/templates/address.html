@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,6 +8,7 @@
     <script defer src="/js/address.js"></script>
 </head>
 <body>
+<div th:replace="~{includes/header}"></div>
     <div id="wrapper">
     <div id="container">
         <div id="contents">
@@ -20,7 +21,7 @@
                                class="lfc::NONE:PATH::1:1:홈::::">홈</a>
                         </li>
 
-                        <li id="HEADERPAGENAME"><a href="javascript:void(0);"
+                        <li id="HEADERPAGENAME"><a href="/mypage"
                                                    onclick="javascript:cfGoToPageForLogin(PAGE_MYPAGE);">마이페이지</a></li>
 
                         <!-- default타입 path -->
@@ -31,7 +32,7 @@
 
                 <div class="mypage_base">
 
-                    <h2><a href="javascript:void(0);"
+                    <h2><a href="/mypage"
                            onclick="javascript:cfGoToPageForLogin(PAGE_MYPAGE);">마이페이지</a></h2>
 
                     <div class="mypage_info">
@@ -40,7 +41,7 @@
                             <p><em></em></p>
 
                             <span class="mark n-grade ty07">
-
+                                [[${session.id}]]
                                 </span>
                             <a href="javascript:void(0);"
                                onclick="cfGoToPage(PAGE_MEM_INTEG_GRADE+'&amp;etag1=045_A110_E324&amp;etag2=0&amp;etag3=0&amp;etag4=0');">등급혜택보기</a>
@@ -135,43 +136,6 @@
                                     <li><a href="javascript:void(0);"
                                            onclick="sendOpenPageTagAjax('182', '045_A296_E253','0','7','0', '//lf.tigergds.com/SignIn');">골프
                                         예약/조회</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <span class="tit">나의혜택</span>
-                                <ul class="sub">
-
-                                    <li><a href="javascript:void(0);"
-                                           onclick="cfGoToMyPageForLogin(PAGE_COUPON+'&amp;left_menu=0&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=2&amp;etag4=0');">쿠폰
-                                        조회</a></li>
-                                    <li><a href="javascript:void(0);"
-                                           onclick="cfGoToMyPageForLogin(PAGE_COUPON_REG+'&amp;left_menu=1&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=3&amp;etag4=0');">쿠폰
-                                        등록</a></li>
-                                    <li><a href="javascript:void(0);"
-                                           onclick="cfGoToMyPageForLogin(PAGE_FPOINT+'&amp;left_menu=2&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=5&amp;etag4=0');">e기프트
-                                        마일리지 조회</a><span class="info"
-                                                         onclick="javascript:openLayer('first_point1',590,120)">정보</span></li>
-                                    <li><a href="javascript:void(0);"
-                                           onclick="cfGoToMyPageForLogin(PAGE_POINT+'&amp;left_menu=3&amp;&amp;etag1=045_A111_E332&amp;etag2=0&amp;etag3=4&amp;etag4=0');">마일리지
-                                        조회</a></li>
-
-
-                                    <!-- <dd><a href="javascript:void(0);" onclick="cfGoToMyPageForLogin(PAGE_CLUBL_DC_LIMIT);">Club-L 할인한도 조회</a></dd> -->
-
-
-
-                                    <!-- [LFML-71477] LFpay -->
-
-                                    <li><a href="javascript:void(0);"
-                                           onclick="openLfpayLayer('registLfpay'); return false;">LFpay</a></li>
-
-                                    <li><a href="javascript:void(0);"
-                                           onclick="cfGoToMyPageNewMenuForLogin(PAGE_PLANNING_DTL+'&amp;datacls=75770');">LFmall
-                                        신용카드</a></li>
-
-                                    <li><a href="javascript:void(0);"
-                                           onclick="cfGoToMyPageNewMenuForLogin(PAGE_ALLIANCEY_SERVICE+'?left_menu=7&amp;etag1=045_A292_E741&amp;etag2=0&amp;etag3=0&amp;etag4=0');">제휴
-                                        서비스</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -288,63 +252,71 @@
                     </div>
                     <div class="ShippingAddress_mypageContents__ubJef">
                         <div class="ShippingAddress_mypageTitle__Rn7VY"><h4>배송지 관리</h4></div>
-                        <div class="ShippingAddress_manage__9LHqJ">
-                            <div class="ShippingAddress_empty__ULmPZ"><p>자주 사용하는 배송지를 등록해 주세요.</p></div>
-                            <div class="ShippingAddress_btnWrap__RyiNb">
-                                <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27">기본 배송지
-                                    설정
-                                </button>
-                                <button type="button" onclick="openAddressForm()"
-                                        class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27 LfButton_fillBlack__Cy1XN">
-                                    배송지 추가
-                                </button>
+                            <div class="ShippingAddress_manage__9LHqJ" th:if="${!hasDeliveryInfo}">
+                                <div class="ShippingAddress_empty__ULmPZ"><p>자주 사용하는 배송지를 등록해 주세요.</p></div>
+                                <div class="ShippingAddress_btnWrap__RyiNb">
+                                    <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27">기본 배송지
+                                        설정
+                                    </button>
+                                    <button type="button" onclick="openAddressForm()"
+                                            class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27 LfButton_fillBlack__Cy1XN">
+                                        배송지 추가
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="ShippingAddress_manage__9LHqJ" th:if="${hasDeliveryInfo}">
+                                <form th:action="@{/deleteAllDeliveryInfo}" method="post">
+                                    <button type="submit"
+                                            class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH ShippingAddress_btnDeleteAll__ByTQY">
+                                        전체삭제
+                                    </button>
+                                </form>
+                                <ul class="ShippingAddress_manageList__+RdgG">
+                                    <li th:each="deliveryInfo : ${deliveryInfos}">
+                                        <div class="ShippingAddress_listIn__hpd7A">
+                                            <div class="LfInput_lfInputRadio__R8RDO">
+                                                <input type="radio" id="deliveryAddress_0" class="LfInput_input__eAm0q" name="radio" value="">
+                                                <label for="deliveryAddress_0">
+                                                    <span class="ShippingAddress_addBox__2uD5+">
+                                                        <strong class="ShippingAddress_name__hNNZi" th:text="${deliveryInfo.receiver}"></strong>
+                                                        <span th:text="${deliveryInfo.address}"><br>th:text="${deliveryInfo.detailAddrss}"</span>
+                                                        <span th:text="${deliveryInfo.phone}"></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <div class="ShippingAddress_btnArea__RYpMZ">
+<!--                                                th:attr="onclick='openUpdateAddressForm(' + ${deliveryInfo.delivery_idx} + ', &quot;' + ${deliveryInfo.address} +  '&quot ;)'"-->
+
+                                                    <button th:attr="onclick='openUpdateAddressForm(' + ${deliveryInfo.delivery_idx} + ')'"  type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">수정
+                                                    </button>
+
+                                                <form th:action="@{|/mypage/address/delete/${deliveryInfo.delivery_idx}|}" method="post">
+                                                    <button type="submit" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">삭제
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="CommonPaging_pageNumber__mqg4O">
+                                    <button type="button" class="CommonPaging_pageFirst__otE46" disabled="">맨처음으로</button>
+                                    <button type="button" class="CommonPaging_pagePrev__YuOzn" disabled="">이전으로</button>
+                                    <button class="CommonPaging_active__PofqH">1</button>
+                                    <button type="button" class="CommonPaging_pageNext__6qqb6" disabled="">다음으로</button>
+                                    <button type="button" class="CommonPaging_pageEnd__STI4L" disabled="">맨마지막으로</button>
+                                </div>
+                                <div class="ShippingAddress_btnWrap__RyiNb">
+                                    <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27">기본 배송지
+                                        설정
+                                    </button>
+                                    <button type="button" onclick="openAddressForm()"
+                                            class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27 LfButton_fillBlack__Cy1XN">
+                                        배송지 추가
+                                    </button>
+                                </div>
                             </div>
                         </div>
-<!--                        <div class="ShippingAddress_manage__9LHqJ">-->
-<!--                            <button type="button"-->
-<!--                                    class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH ShippingAddress_btnDeleteAll__ByTQY">-->
-<!--                                전체삭제-->
-<!--                            </button>-->
-<!--                            <ul class="ShippingAddress_manageList__+RdgG">-->
-<!--                                <li>-->
-<!--                                    <div class="ShippingAddress_listIn__hpd7A">-->
-<!--                                        <div class="LfInput_lfInputRadio__R8RDO">-->
-<!--                                            <input type="radio" id="deliveryAddress_0" class="LfInput_input__eAm0q" name="radio" value="">-->
-<!--                                            <label for="deliveryAddress_0">-->
-<!--                                                <span class="ShippingAddress_addBox__2uD5+">-->
-<!--                                                    <strong class="ShippingAddress_name__hNNZi">{name}</strong>-->
-<!--                                                    <span>{fristaddress}<br>{detailaddrss}</span>-->
-<!--                                                </span>-->
-<!--                                            </label>-->
-<!--                                        </div>-->
-<!--                                        <div class="ShippingAddress_btnArea__RYpMZ">-->
-<!--                                            <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">수정-->
-<!--                                            </button>-->
-<!--                                            <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC2__VA7VH">삭제-->
-<!--                                            </button>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </li>-->
-<!--                            </ul>-->
-<!--                            <div class="CommonPaging_pageNumber__mqg4O">-->
-<!--                                <button type="button" class="CommonPaging_pageFirst__otE46" disabled="">맨처음으로</button>-->
-<!--                                <button type="button" class="CommonPaging_pagePrev__YuOzn" disabled="">이전으로</button>-->
-<!--                                <button class="CommonPaging_active__PofqH">1</button>-->
-<!--                                <button type="button" class="CommonPaging_pageNext__6qqb6" disabled="">다음으로</button>-->
-<!--                                <button type="button" class="CommonPaging_pageEnd__STI4L" disabled="">맨마지막으로</button>-->
-<!--                            </div>-->
-<!--                            <div class="ShippingAddress_btnWrap__RyiNb">-->
-<!--                                <button type="button" class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27">기본 배송지-->
-<!--                                    설정-->
-<!--                                </button>-->
-<!--                                <button type="button"-->
-<!--                                        class="LfButton_lfButton__djCj2 LfButton_sizePC4__8Rh27 LfButton_fillBlack__Cy1XN">-->
-<!--                                    배송지 추가-->
-<!--                                </button>-->
-<!--                            </div>-->
-<!--                        </div>-->
                     </div>
-
 
 
 

@@ -71,25 +71,91 @@ public class ProductService {
     }
 
     public List<SubDTO> findSub(int ref){
-        List<SubEntity> se = subRepository.findByRef(ref%1000/100);
+        List<SubEntity> se = null;
+        if(ref>1000){
+            se = subRepository.findByRef2(ref);
+        }else if(ref>100){
+            se = subRepository.findByRef(ref);
+        }
+        else{
+            int idx = ref%10;
+            se = subRepository.findByRef(ref%10);
+        }
         List<SubDTO> dto = new ArrayList<>();
         se.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
 
+    // 관리자 계정 상품등록/변경
+    public List<ProductDTO> selectOrderListAll(int startNo,int pageSize){
+        List<ProductEntity> pe = productRepository.selectOrderListAll(startNo,pageSize);
 
-    // 메인 전부 가져오기
-    public List<ProductDTO> findAll(){
-        List<ProductEntity> pe = productRepository.findAll();
         List<ProductDTO> dto = new ArrayList<>();
         pe.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
 
-    public List<ProductDTO> findbag(int ref){
-        List<ProductEntity> pebag = productRepository.findBybag(ref);
+    // 관리자 계정 전체 상품 개수
+    public int selectCount(){
+        return productRepository.selectCount();
+    }
+
+    public ProductDTO findByIdx(int idx){
+        ProductEntity pe = productRepository.findByIdx(idx);
+        return pe.toDTO();
+    }
+
+    @Transactional
+    public void update(ProductDTO dto){
+        productRepository.save(dto.toEntity());
+    }
+
+    public List<ProductDTO> findByName(String name){
+        List<ProductEntity> pe = productRepository.findByName(name);
         List<ProductDTO> dto = new ArrayList<>();
-        pebag.forEach(item->dto.add(item.toDTO()));
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
+
+    public List<ProductDTO> superMyPageCategoryPaging(int middle_idx,int startNo,int pageSize){
+        List<ProductEntity> pe = productRepository.superMyPageCategoryPaging(middle_idx,startNo,pageSize);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
+
+    // 상품 추천
+    public List<ProductDTO> selectRecommand(int ref){
+        List<ProductEntity> pe = productRepository.selectRecommand(ref);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
+
+    // women 페이지 목록 보기
+    public List<ProductDTO> findWomenListAll(int major_idx,int middle_idx,int ref,int pageSize,String option){
+        List<ProductEntity> pe = null;
+        option = option.trim();
+        if(option.equals("높은 가격순")){
+            pe = productRepository.findWomenListPriceDesc(major_idx, middle_idx, ref, pageSize);
+        }else if(option.equals("낮은 가격순")){
+            pe = productRepository.findWomenListPriceAsc(major_idx, middle_idx, ref, pageSize);
+        }else if(option.equals("신상품순")){
+            pe = productRepository.findWomenListDateDesc(major_idx, middle_idx, ref, pageSize);
+        }else{
+            pe = productRepository.findWomenListAll(major_idx, middle_idx, ref, pageSize);
+        }
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
+        return dto;
+    }
+
+
+    // women 검색 리스트
+    public List<ProductDTO> findWomenSearchList(String name){
+        List<ProductEntity> pe = productRepository.findWomenSearchList(name);
+        List<ProductDTO> dto = new ArrayList<>();
+        pe.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
 }
