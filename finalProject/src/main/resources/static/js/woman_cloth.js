@@ -54,7 +54,7 @@ cloth.forEach((item,index)=>{
         cloth[clothIdx].classList.remove("CardTab_on__sgS2b");
         this.classList.add("CardTab_on__sgS2b");
         clothIdx = index;
-        if(index==0)getData(idx*1000+100+1);
+        if(index==0)getData(idx);
         else getData(idx*1000+index*100+1);
         console.log("idx ",idx*1000+index*100+1);
     })
