@@ -46,3 +46,31 @@ const swiper2 = new Swiper('.swiper2', {
         prevEl: '.swiper2 .swiper-button-prev', // 이전 슬라이드 버튼
     },
 });
+const cloth = document.querySelectorAll(".CardTab_item__3Ze14");
+let clothIdx = 0;
+let idx = document.querySelector("#idx").value;
+cloth.forEach((item,index)=>{
+    item.addEventListener("click",function(){
+        cloth[clothIdx].classList.remove("CardTab_on__sgS2b");
+        this.classList.add("CardTab_on__sgS2b");
+        clothIdx = index;
+        if(index==0)getData(idx*1000+100+1);
+        else getData(idx*1000+index*100+1);
+        console.log("idx ",idx*1000+index*100+1);
+    })
+})
+
+const clothVue = new Vue({
+    el:"#clothList",
+    data:{
+        productClothList:[]
+    }
+})
+getData(idx);
+function getData(idx){
+    axios.get("/woman_cloth/selectAll/"+idx)
+    .then(res=>{
+        console.log(res.data);
+        clothVue.productClothList = res.data;
+    }).catch(error=>console.log(error));
+}
