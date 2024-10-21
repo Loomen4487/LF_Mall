@@ -1454,6 +1454,11 @@
     width: 294px
 }
 
+.wh176-223 {
+    height: 223px;
+    width: 176px
+}
+
 .wh320-406 {
     height: 406px;
     width: 320px
@@ -3577,7 +3582,7 @@ footer hr {
     background-position: -280px -39px
 }
 
-.Footer_serviceInfo__hQ0Ah .Footer_familySite__Oj6YI .Footer_familyList__r8DTy a.Footer_lafuma__paUMJ:before {
+.Footer_serviceInfo__hQ0Ah .Footer_familySite__Oj6YI .Footer_familyList__r8DTy a.Footer_athe__MXdjz:before {
     background-position: -420px -39px
 }
 
@@ -4288,7 +4293,7 @@ footer hr {
 
 .HeaderNew_topBanner__fm5q8 .HeaderNew_inner__204KN .HeaderNew_btnClose__Y\+zi7:after {
     color: #999;
-    content: "Ãƒâ€”";
+    content: "Ã—";
     display: block;
     font-size: 40px;
     font-weight: lighter;
@@ -4366,7 +4371,6 @@ footer hr {
 }
 
 .HeaderNew_wrapHeader__gKC7U h1 a {
-    height: 36px;
     width: 165px
 }
 
@@ -4398,7 +4402,6 @@ footer hr {
 }
 
 .HeaderNew_wrapHeader__gKC7U.HeaderNew_fixed__9jgAx h1 a {
-    height: 25px;
     width: 113px
 }
 
@@ -4916,6 +4919,15 @@ footer hr {
 
 .LfFullLayerModal_hasFloating__jPHgR {
     padding-bottom: calc(env(safe-area-inset-bottom) + 75px)
+}
+
+.slide-pane .slide-pane__content {
+    padding: 0
+}
+
+.ReactModal__Body--open {
+    height: 100%;
+    overflow: hidden
 }
 
 .slide-pane {
@@ -5447,7 +5459,7 @@ footer hr {
     background-image: url(//img.lfmall.co.kr/file/WAS/display/images/pc_spimage.png);
     background-position: 0 0;
     background-repeat: no-repeat;
-    background-size: 300px 900px;
+    background-size: 600px 900px;
     content: "";
     height: 42px;
     left: 50%;
@@ -6472,6 +6484,11 @@ main:after {
 .ProductThumbName_wh294-374__12qoX {
     height: 374px;
     width: 294px
+}
+
+.ProductThumbName_wh176-223__q9TFQ {
+    height: 223px;
+    width: 176px
 }
 
 .ProductThumbName_wh320-406__4EzDB {

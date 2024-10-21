@@ -11,4 +11,9 @@ public class MainController {
         return "main";
     }
 
+    @GetMapping(value = "/women_main")
+    public String index2(){
+
+        return "women_main";
+    }
 }
