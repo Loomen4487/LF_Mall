@@ -3,3 +3,13 @@
     flex-wrap: wrap;
     gap: 20px 20px;
 }
+.swiper {
+    width: 100%; /* 원하는 너비 */
+    height: 100%; /* 원하는 높이 */
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff; /* 배경색 설정 */
+}

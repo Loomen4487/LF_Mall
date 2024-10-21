@@ -558,21 +558,18 @@
                                     <img loading="lazy" src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1726811978373.jpg/dims/format/avif;fallback=webp/optimize" alt="FERRAGAMO" through="m2ps">
                                     <div class="Card73_brand__XoxdJ">FERRAGAMO<span>모던한 장인정신의 진수</span></div>
                                 </a>
-                                    <div class="Card73_thumbList__vUdGF" >
-                                        <div th:each="dto:${product}">
+                                    <div class="Card73_thumbList__vUdGF">
+                                        <div th:each="product:${randomProducts1101}">
                                             <div class="ProductThumbImage_wrapThumbImg__7REL9">
                                                 <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy" th:src="${dto.image}" alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
-                                                </div>
-                                            </div>
-                                            <a class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                               href="/app/exhibition/menu/501">가방 링크 넣을 곳
-                                            </a>
-                                            <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 " href="/app/exhibition/menu/501">
-                                                [[${dto.name}]]
-                                            </a>
-                                            <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_lastPrice__ysIqE">[[${#numbers.formatInteger(dto.price,3,'COMMA')}]]</span>
+                                                    <img loading="lazy" th:src="${product.image}"
+                                                         src="https://nimg.lfmall.co.kr/file/product/prd/JA/2024/375/JABA4F701BK_00.jpg?1727136213000/dims/format/avif;fallback=webp/optimize"
+                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
+                                                         through="m2ps">
+                                                </div><a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
+                                                         href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                                <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                                    <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span></div>
                                             </div>
                                         </div>
                                     </div>
@@ -591,19 +588,17 @@
                                         <div class="Card73_brand__XoxdJ">ADIDAS<span>다채로움의 향연</span></div>
                                     </a>
                                     <div class="Card73_thumbList__vUdGF">
-                                        <div th:each="dto:${jacket}">
+                                        <div th:each="product:${randomProducts1102}">
                                             <div class="ProductThumbImage_wrapThumbImg__7REL9">
                                                 <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy" th:src="${dto.image}" alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
-                                                </div>
-                                            </div>
-                                            <a class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                               href="/app/exhibition/menu/501">자켓 링크</a>
-                                            <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 " href="/app/exhibition/menu/501">
-                                                [[${dto.name}]]
-                                            </a>
-                                            <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_lastPrice__ysIqE">[[${#numbers.formatInteger(dto.price,3,'COMMA')}]]</span>
+                                                    <img loading="lazy" th:src="${product.image}"
+                                                         src="https://nimg.lfmall.co.kr/file/product/prd/JA/2024/375/JABA4F701BK_00.jpg?1727136213000/dims/format/avif;fallback=webp/optimize"
+                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
+                                                         through="m2ps">
+                                                </div><a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
+                                                         href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                                <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                                    <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span></div>
                                             </div>
                                         </div>
                                     </div>
@@ -630,65 +625,18 @@
                                         <div class="Card73_brand__XoxdJ">MOMET<span>빛나는 당신의 모든 순간에</span></div>
                                     </a>
                                     <div class="Card73_thumbList__vUdGF">
-                                        <div >
+                                        <div th:each="product:${randomProducts2101}">
                                             <div class="ProductThumbImage_wrapThumbImg__7REL9" >
                                                 <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241" >
-                                                    <img loading="lazy" src="https://nimg.lfmall.co.kr/file/product/prd/EFUF/2024/375/EFUFXX00401_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize" alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
+                                                    <img loading="lazy" th:src="${product.image}"
+                                                         src="https://nimg.lfmall.co.kr/file/product/prd/EFUF/2024/375/EFUFXX00401_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize" alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
                                                 </div>
                                             </div>
                                             <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                               href="/app/exhibition/menu/501">폴 카라 배색 맨투맨 카키</a>
+                                               href="/app/exhibition/menu/501" th:text="${product.name}"></a>
                                             <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_lastPrice__ysIqE">83,790</span>
+                                                <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span>
                                             </div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/EFUF/2024/375/EFUFXX00422_00.jpg?1726051071000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">MOMET</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[10.7 예약발송] 플로우 투웨이 블라우스 크림</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">19%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">109,350</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/EFUF/2024/375/EFUFXX00391_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">MOMET</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">브리즈 코튼 와이드 팬츠 모카</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">19%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">104,490</span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -704,78 +652,17 @@
                                                     출시</span></div>
                                 </a>
                                     <div class="Card73_thumbList__vUdGF">
-                                        <div>
+                                        <div th:each="product:${randomProducts3101}">
                                             <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
+                                                <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
+                                                    <img loading="lazy" th:src="${product.image}"
                                                          src="https://nimg.lfmall.co.kr/file/product/prd/JA/2024/375/JABA4F701BK_00.jpg?1727136213000/dims/format/avif;fallback=webp/optimize"
                                                          alt="" class="ProductThumbImage_baseImg__osoIA"
                                                          through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">JILLSTUART NEWYORK ACC</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[24FW] [뮤어백] 블랙 소가죽 오플 스퀘어 숄더백</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">27%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">312,010</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/JA/2024/375/JABA4F720W2_00.jpg?1726042096000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">JILLSTUART NEWYORK ACC</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[24FW] [뮤어백] 카멜 소가죽 오플 라운드 토트백 M</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">27%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">348,460</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/JA/2024/375/JABA4F710E1_00.jpg?1726029939000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">JILLSTUART NEWYORK ACC</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[24FW] [뮤어백] 페이드민트 소가죽 오플 라운드 토트백
-                                            M</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">27%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">348,460</span></div>
+                                            </div><a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
+                                                href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                            <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                                <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span></div>
                                         </div>
                                     </div>
                                 </div>
@@ -800,77 +687,18 @@
                                     <div class="Card73_brand__XoxdJ">MILLET<span>103년 밀레의 기술과 스토리</span></div>
                                 </a>
                                     <div class="Card73_thumbList__vUdGF">
-                                        <div>
+                                        <div th:each="product:${randomProducts1401}">
                                             <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/D72G/2024/375/D72GXX02917_00.jpg?1714032405000/dims/format/avif;fallback=webp/optimize"
+                                                <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
+                                                    <img loading="lazy" th:src="${product.image}"
+                                                         src="https://nimg.lfmall.co.kr/file/product/prd/JA/2024/375/JABA4F701BK_00.jpg?1727136213000/dims/format/avif;fallback=webp/optimize"
                                                          alt="" class="ProductThumbImage_baseImg__osoIA"
                                                          through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">MILLET</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[밀레 본사] 디맥스 LT-102 GTX_MXTSB914</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">48%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">127,330</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/D72G/2024/375/D72GXX03049_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">MILLET</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[밀레 본사] BRTHE WD II J M_MJTSJ005</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">17%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">231,840</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/D72G/2023/375/D72GXX02647_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">MILLET</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[밀레 본사] 발로히 구스 다운_MQSWD431</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">68%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">102,300</span></div>
+                                                </div><a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
+                                                         href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                                <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                                    <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -885,78 +713,18 @@
                                     <div class="Card73_brand__XoxdJ">ROSEEDOR<span>아름다움에 더해지는 특별함</span></div>
                                 </a>
                                     <div class="Card73_thumbList__vUdGF">
-                                        <div>
+                                        <div th:each="product:${randomProducts1402}">
                                             <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/DVRY/2023/375/DVRYXX01931_00.jpg?1721975106000/dims/format/avif;fallback=webp/optimize"
+                                                <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
+                                                    <img loading="lazy" th:src="${product.image}"
+                                                         src="https://nimg.lfmall.co.kr/file/product/prd/JA/2024/375/JABA4F701BK_00.jpg?1727136213000/dims/format/avif;fallback=webp/optimize"
                                                          alt="" class="ProductThumbImage_baseImg__osoIA"
                                                          through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">ROSEEDOR</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[지연`s Pick] 돌체판타지아 FRF3-D-0232(PG)
-                                            루비 반지_222200014</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">36%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">492,160</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/DVRY/2023/375/DVRYXX00128_00.jpg?1721978099000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">ROSEEDOR</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">FNPR-B-0689 목걸이_251610433</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">36%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">236,160</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/DVRY/2023/375/DVRYXX00045_00.jpg?1721978055000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">ROSEEDOR</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">FEGC-G-0418 원터치 귀고리_232100340</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">27%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">333,540</span></div>
+                                                </div><a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
+                                                         href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                                <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                                    <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -982,79 +750,17 @@
                                     </div>
                                 </a>
                                     <div class="Card73_thumbList__vUdGF">
-                                        <div>
+                                        <div th:each="product:${randomProducts1301}">
                                             <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/B00L/2024/375/DWSK4D611E3_00.jpg?1725614172000/dims/format/avif;fallback=webp/optimize"
+                                                <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
+                                                    <img loading="lazy" th:src="${product.image}"
+                                                         src="https://nimg.lfmall.co.kr/file/product/prd/JA/2024/375/JABA4F701BK_00.jpg?1727136213000/dims/format/avif;fallback=webp/optimize"
                                                          alt="" class="ProductThumbImage_baseImg__osoIA"
                                                          through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">DOUBLE FLAG</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[24FW] [여신핏] 다크그린 여성 옆선 로고포인트 이중 플리츠
-                                            스커트</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">10%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">177,710</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/B00L/2024/375/DWSW4D611IV_00.jpg?1727072757000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">DOUBLE FLAG</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[24FW] [인생골지] 아이보리 여성 골조직 긴팔 카라
-                                            니트(슬림핏)</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">10%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">124,130</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/B00L/2024/375/DWSW4D812B2_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div><span
-                                                            class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                            loading="lazy" through="m2ps"
-                                                            src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                            alt=""></span></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">DOUBLE FLAG</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[24FW] [방풍니트] 블루 여성 듀얼레터 라인배색 방풍
-                                            스웨터(레귤러핏)</a>
-                                            <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">5%</span>
-                                                <span class="ProductThumbPrice_lastPrice__ysIqE">246,050</span>
+                                                </div><a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
+                                                         href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                                <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                                    <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span></div>
                                             </div>
                                         </div>
                                     </div>
@@ -1070,67 +776,18 @@
                                     <div class="Card73_brand__XoxdJ">MAVENMUSE<span>디자인과 실용성을 모두 잡은</span></div>
                                 </a>
                                     <div class="Card73_thumbList__vUdGF">
-                                        <div>
+                                        <div th:each="product:${randomProducts3102}">
                                             <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/EONO/2024/375/EONOXX00016_00.jpg?1726123990000/dims/format/avif;fallback=webp/optimize"
+                                                <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
+                                                    <img loading="lazy" th:src="${product.image}"
+                                                         src="https://nimg.lfmall.co.kr/file/product/prd/JA/2024/375/JABA4F701BK_00.jpg?1727136213000/dims/format/avif;fallback=webp/optimize"
                                                          alt="" class="ProductThumbImage_baseImg__osoIA"
                                                          through="m2ps">
-                                                    <div></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">MAVENMUSE</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[메이븐뮤즈] 튜튜 주얼리 숄더 LL_SG
-                                            (MSXSBF428SGLL)</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">54%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">80,740</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/EONO/2024/375/EONOXX00015_00.jpg?1726704743000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">MAVENMUSE</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[메이븐뮤즈] Z1 키링_FR (MHXSAF515PKFR)</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">59%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">23,490</span></div>
-                                        </div>
-                                        <div>
-                                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                                <div
-                                                        class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-241">
-                                                    <img loading="lazy"
-                                                         src="https://nimg.lfmall.co.kr/file/product/prd/EONO/2024/375/EONOXX00003_00.jpg?1726122504000/dims/format/avif;fallback=webp/optimize"
-                                                         alt="" class="ProductThumbImage_baseImg__osoIA"
-                                                         through="m2ps">
-                                                    <div></div>
-                                                </div>
-                                            </div><a
-                                                class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                                href="/app/exhibition/menu/501">MAVENMUSE</a><a
-                                                class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                                href="/app/exhibition/menu/501">[메이븐뮤즈] 포포 숄더 MM_MG
-                                            (MSXSBF400MGMM)</a>
-                                            <div
-                                                    class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                                <span class="ProductThumbPrice_discount__a8J6G">39%</span><span
-                                                    class="ProductThumbPrice_lastPrice__ysIqE">71,680</span></div>
+                                                </div><a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
+                                                         href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                                <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                                    <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1478,18 +1135,17 @@
                     <p>고객님이 좋아할 만한 상품</p>
                 </div>
                 <div class="product_wrapper">
-                    <div class="Card92_productList__gqBji" @click="viewProduct(list.idx)">
-                        <div class="Card92_card92ProductItem__8nSAc">
-                            <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-216">
-                                    <img loading="lazy" :src="list.image"
-                                         alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
+                    <div class="Card92_productList__gqBji" th:each="product : ${products}">
+                        <div class="Card92_card92ProductItem__8nSAc" >
+                            <div class="ProductThumbImage_wrapThumbImg__7REL9" >
+                                <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh190-216" >
+                                    <img th:src="${product.image}" loading="lazy" alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
                                 </div>
                             </div>
-                            <a class="productThumbName ProductThumbName_productThumbName__cz17o txtLine2"
-                               href="/app/exhibition/menu/501">{{ list.name.length > 17 ? list.name.substring(0, 17) + '...' : list.name }}</a>
+                            <a th:href="@{/app/exhibition/menu/{id}(id=${product.idx})}" class="productThumbName ProductThumbName_productThumbName__cz17o txtLine2"
+                               href="/app/exhibition/menu/501" th:text="${product.name}"></a>
                             <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                <span class="ProductThumbPrice_lastPrice__ysIqE">{{ dto.price.toLocaleString() }}</span>
+                                <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span>
                             </div>
                         </div>
                     </div>
@@ -1499,6 +1155,7 @@
     </main>
     <a class="GoTop_goTop__CHl8O" href="/app/" style="display: none;"><span class="blind">TOP</span></a>
 </div>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </body>
 <div th:replace="~{includes/footer}"></div>
 </html>

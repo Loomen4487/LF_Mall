@@ -158,4 +158,13 @@ public class ProductService {
         pe.forEach(item->dto.add(item.toDTO()));
         return dto;
     }
+
+
+
+    public List<ProductEntity> getProductsByMajorIdx(int idx) {
+        return productRepository.findByMajor_idx(idx);
+    }
+    public List<ProductEntity> findByRefValue(int refValue) {
+        return productRepository.findByRefValue(refValue);
+    }
 }

@@ -1,25 +1,49 @@
-function fetchNames() {
-            const name = document.getElementById('nameInput').value; // 입력 필드에서 값 가져오기
-            const url = `/main_menu?name=${encodeURIComponent(name)}`; // API URL 생성
+document.addEventListener('DOMContentLoaded', function () {
+    var swipers = document.querySelectorAll('.swiper');
 
-            // AJAX 요청
-            fetch(url)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json(); // JSON으로 변환
-                })
-                .then(data => {
-                    const resultDiv = document.getElementById('result');
-                    resultDiv.innerHTML = ''; // 이전 결과 지우기
-                    data.forEach(item => {
-                        const para = document.createElement('p'); // 새로운 문단 요소 생성
-                        para.textContent = item; // 이름 설정
-                        resultDiv.appendChild(para); // 결과 DIV에 추가
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
+    // 첫 번째 Swiper 초기화
+    var swiperOne = new Swiper(swipers[0], {
+        direction: 'horizontal',
+        loop: true,
+        pagination: {
+            el: swipers[0].querySelector('.swiper-pagination'),
+            clickable: true,
+        },
+        slidesPerView: 1,
+        spaceBetween: 20,
+    });
+
+    // 두 번째 Swiper 초기화 (2개씩 보이기)
+    var swiperTwo = new Swiper(swipers[1], {
+        direction: 'horizontal',
+        loop: false, //
+        pagination: {
+            el: swipers[1].querySelector('.swiper-pagination'),
+            clickable: true,
+        },
+        slidesPerView: 3, // 두 개씩 보이기
+        spaceBetween: 10,
+    });
+
+    var swiperTwo = new Swiper(swipers[2], {
+            direction: 'horizontal',
+            loop: true, // 루프하지 않음
+            pagination: {
+                el: swipers[1].querySelector('.swiper-pagination'),
+                clickable: true,
+            },
+            slidesPerView: 4, // 두 개씩 보이기
+            spaceBetween: 10,
+        });
+
+        var swiperTwo = new Swiper(swipers[3], {
+                    direction: 'horizontal',
+                    loop: true, // 루프하지 않음
+                    pagination: {
+                        el: swipers[1].querySelector('.swiper-pagination'),
+                        clickable: true,
+                    },
+                    slidesPerView: 2, // 두 개씩 보이기
+                    spaceBetween: 10,
                 });
-        }
+});
