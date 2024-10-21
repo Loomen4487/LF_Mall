@@ -24,6 +24,10 @@
 
     <title>나를!</title>
     <link rel="stylesheet" th:href="@{/css/woman_cloth.css}">
+    <link rel="stylesheet" th:href="@{/css/woman_cloth2.css}">
+    <link rel="stylesheet" th:href="@{/css/6184.fa0c269e.chunk.css}">
+    <link rel="stylesheet" th:href="@{/css/1681.a3111d1e.chunk.css}">
+    <link rel="stylesheet" th:href="@{/css/main.8f8f0e3c.css}">
     <link rel="stylesheet" th:href="@{/css/229.4df0aab3.chunk.css}">
     <link rel="stylesheet" th:href="@{/css/2504.00cf1b01.chunk.css}">
     <link rel="stylesheet" th:href="@{/css/4427.4b0962ec.chunk.css}">
@@ -68,8 +72,8 @@
                     <div class="SearchLocationPath_categoryList__axazj">
                         <ul>
                             <li><a class="" href="/women/1">여성의류</a></li>
-                            <li><a href="/app/exhibition/category/110050">남성의류</a></li>
-                            <li><a href="/app/exhibition/category/110050">가방/잡화</a></li>
+                            <li><a class="" href="/women/2">남성의류</a></li>
+                            <li><a class="" href="/women/3">가방/잡화</a></li>
                             <li><a href="/app/exhibition/category/110050">슈즈</a></li>
                             <li><a href="/app/exhibition/category/110050">골프</a></li>
                             <li><a href="/app/exhibition/category/110050">스포츠/레져</a></li>
@@ -146,17 +150,19 @@
                 <div class="swiper-wrapper">
 
                     <div class="swiper-slide swiper-slide-active" style="width: 610px; margin-right: 20px;" data-swiper-slide-index="0" th:each="dto : ${selectRecommendMajor}">
-                        <div class="Card10_card10__3qVgp"><a href="/app/exhibition/category/110050">
-                            <img th:src="${dto.image}" alt="">
-                        </a>
+                        <div class="Card10_card10__3qVgp">
+                            <a href="/app/exhibition/category/110050">
+                                <img th:src="${dto.image}" alt="">
+                            </a>
                         </div>
                     </div>
-<!--                    <div class="swiper-slide swiper-slide-next" style="width: 610px; margin-right: 20px;" data-swiper-slide-index="1">-->
-<!--                        <div class="Card10_card10__3qVgp"><a href="/app/exhibition/category/110050">-->
-<!--                            <img src="https://img.lfmall.co.kr/v2/real/origin/card/2024/9/1726819562433.jpg" alt="">-->
-<!--                        </a>-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <div class="swiper-slide swiper-slide-next" style="width: 610px; margin-right: 20px;" data-swiper-slide-index="1" th:each="dto : ${selectRecommendMajor}">
+                        <div class="Card10_card10__3qVgp">
+                            <a href="/app/exhibition/category/110050">
+                                 <img th:src="${dto.image}" alt="">
+                            </a>
+                        </div>
+                    </div>
 <!--                    <div class="swiper-slide" style="width: 610px; margin-right: 20px;" data-swiper-slide-index="2">-->
 <!--                        <div class="Card10_card10__3qVgp">-->
 <!--                            <a href="/app/exhibition/category/110050">-->

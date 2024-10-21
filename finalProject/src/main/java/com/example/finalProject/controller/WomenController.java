@@ -64,7 +64,7 @@ public class WomenController {
         model.addAttribute("selectRecommendMajor",productService.selectRecommandMajor(idx));
 
         model.addAttribute("title",majorService.findByRef(major));
-        return idx>10?"women":"woman_cloth";
+        return idx>10?"women":"woman_cloth2";
     }
 
     @GetMapping(value = "/womenSelectAll/{option}")

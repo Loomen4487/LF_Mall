@@ -24,6 +24,7 @@ function throttle(func, limit) {
        }
    };
 }
+
 const vue = new Vue({
     el:"#womenList",
     data:{
