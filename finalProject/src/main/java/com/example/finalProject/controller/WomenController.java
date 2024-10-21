@@ -51,7 +51,6 @@ public class WomenController {
         }
         if(idx>100){
             model.addAttribute("panel",productService.findSub(idx));
-            System.out.println("productService.findSub : "+productService.findSub(idx));
         }else {
                 List<MiddleDTO> middle = productService.findMiddle(idx);
                 middle.forEach(item->{
@@ -90,5 +89,12 @@ public class WomenController {
     @ResponseBody
     public ResponseEntity<ProductDTO> viewProduct(@PathVariable int idx){
         return ResponseEntity.status(HttpStatus.OK).body(productService.findByIdx(idx));
+    }
+
+    // woman_cloth 분류에 따른 이미지 가져오기
+    @GetMapping(value = "/woman_cloth/selectAll/{idx}")
+    @ResponseBody
+    public List<ProductDTO> selectAllIdx(@PathVariable int idx){
+        return productService.findByRef(idx);
     }
 }
