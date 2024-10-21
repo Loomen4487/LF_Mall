@@ -7,7 +7,7 @@ button.forEach((item,index)=>{
         review[buttonIdx].style.display="none";
         this.classList.add("ProductReview_on__GXXfd");
         buttonIdx=index;
-        review[buttonIdx].style.display="block";
+        review[buttonIdx].style.display="flex";
     })
 })
 function reviewDelete(idx){

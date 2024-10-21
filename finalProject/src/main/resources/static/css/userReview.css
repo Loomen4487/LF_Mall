@@ -69,7 +69,6 @@
 .review-result{
     display:flex;
     column-gap:10px;
-    justify-content: space-between;
 }
 .review-item img{
     width: 150px;
