@@ -95,7 +95,7 @@
         <h2 class="CategoryResult_title__mztDs"></h2>
         <div class="NdepthHeaderCategory_categoryWrap__RzclP">
             <span class="NdepthHeaderCategory_active__CPzZi">
-                <a href="#" th:style="${#arrays.contains(new int[]{1, 2, 3}, idx) ? 'font-weight: bold;' : 'font-weight: normal;' }">전체</a>
+                <a th:href="@{|/women/${sub_name.ref}|}" th:style="${#arrays.contains(new int[]{1, 2, 3}, idx) ? 'font-weight: bold;' : 'font-weight: normal;' }">전체</a>
             </span>
                     <span class="category-item" th:each="vo:${panel}">
                 <a th:href="@{|/women/${vo.ref}|}" th:style="${vo.ref} == ${idx} ? 'font-weight: bold;' : ''">
