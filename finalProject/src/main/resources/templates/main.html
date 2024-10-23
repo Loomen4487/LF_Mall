@@ -263,219 +263,61 @@
                 <div class="swiper swiper-initialized swiper-horizontal">
                     <div class="swiper-wrapper" style="transform: translate3d(0px, 0px, 0px);">
                         <div class="swiper-slide swiper-slide-active" style="width: 295px; margin-right: 20px;">
-                            <div>
+                            <div th:each="product, iterStat : ${randomProducts1101}"
+                                 th:if="${iterStat.index == 0}">
                                 <div class="ProductThumbImage_wrapThumbImg__7REL9">
                                     <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
-                                        <img loading="lazy" src="https://nimg.lfmall.co.kr/file/product/prd/HS/2024/375/HSSK4DP81CM_01.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                             alt="" class="ProductThumbImage_hoverImg__wYyaH" through="m2ps">
-                                        <img loading="lazy" src="https://nimg.lfmall.co.kr/file/product/prd/HS/2024/375/HSSK4DP81CM_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
+                                        <img loading="lazy" th:src="${product.image}"
+                                             src="https://nimg.lfmall.co.kr/file/product/prd/HS/2024/375/HSSK4DP81CM_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
                                              alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
-                                        <div>
-                                            <span class="ProductThumbImage_lPlus__wVZto undefined lplus">
-                                                <img loading="lazy" through="m2ps" src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                     alt="">
-                                            </span>
-                                        </div>
                                     </div>
                                 </div>
-                                <div><a class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                        href="/app/exhibition/menu/501">HAZZYS LADIES</a><a
-                                        class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                        href="/app/exhibition/menu/501">[CITY ESSENTIAL] 플리츠 스커트 카멜</a>
-                                    <div
-                                            class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                        <span class="ProductThumbPrice_discount__a8J6G">19%</span><span
-                                            class="ProductThumbPrice_noneBasePrice__KCwnv">199,000</span><span
-                                            class="ProductThumbPrice_lastPrice__ysIqE">161,190</span></div>
+                                <div >
+                                    <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
+                                        href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                    <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                        <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide swiper-slide-next" style="width: 295px; margin-right: 20px;">
-                            <div>
-                                <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                    <div
-                                            class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
-                                        <img loading="lazy"
-                                             src="https://nimg.lfmall.co.kr/file/product/prd/D5OH/2024/375/D5OHXX04576_01.jpg?1725944366000/dims/format/avif;fallback=webp/optimize"
-                                             alt="" class="ProductThumbImage_hoverImg__wYyaH" through="m2ps"><img
-                                            loading="lazy"
-                                            src="https://nimg.lfmall.co.kr/file/product/prd/D5OH/2024/375/D5OHXX04576_00.jpg?1725944366000/dims/format/avif;fallback=webp/optimize"
-                                            alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
-                                        <div><span class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                loading="lazy" through="m2ps"
-                                                src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                alt=""></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div><a class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                        href="/app/exhibition/menu/501">DUNST</a><a
-                                        class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                        href="/app/exhibition/menu/501">PLEATS MINI SKIRT MELANGE
-                                    GREY_UDSK4C204G2</a>
-                                    <div
-                                            class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                        <span class="ProductThumbPrice_discount__a8J6G">23%</span><span
-                                            class="ProductThumbPrice_noneBasePrice__KCwnv">129,000</span><span
-                                            class="ProductThumbPrice_lastPrice__ysIqE">98,680</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div>
-                                <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                    <div
-                                            class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
-                                        <img loading="lazy"
-                                             src="https://nimg.lfmall.co.kr/file/product/prd/AE/2024/375/AESK4A403G2_01.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                             alt="" class="ProductThumbImage_hoverImg__wYyaH" through="m2ps"><img
-                                            loading="lazy"
-                                            src="https://nimg.lfmall.co.kr/file/product/prd/AE/2024/375/AESK4A403G2_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                            alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
-                                        <div><span class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                loading="lazy" through="m2ps" alt=""
-                                                src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div><a class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                        href="/app/exhibition/menu/501">A.T.CORNER</a><a
-                                        class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                        href="/app/exhibition/menu/501">미디 플리츠 스커트 그레이</a>
-                                    <div
-                                            class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                        <span class="ProductThumbPrice_discount__a8J6G">23%</span><span
-                                            class="ProductThumbPrice_noneBasePrice__KCwnv">179,000</span><span
-                                            class="ProductThumbPrice_lastPrice__ysIqE">136,930</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div>
-                                <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                    <div
-                                            class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
-                                        <img loading="lazy"
-                                             src="https://nimg.lfmall.co.kr/file/product/prd/DL/2024/375/DLSK4BP21G3_01.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                             alt="" class="ProductThumbImage_hoverImg__wYyaH" through="m2ps"><img
-                                            loading="lazy"
-                                            src="https://nimg.lfmall.co.kr/file/product/prd/DL/2024/375/DLSK4BP21G3_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                            alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
-                                        <div><span class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                loading="lazy" through="m2ps" alt=""
-                                                src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div><a class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                        href="/app/exhibition/menu/501">DAKS LADIES</a><a
-                                        class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                        href="/app/exhibition/menu/501">[D-PLEATS] 그레이 프린트 플리츠 밴딩스커트</a>
-                                    <div
-                                            class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                        <span class="ProductThumbPrice_discount__a8J6G">32%</span><span
-                                            class="ProductThumbPrice_noneBasePrice__KCwnv">215,000</span><span
-                                            class="ProductThumbPrice_lastPrice__ysIqE">145,120</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div>
-                                <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                    <div
-                                            class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
-                                        <img loading="lazy"
-                                             src="https://nimg.lfmall.co.kr/file/product/prd/DN/2024/375/DNSK4D901I2_01.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                             alt="" class="ProductThumbImage_hoverImg__wYyaH" through="m2ps"><img
-                                            loading="lazy"
-                                            src="https://nimg.lfmall.co.kr/file/product/prd/DN/2024/375/DNSK4D901I2_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                            alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
-                                        <div><span class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                loading="lazy" through="m2ps" alt=""
-                                                src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div><a class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                        href="/app/exhibition/menu/501">DAKS GOLF WOMEN</a><a
-                                        class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                        href="/app/exhibition/menu/501">[ONLINE EXCLUSIVE] 베이지 플리츠 스커트</a>
-                                    <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                        <span class="ProductThumbPrice_discount__a8J6G">19%</span><span
-                                            class="ProductThumbPrice_noneBasePrice__KCwnv">230,000</span><span
-                                            class="ProductThumbPrice_lastPrice__ysIqE">186,300</span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div>
+                            <div th:each="product, iterStat : ${randomProducts1101}"
+                                 th:if="${iterStat.index == 1}">
                                 <div class="ProductThumbImage_wrapThumbImg__7REL9">
                                     <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
-                                        <img loading="lazy"
-                                             src="https://nimg.lfmall.co.kr/file/product/prd/EDYX/2024/375/EDYXXX00096_01.jpg?1726753842000/dims/format/avif;fallback=webp/optimize"
-                                             alt="" class="ProductThumbImage_hoverImg__wYyaH" through="m2ps"><img
-                                            loading="lazy"
-                                            src="https://nimg.lfmall.co.kr/file/product/prd/EDYX/2024/375/EDYXXX00096_00.jpg?1726753842000/dims/format/avif;fallback=webp/optimize"
+                                        <img
+                                            loading="lazy" th:src="${product.image}"
+                                            src="https://nimg.lfmall.co.kr/file/product/prd/D5OH/2024/375/D5OHXX04576_00.jpg?1725944366000/dims/format/avif;fallback=webp/optimize"
                                             alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
-                                        <div><span class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                loading="lazy" through="m2ps" alt=""
-                                                src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"></span>
-                                        </div>
                                     </div>
                                 </div>
-                                <div><a class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                        href="/app/exhibition/menu/501">KLIMGOLF</a><a
-                                        class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
-                                        href="/app/exhibition/menu/501">Check pleats skirts 체크플리츠 스커트</a>
-                                    <div
-                                            class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                        <span class="ProductThumbPrice_discount__a8J6G">23%</span><span
-                                            class="ProductThumbPrice_noneBasePrice__KCwnv">169,000</span><span
-                                            class="ProductThumbPrice_lastPrice__ysIqE">129,650</span></div>
+                                <div>
+                                    <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
+                                        href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                    <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                        <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
+                            <div th:each="product, iterStat : ${randomProducts1101}"
+                                 th:if="${iterStat.index != 0 and iterStat.index != 1}">
+                                <div class="ProductThumbImage_wrapThumbImg__7REL9">
+                                    <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
+                                        <img loading="lazy" th:src="${product.image}"
+                                            src="https://nimg.lfmall.co.kr/file/product/prd/AE/2024/375/AESK4A403G2_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
+                                            alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
+                                    </div>
+                                </div>
+                                <div><
+                                    <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine1 "
+                                        href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                    <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                        <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="swiper-button-prev swiper-button-disabled"></div>
@@ -904,176 +746,74 @@
                 <div class="swiper swiper-initialized swiper-horizontal">
                     <div class="swiper-wrapper"
                          style="transition-duration: 0ms; transform: translate3d(-5040px, 0px, 0px); transition-delay: 0ms;">
-                        <div class="swiper-slide" data-swiper-slide-index="0"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="1"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="2"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="3"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="4"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="5"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="6"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="7"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="8"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="9"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="10"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="11"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="12"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="13"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
-                        <div class="swiper-slide" data-swiper-slide-index="14"
-                             style="width: 295px; margin-right: 20px;">
-                            <div class="swpLoading">로딩중</div>
-                        </div>
                         <div class="swiper-slide swiper-slide-prev" data-swiper-slide-index="15"
                              style="width: 295px; margin-right: 20px;">
-                            <div>
+                            <div th:each="product, iterStat : ${randomProducts3101}"
+                                 th:if="${iterStat.index == 0}">
                                 <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                    <div
-                                            class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
-                                        <img src="https://nimg.lfmall.co.kr/file/product/prd/C00C/2024/375/URJU4F018E3_01.jpg?1727141767000/dims/format/avif;fallback=webp/optimize"
-                                             alt="" class="ProductThumbImage_hoverImg__wYyaH"><img
+                                    <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
+                                        <img th:src="${product.image}"
                                             src="https://nimg.lfmall.co.kr/file/product/prd/C00C/2024/375/URJU4F018E3_00.jpg?1727141767000/dims/format/avif;fallback=webp/optimize"
                                             alt="" class="ProductThumbImage_baseImg__osoIA">
-                                        <div><span class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                alt=""></span></div>
                                     </div>
-                                </div><a
-                                    class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                    href="/app/exhibition/menu/501">Barbour</a><a
-                                    class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
-                                    href="/app/exhibition/menu/501">[24FW] [Barbour130주년] 남성 카키 130th Anniversary
-                                Spey 퀼팅 자켓</a>
-                                <div
-                                        class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                    <span class="ProductThumbPrice_discount__a8J6G">10%</span><span
-                                        class="ProductThumbPrice_noneBasePrice__KCwnv">689,000</span><span
-                                        class="ProductThumbPrice_lastPrice__ysIqE">620,100</span></div>
+                                </div>
+                                <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
+                                    href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                    <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span>
+                                </div>
                             </div>
                         </div>
                         <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="16"
                              style="width: 295px; margin-right: 20px;">
-                            <div>
+                            <div th:each="product, iterStat : ${randomProducts3101}"
+                                 th:if="${iterStat.index == 1}">
                                 <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                    <div
-                                            class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
-                                        <img loading="lazy"
-                                             src="https://nimg.lfmall.co.kr/file/product/prd/C00C/2024/375/URJU4F325N2_01.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
-                                             alt="" class="ProductThumbImage_hoverImg__wYyaH" through="m2ps"><img
-                                            loading="lazy"
+                                    <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
+                                        <img loading="lazy" th:src="${product.image}"
                                             src="https://nimg.lfmall.co.kr/file/product/prd/C00C/2024/375/URJU4F325N2_00.jpg?1725584391000/dims/format/avif;fallback=webp/optimize"
                                             alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
-                                        <div><span class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                loading="lazy"
-                                                src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                alt="" through="m2ps"></span></div>
                                     </div>
-                                </div><a
-                                    class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                    href="/app/exhibition/menu/501">Barbour</a><a
-                                    class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
-                                    href="/app/exhibition/menu/501">[24FW] [Barbour] 여성 네이비 Nora 캐주얼 자켓</a>
-                                <div
-                                        class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                    <span class="ProductThumbPrice_discount__a8J6G">10%</span><span
-                                        class="ProductThumbPrice_noneBasePrice__KCwnv">629,000</span><span
-                                        class="ProductThumbPrice_lastPrice__ysIqE">566,100</span></div>
+                                </div>
+                                <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
+                                    href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                    <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span>
+                                </div>
                             </div>
                         </div>
                         <div class="swiper-slide swiper-slide-next" data-swiper-slide-index="17"
                              style="width: 295px; margin-right: 20px;">
-                            <div>
+                            <div th:each="product, iterStat : ${randomProducts3101}"
+                                 th:if="${iterStat.index == 2}">
                                 <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                    <div
-                                            class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
-                                        <img src="https://nimg.lfmall.co.kr/file/product/prd/C00C/2024/375/URJU4F019E3_01.jpg?1727141785000/dims/format/avif;fallback=webp/optimize"
-                                             alt="" class="ProductThumbImage_hoverImg__wYyaH"><img
-                                            src="https://nimg.lfmall.co.kr/file/product/prd/C00C/2024/375/URJU4F019E3_00.jpg?1727141785000/dims/format/avif;fallback=webp/optimize"
+                                    <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
+                                        <img src="https://nimg.lfmall.co.kr/file/product/prd/C00C/2024/375/URJU4F019E3_00.jpg?1727141785000/dims/format/avif;fallback=webp/optimize"
                                             alt="" class="ProductThumbImage_baseImg__osoIA">
-                                        <div><span class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                alt=""></span></div>
                                     </div>
-                                </div><a
-                                    class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                    href="/app/exhibition/menu/501">Barbour</a><a
-                                    class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
-                                    href="/app/exhibition/menu/501">[24FW] [Barbour130주년] 남성 카키 130th Anniversary
-                                Transport 퀼팅 자켓</a>
-                                <div
-                                        class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                    <span class="ProductThumbPrice_discount__a8J6G">10%</span><span
-                                        class="ProductThumbPrice_noneBasePrice__KCwnv">709,000</span><span
-                                        class="ProductThumbPrice_lastPrice__ysIqE">638,100</span></div>
+                                </div>
+                                <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
+                                    href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                    <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span>
+                                </div>
                             </div>
                         </div>
-                        <div class="swiper-slide" data-swiper-slide-index="18"
-                             style="width: 295px; margin-right: 20px;">
-                            <div>
+                        <div class="swiper-slide" data-swiper-slide-index="18" style="width: 295px; margin-right: 20px;">
+                            <div th:each="product, iterStat : ${randomProducts1101}"
+                                 th:if="${iterStat.index != 0 and iterStat.index != 1 and iterStat.index != 2}">
                                 <div class="ProductThumbImage_wrapThumbImg__7REL9">
-                                    <div
-                                            class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
-                                        <img loading="lazy"
-                                             src="https://nimg.lfmall.co.kr/file/product/prd/C00C/2024/375/URHE4F001U2_01.jpg?1725410090000/dims/format/avif;fallback=webp/optimize"
-                                             alt="" class="ProductThumbImage_hoverImg__wYyaH" through="m2ps"><img
-                                            loading="lazy"
+                                    <div class="productThumbImage ProductThumbImage_productThumbImage__LYciq wh294-374">
+                                        <img loading="lazy" th:src="${product.image}"
                                             src="https://nimg.lfmall.co.kr/file/product/prd/C00C/2024/375/URHE4F001U2_00.jpg?1725410090000/dims/format/avif;fallback=webp/optimize"
                                             alt="" class="ProductThumbImage_baseImg__osoIA" through="m2ps">
-                                        <div><span class="ProductThumbImage_lPlus__wVZto undefined lplus"><img
-                                                loading="lazy"
-                                                src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
-                                                alt="" through="m2ps"></span></div>
                                     </div>
-                                </div><a
-                                    class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                    href="/app/exhibition/menu/501">Barbour</a><a
-                                    class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
-                                    href="/app/exhibition/menu/501">[24FW] [Barbour] 남성 퍼플 Cascade 모자</a>
-                                <div
-                                        class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                    <span class="ProductThumbPrice_discount__a8J6G">10%</span><span
-                                        class="ProductThumbPrice_noneBasePrice__KCwnv">89,000</span><span
-                                        class="ProductThumbPrice_lastPrice__ysIqE">80,100</span></div>
+                                </div>
+                                <a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
+                                    href="/app/exhibition/menu/501" th:text="${product.name}"></a>
+                                <div class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
+                                    <span class="ProductThumbPrice_lastPrice__ysIqE" th:text="${product.price}"></span>
+                                </div>
                             </div>
                         </div>
                         <div class="swiper-slide" data-swiper-slide-index="19"
@@ -1093,15 +833,11 @@
                                                 src="https://nimg.lfmall.co.kr/speed/src/https://img.lfmall.co.kr/v2/real/origin/banner/2024/9/badge_stroke.png/dims/format/avif;fallback=webp/optimize"
                                                 alt="" through="m2ps"></span></div>
                                     </div>
-                                </div><a
-                                    class="productThumbBrand ProductThumbBrand_productThumbBrand__9O20Z  ProductThumbBrand_line__XjXJf"
-                                    href="/app/exhibition/menu/501">Barbour</a><a
-                                    class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
+                                </div><a class="productThumbName ProductThumbName_productThumbName__cz17o  txtLine2 "
                                     href="/app/exhibition/menu/501">[24FW] [Barbour] 남성 블랙 OS Bedale 비데일 왁스 자켓</a>
                                 <div
                                         class="productThumbPrice benefitDiv ProductThumbPrice_productThumbPrice__+Wtf1">
-                                    <span class="ProductThumbPrice_discount__a8J6G">10%</span><span
-                                        class="ProductThumbPrice_noneBasePrice__KCwnv">759,000</span><span
+                                    <span
                                         class="ProductThumbPrice_lastPrice__ysIqE">683,100</span></div>
                             </div>
                         </div>
