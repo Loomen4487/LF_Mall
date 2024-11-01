@@ -62,5 +62,3 @@ Version Control | ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for
 ![image](https://github.com/user-attachments/assets/83dc9948-8618-408f-b958-a6e36a3d52f6)
 
 
-### 영상 링크
-#### https://www.youtube.com/watch?v=MLNu3J4_4NQ
